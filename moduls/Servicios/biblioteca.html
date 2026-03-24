@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="biblioteca, libros, recursos académicos, bases de datos, Superarse" />
+    <meta name="description" content="Centro de Recursos para el Aprendizaje y la Investigación — Biblioteca Institucional Superarse." />
+    <title>Biblioteca Institucional — Superarse</title>
+    <script
+      src="/js/common/page-head.js"
+      data-extra-styles="/css/servicios-unificado.css,/css/biblioteca.css"
+    ></script>
+  </head>
+
+  <body class="servicios-unificado">
+    <div class="container-fluid bg-light position-relative shadow"></div>
+
+    <div class="container-fluid py-5 container-top">
+      <div class="container servicios-shell">
+        <div class="text-center">
+          <p class="section-title pr-5 text-center">
+            <span class="pr-2">Servicios Institucionales</span>
+          </p>
+          <h1 class="mb-4">Biblioteca Institucional</h1>
+          <p class="mb-5 px-lg-5">
+            Centro de Recursos para el Aprendizaje y la Investigación. Aquí encontrarás
+            servicios de préstamo, catálogo en línea, acceso a bases de datos y orientación
+            bibliográfica para apoyar tu formación académica.
+          </p>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="bib-panel h-100">
+              <h3 class="mb-3"><i class="fas fa-clock text-primary mr-2"></i>Horarios de atención</h3>
+              <table class="bib-horarios-tabla">
+                <tbody id="biblioteca-horarios"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="bib-panel h-100">
+              <h3 class="mb-3"><i class="fas fa-address-card text-primary mr-2"></i>Contacto</h3>
+              <div id="biblioteca-contacto"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bib-panel mb-5 text-center" id="catalogo">
+          <h3 class="mb-2" id="bib-catalogo-titulo"><i class="fas fa-search text-primary mr-2"></i>Buscar en el catálogo</h3>
+          <p id="bib-catalogo-descripcion">
+            Explora la colección física y digital por título, autor, materia o ISBN.
+          </p>
+          <form class="bib-catalogo-form" id="bib-catalogo-form" novalidate>
+            <div class="input-group input-group-lg">
+              <input
+                type="text"
+                class="form-control"
+                id="bib-catalogo-input"
+                placeholder="Ingresa título, autor, materia o ISBN..."
+                autocomplete="off"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-primary px-4" type="submit">
+                  <i class="fas fa-search mr-1"></i> <span id="bib-catalogo-boton">Buscar</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="text-center">
+          <p class="section-title pr-5 text-center">
+            <span class="pr-2">Atención al Estudiante</span>
+          </p>
+          <h2 class="mb-4">Nuestros Servicios</h2>
+        </div>
+        <div class="row mb-5" id="biblioteca-servicios"></div>
+
+        <div class="text-center">
+          <p class="section-title pr-5 text-center">
+            <span class="pr-2">Recursos Académicos</span>
+          </p>
+          <h2 class="mb-4">Bases de Datos</h2>
+        </div>
+        <div class="row justify-content-center mb-5" id="biblioteca-bases"></div>
+
+        <div class="bib-panel" id="informacion">
+          <div id="biblioteca-reglamento"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-bar-container">
+      <div class="color-stripe color-stripe-1"></div>
+      <div class="color-stripe color-stripe-2"></div>
+      <div class="color-stripe color-stripe-3"></div>
+      <div class="color-stripe color-stripe-4"></div>
+    </div>
+
+    <div class="footer-container"></div>
+
+    <script
+      src="/js/common/page-scripts.js"
+      data-page-scripts="/js/moduls/Servicios/biblioteca.js"
+    ></script>
+  </body>
+</html>

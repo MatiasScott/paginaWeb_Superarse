@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="graduados, alumni, bolsa de empleo, seguimiento, superarse" />
+    <meta name="description" content="Espacio institucional para graduados: beneficios, seguimiento, contacto y actualización de datos." />
+    <title>Graduados</title>
+    <script src="/js/common/page-head.js" data-extra-styles="/css/servicios-unificado.css,/css/graduados.css"></script>
+  </head>
+  <body class="servicios-unificado">
+    <div class="container-fluid bg-light position-relative shadow"></div>
+
+    <div class="container-fluid py-5 container-top">
+      <div class="container servicios-shell">
+        <p class="section-title pr-5 text-center">
+          <span class="pr-2" id="graduados-subtitulo">Comunidad de exalumnos</span>
+        </p>
+        <h1 class="mb-4 text-center" id="graduados-titulo">Graduados</h1>
+        <p class="mb-5 text-center px-lg-5" id="graduados-descripcion">
+          Este espacio está orientado a mantener el vínculo con nuestros graduados.
+        </p>
+
+        <div class="row mb-5" id="graduados-kpis">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="graduados-kpi h-100">
+              <div class="graduados-kpi-label">Graduados Totales</div>
+              <div class="graduados-kpi-value" id="kpi-graduados-totales">0</div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="graduados-kpi h-100">
+              <div class="graduados-kpi-label">Carreras con Graduados</div>
+              <div class="graduados-kpi-value" id="kpi-carreras">0</div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="graduados-kpi h-100">
+              <div class="graduados-kpi-label">Empleabilidad Promedio</div>
+              <div class="graduados-kpi-value" id="kpi-empleabilidad-promedio">0%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="graduados-panel mb-5">
+          <h3 class="mb-3">Graduados por año y carrera</h3>
+          <p class="text-muted mb-3">
+            Resumen de graduados por periodo académico para las carreras de la oferta académica.
+          </p>
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered align-middle mb-0" id="graduados-tabla">
+              <thead></thead>
+              <tbody></tbody>
+              <tfoot></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="graduados-panel mb-5">
+          <h3 class="mb-3">Porcentaje de empleabilidad por carrera</h3>
+          <div id="graduados-empleabilidad"></div>
+        </div>
+
+        <div class="row mb-5" id="graduados-beneficios"></div>
+
+        <div class="row mb-5">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="graduados-panel h-100">
+              <h3 class="mb-3">Servicios para graduados</h3>
+              <ul class="list-group list-group-flush" id="graduados-servicios"></ul>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="graduados-panel h-100">
+              <h3 class="mb-3">Contacto</h3>
+              <div id="graduados-contacto"></div>
+              <a
+                id="graduados-form-link"
+                href="#"
+                target="_blank"
+                class="btn btn-primary mt-3"
+              >
+                <i class="fas fa-external-link-alt mr-2"></i><span id="graduados-form-boton">Abrir formulario</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="graduados-panel">
+          <h3 class="mb-2" id="graduados-form-titulo">Registro y actualización de graduados</h3>
+          <p class="mb-4" id="graduados-form-descripcion">
+            Completa el formulario oficial para mantener actualizada tu información.
+          </p>
+          <iframe
+            id="graduados-form-embed"
+            title="Formulario de graduados"
+            loading="lazy"
+            src=""
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-bar-container">
+      <div class="color-stripe color-stripe-1"></div>
+      <div class="color-stripe color-stripe-2"></div>
+      <div class="color-stripe color-stripe-3"></div>
+      <div class="color-stripe color-stripe-4"></div>
+    </div>
+
+    <div class="footer-container"></div>
+
+    <script src="/js/common/page-scripts.js" data-page-scripts="/js/moduls/Servicios/graduados.js"></script>
+  </body>
+</html>

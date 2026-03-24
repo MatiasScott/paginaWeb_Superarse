@@ -1,0 +1,147 @@
+/* Homogeneización de bloques personalizados en vistas internas */
+
+.vista-media-shell {
+  padding: 1.25rem;
+}
+
+.video-responsive-container,
+.custom-carousel-wrapper,
+.card-container,
+#bienestar-content,
+#list-tab,
+#nav-tabContent,
+.vista-cta-panel {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 0.35rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+}
+
+.video-responsive-container {
+  overflow: hidden;
+}
+
+.video-responsive-container video,
+.video-responsive-container .video-Inst,
+.video-responsive-container .video-inst {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.35rem;
+}
+
+.main-container {
+  max-width: 1140px;
+  margin: 0 auto 3rem;
+  padding: 0 15px;
+}
+
+.main-container .seccion {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 0.35rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.main-container .imagen-container,
+.main-container .cuadro-texto {
+  width: 100%;
+}
+
+.main-container .imagen-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.35rem;
+  object-fit: cover;
+}
+
+.main-container .cuadro-texto {
+  background: transparent;
+  padding: 0;
+}
+
+.main-container .cuadro-texto h3 {
+  color: #00394f;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.main-container .cuadro-texto p {
+  color: #495057;
+  margin-bottom: 0;
+}
+
+.custom-carousel-wrapper {
+  padding: 1rem;
+}
+
+.custom-carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.35rem;
+}
+
+.card-container {
+  padding: 1rem;
+}
+
+.flip-cardp,
+.flip-cardp-front,
+.flip-cardp-back {
+  border-radius: 0.35rem;
+  overflow: hidden;
+}
+
+#bienestar-content {
+  background: #fff !important;
+}
+
+#list-tab .list-group-item,
+#list-tab .list-group-item-action {
+  border-radius: 0.35rem !important;
+  margin-bottom: 0.5rem;
+  border: 1px solid #e9ecef;
+}
+
+#nav-tabContent {
+  padding: 1rem;
+}
+
+.modal-content {
+  border: 1px solid #e9ecef;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.vista-cta-wrap {
+  padding-bottom: 3rem;
+}
+
+.vista-cta-panel {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.vista-cta-panel h2,
+.vista-cta-panel h1 {
+  margin-bottom: 0;
+  color: #00394f;
+  font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+  .main-container .seccion {
+    grid-template-columns: 1fr;
+  }
+
+  .main-container .seccion .derecha,
+  .main-container .seccion .desde-derecha {
+    order: initial;
+  }
+}
