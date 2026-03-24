@@ -7,7 +7,7 @@ const bienestarData = {
         
         <div class="row align-items-center justify-content-center g-4">
             
-            <div class="col-12 col-lg-8">
+            <div class="col-12">
                 <div class="row g-4 justify-content-center align-items-stretch">
                     
                    <div class="col-12 col-md-8 col-lg-6 d-flex justify-content-center">
@@ -285,6 +285,43 @@ const bienestarData = {
             <a href="/FICHA_SOCIOECONOMICA" target="_blank" class="btn btn-primary mx-2">Ficha <br>SocioEconómica</a>
             <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=Q55kP6NREkOuuxxVvxRacM1iUyNvm6NAt-AsANiElZxUNDQzRlhNNVhZUUY1NjJNWDVINTRNV0RPMS4u" target="_blank" class="btn btn-primary mx-2">Encuesta<br>SocioEconómica</a>
         </div>
+        
+        <div class="bienestar-becarios-section mt-5">
+            <h3 class="becarios-heading text-center mb-3">+30% de nuestros estudiantes cuentan con beca cada periodo académico.</h3>
+            <p class="text-center mb-3">Revisa nuestra tabla</p>
+            <div class="table-responsive">
+                <table class="table becarios-tabla align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Periodo Académico</th>
+                            <th>Número total de becarios</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nov23-Abr24</td>
+                            <td>419</td>
+                        </tr>
+                        <tr>
+                            <td>May-Oct24</td>
+                            <td>301</td>
+                        </tr>
+                        <tr>
+                            <td>Nov24-Abr25</td>
+                            <td>358</td>
+                        </tr>
+                        <tr>
+                            <td>May-Oct25</td>
+                            <td>318</td>
+                        </tr>
+                        <tr>
+                            <td>Nov25-Abr26</td>
+                            <td>179</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
             
         </div>
         
@@ -378,179 +415,128 @@ const bienestarData = {
             
 
         </div>
-        <div class="container-top">
-         <h1 class="text-uppercase text-primary mb-3" style="text-align: center;">OFERTAS LABORALES PARA GRADUADOS</h1>
-         <h1 class="text-center">FEBRERO</h1> 
-      
-        <div container-top id="carouselExampleAutoplay"
-  class="carousel slide carousel-fade"
-  data-bs-ride="carousel"
-  data-bs-interval="3500"
->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img
-        src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB1.png"
-        class="d-block w-50 mx-auto"
-        style="height: 500px; object-fit:"
-        alt="trabajo1"
-      />
-    </div>
+                <div class="container-top mt-5">
+                 <h1 class="text-uppercase text-primary mb-3" style="text-align: center;">OFERTAS LABORALES PARA GRADUADOS</h1>
+                 <h1 class="text-center">FEBRERO</h1>
 
-    <div class="carousel-item">
-      <img
-        src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB2.png"
-        class="d-block w-50 mx-auto"
-        style="height: 500px; object-fit:
-        alt="trabajo2"
-      />
-      
-    </div>
+                <div id="graduadosBienestarCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3500">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB1.png" class="d-block mx-auto graduados-oferta-img-bienestar" alt="Oferta laboral para graduados 1" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB2.png" class="d-block mx-auto graduados-oferta-img-bienestar" alt="Oferta laboral para graduados 2" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB3.png" class="d-block mx-auto graduados-oferta-img-bienestar" alt="Oferta laboral para graduados 3" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB4.png" class="d-block mx-auto graduados-oferta-img-bienestar" alt="Oferta laboral para graduados 4" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB5.png" class="d-block mx-auto graduados-oferta-img-bienestar" alt="Oferta laboral para graduados 5" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB6.png" class="d-block mx-auto graduados-oferta-img-bienestar" alt="Oferta laboral para graduados 6" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB7.png" class="d-block mx-auto graduados-oferta-img-bienestar" alt="Oferta laboral para graduados 7" />
+                        </div>
+                    </div>
 
-    <div class="carousel-item">
-      <img
-        src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB3.png"
-        class="d-block w-50 mx-auto"
-        style="height: 500px; object-fit:
-        alt="trabajo3"
-      />
-    </div>
+                    <a class="carousel-control-prev" href="#graduadosBienestarCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
 
-    <div class="carousel-item">
-      <img
-        src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB4.png"
-        class="d-block w-50 mx-auto"
-        style="height: 500px; object-fit:
-        alt="trabajo4"
-      />
-    </div>
-
-    <div class="carousel-item">
-      <img
-        src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB5.png"
-        class="d-block w-50 mx-auto"
-        style="height: 500px; object-fit:
-        alt="trabajo5"
-      />
-    </div>
-
-     <div class="carousel-item">
-      <img
-        src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB6.png"
-        class="d-block w-50 mx-auto"
-        style="height: 500px; object-fit:
-        alt="trabajo6"
-      />
-    </div>
-
-     <div class="carousel-item">
-      <img
-        src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB7.png"
-        class="d-block w-50 mx-auto"
-        style="height: 500px; object-fit:
-        alt="trabajo7"
-      />
-      
-    </div>
-  </div>
-
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselExampleAutoplay"
-    data-bs-slide="prev"
-    style="background-color: rgba(0, 0, 0, 0.4); border-radius: 5px;"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    
-  </button>
-
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselExampleAutoplay"
-    data-bs-slide="next"
-    style="background-color: rgba(0, 0, 0, 0.4); border-radius: 5px;"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
- 
-  </button>
-    </div>
+                    <a class="carousel-control-next" href="#graduadosBienestarCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Siguiente</span>
+                    </a>
+                </div>
+            </div>
 </div>`,
     contenido5: `<div class="container-fluid py-5">
     <div class="container">
         <h1 class="text-uppercase text-primary mb-3" style="text-align: center;">CLUBES</h1>
-        <div class="club-container d-flex justify-content-around flex-wrap">
-            <button type="button" class="club-button" data-bs-toggle="modal" data-bs-target="#yogaModal">
-                <i class="fas fa-hand-spock club-icon"></i>
-                <h3>Club de Yoga y Meditación</h3>
-            </button>
-            <button type="button" class="club-button" data-bs-toggle="modal" data-bs-target="#danzaModal">
-                <i class="fas fa-music club-icon"></i>
-                <h3>Club de Danza</h3>
-            </button>
-            <button type="button" class="club-button" data-bs-toggle="modal" data-bs-target="#equitacionModal">
-                <i class="fas fa-horse-head club-icon"></i>
-                <h3>Club de Equitación</h3>
-            </button>
-            <button type="button" class="club-button" data-bs-toggle="modal" data-bs-target="#defensaModal">
-                <i class="fas fa-fist-raised club-icon"></i>
-                <h3>Club de Defensa Personal</h3>
-            </button>
-        </div>
-<br>
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card-container">
-                <h3 class="text-center">CONTACTANOS</h3>
-                    <div class="flip-cardp" style="min-height: 450px; max-width: 400px;">
-                        <div class="flip-cardp-inner">
-                            <div class="flip-cardp-front">
-                                <i class="fas fa-sync-alt flip-icon"></i>
-                                <img src="/assets/img/bienestarEstudiantil/Clubes/perfil-Clubes.png" alt="Imagen Principal" width="100%" height="100%">
-                            </div>
-                            <div class="flip-cardp-back" style="background-color: #7BC54A;">
-                                <div class="back-content">
-                                    <div class="icon-section">
-                                        <i class="fas fa-envelope icon"></i>
-                                        <p class="style text-center"> carolina.baquero@superarse.edu.ec</p>
-                                        <p class="style text-center"> lizbeth.ochoa@superarse.edu.ec</p>
-                                       
-                                    </div>
-                                    <div class="icon-section">
-                                        <i class="fas fa-phone-alt icon"></i>
-                                        <p class="style text-center">(02) 3 930 980 ext. 115</p>
-                                    </div>
-                                    <a href="https://wa.me/593997639111?text=Hola,%20me%20gustaría%20más%20información%20sobre%20los%20CLUBES%20" class="whatsapp-link">
-                                        <div class="icon-section">
-                                            <i class="fas fa-mobile-alt icon"></i>
-                                            <p class="style text-center">0998409293</p>
-                                        </div>
-                                    </a>
-                                    <i class="fas fa-sync-alt flip-icon"></i>
-                                </div>
-                            </div>
-                        </div>
+        <div class="row align-items-start">
+            <!-- Grilla 2x2 de clubes -->
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-6 mb-4 d-flex justify-content-center">
+                        <button type="button" class="club-button club-button-fill" data-toggle="modal" data-target="#yogaModal">
+                            <i class="fas fa-hand-spock club-icon"></i>
+                            <h3>Club de Yoga y Meditación</h3>
+                        </button>
                     </div>
-                    <p class="text-center">Coordinación de Educación Continua</p>
+                    <div class="col-6 mb-4 d-flex justify-content-center">
+                        <button type="button" class="club-button club-button-fill" data-toggle="modal" data-target="#danzaModal">
+                            <i class="fas fa-music club-icon"></i>
+                            <h3>Club de Danza</h3>
+                        </button>
+                    </div>
+                    <div class="col-6 mb-4 d-flex justify-content-center">
+                        <button type="button" class="club-button club-button-fill" data-toggle="modal" data-target="#equitacionModal">
+                            <i class="fas fa-horse-head club-icon"></i>
+                            <h3>Club de Equitación</h3>
+                        </button>
+                    </div>
+                    <div class="col-6 mb-4 d-flex justify-content-center">
+                        <button type="button" class="club-button club-button-fill" data-toggle="modal" data-target="#defensaModal">
+                            <i class="fas fa-fist-raised club-icon"></i>
+                            <h3>Club de Defensa Personal</h3>
+                        </button>
+                    </div>
                 </div>
             </div>
-            
+            <!-- Tarjeta de Contáctanos -->
+            <div class="col-lg-4 d-flex justify-content-center">
+                <div class="card-container bienestar-equipo-card">
+                    <div class="bienestar-equipo-imagen">
+                        <img src="/assets/img/bienestarEstudiantil/Clubes/perfil-Clubes.png" alt="Coordinación de Educación Continua" class="img-fluid" />
+                    </div>
+                    <div class="bienestar-contacto-panel">
+                        <h5 class="mb-3">Contáctanos</h5>
+                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>carolina.baquero@superarse.edu.ec</p>
+                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>lizbeth.ochoa@superarse.edu.ec</p>
+                        <p class="mb-2"><i class="fas fa-phone-alt text-primary mr-2"></i>(02) 3 930 980 ext. 115</p>
+                        <a href="https://wa.me/593997639111?text=Hola,%20me%20gustaría%20más%20información%20sobre%20los%20CLUBES%20" class="whatsapp-link d-flex align-items-center mb-2">
+                            <i class="fas fa-mobile-alt text-primary mr-2"></i>
+                            <span>0998409293</span>
+                        </a>
+                        <p class="mb-0"><i class="fas fa-clock text-primary mr-2"></i>Lunes a viernes de 08:00 a 17:00</p>
+                    </div>
+                    <p class="text-center mb-0">Coordinación de Educación Continua</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="modal fade" id="yogaModal" tabindex="-1" aria-labelledby="yogaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-xl modal-dialog-centered club-modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="yogaModalLabel">Club de Yoga y Meditación</h5>
+                <button type="button" class="close club-modal-close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <p>En este club, encontrarás un espacio para conectar con tu interior, mejorar tu flexibilidad y encontrar la paz a través de la meditación.</p>
-                <div class="galeria-club">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Defensa1.png" alt="Persona practicando yoga en una pose de equilibrio.">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Defensa2.png" alt="Grupo meditando al aire libre.">
+                <div class="row align-items-center club-modal-layout">
+                    <div class="col-lg-5 club-modal-copy">
+                        <p class="mb-0">En este club, encontrarás un espacio para conectar con tu interior, mejorar tu flexibilidad y encontrar la paz a través de la meditación.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="galeria-club">
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Defensa1.png" data-lightbox="club-yoga" data-title="Club de Yoga y Meditación">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Defensa1.png" alt="Persona practicando yoga en una pose de equilibrio.">
+                            </a>
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Defensa2.png" data-lightbox="club-yoga" data-title="Club de Yoga y Meditación">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Defensa2.png" alt="Grupo meditando al aire libre.">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -558,17 +544,32 @@ const bienestarData = {
 </div>
 
 <div class="modal fade" id="danzaModal" tabindex="-1" aria-labelledby="danzaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl modal-dialog-centered club-modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="danzaModalLabel">Club de Danza</h5>
+                <button type="button" class="close club-modal-close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <p>Explora tu creatividad y ritmo. Ofrecemos clases de diversos estilos, desde ballet hasta ritmos latinos. ¡Únete y baila con nosotros!</p>
-                <div class="galeria-club">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Danza1.png" alt="Clase de ballet con bailarines.">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Danza2.png" alt="Practica de danza moderna en un estudio.">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Danza3.png" alt="Grupo de baile urbano practicando en la calle.">
+                <div class="row align-items-center club-modal-layout">
+                    <div class="col-lg-5 club-modal-copy">
+                        <p class="mb-0">Explora tu creatividad y ritmo. Ofrecemos clases de diversos estilos, desde ballet hasta ritmos latinos. Únete y baila con nosotros.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="galeria-club">
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Danza1.png" data-lightbox="club-danza" data-title="Club de Danza">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Danza1.png" alt="Clase de ballet con bailarines.">
+                            </a>
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Danza2.png" data-lightbox="club-danza" data-title="Club de Danza">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Danza2.png" alt="Practica de danza moderna en un estudio.">
+                            </a>
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Danza3.png" data-lightbox="club-danza" data-title="Club de Danza">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Danza3.png" alt="Grupo de baile urbano practicando en la calle.">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -576,17 +577,32 @@ const bienestarData = {
 </div>
 
 <div class="modal fade" id="equitacionModal" tabindex="-1" aria-labelledby="equitacionModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl modal-dialog-centered club-modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="equitacionModalLabel">Club de Equitación</h5>
+                <button type="button" class="close club-modal-close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <p>Aprende el arte de la equitación. Conoce a nuestros caballos y desarrolla un vínculo especial mientras practicas este noble deporte.</p>
-                <div class="galeria-club">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Hourse1.png" alt="Clase de equitación en un campo con un jinete y un caballo.">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Hourse2.png" alt="Paseo a caballo por un sendero al aire libre.">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Hourse3.png" alt="Salto de obstáculos durante una competencia de equitación.">
+                <div class="row align-items-center club-modal-layout">
+                    <div class="col-lg-5 club-modal-copy">
+                        <p class="mb-0">Aprende el arte de la equitación. Conoce a nuestros caballos y desarrolla un vínculo especial mientras practicas este noble deporte.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="galeria-club">
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Hourse1.png" data-lightbox="club-equitacion" data-title="Club de Equitación">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Hourse1.png" alt="Clase de equitación en un campo con un jinete y un caballo.">
+                            </a>
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Hourse2.png" data-lightbox="club-equitacion" data-title="Club de Equitación">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Hourse2.png" alt="Paseo a caballo por un sendero al aire libre.">
+                            </a>
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Hourse3.png" data-lightbox="club-equitacion" data-title="Club de Equitación">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Hourse3.png" alt="Salto de obstáculos durante una competencia de equitación.">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -594,17 +610,32 @@ const bienestarData = {
 </div>
 
 <div class="modal fade" id="defensaModal" tabindex="-1" aria-labelledby="defensaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl modal-dialog-centered club-modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="defensaModalLabel">Club de Defensa Personal</h5>
+                <button type="button" class="close club-modal-close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <p>Desarrolla fuerza, agilidad y confianza. Nuestras clases te enseñarán técnicas efectivas para protegerte en cualquier situación.</p>
-                <div class="galeria-club">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Yoga1.png" alt="Clase de defensa personal con dos personas practicando una técnica.">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Yoga2.png" alt="Una persona entrenando con un saco de boxeo.">
-                    <img src="/assets/img/bienestarEstudiantil/Clubes/Yoga3.png" alt="Dos personas en una sesión de sparring controlada.">
+                <div class="row align-items-center club-modal-layout">
+                    <div class="col-lg-5 club-modal-copy">
+                        <p class="mb-0">Desarrolla fuerza, agilidad y confianza. Nuestras clases te enseñarán técnicas efectivas para protegerte en cualquier situación.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="galeria-club">
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Yoga1.png" data-lightbox="club-defensa" data-title="Club de Defensa Personal">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Yoga1.png" alt="Clase de defensa personal con dos personas practicando una técnica.">
+                            </a>
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Yoga2.png" data-lightbox="club-defensa" data-title="Club de Defensa Personal">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Yoga2.png" alt="Una persona entrenando con un saco de boxeo.">
+                            </a>
+                            <a href="/assets/img/bienestarEstudiantil/Clubes/Yoga3.png" data-lightbox="club-defensa" data-title="Club de Defensa Personal">
+                                <img src="/assets/img/bienestarEstudiantil/Clubes/Yoga3.png" alt="Dos personas en una sesión de sparring controlada.">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -619,18 +650,13 @@ const bienestarData = {
             
             <div class="col-12 col-md-6 d-flex flex-column align-items-center">
                 <h3 class="title-vocacional mb-4">Orientación Vocacional</h3>
-                
-                <div class="flip-cardp">
-                    <div class="flip-cardp-inner">
-                        <div class="flip-cardp-front">
-                            <img src="/assets/img/bienestarEstudiantil/Orientacion/Orientacion1.jpeg" alt="Acompañamiento Biopsicoemocional" class="img-fluid rounded">
-                            <i class="fas fa-sync-alt flip-icon"></i>
-                        </div>
-                        <div class="flip-cardp-back">
-                            <h4>ORIENTACIÓN VOCACIONAL</h4>
-                            <p>Si no te encuentras seguro en la carrera de tus sueños, no te preocupes, la Coordinación de Bienestar Institucional te ayudará en la elección de tu profesión de acuerdo a tus habilidades, destrezas y gustos personales. De este modo, nos aseguramos de que te encuentres en un lugar más adecuado para ti.</p>
-                            <i class="fas fa-sync-alt flip-icon"></i>
-                        </div>
+                <div class="orientacion-static-card">
+                    <div class="orientacion-static-card-media">
+                        <img src="/assets/img/bienestarEstudiantil/Orientacion/Orientacion1.jpeg" alt="Orientación vocacional" class="img-fluid rounded">
+                    </div>
+                    <div class="orientacion-static-card-body">
+                        <h4>ORIENTACIÓN VOCACIONAL</h4>
+                        <p>Si no te encuentras seguro en la carrera de tus sueños, no te preocupes, la Coordinación de Bienestar Institucional te ayudará en la elección de tu profesión de acuerdo a tus habilidades, destrezas y gustos personales. De este modo, nos aseguramos de que te encuentres en un lugar más adecuado para ti.</p>
                     </div>
                 </div>
                 
@@ -641,18 +667,13 @@ const bienestarData = {
 
             <div class="col-12 col-md-6 d-flex flex-column align-items-center">
                 <h3 class="title-social mb-4">Trabajo Social</h3>
-                
-                <div class="flip-cardp">
-                    <div class="flip-cardp-inner">
-                        <div class="flip-cardp-front">
-                            <img src="/assets/img/bienestarEstudiantil/Orientacion/Trabajo1.jpg" alt="Acompañamiento Biopsicoemocional" class="img-fluid rounded">
-                            <i class="fas fa-sync-alt flip-icon"></i>
-                        </div>
-                        <div class="flip-cardp-back">
-                            <h4>TRABAJO SOCIAL</h4>
-                            <p>Nuestro apartado de trabajo social está encargado de asegurar una convivencia adecuada de todos los miembros de la comunidad educativa, con la intención de lograr un desarrollo académico de los estudiantes que conecte con sus proyectos de vida, de esta forma, las actividades especiales son.</p>
-                            <i class="fas fa-sync-alt flip-icon"></i>
-                        </div>
+                <div class="orientacion-static-card">
+                    <div class="orientacion-static-card-media">
+                        <img src="/assets/img/bienestarEstudiantil/Orientacion/Trabajo1.jpg" alt="Trabajo social" class="img-fluid rounded">
+                    </div>
+                    <div class="orientacion-static-card-body">
+                        <h4>TRABAJO SOCIAL</h4>
+                        <p>Nuestro apartado de trabajo social está encargado de asegurar una convivencia adecuada de todos los miembros de la comunidad educativa, con la intención de lograr un desarrollo académico de los estudiantes que conecte con sus proyectos de vida, de esta forma, las actividades especiales son.</p>
                     </div>
                 </div>
 
@@ -689,7 +710,7 @@ const bienestarData = {
                     <h2 class="mb-5">Taller de Lengua de Señas</h2>
                     <div id="carrusel-lengua-senas-container">
                         <div class="image-wrapper">
-                            <img src="assets/img/bienestarEstudiantil/tallerDeLenguas/taller_lengua_sen1.jpg" alt="Imagen del taller de lengua de señas">
+                            <img src="/assets/img/bienestarEstudiantil/tallerDeLenguas/taller_lengua_sen1.jpg" alt="Imagen del taller de lengua de señas">
                         </div>
                     </div>
                 </div>
@@ -697,7 +718,7 @@ const bienestarData = {
                     <h2 class="mb-5 container-top">Socialización del Protocolo Psicopedagógico</h2>
                     <div id="carrusel-protocolo-container">
                         <div class="image-wrapper">
-                            <img src="assets/img/bienestarEstudiantil/tallerDeLenguas/taller_lengua_sen2.jpg" alt="Imagen del protocolo">
+                            <img src="/assets/img/bienestarEstudiantil/tallerDeLenguas/taller_lengua_sen2.jpg" alt="Imagen del protocolo">
                         </div>
                     </div>
                 </div>
@@ -705,7 +726,7 @@ const bienestarData = {
                     <h2 class="mb-5 container-top">Sensibilización: Comunicación asertiva con personas con discapacidad.</h2>
                     <div id="carrusel-sensibilizacion-container">
                         <div class="image-wrapper">
-                            <img src="assets/img/bienestarEstudiantil/tallerDeLenguas/taller_lengua_sen3.jpg" alt="Imagen de sensibilización">
+                            <img src="/assets/img/bienestarEstudiantil/tallerDeLenguas/taller_lengua_sen3.jpg" alt="Imagen de sensibilización">
                         </div>
                     </div>
                 </div>
@@ -713,7 +734,7 @@ const bienestarData = {
                     <h2 class="mb-5 container-top">Espacios accesibles</h2>
                     <div id="carrusel-espacios-container">
                         <div class="image-wrapper">
-                            <img src="assets/img/bienestarEstudiantil/tallerDeLenguas/taller_lengua_sen4.jpg" alt="Imagen de espacios accesibles">
+                            <img src="/assets/img/bienestarEstudiantil/tallerDeLenguas/taller_lengua_sen4.jpg" alt="Imagen de espacios accesibles">
                         </div>
                     </div>
                 </div>
@@ -762,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Funciones que ya tenías
     function inicializarAnimacionPasos() {
-        const pasos = contenidoDiv.querySelectorAll('.paso');
+        const pasos = document.querySelectorAll('.paso');
         
         if (pasos.length === 0) {
             return;
@@ -807,12 +828,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         container.innerHTML = html;
 
-        $(`#${idContainer} .owl-carousel`).owlCarousel({
+        if (!window.jQuery || !jQuery.fn || !jQuery.fn.owlCarousel) {
+            return;
+        }
+
+        const selector = `#${idContainer} .owl-carousel`;
+        if (jQuery(selector).hasClass("owl-loaded")) {
+            jQuery(selector).trigger("destroy.owl.carousel");
+            jQuery(selector).removeClass("owl-loaded");
+            jQuery(selector).find(".owl-stage-outer").children().unwrap();
+        }
+
+        jQuery(selector).owlCarousel({
             items: 3,
             loop: true,
             autoplay: true,
             autoplayTimeout: 2500,
-            dots: true
+            dots: true,
+            margin: 12,
+            responsive: {
+                0: { items: 1 },
+                768: { items: 2 },
+                1200: { items: 3 }
+            }
         });
     }
 
@@ -899,13 +937,35 @@ document.addEventListener('DOMContentLoaded', () => {
         updateGraduadosCarousel(0);
     }
     
-    const botones = document.querySelectorAll('.btn-danger, .btn-primary');
-    botones.forEach(boton => {
-        boton.addEventListener('click', (event) => {
-            const target = event.target.dataset.target;
-            cargarContenido(target);
+    // Renderizar todos los contenidos en vista lineal
+    function renderizarTodasLasSeccionesLineal() {
+        const contenedorPrincipal = document.getElementById('bienestar-all-content');
+        const contenedorHero = document.getElementById('bienestar-hero-container');
+        if (!contenedorPrincipal) return;
+        
+        // Inyectar hero en su contenedor separado
+        if (contenedorHero && typeof bienestarHero !== 'undefined') {
+            contenedorHero.innerHTML = bienestarHero;
+        }
+        
+        const seccionesEnOrden = ['contenido1', 'contenido2', 'contenido3', 'contenido5', 'contenido6', 'contenido7', 'contenido8'];
+        let htmlCompleto = `<div class="container-fluid bienestar-page-container bienestar-section-block bienestar-title-block"><div class="bienestar-titulo-principal"><h1>SERVICIOS DE BIENESTAR INSTITUCIONAL</h1></div></div>`;
+        
+        seccionesEnOrden.forEach((seccion) => {
+            if (bienestarData[seccion]) {
+                htmlCompleto += `<div class="container-fluid bienestar-page-container bienestar-section-block"><div class="bienestar-seccion-wrapper">${bienestarData[seccion]}</div></div>`;
+            }
         });
-    });
+        
+        contenedorPrincipal.innerHTML = htmlCompleto;
 
-    cargarContenido('contenido1');
+        // En vista lineal debemos inicializar manualmente los componentes dinamicos.
+        setTimeout(() => {
+            inicializarAnimacionPasos();
+            inicializarCarruselGraduados();
+            inicializarBienestarEstudiantil();
+        }, 0);
+    }
+    
+    renderizarTodasLasSeccionesLineal();
 });

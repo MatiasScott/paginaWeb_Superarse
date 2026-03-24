@@ -1,0 +1,768 @@
+/* ================================================================
+   BIENESTAR INSTITUCIONAL — Estilos de vista específica
+   ================================================================ */
+
+:root {
+  --bienestar-acento: #0b77bd;
+  --bienestar-fondo: #f7f9fc;
+  --bienestar-card: #ffffff;
+  --bienestar-borde: #dfe7f1;
+  --bienestar-texto: #334155;
+}
+
+/* ── Hero ── */
+.bienestar-hero h1 {
+  color: #00394f;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+/* ── Tarjeta de equipo (parte superior y clubes) ── */
+.bienestar-equipo-card {
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border: 1px solid #e6edf5;
+  border-radius: 0.7rem;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.10);
+  padding: 1.2rem;
+}
+
+.bienestar-equipo-imagen img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.bienestar-contacto-panel {
+  margin: 1rem 0;
+  background: #ffffff;
+  border: 1px solid var(--bienestar-borde);
+  border-radius: 0.5rem;
+  padding: 1.1rem 1.2rem;
+}
+
+.bienestar-contacto-panel h5 {
+  color: #00394f;
+  font-weight: 700;
+}
+
+.bienestar-contacto-panel p,
+.bienestar-contacto-panel a {
+  color: #495057;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+/* ── Layout principal con márgenes del 10% ── */
+.bienestar-page-container {
+  padding-left: 10% !important;
+  padding-right: 10% !important;
+}
+
+#bienestar-all-content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.bienestar-section-block {
+  margin: 0 !important;
+}
+
+.bienestar-title-block {
+  margin-top: 2.5rem !important;
+}
+
+#bienestar-hero-container {
+  margin-bottom: 3rem;
+}
+
+/* ── Secciones contenedoras ── */
+.bienestar-page-container > .bienestar-seccion-wrapper {
+  padding: 2.8rem 2.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--bienestar-borde);
+  border-radius: 0.75rem;
+  background: #ffffff;
+  box-shadow: 0 0.15rem 0.6rem rgba(0, 0, 0, 0.05);
+}
+
+.bienestar-page-container .bienestar-seccion-wrapper {
+  margin: 0;
+}
+
+.bienestar-page-container:last-child > .bienestar-seccion-wrapper {
+  margin-bottom: 0;
+}
+
+#bienestar-all-content .bienestar-page-container:last-child .bienestar-seccion-wrapper {
+  margin-bottom: 0;
+}
+
+.bienestar-seccion-wrapper h1 {
+  margin-top: 0 !important;
+  margin-bottom: 1.8rem !important;
+  color: #00394f;
+  line-height: 1.2;
+}
+
+.bienestar-seccion-wrapper .container-fluid {
+  padding: 0 !important;
+}
+
+.bienestar-seccion-wrapper .container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.bienestar-seccion-wrapper .row {
+  row-gap: 1.5rem;
+}
+
+.bienestar-seccion-wrapper h2,
+.bienestar-seccion-wrapper h3,
+.bienestar-seccion-wrapper h4 {
+  color: #0f3f59;
+  font-weight: 700;
+}
+
+.bienestar-seccion-wrapper p,
+.bienestar-seccion-wrapper li,
+.bienestar-seccion-wrapper span {
+  color: var(--bienestar-texto);
+  line-height: 1.75;
+}
+
+.bienestar-seccion-wrapper .text-primary {
+  color: var(--bienestar-acento) !important;
+}
+
+/* ── Título principal de sección ── */
+.bienestar-titulo-principal {
+  text-align: center;
+  padding: 1rem 0 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.bienestar-titulo-principal h1 {
+  color: var(--bienestar-acento);
+  font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+  margin: 0;
+  font-weight: 800;
+}
+
+/* ================================================================
+   FLIP CARDS — Modo estático (sin vuelta)
+   ================================================================ */
+#bienestar-all-content .flip-card,
+#bienestar-all-content .flip-cardp,
+#bienestar-all-content .C-flip-cardp {
+  perspective: none !important;
+  height: auto !important;
+  width: 100% !important;
+}
+
+#bienestar-all-content .flip-card-inner,
+#bienestar-all-content .flip-cardp-inner,
+#bienestar-all-content .C-flip-cardp-inner {
+  transform: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0;
+  height: auto !important;
+}
+
+#bienestar-all-content .flip-card-front,
+#bienestar-all-content .flip-card-back,
+#bienestar-all-content .flip-cardp-front,
+#bienestar-all-content .flip-cardp-back,
+#bienestar-all-content .C-flip-cardp-front,
+#bienestar-all-content .C-flip-cardp-back {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  transform: none !important;
+  backface-visibility: visible !important;
+  -webkit-backface-visibility: visible !important;
+}
+
+/* Frente de flip card — imagen grande */
+#bienestar-all-content .flip-card-front,
+#bienestar-all-content .flip-cardp-front,
+#bienestar-all-content .C-flip-cardp-front {
+  padding: 0 !important;
+  overflow: hidden;
+  background: var(--bienestar-card) !important;
+  border: 1px solid var(--bienestar-borde);
+  border-radius: 0.6rem 0.6rem 0 0;
+}
+
+#bienestar-all-content .flip-card-front img,
+#bienestar-all-content .flip-cardp-front img,
+#bienestar-all-content .C-flip-cardp-front img {
+  width: 100% !important;
+  height: 460px !important;
+  object-fit: cover !important;
+  display: block;
+  border-radius: 0;
+  max-height: none !important;
+}
+
+/* Parte trasera — descripción de texto */
+#bienestar-all-content .flip-card-back,
+#bienestar-all-content .flip-cardp-back,
+#bienestar-all-content .C-flip-cardp-back {
+  padding: 1.5rem 1.8rem !important;
+  border: 1px solid var(--bienestar-borde);
+  border-top: 3px solid var(--bienestar-acento) !important;
+  border-radius: 0 0 0.6rem 0.6rem;
+  background: var(--bienestar-card) !important;
+}
+
+#bienestar-all-content .flip-card-back *,
+#bienestar-all-content .flip-cardp-back *,
+#bienestar-all-content .C-flip-cardp-back * {
+  color: var(--bienestar-texto) !important;
+  background-color: transparent !important;
+}
+
+#bienestar-all-content .flip-card-back h4,
+#bienestar-all-content .flip-cardp-back h4,
+#bienestar-all-content .C-flip-cardp-back h4 {
+  color: #0f3f59 !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+/* Ocultar icono de "girar" */
+#bienestar-all-content .flip-icon,
+#bienestar-all-content .C-flip-icon {
+  display: none !important;
+}
+
+/* ================================================================
+   CAJAS INFORMATIVAS — Uniformes y sin restricciones de tamaño
+   ================================================================ */
+#bienestar-all-content .cajita-estatica,
+#bienestar-all-content .cajita-informativa,
+#bienestar-all-content .cajita-psicopedagogica,
+#bienestar-all-content .card-info,
+#bienestar-all-content .club-button,
+#bienestar-all-content .orientacion-static-card,
+#bienestar-all-content .image-gallery-card,
+#bienestar-all-content .card-container {
+  background: var(--bienestar-card) !important;
+  border: 1px solid var(--bienestar-borde) !important;
+  border-radius: 0.6rem !important;
+  box-shadow: 0 0.12rem 0.5rem rgba(16, 24, 40, 0.07);
+}
+
+#bienestar-all-content .cajita-estatica,
+#bienestar-all-content .cajita-informativa,
+#bienestar-all-content .cajita-psicopedagogica,
+#bienestar-all-content .card-info {
+  padding: 1.2rem 1.5rem !important;
+  min-height: 100px;
+  max-width: none !important;
+  width: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ── Tarjetas estáticas para Orientación Vocacional y Trabajo Social ── */
+#bienestar-all-content .orientacion-static-card {
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 720px;
+}
+
+#bienestar-all-content .orientacion-static-card-media {
+  border-bottom: 1px solid var(--bienestar-borde);
+}
+
+#bienestar-all-content .orientacion-static-card-media img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0 !important;
+}
+
+#bienestar-all-content .orientacion-static-card-body {
+  padding: 1.45rem 1.6rem 1.55rem;
+  border-top: 3px solid var(--bienestar-acento);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+#bienestar-all-content .orientacion-static-card-body h4 {
+  margin-bottom: 0.9rem;
+  text-align: center;
+  color: #0f3f59 !important;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+#bienestar-all-content .orientacion-static-card-body p {
+  margin-bottom: 0;
+  text-align: left;
+  line-height: 1.8;
+}
+
+/* ── Becas: flip-card fronts con iconos (sin imagen → altura mínima) ── */
+#bienestar-all-content .card-socioeconomica .flip-card-front,
+#bienestar-all-content .card-inclusion .flip-card-front,
+#bienestar-all-content .card-especial .flip-card-front,
+#bienestar-all-content .card-excelencia .flip-card-front {
+  min-height: 220px;
+  padding: 2rem 1.5rem !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem 0.6rem 0 0 !important;
+}
+
+#bienestar-all-content .flip-card-front .icon-grande {
+  font-size: 3.2rem !important;
+  color: var(--bienestar-acento) !important;
+  margin-bottom: 0.9rem;
+  display: block;
+}
+
+/* ── Pasos del proceso (Becas) ── */
+#bienestar-all-content .paso,
+#bienestar-all-content .card-info {
+  min-height: 110px;
+}
+
+/* ================================================================
+   CLUB BUTTONS
+   ================================================================ */
+#bienestar-all-content .club-button {
+  color: #0f3f59 !important;
+  min-height: 160px;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#bienestar-all-content .club-button.club-button-fill {
+  width: 100%;
+  min-width: unset;
+}
+
+#bienestar-all-content .club-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.35rem 1rem rgba(11, 119, 189, 0.22);
+}
+
+.club-icon {
+  font-size: 2.4rem !important;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* ================================================================
+   BOTONES DE ACCIÓN
+   ================================================================ */
+#bienestar-all-content .btn.btn-primary,
+#bienestar-all-content .btn.btn-danger {
+  border-radius: 0.45rem;
+  font-weight: 600;
+  padding: 0.65rem 1.3rem;
+}
+
+#bienestar-all-content .btn.btn-primary {
+  background: #0b77bd;
+  border-color: #0b77bd;
+}
+
+#bienestar-all-content .btn.btn-danger {
+  background: #c44536;
+  border-color: #c44536;
+}
+
+/* ================================================================
+   OWL CAROUSEL — Imágenes grandes
+   ================================================================ */
+#bienestar-all-content .owl-carousel .owl-item img {
+  border-radius: 0.5rem;
+  border: 1px solid var(--bienestar-borde);
+  height: 420px;
+  object-fit: cover;
+  width: 100%;
+}
+
+#bienestar-all-content [id^="carrusel-"] {
+  background: var(--bienestar-card);
+  border: 1px solid var(--bienestar-borde);
+  border-radius: 0.65rem;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ================================================================
+   GALERÍA PSICOPEDAGÓGICO — imagen principal grande
+   ================================================================ */
+#bienestar-all-content .gallery-container {
+  overflow: hidden;
+  border-radius: 0.6rem;
+  border: 1px solid var(--bienestar-borde);
+}
+
+#bienestar-all-content .gallery-item img,
+#bienestar-all-content .gallery-container img {
+  width: 100% !important;
+  height: 480px !important;
+  object-fit: cover !important;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+/* ================================================================
+   GALERÍA DE MODALES DE CLUBES
+   ================================================================ */
+.galeria-club {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.galeria-club a {
+  display: block;
+  text-decoration: none;
+}
+
+.galeria-club img {
+  width: 100%;
+  min-width: 0;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid var(--bienestar-borde);
+}
+
+/* ================================================================
+   MODALES DE CLUBES
+   ================================================================ */
+#yogaModal .club-modal-dialog,
+#danzaModal .club-modal-dialog,
+#equitacionModal .club-modal-dialog,
+#defensaModal .club-modal-dialog {
+  max-width: 1080px;
+  width: calc(100% - 3rem);
+  margin: 1.75rem auto;
+}
+
+#yogaModal .modal-content,
+#danzaModal .modal-content,
+#equitacionModal .modal-content,
+#defensaModal .modal-content {
+  border: 0;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  box-shadow: 0 1rem 2.5rem rgba(15, 23, 42, 0.24);
+}
+
+#yogaModal .modal-header,
+#danzaModal .modal-header,
+#equitacionModal .modal-header,
+#defensaModal .modal-header {
+  background: linear-gradient(135deg, #0b77bd, #21a0b8);
+  border-bottom: 0;
+  padding: 1.1rem 1.5rem;
+  align-items: center;
+}
+
+#yogaModal .modal-title,
+#danzaModal .modal-title,
+#equitacionModal .modal-title,
+#defensaModal .modal-title {
+  color: #ffffff;
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+#yogaModal .modal-body,
+#danzaModal .modal-body,
+#equitacionModal .modal-body,
+#defensaModal .modal-body {
+  padding: 1.75rem 1.8rem 1.9rem;
+}
+
+#yogaModal .club-modal-close,
+#danzaModal .club-modal-close,
+#equitacionModal .club-modal-close,
+#defensaModal .club-modal-close {
+  color: #ffffff;
+  opacity: 1;
+  text-shadow: none;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+
+#yogaModal .club-modal-layout,
+#danzaModal .club-modal-layout,
+#equitacionModal .club-modal-layout,
+#defensaModal .club-modal-layout {
+  row-gap: 1.25rem;
+}
+
+#yogaModal .club-modal-copy,
+#danzaModal .club-modal-copy,
+#equitacionModal .club-modal-copy,
+#defensaModal .club-modal-copy {
+  display: flex;
+  align-items: center;
+}
+
+#yogaModal .club-modal-copy p,
+#danzaModal .club-modal-copy p,
+#equitacionModal .club-modal-copy p,
+#defensaModal .club-modal-copy p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin: 0;
+  text-align: left;
+  background: #f6fbff;
+  border: 1px solid var(--bienestar-borde);
+  border-left: 4px solid var(--bienestar-acento);
+  border-radius: 0.65rem;
+  padding: 1.35rem 1.4rem;
+}
+
+#yogaModal .galeria-club,
+#danzaModal .galeria-club,
+#equitacionModal .galeria-club,
+#defensaModal .galeria-club {
+  justify-content: center;
+}
+
+#yogaModal .galeria-club img,
+#danzaModal .galeria-club img,
+#equitacionModal .galeria-club img,
+#defensaModal .galeria-club img {
+  height: 320px;
+}
+
+.bienestar-becarios-section {
+  margin-top: 3rem;
+  padding: 1.75rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid var(--bienestar-borde);
+  border-radius: 0.7rem;
+  box-shadow: 0 0.2rem 0.7rem rgba(16, 24, 40, 0.08);
+}
+
+#bienestar-all-content .becarios-heading {
+  color: #0f3f59;
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+#bienestar-all-content .bienestar-becarios-section > p {
+  color: #5b6776;
+  font-size: 1rem;
+}
+
+#bienestar-all-content .bienestar-becarios-section .table-responsive {
+  overflow: hidden;
+  border: 1px solid #d9e6f4;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+#bienestar-all-content .becarios-tabla thead th {
+  background: linear-gradient(135deg, #0b77bd, #23a1bb);
+  color: #fff;
+  text-align: center;
+  border: 0;
+  padding: 1rem 1.1rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}
+
+#bienestar-all-content .becarios-tabla tbody td {
+  background: #ffffff;
+  border: 0;
+  border-top: 1px solid #e6eef8;
+  text-align: center;
+  color: #2f3133;
+  font-weight: 600;
+  padding: 0.95rem 1rem;
+}
+
+#bienestar-all-content .becarios-tabla tbody tr:nth-child(even) td {
+  background: #f5f9ff;
+}
+
+#bienestar-all-content .becarios-tabla tbody td:first-child {
+  color: #0f3f59;
+  font-weight: 700;
+}
+
+#bienestar-all-content .becarios-tabla tbody td:last-child {
+  color: var(--bienestar-acento);
+  font-size: 1.02rem;
+}
+
+#bienestar-all-content .graduados-oferta-img-bienestar {
+  width: min(100%, 680px);
+  max-height: 620px;
+  object-fit: contain;
+  border-radius: 0.45rem;
+}
+
+#graduadosBienestarCarousel .carousel-control-prev,
+#graduadosBienestarCarousel .carousel-control-next {
+  width: 48px;
+}
+
+#graduadosBienestarCarousel .carousel-control-prev-icon,
+#graduadosBienestarCarousel .carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 0.35rem;
+  background-size: 60% 60%;
+}
+
+/* ================================================================
+   GALERÍA THUMBNAILS (Graduados)
+   ================================================================ */
+#bienestar-all-content .thumbnails-wrapper {
+  gap: 0.5rem;
+}
+
+#bienestar-all-content .thumbnail {
+  border-radius: 0.4rem;
+  border: 1px solid var(--bienestar-borde);
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 991.98px) {
+  .bienestar-equipo-card {
+    max-width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .bienestar-page-container {
+    padding-left: 4% !important;
+    padding-right: 4% !important;
+  }
+
+  #bienestar-all-content {
+    padding: 0;
+  }
+
+  .bienestar-page-container {
+    padding-left: 4% !important;
+    padding-right: 4% !important;
+  }
+
+  #bienestar-all-content {
+    gap: 1.6rem;
+  }
+
+  .bienestar-page-container .bienestar-seccion-wrapper {
+    padding: 1.8rem 1.2rem;
+  }
+
+  #bienestar-all-content .flip-card-front img,
+  #bienestar-all-content .flip-cardp-front img,
+  #bienestar-all-content .C-flip-cardp-front img {
+    height: 300px !important;
+  }
+
+  #bienestar-all-content .orientacion-static-card-media img {
+    height: 300px;
+  }
+
+  #bienestar-all-content .orientacion-static-card {
+    min-height: 540px;
+  }
+
+  #bienestar-all-content .owl-carousel .owl-item img {
+    height: 250px;
+  }
+
+  #bienestar-all-content .gallery-item img,
+  #bienestar-all-content .gallery-container img {
+    height: 280px !important;
+  }
+
+  .galeria-club img {
+    height: 220px;
+  }
+
+  .galeria-club {
+    grid-template-columns: 1fr;
+  }
+
+  #bienestar-all-content .graduados-oferta-img-bienestar {
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #bienestar-all-content .flip-card-front img,
+  #bienestar-all-content .flip-cardp-front img,
+  #bienestar-all-content .C-flip-cardp-front img {
+    height: 220px !important;
+  }
+
+  #bienestar-all-content .orientacion-static-card-media img {
+    height: 220px;
+  }
+
+  #bienestar-all-content .orientacion-static-card {
+    min-height: 380px;
+  }
+
+  #bienestar-all-content .owl-carousel .owl-item img {
+    height: 200px;
+  }
+
+  .galeria-club img {
+    flex: 1 1 100%;
+    height: 200px;
+  }
+
+  #yogaModal .club-modal-dialog,
+  #danzaModal .club-modal-dialog,
+  #equitacionModal .club-modal-dialog,
+  #defensaModal .club-modal-dialog {
+    width: calc(100% - 1rem);
+    margin: 0.5rem auto;
+  }
+
+  #yogaModal .modal-body,
+  #danzaModal .modal-body,
+  #equitacionModal .modal-body,
+  #defensaModal .modal-body {
+    padding: 1rem;
+  }
+}
