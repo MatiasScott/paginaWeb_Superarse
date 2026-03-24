@@ -22,22 +22,31 @@
         </p>
 
         <div class="row mb-5" id="graduados-kpis">
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-3 col-md-6 mb-4">
             <div class="graduados-kpi h-100">
               <div class="graduados-kpi-label">Graduados Totales</div>
               <div class="graduados-kpi-value" id="kpi-graduados-totales">0</div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="graduados-kpi h-100">
-              <div class="graduados-kpi-label">Carreras con Graduados</div>
-              <div class="graduados-kpi-value" id="kpi-carreras">0</div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="graduados-kpi h-100">
-              <div class="graduados-kpi-label">Empleabilidad Promedio</div>
-              <div class="graduados-kpi-value" id="kpi-empleabilidad-promedio">0%</div>
+          <div class="col-lg-9 col-md-6 mb-4">
+            <div class="graduados-kpi graduados-kpi-empleabilidad h-100">
+              <div class="graduados-kpi-label">Empleabilidad</div>
+              <div class="graduados-kpi-grid">
+                <div class="graduados-kpi-total">
+                  <div class="graduados-kpi-value">+ 60%</div>
+                  <div class="graduados-kpi-note">de nuestros graduados poseen un empleo formal.</div>
+                </div>
+                <div class="graduados-kpi-split">
+                  <div class="graduados-kpi-split-item">
+                    <div class="graduados-kpi-value">40%</div>
+                    <div class="graduados-kpi-note">Posee empleo</div>
+                  </div>
+                  <div class="graduados-kpi-split-item">
+                    <div class="graduados-kpi-value">20%</div>
+                    <div class="graduados-kpi-note">Ha creado su propio emprendimiento</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -56,9 +65,41 @@
           </div>
         </div>
 
-        <div class="graduados-panel mb-5">
-          <h3 class="mb-3">Porcentaje de empleabilidad por carrera</h3>
-          <div id="graduados-empleabilidad"></div>
+        <div class="graduados-panel mb-5 becarios-section">
+          <h3 class="becarios-heading text-center mb-3">+30% de nuestros estudiantes cuentan con beca cada periodo académico.</h3>
+          <p class="text-center mb-3">Revisa nuestra tabla</p>
+          <div class="table-responsive">
+            <table class="table becarios-tabla align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Periodo Académico</th>
+                  <th>Número total de becarios</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nov23-Abr24</td>
+                  <td>419</td>
+                </tr>
+                <tr>
+                  <td>May-Oct24</td>
+                  <td>301</td>
+                </tr>
+                <tr>
+                  <td>Nov24-Abr25</td>
+                  <td>358</td>
+                </tr>
+                <tr>
+                  <td>May-Oct25</td>
+                  <td>318</td>
+                </tr>
+                <tr>
+                  <td>Nov25-Abr26</td>
+                  <td>179</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div class="row mb-5" id="graduados-beneficios"></div>
@@ -87,16 +128,48 @@
         </div>
 
         <div class="graduados-panel">
-          <h3 class="mb-2" id="graduados-form-titulo">Registro y actualización de graduados</h3>
-          <p class="mb-4" id="graduados-form-descripcion">
-            Completa el formulario oficial para mantener actualizada tu información.
-          </p>
-          <iframe
-            id="graduados-form-embed"
-            title="Formulario de graduados"
-            loading="lazy"
-            src=""
-          ></iframe>
+          <h3 class="mb-2 text-uppercase text-center text-primary">Ofertas laborales para graduados</h3>
+          <p class="mb-4 text-center">Febrero</p>
+
+          <div
+            id="graduados-ofertas-carousel"
+            class="carousel slide carousel-fade"
+            data-ride="carousel"
+            data-interval="3500"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB1.png" class="d-block mx-auto graduados-oferta-img" alt="Oferta laboral 1" />
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB2.png" class="d-block mx-auto graduados-oferta-img" alt="Oferta laboral 2" />
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB3.png" class="d-block mx-auto graduados-oferta-img" alt="Oferta laboral 3" />
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB4.png" class="d-block mx-auto graduados-oferta-img" alt="Oferta laboral 4" />
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB5.png" class="d-block mx-auto graduados-oferta-img" alt="Oferta laboral 5" />
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB6.png" class="d-block mx-auto graduados-oferta-img" alt="Oferta laboral 6" />
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/img/bienestarEstudiantil/OfertaTrabajo/TrabajoB7.png" class="d-block mx-auto graduados-oferta-img" alt="Oferta laboral 7" />
+              </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#graduados-ofertas-carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#graduados-ofertas-carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

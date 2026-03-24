@@ -2388,10 +2388,6 @@ function generarModuloNoticias() {
   contenedor.innerHTML = html;
 }
 
-const noticiasPorPagina = 6;
-let paginaActual = 1;
-let noticiasFiltradas = [];
-
 function iniciarNoticias() {
 
   if (typeof noticiasView === "undefined") return;
