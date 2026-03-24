@@ -133,9 +133,8 @@ const headerData = {
             items: [
                 { enlace: '/moduls/Servicios/biblioteca.html', texto: 'Biblioteca Institucional' },
                 { enlace: '/moduls/Servicios/graduados.html', texto: 'Graduados' },
-                { enlace: 'https://biblioteca.superarse.ec/', texto: 'Biblioteca Dra. Mery Navas', target: '_blank' },
                 { enlace: 'https://eci.superarse.ec/', texto: 'Cursos Educación Continua e Inglés ', target: '_blank' },
-                { enlace: '/Bienestar-Institucional', texto: 'Bienestar Institucional ' },
+                { enlace: '/moduls/subMenu/Bienestar-Institucional/bienestarInstitucional.html', texto: 'Bienestar Institucional ' },
                 //{ enlace: '/moduls/subMenu/talentoHumano/TalentoHumano2.html#list-infraestructura', texto: 'Infraestructura ' },
                 { enlace: '/Equipo-Conectados', texto: 'Equipo Conectados' },
                 { enlace: '/Formatos', texto: 'Solicitudes ' },

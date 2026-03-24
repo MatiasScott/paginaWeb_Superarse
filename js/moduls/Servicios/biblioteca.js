@@ -72,80 +72,41 @@ const bibliotecaData = {
 
   basesdedatos: [
     {
-      nombre: "EBSCO",
-      descripcion: "Revistas académicas y científicas a texto completo.",
-      url: "https://www.ebsco.com/",
+      nombre: "Biblioteca Dra. Mery Navas",
+      descripcion: "Biblioteca Física del Instituto Superarse.",
+      url: "https://biblioteca.superarse.ec/",
       icono: "fas fa-book-open",
       color: "#003087",
     },
     {
-      nombre: "SciELO",
-      descripcion: "Biblioteca científica de acceso abierto.",
-      url: "https://scielo.org/",
+      nombre: "eLibro",
+      descripcion: "Biblioteca online.",
+      url: "https://elibro.net/es/lc/superarse/login_usuario/?next=/es/lc/superarse/inicio/",
       icono: "fas fa-flask",
       color: "#e30613",
     },
-    {
-      nombre: "Redalyc",
-      descripcion: "Red de revistas científicas de América Latina.",
-      url: "https://www.redalyc.org/",
-      icono: "fas fa-globe-americas",
-      color: "#0066cc",
-    },
-    {
-      nombre: "SENESCYT",
-      descripcion: "Repositorio de acceso abierto del Ecuador.",
-      url: "https://repositorio.educacionsuperior.gob.ec/",
-      icono: "fas fa-university",
-      color: "#007a3d",
-    },
-    {
-      nombre: "Google Scholar",
-      descripcion: "Motor de búsqueda académica gratuito.",
-      url: "https://scholar.google.com/",
-      icono: "fab fa-google",
-      color: "#4285F4",
-    },
-    {
-      nombre: "Repositorio CRAI",
-      descripcion: "Producción científica institucional interna.",
-      url: "#",
-      icono: "fas fa-archive",
-      color: "#0B77BD",
-    },
   ],
 
-  catalogo: {
-    titulo: "Buscar en el Catálogo",
-    descripcion:
-      "Explora nuestra colección física y digital. Usa palabras clave, autor, título o ISBN.",
-    placeholder: "Ingresa título, autor, materia o ISBN...",
-    urlBusqueda: "https://biblioteca.superarse.ec/",
-    boton: "Buscar",
-  },
-
   horarios: [
-    { dia: "Lunes – Viernes", horario: "07:30 – 20:00" },
+    { dia: "Lunes – Viernes", horario: "08:00 – 17:00" },
     { dia: "Sábado", horario: "08:00 – 13:00" },
-    { dia: "Domingo", horario: "Cerrado" },
   ],
 
   contacto: {
-    ubicacion: "Campus principal, edificio administrativo, planta baja",
-    telefono: "(02) 393-0980 ext. 101",
-    email: "biblioteca@superarse.edu.ec",
-    responsable: "Lic. Carmen Torres",
+    ubicacion: "Sede Matriz, Bloque B",
+    telefono: "(02) 393-0980",
+    email: "nathaly.ortiz@superarse.edu.ec",
+    responsable: "Nathaly Ortiz - Coordinadora de Biblioteca",
   },
 
   reglamento: {
     titulo: "Reglamento de Uso",
     items: [
       "Presentar carné institucional vigente para el préstamo de libros.",
-      "El préstamo externo es de 3 días hábiles renovable una sola vez.",
+      "El préstamo externo es de 5 días hábiles renovable una sola vez.",
       "Prohibido ingresar con alimentos o bebidas al área de colección.",
       "Los equipos de cómputo son exclusivos para fines académicos.",
       "El usuario es responsable del material prestado hasta su devolución.",
-      "Las multas por retraso son de $0.25 por día y por material.",
     ],
   },
 };
@@ -248,39 +209,6 @@ function renderizarReglamentoBiblioteca() {
   `;
 }
 
-function inicializarCatalogoBiblioteca() {
-  const form = document.getElementById("bib-catalogo-form");
-  const input = document.getElementById("bib-catalogo-input");
-  const tituloCatalogo = document.getElementById("bib-catalogo-titulo");
-  const descripcionCatalogo = document.getElementById("bib-catalogo-descripcion");
-  const textoBotonCatalogo = document.getElementById("bib-catalogo-boton");
-  if (!form) return;
-
-  if (input) {
-    input.placeholder = bibliotecaData.catalogo.placeholder;
-  }
-
-  if (tituloCatalogo) {
-    tituloCatalogo.textContent = bibliotecaData.catalogo.titulo;
-  }
-
-  if (descripcionCatalogo) {
-    descripcionCatalogo.textContent = bibliotecaData.catalogo.descripcion;
-  }
-
-  if (textoBotonCatalogo) {
-    textoBotonCatalogo.textContent = bibliotecaData.catalogo.boton;
-  }
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const termino = input ? input.value.trim() : "";
-    if (!termino) return;
-    const url = bibliotecaData.catalogo.urlBusqueda + "?q=" + encodeURIComponent(termino);
-    window.open(url, "_blank");
-  });
-}
-
 // ===================================================
 //  INICIALIZACIÓN AL CARGAR
 // ===================================================
@@ -290,5 +218,4 @@ function inicializarCatalogoBiblioteca() {
   renderizarHorariosBiblioteca();
   renderizarContactoBiblioteca();
   renderizarReglamentoBiblioteca();
-  inicializarCatalogoBiblioteca();
 })();

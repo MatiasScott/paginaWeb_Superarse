@@ -48,43 +48,109 @@ const graduadosData = {
   },
 
   contacto: {
-    correo: "graduados@superarse.edu.ec",
+    correo: "jenny.siza@superarse.edu.ec",
     telefono: "(02) 393-0980",
     horario: "Lunes a viernes de 08:00 a 17:00",
   },
 
   estadisticasCarreras: [
     {
-      carrera: "Escuela de Construcción y Extracción Sostenible ECSOS",
-      empleabilidad: 88,
+      carrera: "Asistencia Pedagógica",
       anios: {
-        2021: 38,
-        2022: 42,
-        2023: 47,
-        2024: 51,
+        2020: 0,
+        2021: 20,
+        2022: 38,
+        2023: 12,
+        2024: 8,
+        2025: 2,
+      },
+    },
+    {
+      carrera: "Educación Básica",
+      anios: {
+        2020: 0,
+        2021: 0,
+        2022: 0,
+        2023: 0,
+        2024: 0,
+        2025: 85,
+      },
+    },
+    {
+      carrera: "Administración",
+      anios: {
+        2020: 55,
+        2021: 22,
+        2022: 50,
+        2023: 45,
+        2024: 68,
+        2025: 24,
+      },
+    },
+    {
+      carrera: "Marketing Digital",
+      anios: {
+        2020: 0,
+        2021: 1,
+        2022: 27,
+        2023: 22,
+        2024: 36,
+        2025: 79,
+      },
+    },
+    {
+      carrera: "Cuidado Canino",
+      anios: {
+        2020: 0,
+        2021: 0,
+        2022: 32,
+        2023: 29,
+        2024: 33,
+        2025: 33,
+      },
+    },
+    {
+      carrera: "Producción Animal",
+      anios: {
+        2020: 0,
+        2021: 0,
+        2022: 49,
+        2023: 24,
+        2024: 18,
+        2025: 11,
+      },
+    },
+    {
+      carrera: "Topografía",
+      anios: {
+        2020: 0,
+        2021: 0,
+        2022: 0,
+        2023: 70,
+        2024: 82,
         2025: 55,
       },
     },
     {
-      carrera: "Escuela de Ciencias Agropecuarias y Veterinarias ECAVET",
-      empleabilidad: 84,
+      carrera: "Seguridad y Prevención de Riesgos Laborales",
       anios: {
-        2021: 31,
-        2022: 36,
-        2023: 40,
-        2024: 44,
-        2025: 49,
+        2020: 0,
+        2021: 0,
+        2022: 0,
+        2023: 0,
+        2024: 0,
+        2025: 4,
       },
     },
     {
-      carrera: "Escuela de Ciencias Sociales, Empresariales y Tecnológicas ECSET",
-      empleabilidad: 91,
+      carrera: "Minería",
       anios: {
-        2021: 45,
-        2022: 52,
-        2023: 59,
-        2024: 63,
-        2025: 68,
+        2020: 0,
+        2021: 0,
+        2022: 0,
+        2023: 0,
+        2024: 0,
+        2025: 33,
       },
     },
   ],
@@ -128,16 +194,12 @@ function renderizarInformacionGraduados() {
   const titulo = document.getElementById("graduados-titulo");
   const subtitulo = document.getElementById("graduados-subtitulo");
   const descripcion = document.getElementById("graduados-descripcion");
-  const formTitulo = document.getElementById("graduados-form-titulo");
-  const formDescripcion = document.getElementById("graduados-form-descripcion");
   const formBtn = document.getElementById("graduados-form-boton");
   const formLink = document.getElementById("graduados-form-link");
 
   if (titulo) titulo.textContent = graduadosData.titulo;
   if (subtitulo) subtitulo.textContent = graduadosData.subtitulo;
   if (descripcion) descripcion.textContent = graduadosData.descripcion;
-  if (formTitulo) formTitulo.textContent = graduadosData.formulario.titulo;
-  if (formDescripcion) formDescripcion.textContent = graduadosData.formulario.descripcion;
   if (formBtn) formBtn.textContent = graduadosData.formulario.boton;
   if (formLink) formLink.href = graduadosData.formulario.enlace;
 
@@ -150,10 +212,6 @@ function renderizarInformacionGraduados() {
     `;
   }
 
-  const iframe = document.getElementById("graduados-form-embed");
-  if (iframe) {
-    iframe.src = graduadosData.formulario.enlace;
-  }
 }
 
 function obtenerAniosGraduados() {
@@ -230,52 +288,13 @@ function renderizarTablaGraduados() {
   `;
 
   const kpiTotal = document.getElementById("kpi-graduados-totales");
-  const kpiCarreras = document.getElementById("kpi-carreras");
 
   if (kpiTotal) kpiTotal.textContent = totalGeneral.toLocaleString("es-EC");
-  if (kpiCarreras) {
-    kpiCarreras.textContent = String(graduadosData.estadisticasCarreras.length);
-  }
-}
-
-function renderizarEmpleabilidad() {
-  const contenedor = document.getElementById("graduados-empleabilidad");
-  const kpiPromedio = document.getElementById("kpi-empleabilidad-promedio");
-  if (!contenedor) return;
-
-  const total = graduadosData.estadisticasCarreras.reduce(
-    (acumulado, item) => acumulado + item.empleabilidad,
-    0
-  );
-
-  const promedio =
-    graduadosData.estadisticasCarreras.length > 0
-      ? Math.round(total / graduadosData.estadisticasCarreras.length)
-      : 0;
-
-  if (kpiPromedio) kpiPromedio.textContent = `${promedio}%`;
-
-  contenedor.innerHTML = graduadosData.estadisticasCarreras
-    .map(
-      (item) => `
-      <div class="empleabilidad-item">
-        <div class="empleabilidad-head">
-          <span>${item.carrera}</span>
-          <span>${item.empleabilidad}%</span>
-        </div>
-        <div class="empleabilidad-bar">
-          <div class="empleabilidad-fill" style="width:${item.empleabilidad}%"></div>
-        </div>
-      </div>
-    `
-    )
-    .join("");
 }
 
 (function initGraduados() {
   renderizarInformacionGraduados();
   renderizarTablaGraduados();
-  renderizarEmpleabilidad();
   renderizarBeneficiosGraduados();
   renderizarServiciosGraduados();
 })();
