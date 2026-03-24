@@ -1,0 +1,126 @@
+.graduados-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 0.35rem;
+  padding: 1.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.graduados-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+}
+
+.graduados-icono {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.35rem;
+  background: rgba(23, 162, 184, 0.12);
+  color: #17a2b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.graduados-card h5 {
+  margin-bottom: 0.5rem;
+  color: #00394f;
+  font-weight: 700;
+}
+
+.graduados-card p {
+  margin-bottom: 0;
+  color: #6c757d;
+  font-size: 0.92rem;
+}
+
+.graduados-panel {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 0.35rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+}
+
+.graduados-kpi {
+  background: linear-gradient(135deg, #00394f, #0b77bd);
+  color: #fff;
+  border-radius: 0.35rem;
+  padding: 1.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
+}
+
+.graduados-kpi-label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.graduados-kpi-value {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-top: 0.45rem;
+}
+
+#graduados-tabla thead th {
+  background: #f4f8fc;
+  color: #00394f;
+  white-space: nowrap;
+}
+
+#graduados-tabla tfoot th,
+#graduados-tabla tfoot td {
+  background: #eef6ff;
+  font-weight: 700;
+}
+
+.empleabilidad-item {
+  margin-bottom: 1rem;
+}
+
+.empleabilidad-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-weight: 700;
+  color: #00394f;
+  margin-bottom: 0.35rem;
+}
+
+.empleabilidad-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: #e9ecef;
+  overflow: hidden;
+}
+
+.empleabilidad-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #17a2b8, #8bdf31);
+}
+
+#graduados-form-embed {
+  width: 100%;
+  min-height: 700px;
+  border: 1px solid #e9ecef;
+  border-radius: 0.35rem;
+}
+
+@media (max-width: 767.98px) {
+  .graduados-panel {
+    padding: 1rem;
+  }
+
+  .graduados-kpi-value {
+    font-size: 1.65rem;
+  }
+
+  #graduados-form-embed {
+    min-height: 560px;
+  }
+}

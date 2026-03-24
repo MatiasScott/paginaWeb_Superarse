@@ -1,0 +1,84 @@
+/* ==========================================================
+   ARCHIVO: responsive.css
+   OBJETIVO: Adaptar la web para tablets y celulares
+   ========================================================== */
+
+/* ===================== TABLETS (≤ 992px) ===================== */
+@media (max-width: 992px) {
+  /* Titulos y textos */
+  h1, h2, h3 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  /* Contenedores generales */
+  .container, .row {
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+  }
+
+  /* Ajuste de columnas (Bootstrap) */
+  .col-lg-8, .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* Carrusel */
+  .custom-carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Tarjetas */
+  .flip-card {
+    max-width: 80%;
+    margin: 10px auto;
+  }
+
+  /* Cajitas */
+  .cajita-estatica,
+  .cajita-informativa {
+    width: 90%;
+    margin: 10px auto;
+    transform: none !important;
+  }
+}
+
+/* ===================== CELULARES (≤ 768px) ===================== */
+@media (max-width: 768px) {
+  /* Titulos */
+  h1, h2, h3 {
+    font-size: 1.6rem;
+  }
+
+  /* Contenedores */
+  .container, .row {
+    padding: 10px;
+  }
+
+  /* Imágenes */
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Tarjetas */
+  .flip-card {
+    max-width: 90%;
+  }
+
+  /* Layout en columna */
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Cajitas */
+  .cajita-estatica,
+  .cajita-informativa {
+    width: 100% !important;
+    max-width: none;
+    margin: 10px 0;
+  }
+}

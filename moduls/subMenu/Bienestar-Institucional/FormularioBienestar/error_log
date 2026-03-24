@@ -1,0 +1,27 @@
+[30-Sep-2025 13:44:02 UTC] Error al enviar el correo: SMTP Error: Could not connect to SMTP host. Connection failed. stream_socket_enable_crypto(): Peer certificate CN=`cp20.intodomain.com' did not match expected CN=`smtp.office365.com' SMTP server error: QUIT command failed Detail: GÃRC6ö
+˚1”ßiΩ≈_„R√Ô221 s20.intodomain.com closing connection
+
+[30-Sep-2025 21:04:14 UTC] Error al enviar el correo: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server
+[30-Sep-2025 21:07:10 UTC] Error al enviar el correo: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server
+[30-Sep-2025 21:13:14 UTC] PHP Parse error:  Unmatched '}' in /home2/superar1/public_html/landing_frontend_superarse_v2/moduls/subMenu/bienestarInstitucional/FormularioBienestar/procesar_solicitud_beca.php on line 225
+[30-Sep-2025 21:24:02 UTC] Error al enviar el correo: SMTP Error: Could not connect to SMTP host. Connection failed. stream_socket_enable_crypto(): Peer certificate CN=`cp20.intodomain.com' did not match expected CN=`smtp.gmail.com' SMTP server error: QUIT command failed Detail: »ÚîSÆ9ÉœÀ»Û‰¯Æ§É
+[01-Oct-2025 15:07:19 UTC] Error al enviar el correo: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server
+[01-Oct-2025 18:56:50 UTC] Error al enviar el correo: You must provide at least one recipient email address.
+[01-Oct-2025 19:05:47 UTC] Error al enviar el correo: SMTP Error: Could not connect to SMTP host. Connection failed. stream_socket_enable_crypto(): Peer certificate CN=`cp20.intodomain.com' did not match expected CN=`smtp.gmail.com' SMTP server error: QUIT command failed Detail: ÈÒo-Îø·p%=!”å6¶Ã,œ¶221 s20.intodomain.com closing connection
+
+[02-Oct-2025 15:42:34 UTC] PHP Fatal error:  Uncaught RuntimeException: Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.0.0". You are running 7.4.33. in /home2/superars/public_html/moduls/subMenu/bienestarInstitucional/FormularioBienestar/vendor/composer/platform_check.php:22
+Stack trace:
+#0 /home2/superars/public_html/moduls/subMenu/bienestarInstitucional/FormularioBienestar/vendor/composer/autoload_real.php(25): require()
+#1 /home2/superars/public_html/moduls/subMenu/bienestarInstitucional/FormularioBienestar/vendor/autoload.php(22): ComposerAutoloaderInit1ba944b1b2880695113851e981334169::getLoader()
+#2 /home2/superars/public_html/moduls/subMenu/bienestarInstitucional/FormularioBienestar/procesar_solicitud_beca.php(4): require('/home2/superars...')
+#3 {main}
+  thrown in /home2/superars/public_html/moduls/subMenu/bienestarInstitucional/FormularioBienestar/vendor/composer/platform_check.php on line 22
+[06-Oct-2025 13:49:36 UTC] Error al enviar el correo: SMTP Error: Could not connect to SMTP host. Connection failed. stream_socket_enable_crypto(): Peer certificate CN=`cp20.intodomain.com' did not match expected CN=`smtp.office365.com' SMTP server error: QUIT command failed Detail: ËuG¬	bªı‰∂¬yù∑221 s20.intodomain.com closing connection
+
+[06-Oct-2025 19:36:11 UTC] Error al enviar el correo: SMTP Error: The following recipients failed: alexander.quinga@superarse.edu: The mail server could not deliver mail to alexander.quinga@superarse.edu. 
+The account or domain may not exist, they may be blacklisted, or missing
+the proper dns entries.
+
+[06-Oct-2025 20:27:29 UTC] PHP Warning:  Undefined variable $cedula in /home2/superars/public_html/moduls/subMenu/bienestarInstitucional/FormularioBienestar/procesar_solicitud_beca.php on line 247
+[06-Oct-2025 20:27:29 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home2/superars/public_html/moduls/subMenu/bienestarInstitucional/FormularioBienestar/procesar_solicitud_beca.php on line 247
+[06-Oct-2025 21:17:58 UTC] Error al enviar el correo: SMTP Error: Could not authenticate.

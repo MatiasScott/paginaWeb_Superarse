@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Código QR - Buzón Institucional</title>
+    <link rel="icon" href="/assets/img/content/logo/superarse_gris.png">
+    <link href="/css/qr.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 Código QR - Buzón Institucional</h1>
+            <p>Instituto Tecnológico Superarse</p>
+        </div>
+
+        <div class="content">
+            <h2 style="color: #333; margin-bottom: 20px;">Código QR Generado</h2>
+            
+            <div class="qr-container">
+                <div id="qrcode"></div>
+            </div>
+
+            <p style="color: #666; margin: 20px 0;">Escanea este código QR para acceder directamente al buzón</p>
+
+            <div class="url-box">
+                <strong>URL:</strong><br>
+                <span id="urlText"></span>
+            </div>
+
+            <div>
+                <button class="btn" onclick="descargarQR()">📥 Descargar QR como PNG</button>
+                <button class="btn btn-secondary" onclick="imprimirQR()">🖨️ Imprimir QR</button>
+                <a href="#" class="btn" target="_blank" id="linkBuzon">🔗 Abrir Buzón</a>
+            </div>
+
+            <div class="info">
+                <h3>💡 Instrucciones de Uso:</h3>
+                <ul>
+                    <li><strong>Descargar:</strong> Guarda el código QR en tu computadora para usarlo en materiales impresos.</li>
+                    <li><strong>Imprimir:</strong> Imprime el QR directamente para colocarlo en lugares estratégicos.</li>
+                    <li><strong>Compartir:</strong> Comparte la URL del buzón por correo, redes sociales o WhatsApp.</li>
+                    <li><strong>Ubicación:</strong> Coloca el QR en áreas de alta visibilidad como carteleras, aulas, cafeterías, etc.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Instituto Tecnológico Superarse</strong></p>
+            <p>Este código QR da acceso al buzón anónimo de cumplidos, sugerencias y quejas</p>
+        </div>
+    </div>
+
+    <!-- Librería QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="/js/Buzon/qr.js"> </script>
+</body>
+</html>

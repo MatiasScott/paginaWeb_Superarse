@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Beca - Instituto Superarse</title>
+      <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
+    <style>
+        /* Aquí va todo el CSS que ya tenías */
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { margin: 0; padding: 15px; background-color: #f5f7fa; display: flex; flex-direction: column; align-items: center; min-height: 100vh; color: #333; }
+        #pdf-content { width: 100%; max-width: 900px; background-color: white; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .container { width: 100%; }
+        .header-responsive { display: flex; justify-content: space-between; align-items: center; padding-bottom: 15px; margin-bottom: 20px; border-bottom: 2px solid #2c3e50; flex-wrap: wrap; gap: 15px; }
+        .logo-section { flex: 1; min-width: 150px; display: flex; justify-content: flex-start; }
+        .logo { font-weight: bold; text-align: center; padding: 10px; background: #f8f9fa; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .title-section { flex: 2; text-align: center; min-width: 250px; }
+        .main-title { font-weight: bold; font-size: 20px; margin: 0; color: #2c3e50; }
+        .info-section { flex: 1; text-align: right; min-width: 180px; }
+        .institutional { font-weight: bold; margin-bottom: 5px; color: #2c3e50; }
+        .version, .code, .date { font-size: 12px; margin: 3px 0; color: #7f8c8d; }
+        .form-section { margin: 20px 0; }
+        .form-line { display: block; margin-bottom: 10px; }
+        .form-line label, .form-line .line-input { display: inline-block; vertical-align: middle; margin-right: 5px; }
+        .form-line label { white-space: nowrap; font-weight: 500; font-size: 14px; }
+        .line-input { border: none; border-bottom: 1px solid #95a5a6; padding: 6px 8px; min-width: 80px; background-color: transparent; font-size: 14px; transition: border-color 0.3s; }
+        .line-input-carrera { border: none; border-bottom: 1px solid #95a5a6; padding: 6px 8px; min-width: 350px; background-color: transparent; font-size: 14px; transition: border-color 0.3s; }
+        .line-input.small-input { width: 80px; max-width: 150px; }
+        .line-input.medium-input { width: 200px; max-width: 300px; }
+        .line-input.large-input { width: 250px; max-width: 400px; }
+        select.line-input[name="periodo"], select.line-input[name="carrera"] { width: 170px; max-width: 300px; }
+        .line-input:focus { outline: none; border-bottom: 2px solid #3498db; }
+        select.line-input { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 5px center; background-size: 14px; padding-right: 25px; }
+        .table-responsive { overflow-x: auto; margin: 20px 0; border: 1px solid #ddd; border-radius: 5px; width: 100%; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 600px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; text-align: center; font-weight: 600; }
+        .radio-group { text-align: center; }
+        input[type="radio"] { margin: 0; transform: scale(1.1); }
+        .signature-container { margin: 25px 0 15px; }
+        .signature-label { font-weight: bold; margin-bottom: 8px; font-size: 14px; }
+        .signature-box { width: 100%; max-width: 400px; height: 120px; border: 1px solid #95a5a6; border-radius: 5px; position: relative; background: #f8f9fa; }
+        #signature-pad-canvas { width: 100%; height: 100%; cursor: crosshair; border-radius: 5px; }
+        .signature-clear { position: absolute; top: 5px; right: 5px; background: white; border: 1px solid #ddd; border-radius: 3px; padding: 4px 10px; font-size: 12px; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .footer { margin-top: 25px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 12px; text-align: center; color: #7f8c8d; }
+        .buttons-container { width: 100%; max-width: 900px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 25px; }
+        .action-button { padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 15px; font-weight: 600; transition: all 0.3s; min-width: 250px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); background-color: #27AE60; color: white; }
+        .action-button:hover { background-color: #1D8348; }
+        .action-button:disabled { background-color: #aaa; cursor: not-allowed; }
+        .salutation, .closing { margin: 15px 0; line-height: 1.5; font-size: 14px; }
+        .hide-on-pdf { display: none !important; }
+
+        @media (max-width: 768px) {
+            .container, .buttons-container { padding-left: 15px; padding-right: 15px; }
+            .header-responsive { flex-direction: column; text-align: center; }
+            .logo-section, .title-section, .info-section { min-width: 100%; }
+            .logo-section { justify-content: center; }
+            .info-section { text-align: center; margin-top: 10px; }
+            .main-title { font-size: 18px; }
+            .form-line { display: block; width: 100%; }
+            .form-line label, .form-line .line-input { display: block; margin-right: 0; margin-bottom: 5px; width: 100%; max-width: none; }
+            select.line-input[name="periodo"], select.line-input[name="carrera"], select.line-input[name="nivel"] { width: 100%; max-width: none; }
+        }
+    </style>
+</head>
+<body>
+    <div id="pdf-content">
+        <div class="container">
+            <form id="becaForm" action="procesar_solicitud_beca.php" method="POST">
+                <div class="header-responsive ">
+                    <div class="logo-section">
+                        <div class="logo">
+                               <img src="assets/img/Logo-Superarse-Negativo.png" alt="Logo de Superarse" style="width: 150px; height: auto; background-color: #3498db; color: white;">
+                        </div>
+                    </div>
+                    <div class="title-section">
+                        <div class="main-title">FICHA SOLICITUD BECA</div>
+                    </div>
+                    <div class="info-section">
+                        <div class="institutional">BIENESTAR INSTITUCIONAL</div>
+                        <div class="version">VERSIÓN: 001</div>
+                        <div class="code">CÓDIGO: ISTS-GBI-001-001</div>
+                        <div class="date">FECHA: 04/04/2024</div>
+                    </div>
+                </div>
+                <div class="salutation"><p>Ing. Verónica Tamayo, MSc.<br>INSTITUTO SUPERIOR TECNOLÓGICO SUPERARSE<br>Rectora</p></div>
+                <p>De mis consideraciones;</p>
+                <div class="form-line">
+                    <label>Yo,</label>
+                    <input type="text" class="line-input" name="nombre" id="nombre" required placeholder="Nombres completos" style="width: 280px;">
+                    <label>, titular de la cédula de identidad/pasaporte No.</label>
+                    <input type="text" class="line-input" name="identificacion" required placeholder="Nº de ID" style="flex: 0 0 120px;" maxlength="10">
+                </div>
+                <div class="form-line">
+                    <label>por la presente solicito una beca para el periodo académico</label>
+                    <select class="line-input" name="periodo" required>
+                        <option value="">Seleccione el periodo</option>
+                        <option value="May25-Oct25">PAO NOV25-ABR26</option>
+                        <option value="May25-Oct25">PAO MAY-OCT26</option>
+                        <option value="May25-Oct25">PAO NOV26-ABR27</option>
+                    </select>
+                    <label>correspondiente a la carrera de</label>
+                    <select class="line-input-carrera" name="carrera" required>
+                        <option value="">Seleccione la carrera</option>
+                        <option value="Topografia">Topografía con Nivel Equivalente a Tecnología Superior</option>
+                        <option value="Mineria">Minería</option>
+                        <option value="Seguridad">Seguridad y Prevención de Riesgos Laborales</option>
+                        <option value="Veterinaria">Enfermería Veterinaria</option>
+                        <option value="Produccion">Producción Animal</option>
+                        <option value="Administración">Administración</option>
+                        <option value="Marketing Digital">Marketing Digital</option>
+                        <option value="Diseño Multimedia">Marketing Digital y Diseño Multimedia</option>
+                        <option value="IA">Ventas estratégicas con inteligencia artificial</option>
+                        <option value="Instrumentacion">Instrumentación Quirúrgica</option>
+                        <option value="Educacion Basica">Educación Básica</option>
+                         <option value="Educacion Bilingue ">Educación Bilingüe</option>
+                    </select>
+                    <label>en el</label>
+                    <select class="line-input" name="nivel" required style="flex: 0 0 100px;">
+                        <option value="">Seleccione</option>
+                        <option value="Primer">Primer</option>
+                        <option value="Segundo">Segundo</option>
+                        <option value="Tercero">Tercer</option>
+                        <option value="Cuarto">Cuarto</option>
+                    </select>
+                    <label> nivel</label>
+                    <label>.</label>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="20%">Tipo de Beca</th>
+                                <th width="50%">Situación y/o justificación</th>
+                                <th width="30%">Seleccione</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td rowspan="2">Excelencia Académica</td><td>Mérito académico en bachillerato.</td><td class="radio-group"><input type="radio" name="tipo_beca" value="excelencia_bachillerato"></td></tr>
+                            <tr><td>Mérito académico institucional.</td><td class="radio-group"><input type="radio" name="tipo_beca" value="excelencia_institucional"></td></tr>
+                            <tr><td>Socioeconómica</td><td>Apoyo solidario. Desempleo. Familiar.</td><td class="radio-group"><input type="radio" name="tipo_beca" value="socioeconomica"></td></tr>
+                            <tr><td rowspan="4">Inclusión o Inclusiva</td><td>Discapacidad</td><td class="radio-group"><input type="radio" name="tipo_beca" value="discapacidad"></td></tr>
+                            <tr><td>Enfermedades catastróficas.</td><td class="radio-group"><input type="radio" name="tipo_beca" value="enfermedades"></td></tr>
+                            <tr><td>Pueblos y Nacionalidades del Ecuador.</td><td class="radio-group"><input type="radio" name="tipo_beca" value="pueblos"></td></tr>
+                            <tr><td>Futuro Femenino.</td><td class="radio-group"><input type="radio" name="tipo_beca" value="futuro_femenino"></td></tr>
+                            <tr><td rowspan="5">Especial</td><td>Mérito Deportivo, Mérito Cultural</td><td class="radio-group"><input type="radio" name="tipo_beca" value="deportivo_cultural"></td></tr>
+                            <tr><td>Educación continua</td><td class="radio-group"><input type="radio" name="tipo_beca" value="educacion_continua"></td></tr>
+                            <tr><td>Clubes Institucionales</td><td class="radio-group"><input type="radio" name="tipo_beca" value="clubes"></td></tr>
+                            <tr><td>Colaborativa</td><td class="radio-group"><input type="radio" name="tipo_beca" value="colaborativa"></td></tr>
+                            <tr><td>Beca Superarse (Convenio de Cooperación)</td><td class="radio-group"><input type="radio" name="tipo_beca" value="superarse"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="closing"><p>Por la atención a la presente, anticipo mis agradecimientos.<br>Atentamente,</p></div>
+                <div class="signature-container">
+                    <div class="signature-label">Firma:</div>
+                    <div class="signature-box">
+                        <canvas id="signature-pad-canvas"></canvas>
+                        <button class="signature-clear" id="clear-signature" type="button">Limpiar</button>
+                    </div>
+                    <input type="hidden" name="firma_data_base64" id="firmaDataBase64">
+                </div>
+                <div class="form-line">
+                    <label>C.I:</label>
+                    <input type="tel" class="line-input" name="telefono" required placeholder="Numero C.I/Pasaporte " style="flex: 0 0 150px;" maxlength="10">
+                </div>
+                <div class="footer">Dirección: Av. General Rumifahui e Isla Pinta 1111, a media cuadra del San Luis Shopping<br>Teléfono: (02) 393-0980 www.superarse.edu.ec</div>
+            </form>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <button type="button" class="action-button" id="generate-pdf-btn">Enviar Solicitud y Descargar PDF</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.0/dist/signature_pad.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>

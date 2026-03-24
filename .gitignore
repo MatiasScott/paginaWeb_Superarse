@@ -1,0 +1,11 @@
+node_modules/
+*.zip
+*.rar
+*.log
+.env
+vendor/
+storage/
+*.pdf
+*.mp4
+assets/docs/
+assets/videos/

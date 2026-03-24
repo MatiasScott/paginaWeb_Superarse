@@ -1,0 +1,72 @@
+  body {
+            background: #374151;
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        /* Ajuste a 296mm para evitar el desborde accidental a la segunda hoja */
+        #documento {
+            width: 210mm;
+            height: 296mm; 
+            background-color: white;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        input, select {
+            outline: none;
+            border-bottom: 1px solid #9ca3af;
+            background: transparent;
+        }
+
+        /* Forzamos a que no existan saltos de página dentro del div */
+        #documento * {
+            page-break-inside: avoid;
+        }
+        /* ================= RESPONSIVE SIN CAMBIAR DISEÑO ================= */
+
+/* Tablets y pantallas pequeñas */
+@media (max-width: 1024px) {
+    #documento {
+        width: 100%;
+        height: auto;           /* evita cortes */
+        min-height: 296mm;      /* mantiene proporción visual */
+        overflow: visible;      /* permite scroll */
+    }
+
+    body {
+        padding: 0;
+    }
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+    #documento {
+        width: 100%;
+        min-height: auto;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    input,
+    select {
+        font-size: 14px;
+    }
+}
+
+/* ================= IMPRESIÓN / PDF ================= */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    #documento {
+        width: 210mm;
+        height: 296mm;
+        overflow: hidden;
+    }
+}
