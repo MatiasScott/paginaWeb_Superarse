@@ -2082,75 +2082,313 @@ function generarInvestigacionIDi() {
     return;
   }
 
-  let listHTML = "";
-  let modalsHTML = "";
+  let linearHTML = "";
+  const resumenIds = [
+    "modeloInvestigacionVinculacion",
+    "normativaInvestigacion",
+    "dominiosLineasInvestigacion",
+  ];
+  const resumenSet = new Set(resumenIds);
+  const eventosIds = [
+    "congresoTopografia2025",
+    "congresoTopografia2023",
+    "seminarioEquino",
+    "congresoAgrovet2026",
+  ];
+  const eventosSet = new Set(eventosIds);
+  const resumenMap = Object.fromEntries(
+    investigacionData
+      .filter((entry) => !entry.isSection && resumenSet.has(entry.id))
+      .map((entry) => [entry.id, entry])
+  );
+  const eventosMap = Object.fromEntries(
+    investigacionData
+      .filter((entry) => !entry.isSection && eventosSet.has(entry.id))
+      .map((entry) => [entry.id, entry])
+  );
+  const publicacionesIds = [
+    "publicacionesMayoOctubre2025",
+    "publicacionesNoviembreAbril2025",
+    "publicacionesMayoOctubre2024",
+    "publicacionesNoviembre2023Abril2024",
+    "publicacionesMayoOctubre2023",
+    "publicacionesMayoOctubre202",
+  ];
+  const publicacionesSet = new Set(publicacionesIds);
+  const publicacionesMap = Object.fromEntries(
+    investigacionData
+      .filter((entry) => !entry.isSection && publicacionesSet.has(entry.id))
+      .map((entry) => [entry.id, entry])
+  );
+  let resumenRenderizado = false;
+  let eventosRenderizados = false;
+  let publicacionesRenderizadas = false;
+
+  const quitarPrimerH4 = (html) =>
+    html.replace(/^\s*<h4[^>]*>[\s\S]*?<\/h4>\s*/i, "");
+  const limpiarTexto = (texto) =>
+    texto.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const obtenerTitulosPublicaciones = (html) => {
+    const coincidencias = [...html.matchAll(/<h4[^>]*>([\s\S]*?)<\/h4>/gi)];
+    return coincidencias
+      .map((match) => limpiarTexto(match[1]))
+      .filter((titulo) => titulo.length > 0);
+  };
 
   investigacionData.forEach((item) => {
     if (item.isSection) {
-      // Generar el encabezado de sección
-      listHTML += `
-        <h5 class="mt-4 mb-2 ml-3">${item.title}</h5>
+      linearHTML += `
+        <h4 class="mt-5 mb-3 text-primary">${item.title}</h4>
       `;
-    } else {
-      // Generar el ítem de la lista (enlace)
-      listHTML += `
-        <a
-          href="#"
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center ${item.isSection ? 'ml-3' : ''}"
-          data-toggle="modal"
-          data-target="#${item.id}Modal"
-        >
-          <span>${item.title}</span>
-          <i class="fa fa-arrow-right"></i>
-        </a>
-      `;
+      return;
+    }
 
-      // Generar el modal del ítem
-      modalsHTML += `
-        <div
-          class="modal fade"
-          id="${item.id}Modal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="${item.id}ModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="${item.id}ModalLabel">
-                  ${item.title}
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ${item.content}
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Cerrar
-                </button>
-              </div>
-            </div>
-          </div>
+    if (resumenSet.has(item.id)) {
+      if (resumenRenderizado) {
+        return;
+      }
+
+      const celdasResumen = resumenIds
+        .map((id) => {
+          const resumen = resumenMap[id];
+          if (!resumen) {
+            return "";
+          }
+
+          return `
+            <td style="vertical-align: top; width: 33.33%; min-width: 280px;">
+              <h5 class="mb-3">${resumen.title}</h5>
+              ${quitarPrimerH4(resumen.content)}
+            </td>
+          `;
+        })
+        .join("");
+
+      linearHTML += `
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered bg-white mb-0">
+            <tbody>
+              <tr>
+                ${celdasResumen}
+              </tr>
+            </tbody>
+          </table>
         </div>
       `;
+
+      resumenRenderizado = true;
+      return;
     }
+
+    if (eventosSet.has(item.id)) {
+      if (eventosRenderizados) {
+        return;
+      }
+
+      const eventosDisponibles = eventosIds
+        .map((id) => {
+          const evento = eventosMap[id];
+          if (!evento) {
+            return null;
+          }
+
+          return `
+            <td style="vertical-align: top; width: 50%; min-width: 320px;">
+              <h5 class="mb-3">${evento.title}</h5>
+              ${quitarPrimerH4(evento.content)}
+            </td>
+          `;
+        })
+        .filter(Boolean);
+
+      const fila1 = `${eventosDisponibles[0] || "<td></td>"}${eventosDisponibles[1] || "<td></td>"}`;
+      const fila2 = `${eventosDisponibles[2] || "<td></td>"}${eventosDisponibles[3] || "<td></td>"}`;
+
+      linearHTML += `
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered bg-white mb-0">
+            <tbody>
+              <tr>
+                ${fila1}
+              </tr>
+              <tr>
+                ${fila2}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      eventosRenderizados = true;
+      return;
+    }
+
+    if (item.id === "simposioAdministracion") {
+      return;
+    }
+
+    if (publicacionesSet.has(item.id)) {
+      if (publicacionesRenderizadas) {
+        return;
+      }
+
+      const periodosPublicaciones = publicacionesIds
+        .map((id) => publicacionesMap[id])
+        .filter(Boolean)
+        .map((periodo) => {
+          const publicaciones = obtenerTitulosPublicaciones(periodo.content).map((titulo, indice) => ({
+            titulo,
+            llave: `${periodo.id}-${indice}`,
+          }));
+          return {
+            id: periodo.id,
+            periodo: periodo.title,
+            publicaciones: publicaciones.length
+              ? publicaciones
+              : [{ titulo: "Sin publicaciones registradas", llave: `${periodo.id}-0` }],
+          };
+        });
+
+      const totalPublicaciones = periodosPublicaciones.reduce(
+        (acumulado, periodo) => acumulado + periodo.publicaciones.length,
+        0
+      );
+      const maximoPublicaciones = Math.max(
+        ...periodosPublicaciones.map((periodo) => periodo.publicaciones.length),
+        1
+      );
+
+      const graficoBarras = periodosPublicaciones
+        .map((periodo) => {
+          const valor = periodo.publicaciones.length;
+          const porcentaje = (valor / maximoPublicaciones) * 100;
+
+          return `
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <small class="font-weight-bold">${periodo.periodo}</small>
+                <small>${valor}</small>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar bg-info" role="progressbar" style="width: ${porcentaje}%" aria-valuenow="${valor}" aria-valuemin="0" aria-valuemax="${maximoPublicaciones}"></div>
+              </div>
+            </div>
+          `;
+        })
+        .join("");
+
+      const filasTablaPublicaciones = periodosPublicaciones
+        .map((periodo) => {
+          return periodo.publicaciones
+            .map((publicacion, indice) => {
+              const celdaPeriodo =
+                indice === 0
+                  ? `<td rowspan="${periodo.publicaciones.length}" style="vertical-align: middle; width: 35%;"><strong>${periodo.periodo}</strong></td>`
+                  : "";
+
+              return `
+                <tr>
+                  ${celdaPeriodo}
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-link p-0 text-left"
+                      onclick="mostrarPublicacionInvestigacion('${periodo.id}')"
+                    >
+                      ${publicacion.titulo}
+                    </button>
+                  </td>
+                </tr>
+              `;
+            })
+            .join("");
+        })
+        .join("");
+
+      const detallePublicacionesHTML = publicacionesIds
+        .map((id) => publicacionesMap[id])
+        .filter(Boolean)
+        .map(
+          (periodo) => `
+            <article class="card border-0 shadow-sm mb-4 d-none" data-publicacion-periodo="${periodo.id}">
+              <div class="card-body">
+                <h5 class="mb-3">${periodo.title}</h5>
+                ${periodo.content}
+              </div>
+            </article>
+          `
+        )
+        .join("");
+
+      if (typeof window.mostrarPublicacionInvestigacion !== "function") {
+        window.mostrarPublicacionInvestigacion = function (periodoId) {
+          const contenedor = document.getElementById("publicacionesDetalleDinamico");
+          if (!contenedor) {
+            return;
+          }
+
+          const tarjetas = contenedor.querySelectorAll("[data-publicacion-periodo]");
+          tarjetas.forEach((tarjeta) => tarjeta.classList.add("d-none"));
+
+          const tarjetaObjetivo = contenedor.querySelector(`[data-publicacion-periodo="${periodoId}"]`);
+          if (tarjetaObjetivo) {
+            tarjetaObjetivo.classList.remove("d-none");
+            tarjetaObjetivo.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        };
+      }
+
+      linearHTML += `
+        <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body">
+            <h5 class="mb-3">Gráfico de Publicaciones por Período</h5>
+            <p class="mb-3 text-muted">Total de publicaciones registradas: <strong>${totalPublicaciones}</strong></p>
+            ${graficoBarras}
+          </div>
+        </div>
+
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-hover bg-white mb-0">
+            <thead class="thead-light">
+              <tr>
+                <th>Período académico</th>
+                <th>Publicación</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${filasTablaPublicaciones}
+            </tbody>
+          </table>
+        </div>
+
+        <div id="publicacionesDetalleDinamico">
+          <div class="alert alert-light border mb-4" role="alert">
+            Selecciona una publicación de la tabla para visualizar su contenido.
+          </div>
+          ${detallePublicacionesHTML}
+        </div>
+      `;
+
+      publicacionesRenderizadas = true;
+      return;
+    }
+
+    linearHTML += `
+      <article id="${item.id}" class="card border-0 shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="mb-3">${item.title}</h5>
+          ${item.content}
+        </div>
+      </article>
+    `;
   });
 
-  listContainer.innerHTML = listHTML;
-  modalsContainer.innerHTML = modalsHTML;
+  listContainer.classList.remove("list-group", "list-group-flush");
+  listContainer.innerHTML = linearHTML;
+
+  if (modalsContainer) {
+    modalsContainer.innerHTML = "";
+  }
 }
 // En tu archivo main.js o practicas.js
 function generarPracticasData() {

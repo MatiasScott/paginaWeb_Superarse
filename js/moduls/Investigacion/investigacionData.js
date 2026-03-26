@@ -5,44 +5,36 @@ const investigacionData = [
     id: "quienesSomosIDi",
     title: "Quiénes Somos",
     content: `
-      <h4>La Dirección de Investigación, Desarrollo e Innovación (I+D+i)</h4>
-      <p>
-        La Dirección de Investigación, Desarrollo e Innovación del Tecnológico Superarse está conformada por un equipo multidisciplinario de docentes e investigadores comprometidos con la generación de conocimiento relevante y la búsqueda de soluciones innovadoras para los desafíos actuales.
-      </p>
-      <p>
-        Nuestra misión es fomentar la investigación aplicada, el desarrollo tecnológico y la innovación, promoviendo la participación activa de estudiantes y fortaleciendo las capacidades investigativas de la institución.
-      </p>
-      <div class="d-flex justify-content-center">
-      <div class="card-container">
-        <div class="flip-cardp" style="min-height: 450px; max-width: 400px;">
-          <div class="flip-cardp-inner">
-            <div class="flip-cardp-front">
-              <i class="fas fa-sync-alt flip-icon"></i>
-              <img src="/assets/img/Investigacion/07 - CONTACTO RELACIONES INSTITUCIONALES-02.png" alt="Imagen Principal" width="100%" height="100%">
+      <div class="row align-items-start g-4">
+        <div class="col-12 col-lg-7">
+          <h4>La Dirección de Investigación, Desarrollo e Innovación (I+D+i)</h4>
+          <p>
+            La Dirección de Investigación, Desarrollo e Innovación del Tecnológico Superarse está conformada por un equipo multidisciplinario de docentes e investigadores comprometidos con la generación de conocimiento relevante y la búsqueda de soluciones innovadoras para los desafíos actuales.
+          </p>
+          <p>
+            Nuestra misión es fomentar la investigación aplicada, el desarrollo tecnológico y la innovación, promoviendo la participación activa de estudiantes y fortaleciendo las capacidades investigativas de la institución.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5 d-flex justify-content-center">
+          <div class="card-container bienestar-equipo-card w-100">
+            <div class="bienestar-equipo-imagen">
+              <img src="/assets/img/Investigacion/07 - CONTACTO RELACIONES INSTITUCIONALES-02.png" alt="Director de Investigación Desarrollo e Innovación" class="img-fluid" />
             </div>
-            <div class="flip-cardp-back" style="background-color: #5069A1;">
-              <div class="back-content">
-                <div class="icon-section">
-                  <i class="fas fa-envelope icon"></i>
-                  <p class="style text-center">
-                  <a href="mailto:josue.tello@superarse.edu.ec">josue.tello@superarse.edu.ec</a>
-                  </p>
-                
-                </div>
-                <a href="https://wa.me/593998836452?text=Hola,%20me%20gustaría%20más%20información%20Sobre%20el%20tema%20de%20Investigación" class="whatsapp-link">
-                  <div class="icon-section">
-                    <i class="fas fa-mobile-alt icon"></i>
-                    <p class="style text-center">0998836452</p>
-                  </div>
-                </a>
-                <i class="fas fa-sync-alt flip-icon"></i>
-              </div>
+            <div class="bienestar-contacto-panel">
+              <h5 class="mb-3">Contacto</h5>
+              <p class="mb-2">
+                <i class="fas fa-envelope text-primary mr-2"></i>
+                <a href="mailto:josue.tello@superarse.edu.ec" style="color: inherit; text-decoration: none;">josue.tello@superarse.edu.ec</a>
+              </p>
+              <a href="https://wa.me/593998836452?text=Hola,%20me%20gustaría%20más%20información%20sobre%20Investigación" class="d-flex align-items-center mb-0" style="color: inherit; text-decoration: none;">
+                <i class="fas fa-mobile-alt text-primary mr-2"></i>
+                <span>0998836452</span>
+              </a>
             </div>
+            <p class="text-center mb-0">Director de Investigación Desarrollo e Innovación</p>
           </div>
         </div>
-        <p class="text-center">Director de Investigación Desarrollo e Innovación</p>
       </div>
-    </div>
      
     `,
   },
@@ -141,10 +133,14 @@ const investigacionData = [
        Dicho evento se llevó a cabo en la ciudad de Guayaquil en el Tecnológico Universitario Argos, donde estuvieron representantes 
        de 14 Institutos Tecnológicos de distintas regiones del país, quienes conforman la RIESTT.
       </p>
-      <div>
-<img src="/assets/img/Investigacion/investigacion1.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
-<img src="/assets/img/Investigacion/Investigacion2.png" alt="Descripción de la imagen 2" style="width: 100%; height: auto;">
-</div>
+      <div class="row g-3 mt-2">
+        <div class="col-12 col-md-6">
+          <img src="/assets/img/Investigacion/investigacion1.png" alt="Descripción de la imagen 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="col-12 col-md-6">
+          <img src="/assets/img/Investigacion/Investigacion2.png" alt="Descripción de la imagen 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+      </div>
       
     `,
   },
@@ -266,6 +262,41 @@ const investigacionData = [
        Sin duda, una experiencia única para todos los amantes de estos majestuosos animales.
       </p>
       
+    `,
+  },
+  {
+    id: "congresoAgrovet2026",
+    title: "Congreso AgroVet 2026",
+    content: `
+    <div>
+      <img src="https://agrovet.superarse.ec/img/icons/IconoSostenibilidad.png" alt="Congreso AgroVet 2026" style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 15px;">
+    </div>
+      <h4>Primer Congreso de Producción AgroPecuaria Sostenible y Bienestar Animal</h4>
+      <p>
+        AgroVet 2026 es un evento académico-científico orientado a la difusión de investigaciones, innovaciones tecnológicas,
+        propuestas productivas y experiencias exitosas en bienestar animal y sostenibilidad de los sistemas productivos.
+      </p>
+      <p>
+        El congreso promueve el intercambio de conocimiento entre academia, sector productivo y sociedad, y fortalece el diálogo
+        interdisciplinario para aportar soluciones aplicadas al sector agropecuario.
+      </p>
+      <ul>
+        <li>Sistemas de producción pecuaria.</li>
+        <li>Cuidado y bienestar animal.</li>
+        <li>Prácticas sostenibles en producción agropecuaria.</li>
+        <li>Transformación sostenible del sector pecuario mediante Economía Naranja.</li>
+      </ul>
+      <p>
+        <strong>Fecha:</strong> 12 y 13 de marzo de 2026.<br>
+        <strong>Lugar:</strong> Instituto Superior Tecnológico Superarse (Campus Alpallana, Quito).
+      </p>
+      <a
+        href="https://agrovet.superarse.ec/"
+        target="_blank"
+        class="btn btn-sm btn-info mt-2"
+      >
+        <i class="fa fa-external-link-alt mr-2"></i> Ver AgroVet 2026
+      </a>
     `,
   },
   {
