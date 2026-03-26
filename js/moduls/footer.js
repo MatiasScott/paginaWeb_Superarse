@@ -26,8 +26,8 @@ var footerData = {
         titulo: "Póngase en contacto",
         elementos: [
             { icono: "fa fa-map-marker-alt", titulo: "Dirección", "texto": "<a href=\"https://www.google.com/maps/search/?api=1&query=Av.+General+Rumiñahui+e+Isla+Pinta+1111,+Sangolqui\" target=\"_blank\" style=\"color: white;\">Av. General Rumiñahui e Isla Pinta 1111, Sangolqui</a>"},
-            { icono: "fa fa-envelope", titulo: "Email", texto: "matriculas@superarse.edu.ec" },
-            { icono: "fa fa-phone-alt", titulo: "Teléfono", texto: "(02) 393-0980" }
+            { icono: "fa fa-envelope", titulo: "Email", texto: "<a href=\"mailto:matriculas@superarse.edu.ec\" style=\"color: white;\">matriculas@superarse.edu.ec</a>" },
+            { icono: "fa fa-phone-alt", titulo: "Teléfono", texto: "<a href=\"https://wa.me/593939330980\" target=\"_blank\" style=\"color: white;\">(02) 393-0980</a>" }
         ]
     },
     // Contenido de la tercera columna (Enlaces rápidos)

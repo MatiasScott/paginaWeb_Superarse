@@ -1,5 +1,7 @@
 const bienestarData = {
-    contenido1: `<div class="container-fluid py-5">
+    contenido1: `<div class="container-fluid bienestar-page-container bienestar-section-block bienestar-title-block"><div class="bienestar-titulo-principal"><h1>SERVICIOS DE BIENESTAR INSTITUCIONAL</h1></div></div>
+    
+    <div class="container-fluid py-5">
     <div class="container">
     <h1 class="text-uppercase text-primary mb-3" style="text-align: center;">ACOMPAÑAMIENTO BIOPSICOSOCIAL</h1>
         
@@ -133,7 +135,6 @@ const bienestarData = {
                             <div class="flip-card-front card-socioeconomica">
                                 <i class="fas fa-users icon-grande"></i> 
                                 <h3>Beca Socioeconómica</h3>
-                                <p style="color: black;">Del 10 al 40% de descuento en aranceles</p>
                                 <i class="fas fa-sync-alt flip-icon"></i>
                             </div>
                             <div class="flip-card-back card-socioeconomica">
@@ -144,7 +145,7 @@ const bienestarData = {
                                     <li style="color: black;">Historial de trabajo.</li>
                                     <li style="color: black;">Carta de Servicio Básico.</li>
                                     <li style="color: black;">Pago de Derecho de Beca.</li>
-                                    <li style="color: black;">Acreditar un promedio mínimo de 8/10.</li>
+                                    <li style="color: black;">Acreditar un promedio mínimo de 8.5/10.</li>
                                 </ul>
                                 <i class="fas fa-sync-alt flip-icon"></i>
                             </div>
@@ -158,7 +159,6 @@ const bienestarData = {
                             <div class="flip-card-front card-inclusion">
                                 <i class="fas fa-wheelchair icon-grande"></i>
                                 <h3>Beca de Inclusión</h3>
-                                <p style="color: black;">Del 10 al 60% de descuento en aranceles</p>
                                 <i class="fas fa-sync-alt flip-icon"></i>
                             </div>
                             <div class="flip-card-back card-inclusion">
@@ -170,7 +170,7 @@ const bienestarData = {
                                     <li style="color: black;">Copia de Cédula.</li>
                                     <li style="color: black;">Pago de Derecho de Beca.</li>
                                     <li style="color: black;">Entrevista inicial con Bienestar Institucional.</li>
-                                    <li style="color: black;">Acreditar un promedio mínimo de 8/10.</li>
+                                    <li style="color: black;">Acreditar un promedio mínimo de 8.5/10.</li>
                                 </ul>
                                 <i class="fas fa-sync-alt flip-icon"></i>
                             </div>
@@ -184,7 +184,6 @@ const bienestarData = {
                             <div class="flip-card-front card-especial">
                                 <i class="fas fa-horse-head icon-grande"></i>
                                 <h3>Beca Especial</h3>
-                                <p style="color: black;">Desde el 10% de descuento en aranceles</p>
                                 <i class="fas fa-sync-alt flip-icon"></i>
                             </div>
                             <div class="flip-card-back card-especial">
@@ -194,7 +193,7 @@ const bienestarData = {
                                     <li style="color: black;">Ficha Socioeconómica.</li>
                                     <li style="color: black;">Copia de Cédula.</li>
                                     <li style="color: black;">Pago de Derecho de Beca.</li>
-                                    <li style="color: black;">Acreditar un promedio mínimo de 8/10.</li>
+                                    <li style="color: black;">Acreditar un promedio mínimo de 8.5/10.</li>
                                     <li style="color: black;">Pago del derecho de beca.</li>
                                 </ul>
                                 <i class="fas fa-sync-alt flip-icon"></i>
@@ -209,7 +208,6 @@ const bienestarData = {
                             <div class="flip-card-front card-excelencia">
                                 <i class="fas fa-graduation-cap icon-grande"></i>
                                 <h3>Beca de Excelencia Académica</h3>
-                                <p style="color: black;">Del 10 al 40% de descuento en aranceles</p>
                                 <i class="fas fa-sync-alt flip-icon"></i>
                             </div>
                             <div class="flip-card-back card-excelencia">
@@ -458,7 +456,7 @@ const bienestarData = {
 </div>`,
     contenido5: `<div class="container-fluid py-5">
     <div class="container">
-        <h1 class="text-uppercase text-primary mb-3" style="text-align: center;">CLUBES</h1>
+        <h1 class="text-uppercase text-primary mb-3" style="text-align: center;">Bienestar Psicológico</h1>
         <div class="row align-items-start">
             <!-- Grilla 2x2 de clubes -->
             <div class="col-lg-8">
@@ -497,10 +495,10 @@ const bienestarData = {
                     </div>
                     <div class="bienestar-contacto-panel">
                         <h5 class="mb-3">Contáctanos</h5>
-                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>carolina.baquero@superarse.edu.ec</p>
-                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>lizbeth.ochoa@superarse.edu.ec</p>
-                        <p class="mb-2"><i class="fas fa-phone-alt text-primary mr-2"></i>(02) 3 930 980 ext. 115</p>
-                        <a href="https://wa.me/593997639111?text=Hola,%20me%20gustaría%20más%20información%20sobre%20los%20CLUBES%20" class="whatsapp-link d-flex align-items-center mb-2">
+                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i><a href="mailto:carolina.baquero@superarse.edu.ec" style="color: inherit; text-decoration: none;">carolina.baquero@superarse.edu.ec</a></p>
+                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i><a href="mailto:lizbeth.ochoa@superarse.edu.ec" style="color: inherit; text-decoration: none;">lizbeth.ochoa@superarse.edu.ec</a></p>
+                        <p class="mb-2"><i class="fas fa-phone-alt text-primary mr-2"></i><a href="https://wa.me/593939930980" target="_blank" style="color: inherit; text-decoration: none;">(02) 3 930 980 ext. 115</a></p>
+                        <a href="https://wa.me/593998409293?text=Hola,%20me%20gustaría%20más%20información%20sobre%20los%20CLUBES%20" class="whatsapp-link d-flex align-items-center mb-2" style="color: inherit; text-decoration: none;">
                             <i class="fas fa-mobile-alt text-primary mr-2"></i>
                             <span>0998409293</span>
                         </a>
@@ -949,7 +947,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         const seccionesEnOrden = ['contenido1', 'contenido2', 'contenido3', 'contenido5', 'contenido6', 'contenido7', 'contenido8'];
-        let htmlCompleto = `<div class="container-fluid bienestar-page-container bienestar-section-block bienestar-title-block"><div class="bienestar-titulo-principal"><h1>SERVICIOS DE BIENESTAR INSTITUCIONAL</h1></div></div>`;
+        let htmlCompleto = `<div class="container-fluid bienestar-page-container bienestar-section-block bienestar-title-block"><div class="bienestar-titulo-principal"></div></div>`;
         
         seccionesEnOrden.forEach((seccion) => {
             if (bienestarData[seccion]) {

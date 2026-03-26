@@ -34,7 +34,7 @@ const bienestarHero = `<div class="container-fluid py-5 container-top bienestar-
                     </div>
                     <div class="bienestar-contacto-panel">
                         <h5 class="mb-3">Contacto</h5>
-                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>bienestar.institucional@superarse.edu.ec</p>
+                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>coordinacion.bienestar@superarse.edu.ec</p>
                         <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>asistencia.bienestar@superarse.edu.ec</p>
                         <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>becas@superarse.edu.ec</p>
                         <p class="mb-2"><i class="fas fa-mobile-alt text-primary mr-2"></i>0998409293</p>

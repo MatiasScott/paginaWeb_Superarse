@@ -9,6 +9,10 @@ function generarHeader() {
   );
   if (!headerContainer) return;
 
+  const resolvePath = typeof window.resolveSuperarsePath === "function"
+    ? window.resolveSuperarsePath
+    : (path) => path;
+
   const generarDropdownMenu = (items) => {
     let menuHtml = "";
     items.forEach((item) => {
@@ -16,7 +20,7 @@ function generarHeader() {
         menuHtml += `
           <div class="dropdown dropright">
             <a class="dropdown-item dropdown-toggle"
-               href="${item.enlace || "#"}"
+               href="${resolvePath(item.enlace || "#")}"
                id="${item.id || ""}"
                aria-haspopup="true"
                aria-expanded="false">
@@ -27,7 +31,7 @@ function generarHeader() {
             </div>
           </div>`;
       } else {
-        menuHtml += `<a href="${item.enlace}" class="dropdown-item"
+        menuHtml += `<a href="${resolvePath(item.enlace)}" class="dropdown-item"
           ${item.target ? `target="${item.target}"` : ""}>${item.texto}</a>`;
       }
     });
@@ -44,7 +48,7 @@ function generarHeader() {
       <div class="d-flex justify-content-start w-100">`;
 
   headerData.topbar.slice(0, 2).forEach((item) => {
-    topbarHtml += `<a href="${item.enlace}" class="navbar-link ${item.clases}">
+    topbarHtml += `<a href="${resolvePath(item.enlace)}" class="navbar-link ${item.clases}">
       <i class="${item.icono}"></i>${item.texto}</a>`;
   });
 
@@ -60,7 +64,7 @@ function generarHeader() {
           </div>
         </div>`;
     } else {
-      topbarHtml += `<a href="${item.enlace}" class="${item.clases}"
+      topbarHtml += `<a href="${resolvePath(item.enlace)}" class="${item.clases}"
         ${item.target ? `target="${item.target}"` : ""}>${item.texto}</a>`;
     }
   });
@@ -70,8 +74,8 @@ function generarHeader() {
   let mainNavHtml = `
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-1 fixed-top"
          style="margin-top: 28px; z-index: 1020">
-      <a href="/index.html" class="navbar-brand" style="width: min-content; height: min-content">
-        <img src="/assets/img/content/logo/superarse_gris.png" alt="logo" width="140rem" />
+      <a href="${resolvePath('/index.html')}" class="navbar-brand" style="width: min-content; height: min-content">
+        <img src="${resolvePath('/assets/img/content/logo/superarse_gris.png')}" alt="logo" width="140rem" />
       </a>
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav font-weight-bold mx-auto py-0">`;
@@ -86,13 +90,13 @@ function generarHeader() {
           </div>
         </div>`;
     } else {
-      mainNavHtml += `<a href="${item.enlace}" class="nav-item nav-link">${item.texto}</a>`;
+      mainNavHtml += `<a href="${resolvePath(item.enlace)}" class="nav-item nav-link">${item.texto}</a>`;
     }
   });
 
   mainNavHtml += `
         </div>
-        <a href="${headerData.finalLink.enlace}"
+        <a href="${resolvePath(headerData.finalLink.enlace)}"
            class="${headerData.finalLink.clases}"
            ${headerData.finalLink.target ? `target="${headerData.finalLink.target}"` : ""}>
           ${headerData.finalLink.texto}
