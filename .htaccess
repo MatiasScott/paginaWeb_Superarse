@@ -1,14 +1,13 @@
 RewriteEngine On
 
 # Quitar index.html
-RewriteCond %{THE_REQUEST} \s/index\.html
-RewriteRule ^index\.html$ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html(?:[\s?]|$) [NC]
+RewriteRule ^index\.html$ /%1 [R=301,L]
 
 # URL corta
 
 # INSTITUCION
 
-RewriteRule ^MisionVision/?$ moduls/institucion/MisionVision/index.html [L]
 RewriteRule ^MensajeRectora/?$ moduls/institucion/MensajeRectora/index.html [L]
 RewriteRule ^MisionVision/?$ moduls/institucion/MisionVision/index.html [L]
 RewriteRule ^Organigrama/?$ moduls/institucion/Organigrama/organigrama.html [L]
@@ -60,35 +59,34 @@ RewriteRule ^Vinculacion-con-la-Sociedad/?$ moduls/subMenu/vinculacionSociedad//
 RewriteRule ^Practicas-Preprofesionales/?$ moduls/subMenu/vinculacionSociedad//Practicas-Preprofesionales/practicasPreprofesionales.html [L]
 RewriteRule ^Relaciones-InterInstitucionales/?$ moduls/subMenu/vinculacionSociedad//Relaciones-InterInstitucionales/RelacionesInterinstitucionales.html [L]
 RewriteRule ^Presencia-en-la-Comunidad/?$ moduls/subMenu/vinculacionSociedad//Presencia-en-la-Comunidad/PresenciaComunidad.html [L]
-RewriteRule ^Vinculacion/?$ /assets/docs/Vinculacion//Modelo_Gestion_IDIVS_2024_2028.pdf [L]
+RewriteRule ^Vinculacion/?$ assets/docs/Vinculacion//Modelo_Gestion_IDIVS_2024_2028.pdf [L]
 
 #PRACTICAS PRE-PROFESIONALES
 
-RewriteRule ^PracticasPreprofesionales/?$ /assets/docs/PracticasPreprofesionales//REGLAMENTO-PRACTICAS-PRE-PROFESIONALES.pdf [L]
+RewriteRule ^PracticasPreprofesionales/?$ assets/docs/PracticasPreprofesionales//REGLAMENTO-PRACTICAS-PRE-PROFESIONALES.pdf [L]
 
 # RELACIONES INTERINSTITUCIONALES
 
-RewriteRule ^Relaciones-Inter-Institucionales/?$ /assets/docs/Relaciones-Inter-Institucionales//ISTS-GIDIVS-07-004-CONVENIO-MARCO-FORMATO.pdf [L]
+RewriteRule ^Relaciones-Inter-Institucionales/?$ assets/docs/Relaciones-Inter-Institucionales//ISTS-GIDIVS-07-004-CONVENIO-MARCO-FORMATO.pdf [L]
 
 # INVESTIGACIÓN
 RewriteRule ^Investigacion/?$ moduls/subMenu/Investigacion//investigacion.html [L]
-RewriteRule ^MODELO_INVESTIGACION/?$ /assets/docs/Investigacion/MODELO_INVESTIGACION/MODELO_DE_GESTION_DE_LA_INVESTIGACION_DESARROLLO_INNOVACION.pdf [L]
-RewriteRule ^REGLAMENTO_DE_INVESTIGACION/?$ /assets/docs/Investigacion/REGLAMENTO_DE_INVESTIGACION/REGLAMENTO_DE_INVESTIGACION_DESARROLLO_E_INNOVACION.pdf [L]
-RewriteRule ^DOMINIOS_ACADEMICOS/?$ /assets/docs/Investigacion/DOMINIOS_ACADEMICOS/Dominios_Academicos_de_Investigacion_2024_2028.pdf [L]
-RewriteRule ^PLANIFICACION_GESTION_INVESTIGACION/?$ /assets/docs/Investigacion/PLANIFICACION_GESTION_INVESTIGACION/Planificacion_gestion_Investigacion_2025.pdf [L]
-RewriteRule ^DOMINIOS_ACADEMICOS/?$ /assets/docs/Investigacion/DOMINIOS_ACADEMICOS/Dominios_Academicos_de_Investigacion_2024_2028.pdf [L]
-RewriteRule ^ESTUDOS_EM_CIENCIAS_AGRARIAS/?$ /assets/docs/Investigacion/ESTUDOS_EM_CIENCIAS_AGRARIAS/Estudio_em_Ciencias_agrarias.pdf [L]
-RewriteRule ^CONGRESO_ITPS_ODS/?$ /assets/docs/Investigacion/CONGRESO_ITPS_ODS/ITPS_ODS.pdf [L]
-RewriteRule ^HUMANIDADES_E_CIENCIAS_SOCIAIS/?$ /assets/docs/Investigacion/HUMANIDADES_E_CIENCIAS_SOCIAIS/humanidades-e-ciencias-sociais-perspectivas.pdf [L]
-RewriteRule ^TOPOGRAFIA_SUBTERRANEA/?$ /assets/docs/Investigacion/TOPOGRAFIA_SUBTERRANEA/LIBRO_TOPOGRAFIA_SUBTERRÁNEA.pdf [L]
+RewriteRule ^MODELO_INVESTIGACION/?$ assets/docs/Investigacion/MODELO_INVESTIGACION/MODELO_DE_GESTION_DE_LA_INVESTIGACION_DESARROLLO_INNOVACION.pdf [L]
+RewriteRule ^REGLAMENTO_DE_INVESTIGACION/?$ assets/docs/Investigacion/REGLAMENTO_DE_INVESTIGACION/REGLAMENTO_DE_INVESTIGACION_DESARROLLO_E_INNOVACION.pdf [L]
+RewriteRule ^DOMINIOS_ACADEMICOS/?$ assets/docs/Investigacion/DOMINIOS_ACADEMICOS/Dominios_Academicos_de_Investigacion_2024_2028.pdf [L]
+RewriteRule ^PLANIFICACION_GESTION_INVESTIGACION/?$ assets/docs/Investigacion/PLANIFICACION_GESTION_INVESTIGACION/Planificacion_gestion_Investigacion_2025.pdf [L]
+RewriteRule ^ESTUDOS_EM_CIENCIAS_AGRARIAS/?$ assets/docs/Investigacion/ESTUDOS_EM_CIENCIAS_AGRARIAS/Estudio_em_Ciencias_agrarias.pdf [L]
+RewriteRule ^CONGRESO_ITPS_ODS/?$ assets/docs/Investigacion/CONGRESO_ITPS_ODS/ITPS_ODS.pdf [L]
+RewriteRule ^HUMANIDADES_E_CIENCIAS_SOCIAIS/?$ assets/docs/Investigacion/HUMANIDADES_E_CIENCIAS_SOCIAIS/humanidades-e-ciencias-sociais-perspectivas.pdf [L]
+RewriteRule ^TOPOGRAFIA_SUBTERRANEA/?$ assets/docs/Investigacion/TOPOGRAFIA_SUBTERRANEA/LIBRO_TOPOGRAFIA_SUBTERRÁNEA.pdf [L]
 
 #CALENDARIOS
 
-RewriteRule ^CALENDARIO_ACADEMICO/?$ /assets/docs/Calendarios/CALENDARIO_ACADEMICO/CALENDARIO_ACADEMICO_2025_2026.pdf [L]
-RewriteRule ^CALENDARIO_DE_TITULACION/?$ /assets/docs/Calendarios/CALENDARIO_DE_TITULACION/CRONOGRAMA_PROYECTOS_TITULACION.pdf [L]
-RewriteRule ^CALENDARIO_INVESTIGACION/?$ /assets/docs/Calendarios/CALENDARIO_INVESTIGACION/PLANIFICACION_GESTION_INVESTIGACION_2026.pdf [L]
-RewriteRule ^CALENDARIO_VINCULACION/?$ /assets/docs/Calendarios/CALENDARIO_VINCULACION/CRONOGRAMA_VINCULACION_SOCIEDAD_2025.pdf [L]
-RewriteRule ^CALENDARIO_PRACTICAS_PREPROFESIONALES/?$ /assets/docs/Calendarios/CALENDARIO_PRACTICAS_PREPROFESIONALES/CRONOGRAMA_PRACTICAS_PREPROFESIONALES_2025_2026.pdf [L]
+RewriteRule ^CALENDARIO_ACADEMICO/?$ assets/docs/Calendarios/CALENDARIO_ACADEMICO/CALENDARIO_ACADEMICO_2025_2026.pdf [L]
+RewriteRule ^CALENDARIO_DE_TITULACION/?$ assets/docs/Calendarios/CALENDARIO_DE_TITULACION/CRONOGRAMA_PROYECTOS_TITULACION.pdf [L]
+RewriteRule ^CALENDARIO_INVESTIGACION/?$ assets/docs/Calendarios/CALENDARIO_INVESTIGACION/PLANIFICACION_GESTION_INVESTIGACION_2026.pdf [L]
+RewriteRule ^CALENDARIO_VINCULACION/?$ assets/docs/Calendarios/CALENDARIO_VINCULACION/CRONOGRAMA_VINCULACION_SOCIEDAD_2025.pdf [L]
+RewriteRule ^CALENDARIO_PRACTICAS_PREPROFESIONALES/?$ assets/docs/Calendarios/CALENDARIO_PRACTICAS_PREPROFESIONALES/CRONOGRAMA_PRACTICAS_PREPROFESIONALES_2025_2026.pdf [L]
 
 
 #NOTICIAS
@@ -159,37 +157,36 @@ RewriteRule ^PLAN_IGUALDAD_2026/?$ assets/docs/BienestarEstudiantil/Plan-Igualda
 
 #TITULACION
 
-RewriteRule ^REGLAMENTO_TITULACION/?$ /assets/docs/Titulacion/REGLAMENTO_TITULACION/Reglamento_Titulacion.pdf [L]
-RewriteRule ^CRONOGRAMA_TRABAJO_TITULACION/?$ /assets/docs/Titulacion/CRONOGRAMA_TRABAJO_TITULACION/Cronograma_trabajo_titulacion.pdf [L]
-RewriteRule ^PLAN_TRABAJO_TITULACION/?$ /assets/docs/Titulacion/PLAN_TRABAJO_TITULACION/Plan_Trabajo_Titulacion.docx [L]
-RewriteRule ^REGISTRO_HORAS_TUTORIAS/?$ /assets/docs/Titulacion/REGISTRO_HORAS_TUTORIAS/Registro_horas_tutorias_Titulacion.xlsx [L]
-RewriteRule ^FORMATO_TRABAJO_TITULACION/?$ /assets/docs/Titulacion/FORMATO_TRABAJO_TITULACION/Formato_trabajo_titulacion.docx [L]
-RewriteRule ^CALENDARIO_EXAMEN_COMPLEXIVO/?$ /assets/docs/Titulacion/CALENDARIO_EXAMEN_COMPLEXIVO/Cronograma_examen_complexivo.pdf [L]
+RewriteRule ^REGLAMENTO_TITULACION/?$ assets/docs/Titulacion/REGLAMENTO_TITULACION/Reglamento_Titulacion.pdf [L]
+RewriteRule ^CRONOGRAMA_TRABAJO_TITULACION/?$ assets/docs/Titulacion/CRONOGRAMA_TRABAJO_TITULACION/Cronograma_trabajo_titulacion.pdf [L]
+RewriteRule ^PLAN_TRABAJO_TITULACION/?$ assets/docs/Titulacion/PLAN_TRABAJO_TITULACION/Plan_Trabajo_Titulacion.docx [L]
+RewriteRule ^REGISTRO_HORAS_TUTORIAS/?$ assets/docs/Titulacion/REGISTRO_HORAS_TUTORIAS/Registro_horas_tutorias_Titulacion.xlsx [L]
+RewriteRule ^FORMATO_TRABAJO_TITULACION/?$ assets/docs/Titulacion/FORMATO_TRABAJO_TITULACION/Formato_trabajo_titulacion.docx [L]
+RewriteRule ^CALENDARIO_EXAMEN_COMPLEXIVO/?$ assets/docs/Titulacion/CALENDARIO_EXAMEN_COMPLEXIVO/Cronograma_examen_complexivo.pdf [L]
 
 #TALENTO HUMANO 
 
-RewriteRule ^Induccion/?$ /assets/docs/TalentoHumano/Induccion/Bienvenido_familia_Superarse.pdf [L]
+RewriteRule ^Induccion/?$ assets/docs/TalentoHumano/Induccion/Bienvenido_familia_Superarse.pdf [L]
 
 #UNIDAD DE SEGURIDAD Y SALUD OCUPACIONAL 
 
-RewriteRule ^MATRIZ_DE_RIESGO/?$ /assets/docs/SeguridadyPlanOcupacional/MATRIZ_DE_RIESGO/Matriz_de_Riesgos.pdf [L]
-RewriteRule ^PLAN_DE_EMERGENCIA/?$ /assets/docs/SeguridadyPlanOcupacional/PLAN_DE_EMERGENCIA/Plan_de_emergencia.pdf [L]
-RewriteRule ^REGLAMENTO/?$ /assets/docs/SeguridadyPlanOcupacional/REGLAMENTO/Reglamento.pdf [L]
+RewriteRule ^MATRIZ_DE_RIESGO/?$ assets/docs/SeguridadyPlanOcupacional/MATRIZ_DE_RIESGO/Matriz_de_Riesgos.pdf [L]
+RewriteRule ^PLAN_DE_EMERGENCIA/?$ assets/docs/SeguridadyPlanOcupacional/PLAN_DE_EMERGENCIA/Plan_de_emergencia.pdf [L]
+RewriteRule ^REGLAMENTO/?$ assets/docs/SeguridadyPlanOcupacional/REGLAMENTO/Reglamento.pdf [L]
 
 # FORMATOS 
 
 
 
 # Ocultar moduls
-RewriteCond %{THE_REQUEST} \s/moduls/([^\s]+)
-RewriteRule ^moduls/(.*)$ /$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(.*/)?moduls/([^\s?]+) [NC]
+RewriteRule ^moduls/(.*)$ /%1$1 [R=301,L]
 
 
-RewriteCond %{REQUEST_URI} !^/moduls/
-RewriteCond %{REQUEST_URI} !^/assets/
+RewriteCond %{REQUEST_URI} !/(moduls|assets)(/|$) [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ moduls/$1 [L]
+RewriteRule ^(.+)$ moduls/$1 [L]
 
 
 DirectoryIndex index.html

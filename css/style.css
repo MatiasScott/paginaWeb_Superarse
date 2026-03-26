@@ -12801,7 +12801,7 @@ a.text-dark:focus {
 .flip-card {
   background-color: transparent;
   width: 100%;
-  height: 450px;
+  height: 600px;
   /* Altura fija para las tarjetas */
   perspective: 1000px;
   /* Efecto 3D para el giro */
@@ -12835,10 +12835,11 @@ a.text-dark:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   color: white;
+  overflow-y: auto;
   /* Color del texto */
 }
 
@@ -12983,7 +12984,7 @@ a.text-dark:focus {
 /* Estilos para los pasos de postulación a becas */
 .proceso-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 20px;
 }

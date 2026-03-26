@@ -1,5 +1,41 @@
 // headerData.js
 
+const currentHeaderScript = document.currentScript;
+const superarseBasePath = (() => {
+    if (!currentHeaderScript || !currentHeaderScript.src) {
+        return '';
+    }
+
+    const scriptUrl = new URL(currentHeaderScript.src, window.location.href);
+    const marker = '/js/moduls/header.js';
+    const markerIndex = scriptUrl.pathname.indexOf(marker);
+
+    if (markerIndex === -1) {
+        return '';
+    }
+
+    return scriptUrl.pathname.slice(0, markerIndex);
+})();
+
+function resolveSuperarsePath(path) {
+    if (!path || typeof path !== 'string') {
+        return path;
+    }
+
+    if (/^(?:[a-z]+:|\/\/|#)/i.test(path) || path.startsWith('mailto:') || path.startsWith('tel:')) {
+        return path;
+    }
+
+    if (!path.startsWith('/')) {
+        return path;
+    }
+
+    return `${superarseBasePath}${path}`;
+}
+
+window.resolveSuperarsePath = resolveSuperarsePath;
+window.superarseBasePath = superarseBasePath;
+
 const headerData = {
     // Topbar con enlaces de contacto y plataformas externas
     topbar: [
@@ -52,11 +88,11 @@ const headerData = {
             texto: 'Calendarios',
             clases: 'nav-link dropdown-toggle text-white d-none d-lg-block',
             items: [
-                { enlace: '/CALENDARIO_ACADEMICO', texto: 'Calendario Académico'  ,target: '_blank'},
-                { enlace: '/CALENDARIO_DE_TITULACION', texto: 'Calendario de Titulación',target: '_blank' },
-                { enlace: '/CALENDARIO_INVESTIGACION', texto: 'Calendario de Investigación',target: '_blank' },
-                { enlace: '/CALENDARIO_VINCULACION', texto: 'Calendario de Vinculación',target: '_blank' },
-                { enlace: '/CALENDARIO_PRACTICAS_PREPROFESIONALES', texto: 'Calendario de Prácticas <br>Preprofesionales',target: '_blank' }
+                { enlace: '/assets/docs/Calendarios/CALENDARIO_ACADEMICO/CALENDARIO_ACADEMICO_2025_2026.pdf', texto: 'Calendario Académico'  ,target: '_blank'},
+                { enlace: '/assets/docs/Calendarios/CALENDARIO_DE_TITULACION/CRONOGRAMA_PROYECTOS_TITULACION.pdf', texto: 'Calendario de Titulación',target: '_blank' },
+                { enlace: '/assets/docs/Calendarios/CALENDARIO_INVESTIGACION/PLANIFICACION_GESTION_INVESTIGACION_2026.pdf', texto: 'Calendario de Investigación',target: '_blank' },
+                { enlace: '/assets/docs/Calendarios/CALENDARIO_VINCULACION/CRONOGRAMA_VINCULACION_SOCIEDAD_2025.pdf', texto: 'Calendario de Vinculación',target: '_blank' },
+                { enlace: '/assets/docs/Calendarios/CALENDARIO_PRACTICAS_PREPROFESIONALES/CRONOGRAMA_PRACTICAS_PREPROFESIONALES_2025_2026.pdf', texto: 'Calendario de Prácticas <br>Preprofesionales',target: '_blank' }
             ]
             
         }
@@ -69,27 +105,26 @@ const headerData = {
         {
             texto: 'Institución',
             items: [
-               { enlace: '/MisionVision', texto: 'Misión y Visión' },
-               { enlace: '/MensajeRectora', texto: 'Mensaje de la Rectora' },
+               { enlace: '/moduls/institucion/MisionVision/index.html', texto: 'Misión y Visión' },
+               { enlace: '/moduls/institucion/MensajeRectora/index.html', texto: 'Mensaje de la Rectora' },
                {
-                    texto: 'Estructura',
+                    texto: 'Estructura Organizacional',
                     id: 'dropdownMarcoLegal',
                     items: [
-                { enlace: '/Organigrama', texto: 'Organigrama' },
-                { enlace: '/Autoridades', texto: 'Autoridades' },
-                { enlace: '/Estatuto', texto: 'Estatuto' },
+                { enlace: '/moduls/institucion/Organigrama/organigrama.html', texto: 'Organigrama' },
+                { enlace: '/moduls/institucion/Autoridades/autoridades.html', texto: 'Autoridades' },                
                     ]
                 },
-               { enlace: '/Modelo-Pedagogico', texto: 'Modelo Pedagógico' },
-                { enlace: '/Codigo-Etica', texto: 'Código de ética' },
-                { enlace: '/Modelos', texto: 'Modelos' },
+               { enlace: '/moduls/institucion/Modelo-Pedagogico/modeloPedagogico.html', texto: 'Modelo Pedagógico' },
+                { enlace: '/moduls/institucion/Codigo-Etica/codigoInstitucional.html', texto: 'Código de ética' },
+                { enlace: '/moduls/institucion/Modelos/modelos.html', texto: 'Modelos' },
                  {
                     texto: 'Aseguramiento de la calidad y planificación',
                     id: 'dropdownCalidadPlanificacion',
                     items: [
-                        { enlace: '/Calidad-Planificacion', texto: 'Calidad y Planificación' },
-                        { enlace: '/Planificacion-Pedi', texto: 'PEDI 2024-2028' },
-                         { enlace: '/POA', texto: 'Plan Operativo Anual (POA) 2025' },
+                        { enlace: '/moduls/institucion/Calidad-Planificacion/calidadPlanificacion.html', texto: 'Calidad y Planificación' },
+                        { enlace: '/moduls/institucion/Planificacion-Pedi/planificacionPedi.html', texto: 'PEDI 2024-2028' },
+                         { enlace: '/assets/docs/POA/PLAN_OPERATIVO_ANUAL_2025.pdf', texto: 'Plan Operativo Anual (POA) 2025', target: '_blank' },
                         
                     ]
                 },
@@ -99,22 +134,23 @@ const headerData = {
                     texto: 'Transparencia',
                     id: 'dropdownMarcoLegal',
                     items: [
-                { enlace: '/Estado-Financiero', texto: 'Estado Financiero' },
-                { enlace: '/Rendicion-Cuentas', texto: 'Rendición de Cuentas' },
-                { enlace: '/Remuneracion-Mensual', texto: 'Remuneración Mensual' },
-                { enlace: '/Aranceles', texto: 'Aranceles' },
-                { enlace: '/Balances-Generales', texto: 'Balance General' },
-                { enlace: '/Cumplimiento-Tributario', texto: 'Cumplimiento Tributario' },
-                { enlace: '/Balances-Auditados', texto: 'Balances Auditados' },
+                { enlace: '/moduls/Servicios/Estado-Financiero/estadoFinanciero.html', texto: 'Estado Financiero' },
+                { enlace: '/moduls/Servicios/Rendicion-Cuentas/rendicionCuentas.html', texto: 'Rendición de Cuentas' },
+                { enlace: '/moduls/Servicios/Remuneracion-Mensual/remuneracionMensual.html', texto: 'Remuneración Mensual' },
+                { enlace: '/moduls/Servicios/Aranceles/aranceles.html', texto: 'Aranceles' },
+                { enlace: '/moduls/Servicios/Balances-Generales/balanceGeneral.html', texto: 'Balance General' },
+                { enlace: '/moduls/Servicios/Cumplimiento-Tributario/cumplimientoTributario.html', texto: 'Cumplimiento Tributario' },
+                { enlace: '/moduls/Servicios/Balances-Auditados/balancesAuditados.html', texto: 'Balances Auditados' },
                     ]
                 },
                 {
                     texto: 'Marco Legal',
                     id: 'dropdownMarcoLegal',
                     items: [
-                        { enlace: '/Reglamentos', texto: 'Reglamentos' },
-                        { enlace: '/Normativa', texto: 'Normativa' },
-                        { enlace: '/Protocolos', texto: 'Protocolos' }
+                        { enlace: '/moduls/institucion/Reglamentos/reglamentos.html', texto: 'Reglamentos' },
+                        { enlace: '/moduls/institucion/Normativa/normativa.html', texto: 'Normativa' },
+                        { enlace: '/moduls/institucion/Protocolos/protocolos.html', texto: 'Protocolos' },
+                        { enlace: '/moduls/institucion/Estatuto/estatuto.html', texto: 'Estatuto' },
                     ]
                 },
                 
@@ -123,9 +159,9 @@ const headerData = {
         {
             texto: 'Oferta Académica',
             items: [
-                { enlace: '/ECSOS', texto: 'Escuela de Construcción y Extracción Sostenible ECSOS' },
-                { enlace: 'ECAVET', texto: 'Escuela de Ciencias Agropecuarias y Veterinarias ECAVET' },
-                { enlace: '/ECSET', texto: 'Escuela de Ciencias Sociales, Empresariales y Tecnológicas ECSET' },
+                { enlace: '/moduls/gestionAcademica/ECSOS/escuelaConstruccionExtraccion.html', texto: 'Escuela de Construcción y Extracción Sostenible ECSOS' },
+                { enlace: '/moduls/gestionAcademica/ECAVET/escuelaVeterinaria.html', texto: 'Escuela de Ciencias Agropecuarias y Veterinarias ECAVET' },
+                { enlace: '/moduls/gestionAcademica/ECSET/escuelaAdministracionIndustria.html', texto: 'Escuela de Ciencias Sociales, Empresariales y Tecnológicas ECSET' },
             ]
         },
         {
@@ -136,41 +172,41 @@ const headerData = {
                 { enlace: 'https://eci.superarse.ec/', texto: 'Cursos Educación Continua e Inglés ', target: '_blank' },
                 { enlace: '/moduls/subMenu/Bienestar-Institucional/bienestarInstitucional.html', texto: 'Bienestar Institucional ' },
                 //{ enlace: '/moduls/subMenu/talentoHumano/TalentoHumano2.html#list-infraestructura', texto: 'Infraestructura ' },
-                { enlace: '/Equipo-Conectados', texto: 'Equipo Conectados' },
-                { enlace: '/Formatos', texto: 'Solicitudes ' },
+                { enlace: '/moduls/noticiasContactos/Equipo-Conectados/contactanos.html', texto: 'Equipo Conectados' },
+                { enlace: '/moduls/Formatos/Solicitudes.html', texto: 'Solicitudes ' },
                 
             ]
         },
         {
             texto: 'Admisiones',
             items: [
-                { enlace: '/Por-Que-Elegirnos', texto: '¿Por qué Elegirnos?' },
-                { enlace: '/Proceso-Admision', texto: 'Proceso de Admisión' }
+                { enlace: '/moduls/admisiones/Por-Que-Elegirnos/porQueElegirnos.html', texto: '¿Por qué Elegirnos?' },
+                { enlace: '/moduls/admisiones/Proceso-Admision/procesoAdmision.html', texto: 'Proceso de Admisión' }
             
             ]
         },
         {
             texto: 'Vinculación con la sociedad ',
             items: [
-                { enlace: '/Vinculacion-con-la-Sociedad', texto: 'Programas y proyectos de vinculación con la sociedad' },
-                { enlace: '/Practicas-Preprofesionales', texto: 'Prácticas Pre-Profesionales' },
-                { enlace: '/Relaciones-InterInstitucionales', texto: 'Relaciones InterInstitucionales' },
-                { enlace: '/Presencia-en-la-Comunidad', texto: 'Presencia en la comunidad' }
+                { enlace: '/moduls/subMenu/vinculacionSociedad/Vinculacion-con-la-Sociedad/vinculacionSociedad.html', texto: 'Programas y proyectos de vinculación con la sociedad' },
+                { enlace: '/moduls/subMenu/vinculacionSociedad/Practicas-Preprofesionales/practicasPreprofesionales.html', texto: 'Prácticas Pre-Profesionales' },
+                { enlace: '/moduls/subMenu/vinculacionSociedad/Relaciones-InterInstitucionales/RelacionesInterinstitucionales.html', texto: 'Relaciones InterInstitucionales' },
+                { enlace: '/moduls/subMenu/vinculacionSociedad/Presencia-en-la-Comunidad/PresenciaComunidad.html', texto: 'Presencia en la comunidad' }
             ]
         }, 
         {
             texto: 'Investigación',
-            enlace: '/Investigacion'
+            enlace: '/moduls/subMenu/Investigacion/investigacion.html'
         },
         {
             texto: 'Noticias ',
-            enlace: '/Noticias',
+            enlace: '/moduls/noticiasContactos/Noticias/noticias.html',
             //target: '_blank',
         }
     ],
     // Enlace final de "Plataformas"
     finalLink: {
-        enlace: '/Plataformas',
+        enlace: '/moduls/Plataformas/plataformas.html',
         texto: 'Plataformas',
         clases: 'btn btn-primary px-4',
         target: '_blank'
