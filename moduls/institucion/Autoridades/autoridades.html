@@ -1,107 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="Free HTML Templates" name="keywords" />
-    <meta content="Free HTML Templates" name="description" />
-    <title>Autoridades</title>
-
-    <!-- Favicon -->
-    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- Flaticon Font -->
-    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
-
-    <!-- Libraries Stylesheet -->
-    <link
-      href="/lib/owlcarousel/assets/owl.carousel.min.css"
-      rel="stylesheet"
-    />
-    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet" />
-  </head>
-  <body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organigrama Institucional | Superarse</title>
+    <script src="/js/common/page-head.js"></script>
+    
+</head>
+<body  class="bg-light">
     <div class="container-fluid bg-light position-relative shadow"></div>
 
-    <div class="container-fluid py-5 container-top position-relative">
-      <div class="container position-relative" style="z-index: 1">
-        <div class="row align-items-center">
-           <p class="section-title pr-5 ">
-              <span class="pr-2">Liderazgo Institucional</span>
-            </p>
-          <div class="col-lg-12 text-center ">
-           
-            <h1 class="mb-4  display-4 font-weight-bold">
-              Conoce a Nuestras Autoridades
-            </h1>
-
-            <div class="col-lg-12 mx-auto">
-              <p  style="text-align: justify;">
-                El equipo directivo del Instituto Superior Tecnológico Superarse
-                está conformado por profesionales altamente comprometidos y con
-                vasta experiencia. Su liderazgo es clave para guiar nuestra
-                institución hacia la excelencia académica y el desarrollo
-                integral de nuestra comunidad.
-              </p>
-              <p class="mb-5" style="text-align: justify;">
-                Ellos trabajan para mantener un ambiente de innovación, calidad
-                y responsabilidad, siempre enfocados en las necesidades de
-                nuestros estudiantes y en el progreso de la sociedad.
-              </p>
+   <div class="container-fluid espaciado-menu">
+        <div class="container investigacion-shell"></div>
+           <div class="text-center mb-5">
+            <span class="text-uppercase fw-bold text-primary" style="letter-spacing: 3px; font-size: 0.9rem;">Liderazgo Institucional</span>
+            <h1 class="display-4 fw-bold mt-2">Conoce a Nuestras Autoridades</h1>
+            <div class="section-title-line"></div>
+        </div>
+        <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <div class="card-main p-4 h-100">
+              <div class="mensaje-texto text-muted lh-lg" style="text-align: justify;">
+                <p>
+                  El equipo directivo del Instituto Superior Tecnológico Superarse está conformado por profesionales altamente comprometidos y con vasta experiencia. Su liderazgo es clave para guiar nuestra institución hacia la excelencia académica y el desarrollo integral de nuestra comunidad.
+                  Ellos trabajan para mantener un ambiente de innovación, calidad y responsabilidad, siempre enfocados en las necesidades de nuestros estudiantes y en el progreso de la sociedad.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="row justify-content-center pt-4 border-top">
-          <h2 class="col-12 text-center mb-4">Nuestro Equipo Directivo</h2>
 
-          <div
-            class="row justify-content-center"
-            id="equipo-directivo-container"
-          ></div>
+    <div class="organigrama-scroll">
+        <div class="tree">
+            <ul>
+                <li>
+                    <div id="node-rector"></div>
+                    <ul>
+                        <li>
+                            <div id="node-secretaria"></div>
+                            <ul>
+                                <li>
+                                    <div id="node-vicerrector"></div>
+                                    <ul>
+                                        <li>
+                                            <div id="node-dir-docencia"></div>
+                                            <ul class="vertical-stack">
+                                                <li><div id="coor-admin"></div></li>
+                                                <li><div id="coor-vet"></div></li>
+                                                <li><div id="coor-const"></div></li>
+                                                <li><div id="coor-salud"></div></li>
+                                                <li><div id="coor-edu"></div></li>
+                                                <li><div id="coor-diseno"></div></li>
+                                            </ul>
+                                        </li>
+                                        <li><div id="node-dir-invest"></div></li>
+                                        <li>
+                                            <div id="node-dir-vinc"></div>
+                                            <ul class="vertical-stack">
+                                                <li><div id="coor-prac"></div></li>
+                                                <li><div id="coor-prog"></div></li>
+                                                <li><div id="coor-rel"></div></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div id="node-admin"></div>
+                                    <ul class="vertical-stack">
+                                        <li><div id="coor-calidad"></div></li>
+                                        <li><div id="coor-th"></div></li>
+                                        <li><div id="coor-bien"></div></li>
+                                        <li><div id="coor-biblio"></div></li>
+                                        <li><div id="coor-tics"></div></li>
+                                        <li><div id="coor-com-est"></div></li>
+                                        <li><div id="coor-fin"></div></li>
+                                        <li><div id="coor-edu-cont"></div></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div id="node-infra"></div>
+                                    <ul class="vertical-stack">
+                                        <li><div id="coor-seg"></div></li>
+                                        <li><div id="coor-mant"></div></li>
+                                    </ul>
+                                </li>
+                                <li><div id="node-comer"></div></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-      </div>
     </div>
+    </div>
+   </div>
 
-     <div class="color-bar-container">
-      <div class="color-stripe color-stripe-1"></div>
-      <div class="color-stripe color-stripe-2"></div>
-      <div class="color-stripe color-stripe-3"></div>
-      <div class="color-stripe color-stripe-4"></div>
+    <div class="color-bar-container">
+        <div class="color-stripe color-stripe-1"></div>
+        <div class="color-stripe color-stripe-2"></div>
+        <div class="color-stripe color-stripe-3"></div>
+        <div class="color-stripe color-stripe-4"></div>
     </div>
 
     <div class="footer-container"></div>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="/lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Template Javascript -->
-
-    <script src="/js/moduls/header.js"></script>
+    <script src="/js/common/page-scripts.js" data-page-scripts="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/moduls/Institucion/authoritiesData.js"></script>
-    <script src="/js/moduls/footer.js"></script>
-    <script src="/js/global.js"></script>
-    <script src="/js/main.js"></script>
-  </body>
+</body>
 </html>

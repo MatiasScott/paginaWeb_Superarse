@@ -18,14 +18,27 @@
 }
 
 /* ── Tarjeta de equipo (parte superior y clubes) ── */
+/* Centrado del contenedor principal */
 .bienestar-equipo-card {
-  width: 100%;
-  max-width: 440px;
-  background: #fff;
-  border: 1px solid #e6edf5;
-  border-radius: 0.7rem;
-  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.10);
-  padding: 1.2rem;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+/* Centrado del contenedor principal */
+.bienestar-equipo-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Alineación de los iconos de contacto */
+.contact-info-list p {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.contact-info-list i {
+    width: 20px; /* Mantiene los iconos alineados verticalmente */
 }
 
 .bienestar-equipo-imagen img {
@@ -80,15 +93,7 @@
   margin-bottom: 3rem;
 }
 
-/* ── Secciones contenedoras ── */
-.bienestar-page-container > .bienestar-seccion-wrapper {
-  padding: 2.8rem 2.5rem;
-  margin-bottom: 2rem;
-  border: 1px solid var(--bienestar-borde);
-  border-radius: 0.75rem;
-  background: #ffffff;
-  box-shadow: 0 0.15rem 0.6rem rgba(0, 0, 0, 0.05);
-}
+
 
 .bienestar-page-container .bienestar-seccion-wrapper {
   margin: 0;
@@ -414,8 +419,7 @@
 }
 
 #bienestar-all-content [id^="carrusel-"] {
-  background: var(--bienestar-card);
-  border: 1px solid var(--bienestar-borde);
+ 
   border-radius: 0.65rem;
   padding: 0.8rem;
   margin-bottom: 1.5rem;

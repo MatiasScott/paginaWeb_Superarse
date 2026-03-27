@@ -4,32 +4,32 @@ const graduadosData = {
   descripcion:
     "Este espacio está orientado a mantener el vínculo con nuestros graduados, facilitar su actualización profesional y fortalecer la red de oportunidades académicas y laborales.",
 
-  beneficios: [
+ beneficios: [
     {
       icono: "fas fa-briefcase",
       titulo: "Bolsa de empleo",
-      descripcion:
-        "Acceso a convocatorias laborales y pasantías compartidas por aliados institucionales.",
+      descripcion: "Acceso a convocatorias laborales y pasantías compartidas por aliados institucionales.",
+      enlace: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=Q55kP6NREkOuuxxVvxRacM1iUyNvm6NAt-AsANiElZxUN1FYVVJSWjNTS1BQVDE0TzhMQlJNMzhKNS4u&route=shorturl" // <--- Agregado
     },
     {
       icono: "fas fa-chalkboard-teacher",
       titulo: "Capacitación continua",
-      descripcion:
-        "Difusión de cursos, talleres y eventos de actualización académica y profesional.",
+      descripcion: "Difusión de cursos, talleres y eventos de actualización académica y profesional.",
+      enlace: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=Q55kP6NREkOuuxxVvxRacM1iUyNvm6NAt-AsANiElZxUN1FYVVJSWjNTS1BQVDE0TzhMQlJNMzhKNS4u&route=shorturl" // <--- Agregado
     },
     {
       icono: "fas fa-network-wired",
       titulo: "Red de graduados",
-      descripcion:
-        "Conexión con exalumnos para colaboración profesional, mentoría y networking.",
+      descripcion: "Conexión con exalumnos para colaboración profesional, mentoría y networking.",
+      enlace: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=Q55kP6NREkOuuxxVvxRacM1iUyNvm6NAt-AsANiElZxUN1FYVVJSWjNTS1BQVDE0TzhMQlJNMzhKNS4u&route=shorturl" // <--- Agregado
     },
     {
       icono: "fas fa-user-check",
       titulo: "Seguimiento institucional",
-      descripcion:
-        "Registro y actualización de trayectoria laboral para fortalecer la calidad educativa.",
+      descripcion: "Registro y actualización de trayectoria laboral para fortalecer la calidad educativa.",
+      enlace: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=Q55kP6NREkOuuxxVvxRacM1iUyNvm6NAt-AsANiElZxUNllXWDJIMlEyM1M2WkVLSjlTTTE5NkJMUi4u&route=shorturl" // <--- Agregado
     },
-  ],
+],
 
   servicios: [
     "Actualización de datos de graduados",
@@ -164,11 +164,16 @@ function renderizarBeneficiosGraduados() {
     .map(
       (item) => `
       <div class="col-lg-3 col-md-6 mb-4">
-        <div class="graduados-card h-100">
-          <div class="graduados-icono"><i class="${item.icono}"></i></div>
-          <h5>${item.titulo}</h5>
-          <p>${item.descripcion}</p>
-        </div>
+        <a href="${item.enlace || '#'}" class="text-decoration-none shadow-hover-link">
+          <div class="graduados-card h-100 text-center border-0 shadow-sm p-4">
+            <div class="graduados-icono mb-3">
+                <i class="${item.icono} fa-2x"></i>
+            </div>
+            <h5 class="fw-bold text-dark">${item.titulo}</h5>
+            <p class="text-muted small mb-0">${item.descripcion}</p>
+            <div class="mt-3 text-primary fw-bold small">Ver más <i class="fas fa-chevron-right ms-1"></i></div>
+          </div>
+        </a>
       </div>
     `
     )

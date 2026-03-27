@@ -28,20 +28,26 @@ const bienestarHero = `<div class="container-fluid py-5 container-top bienestar-
             </div>
             
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card-container bienestar-equipo-card">
-                    <div class="bienestar-equipo-imagen">
-                        <img src="/assets/img/bienestarEstudiantil/principal/NicolasP.jpg" alt="Coordinación de Bienestar Institucional" class="img-fluid" />
-                    </div>
-                    <div class="bienestar-contacto-panel">
-                        <h5 class="mb-3">Contacto</h5>
-                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>coordinacion.bienestar@superarse.edu.ec</p>
-                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>asistencia.bienestar@superarse.edu.ec</p>
-                        <p class="mb-2"><i class="fas fa-envelope text-primary mr-2"></i>becas@superarse.edu.ec</p>
-                        <p class="mb-2"><i class="fas fa-mobile-alt text-primary mr-2"></i>0998409293</p>
-                        <p class="mb-0"><i class="fas fa-clock text-primary mr-2"></i>Lunes a viernes de 08:00 a 17:00</p>
-                    </div>
-                    <p class="text-center mb-0">La Coordinación de Bienestar Institucional</p>
-                </div>
+                <div class="card-container bienestar-equipo-card d-flex flex-column align-items-center p-4">
+    <div class="bienestar-equipo-imagen mb-4 text-center">
+        <img src="/assets/img/bienestarEstudiantil/principal/NicolasP.jpg" 
+             alt="Coordinación de Bienestar Institucional" 
+             class="img-fluid img-reflect-center" />
+    </div>
+
+    <div class="bienestar-contacto-panel w-100 text-center mb-3" style="max-width: 500px;">
+        <h5 class="fw-bold mb-3 text-primary text-uppercase">Contacto</h5>
+        <div class="contact-info-list text-start d-inline-block">
+            <p class="mb-2"><i class="fas fa-envelope text-primary me-2"></i>coordinacion.bienestar@superarse.edu.ec</p>
+            <p class="mb-2"><i class="fas fa-envelope text-primary me-2"></i>asistencia.bienestar@superarse.edu.ec</p>
+            <p class="mb-2"><i class="fas fa-envelope text-primary me-2"></i>becas@superarse.edu.ec</p>
+            <p class="mb-2"><i class="fas fa-mobile-alt text-primary me-2"></i>0998409293</p>
+            <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i>Lunes a viernes de 08:00 a 17:00</p>
+        </div>
+    </div>
+
+    <p class="text-center fw-bold text-muted">La Coordinación de Bienestar Institucional</p>
+</div>
             </div>
         </div>
     </div>
