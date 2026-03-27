@@ -6,6 +6,4 @@ node_modules/
 vendor/
 storage/
 *.pdf
-*.mp4
 assets/docs/
-assets/videos/
