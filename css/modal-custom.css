@@ -1,0 +1,51 @@
+/* Estilos personalizados para modales - Hacerlos más anchos */
+
+/* Forzar modales más anchos */
+.modal-xl {
+  max-width: 90vw !important;
+}
+
+@media (min-width: 768px) {
+  .modal-xl {
+    max-width: 90vw !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-xl {
+    max-width: 92vw !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-xl {
+    max-width: 93vw !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .modal-xl {
+    max-width: 94vw !important;
+  }
+}
+
+/* Asegurar que el contenido del modal se vea bien */
+.modal-body {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-dialog {
+  max-height: 95vh;
+}
+
+.modal-content {
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+}

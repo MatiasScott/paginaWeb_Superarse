@@ -277,9 +277,7 @@ function generarEscuelaDeVeterinaria() {
   const modalsContainer = document.querySelector("#veterinarySchoolModals");
 
   if (!cardsContainer || !modalsContainer) {
-    console.error(
-      "No se encontraron los contenedores para las tarjetas o modales de la Escuela de Veterinaria. Revisa los IDs."
-    );
+    console.error("No se encontraron los contenedores para la Escuela de Veterinaria.");
     return;
   }
 
@@ -287,114 +285,140 @@ function generarEscuelaDeVeterinaria() {
   let modalsHTML = "";
 
   veterinarySchoolData.forEach((career) => {
-    // Generar la tarjeta de la carrera
-    cardsHTML += `
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="career-card text-center p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between">
-          <h3 class="mb-3">${career.title}</h3>
-          <a
-            href="#"
-            class="d-block mb-3"
-            data-toggle="modal"
-            data-target="#${career.id}Modal"
-          >
-            <img
-              src="${career.imagePath}"
-              alt="Imagen de ${career.title}"
-              class="img-fluid rounded"
-            />
-          </a>
-          <p class="text-muted">
-            Haz clic en la imagen para ver más detalles de la carrera.
-          </p>
+      cardsHTML += `
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card h-100 border-0 shadow-lg" style="border-radius: 20px; transition: all 0.4s ease; overflow: hidden; background: #fff; cursor: pointer;" 
+             onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';">
+          
+          <div style="position: relative; height: 500px; overflow: hidden;">
+            <img src="${career.imagePath}" alt="${career.title}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);"></div>
+            
+            <span style="position: absolute; top: 15px; right: 15px; background: #28a745; color: white; padding: 5px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
+              Cupos Disponibles
+            </span>
+          </div>
+
+          <div class="card-body p-4 d-flex flex-column justify-content-between">
+            <div>
+              <h4 class="font-weight-bold mb-2" style="color: #2c3e50; font-size: 1.25rem; line-height: 1.2;">
+                ${career.title}
+              </h4>
+              <p class="text-muted mb-4" style="font-size: 0.9rem;">
+                Explora tu futuro profesional y conviértete en un experto en esta área de alta demanda.
+              </p>
+            </div>
+
+            <button class="btn btn-block py-2" 
+                    style="background: linear-gradient(90deg, #28a745, #20c997); color: white; border-radius: 12px; font-weight: bold; border: none; transition: 0.3s;"
+                    data-toggle="modal" data-target="#${career.id}Modal">
+              Más Información <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
         </div>
       </div>
     `;
-
-    // Generar el modal de la carrera
-    const profileList = career.profile
-      .map((item) => `<li>${item}</li>`)
-      .join("");
-    const careerPathList = career.careerPath
-      .map((item) => `<li>${item}</li>`)
-      .join("");
+    const profileList = career.profile.map((item) => `<li><i class="fas fa-check-circle text-success mr-2"></i>${item}</li>`).join("");
+    const careerPathList = career.careerPath.map((item) => `<li><i class="fas fa-arrow-right text-primary mr-2"></i>${item}</li>`).join("");
+    const perfilEgresado = career.perfilEgresado || "El profesional estará capacitado para liderar procesos de salud animal, bienestar y salud pública con excelencia técnica.";
 
     modalsHTML += `
-      <div
-        class="modal fade"
-        id="${career.id}Modal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="${career.id}ModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-xl" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="${career.id}ModalLabel">
-                ${career.title}
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
+      <div class="modal fade" id="${career.id}Modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+          <div class="modal-content modal-glass-uniform" style="background-image: url('${career.imagePath}'); border-radius: 20px; overflow: hidden; border: none;">
+            
+            <style>
+              .modal-glass-uniform { position: relative; background-size: cover; background-position: center; }
+              .modal-glass-uniform::before {
+                content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); z-index: 0;
+              }
+              .content-wrapper-vete { position: relative; z-index: 1; }
+              .glass-section-vete {
+                background: rgba(255, 255, 255, 0.6); border-radius: 15px; padding: 20px;
+                margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.2);
+              }
+              .vete-label {
+                background: linear-gradient(90deg, #28a745, #20c997);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                font-weight: bold; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 10px;
+              }
+            </style>
 
-            <h4><i class="fas fa-file-alt"></i> Resolución</h4>
-            <strong><p>${career.resolucion}</p></strong>
-              <h4><i class="fas fa-file-alt"></i> Descripción de la Carrera</h4>
-              <p style="text-align: justify;">${career.description}</p>
+            <div class="modal-body content-wrapper-vete p-5">
+              <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 25px; top: 20px; font-size: 30px;">&times;</button>
 
-              <h4><i class="fas fa-user"></i> Perfil Profesional</h4>
-              <ul style="text-align: justify;">${profileList}</ul>
+              <div class="text-center mb-5">
+                <h1 class="display-4 font-weight-bold text-dark">${career.title}</h1>
+                <div style="width: 60px; height: 4px; background: #28a745; margin: 10px auto; border-radius: 10px;"></div>
+              </div>
 
-              <h4><i class="fas fa-briefcase"></i> Campo Laboral</h4>
-              <p style="text-align: justify;">Los  ${career.title} pueden desempeñarse en:</p>
-              <ul style="text-align: justify;">${careerPathList}</ul>
+              <div class="glass-section-vete text-center">
+                <span class="vete-label">Resolución Oficial</span>
+                <h5 class="mb-0 mt-2 font-weight-bold text-secondary">${career.resolucion}</h5>
+              </div>
 
-              <h4><i class="fas fa-clock"></i> Duración de la Carrera</h4>
-              <p style="text-align: justify;">
-                La carrera tiene una duración de <strong>${career.duration}</strong>, incluyendo prácticas preprofesionales supervisadas.
-              </p>
+              <div class="glass-section-vete">
+                <span class="vete-label"><i class="fas fa-info-circle mr-2"></i>Sobre la Carrera</span>
+                <p class="lead mt-3 text-justify text-dark" style="font-size: 1.05rem;">${career.description}</p>
+              </div>
 
-              <h4><i class="fas fa-laptop-code"></i> Modalidad</h4>
-              <p>
-                <strong>${career.modality}</strong>
-              </p>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <div class="glass-section-vete h-100">
+                    <span class="vete-label"><i class="fas fa-user-md mr-2"></i>Perfil Profesional</span>
+                    <ul class="list-unstyled mt-3 text-dark" style="line-height: 1.8;">${profileList}</ul>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="glass-section-vete h-100">
+                    <span class="vete-label"><i class="fas fa-graduation-cap mr-2"></i>Perfil de Egreso</span>
+                    <p class="mt-3 text-dark text-justify">${perfilEgresado}</p>
+                  </div>
+                </div>
+              </div>
 
-              <hr />
-              <h4><i class="fas fa-list-ol"></i> Malla Curricular</h4>
-              <p style="text-align: justify;">
-                Consulta el plan de estudios detallado para esta carrera. Aquí podrás ver la distribución de asignaturas por semestre, créditos y requisitos.
-              </p>
-              <div class="text-center">
-                <a
-                  href="${career.curriculumLink}"
-                  target="_blank"
-                  class="btn btn-info py-2 px-4"
-                >
-                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <div class="glass-section-vete h-100 text-center">
+                    <span class="vete-label text-center">Campo Laboral</span>
+                    <ul class="list-unstyled mt-3 text-left small text-dark">${careerPathList}</ul>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center">
+                    <span class="vete-label">Duración</span>
+                    <h3 class="font-weight-bold mt-2 text-dark">${career.duration}</h3>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center">
+                    <span class="vete-label font-weight-bold">Modalidad</span>
+                    <h3 class="font-weight-bold mt-2 text-success">${career.modality}</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass-section-vete text-center py-4" style="background: rgba(40, 167, 69, 0.08);">
+                <h5 class="font-weight-bold mb-3 text-dark">Plan Académico</h5>
+                <a href="${career.curriculumLink}" target="_blank" class="btn btn-success btn-lg px-5 shadow-sm" style="border-radius: 50px;">
+                  <i class="fas fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
                 </a>
               </div>
 
-              <hr />
-              <p class="text-muted text-center">
-                Para más detalles sobre requisitos de admisión o si tienes alguna pregunta adicional, por favor contacta a la secretaría académica.
-              </p>
+              <div class="mt-4 text-center">
+                <p class="text-muted mb-1">¿Deseas matricularte?</p>
+                <div class="d-flex justify-content-center align-items-center flex-wrap">
+                  <a href="#" class="mx-3 text-dark font-weight-bold" style="text-decoration: none;"><i class="fab fa-whatsapp text-success mr-1"></i> WhatsApp Admisiones</a>
+                  <a href="#" class="mx-3 text-dark font-weight-bold" style="text-decoration: none;"><i class="fas fa-envelope text-danger mr-1"></i> Correo Electrónico</a>
+                </div>
+              </div>
+
             </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Cerrar
-              </button>
+            
+            <div class="modal-footer border-0">
+              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar Ventana</button>
             </div>
           </div>
         </div>

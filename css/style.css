@@ -7211,9 +7211,7 @@ button.bg-dark:focus {
   background-color: #1d2124 !important;
 }
 
-.bg-white {
-  background-color: #fff !important;
-}
+
 
 .bg-transparent {
   background-color: transparent !important;
@@ -12246,7 +12244,7 @@ a.text-dark:focus {
 
 /* Estilo para el modal */
 .modal-dialog {
-  max-width: 500px;
+  max-width: 1500px;
 }
 
 .modal-header .close {
@@ -14565,6 +14563,7 @@ iframe::-webkit-scrollbar {
         
 /*---------------------------NORMATIVA -----------------------------*/
  
+    
         .normativa-card-premium {
             background: #ffffff;
             border-radius: 20px;
@@ -14606,5 +14605,440 @@ iframe::-webkit-scrollbar {
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
             background: white;
         }
+          /* Este margen evita que el menú tape tu título */
+      .espaciado-menu {
+        padding-top: 100px; /* Ajusta este valor (80px, 120px) según el alto de tu menú */
+        padding-bottom: 50px;
+      }
+      
+      /* Estilo para los párrafos */
+      .mensaje-texto p {
+        text-align: justify;
+      }
+      /******************************** OFERTA ACADEMICA ****************************/
+
+      .main-title {
+        font-weight: 800;
+        font-size: 3rem;
+        color: #1a2a3a;
+        margin-top: 15px;
+      }
+
+      .school-badge {
+        display: inline-block;
+        background: linear-gradient(90deg, #28a745, #20c997);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 15px;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+        margin-bottom: 40px;
+      }
+
+      /* Decoración de fondo: Círculo Tomate solicitado */
+      .bg-circles {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        opacity: 0.15;
+      }
+       #administrationAndIndustryCards {
+        margin-top: 20px;
+      }
+      #veterinarySchoolCards {
+        margin-top: 20px;
+      }
+        #constructionAndExtractionCards {
+        margin-top: 20px;
+      }
 
 
+
+
+
+
+
+
+
+      /*-------------------------AUTORIDADES -------------------------*/
+      
+              :root { --blue-dark: #004481; --line-color: #004481; --yellow-accent: #ffc107; }
+        body { background-color: #f8f9fa; font-family: 'Nunito', sans-serif; color: #444; }
+        
+        /* Estilos para la sección de texto superior */
+        .intro-section { padding: 80px 20px 20px; max-width: 1000px; margin: 0 auto; }
+        .section-title { 
+            display: inline-block; 
+            color: var(--blue-dark); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-weight: 700; 
+            border-left: 4px solid var(--yellow-accent); 
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        .main-heading { color: var(--blue-dark); font-size: 2.5rem; margin-bottom: 30px; }
+        .lead-text { font-size: 1.1rem; line-height: 1.8; text-align: justify; margin-bottom: 1.5rem; }
+
+        /* Estilos del Organigrama */
+        .organigrama-scroll { padding: 40px 20px 80px; overflow-x: auto; }
+        
+        /* ESTILOS DE LA TARJETA CON EFECTO ZOOM COMPLETO */
+        .auth-card {
+            background: white; 
+            border-radius: 12px; 
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            display: inline-block;
+            width: 180px; 
+            border-top: 4px solid var(--blue-dark);
+            margin: 8px; 
+            position: relative; 
+            z-index: 5;
+            content-visibility: auto; 
+            contain-intrinsic-size: 180px 200px;
+            
+            /* Transición suave para todos los efectos */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s;
+            will-change: transform, box-shadow; /* Optimización */
+        }
+
+        /* EFECTO HOVER EN TODA LA TARJETA */
+        .auth-card:hover {
+            transform: scale(1.08) translateY(-5px); /* Zoom suave y elevación */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra más profunda */
+            z-index: 10; /* Se superpone a las líneas y otras tarjetas */
+        }
+
+        .auth-img-container {
+            width: 65px; height: 65px; margin: 0 auto 8px;
+            border-radius: 8px; overflow: hidden; border: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        
+        /* Efecto zoom interno opcional en la foto (mantenido para dinamismo) */
+        .auth-img-container img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.3s ease; 
+        }
+        .auth-card:hover .auth-img-container img {
+            transform: scale(1.1); /* Zoom ligero interno en la foto */
+        }
+
+        .auth-name { font-weight: 800; font-size: 0.75rem; color: #333; margin: 0; line-height: 1.2; min-height: 30px; display: flex; align-items: center; justify-content: center; }
+        .auth-pos { font-size: 0.6rem; color: var(--blue-dark); font-weight: 700; text-transform: uppercase; display: block; margin-top: 3px; border-top: 1px solid #eee; padding-top: 4px; }
+        .auth-email { font-size: 0.55rem; color: #666; text-decoration: none; display: block; margin-top: 5px; word-break: break-all; }
+        .auth-email:hover { color: var(--blue-dark); text-decoration: underline; }
+
+        /* Conectores del Árbol */
+        .tree ul { padding-top: 5px; position: relative; display: flex; justify-content: center; padding-left: 0; }
+        .tree li { text-align: center; list-style-type: none; position: relative; padding: 15px 0px 0 0px; }
+        .tree li::before, .tree li::after {
+            content: ''; position: absolute; top: 0; right: 50%;
+            border-top: 2px solid var(--line-color); width: 50%; height: 20px;
+        }
+        .tree li::after { right: auto; left: 50%; border-left: 2px solid var(--line-color); }
+        .tree li:only-child::after, .tree li:only-child::before { display: none; }
+        .tree li:only-child { padding-top: 0; }
+        .tree li:first-child::before, .tree li:last-child::after { border: 0 none; }
+        .tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; border-left: 2px solid var(--line-color); width: 0; height: 20px; }
+
+        .vertical-stack { display: flex; flex-direction: column; align-items: center; padding-top: 10px !important; }
+        .vertical-stack li { padding: 10px 0 0 0 !important; width: 100%; }
+        .vertical-stack li::before, .vertical-stack li::after { display: none !important; }
+        .vertical-stack::before {
+            content: ''; position: absolute; top: 0; left: 50%;
+            border-left: 2px solid var(--line-color); height: 100%; width: 0;
+        }
+
+        /* MODO RESPONSIVO */
+        @media (max-width: 768px) {
+            .main-heading { font-size: 1.8rem; }
+            .tree ul { flex-direction: column; align-items: center; }
+            .tree li::after, .tree li::before, .tree ul ul::before, .vertical-stack::before { display: none !important; }
+            .tree li { padding: 10px 0; }
+            .auth-card { width: 90%; max-width: 280px; }
+            /* Desactivar zoom en móvil para evitar saltos de pantalla */
+            .auth-card:hover { transform: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        }
+      .investigacion-shell {
+        max-width: none !important;
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+      }
+
+      @media (max-width: 991.98px) {
+        .investigacion-shell {
+          padding-left: 5% !important;
+          padding-right: 5% !important;
+        }
+      }
+
+/*----------------------------- BIENESTAR UNIVERSITARIO -----------------------------*/
+
+.bienestar-flecha-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    
+}
+
+.bienestar-flecha-sublimada {
+    width: 85%; /* Ancho de la flecha */
+    max-width: 900px;
+    height: 150px; /* Grosor vertical */
+    
+    /* EFECTO SUBLIMADO: Celeste arriba que se vuelve blanco abajo */
+    background: linear-gradient(to bottom, 
+        #70b3e5 0%,    /* Celeste intenso arriba */
+        #a7d4f3 50%,   /* Celeste claro al medio */
+        #ffffff 100%   /* Blanco total al final */
+    );
+
+    /* FORMA DE LA FLECHA (Igual a tu imagen) */
+    clip-path: polygon(
+        0% 0%,       /* Esquina superior izquierda */
+        50% 45%,     /* Hendidura central superior */
+        100% 0%,     /* Esquina superior derecha */
+        100% 55%,    /* Lateral derecho */
+        50% 100%,    /* Punta inferior central */
+        0% 55%       /* Lateral izquierdo */
+    );
+
+    /* Sombra suave para dar profundidad */
+    filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.1));
+}
+
+/* Ajuste opcional para el título */
+.bienestar-titulo-principal h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+/* --- Título con forma de flecha azul --- */
+.titulo-flecha-derecha {
+    background-color: #4A90E2;
+    color: white;
+    padding: 15px 60px 15px 30px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: relative;
+    /* Crea la punta de la flecha a la derecha */
+    clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+    display: inline-block;
+}
+
+/* --- Cajas de texto con bordes redondeados y gruesos --- */
+.caja-texto-borde {
+    border: 4px solid;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    font-size: 0.95rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* --- EL EFECTO DE REFLEJO (Mirror effect) --- */
+.contenedor-reflejo {
+    position: relative;
+    display: inline-block;
+}
+
+.img-fluida-reflejo {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 30px; /* Bordes redondeados como en la foto */
+    
+    /* Esta es la propiedad clave para el reflejo */
+    -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, rgba(255, 255, 255, 0.3));
+}
+
+/* Fallback para navegadores que no soportan box-reflect (opcional) */
+@supports not (-webkit-box-reflect: below) {
+    .contenedor-reflejo::after {
+        content: "";
+        position: absolute;
+        top: 100%; left: 0; width: 100%; height: 40%;
+        background: inherit;
+        transform: scaleY(-1);
+        opacity: 0.3;
+        mask-image: linear-gradient(to top, white, transparent);
+    }
+}
+/* Botones con estilo moderno y reflejo */
+.btn-bienestar-action {
+    background-color: #004481;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 68, 129, 0.2);
+}
+
+.btn-bienestar-action:hover {
+    background-color: white;
+    color: #004481;
+    border-color: #004481;
+    transform: translateY(-3px);
+}
+
+/* Círculos del Proceso */
+.paso-circulo {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.paso-circulo:hover {
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* Tabla Moderna */
+.table-container-modern {
+    border-top: 5px solid #ffc107; /* Línea amarilla superior */
+}
+
+.table-primary {
+    background-color: #004481 !important;
+}
+
+/* Flip Cards mejoras */
+.flip-card-back {
+    background-color: white !important;
+    border: 2px solid #eee;
+    color: #333 !important;
+    border-radius: 15px;
+}
+
+.flip-card-front {
+    border-radius: 15px;
+}
+/* Estilos para los pilares biopsicosociales */
+.biopsico-pilar-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.biopsico-icono-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+
+.pilar-icon {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.cajita-informativa {
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+
+
+/* Burbujas Circulares */
+.burbuja-info {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: white;
+    border: 8px solid;
+    margin: 10px;
+    display: flex;
+    transition: transform 0.3s ease;
+}
+.b-naranja { border-color: #f39c12; }
+.b-amarillo { border-color: #f1c40f; }
+.b-azul { border-color: #2980b9; }
+.b-verde { border-color: #27ae60; }
+
+/* Números con forma de Flecha Mejorados */
+.paso-flecha-numero {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.8rem;
+    background-color: white;
+    border: 4px solid;
+    position: relative;
+    border-radius: 8px 0 0 8px;
+    /* Esto ayuda a que el contenedor de la flecha reserve su espacio */
+    margin-right: 50px; 
+    flex-shrink: 0; /* Evita que la flecha se aplaste si el texto es largo */
+}
+
+.paso-flecha-numero::after {
+    content: '';
+    position: absolute;
+    right: -34px; 
+    top: -4px; 
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid; 
+    border-left-color: inherit; 
+}
+/* Efecto al pasar el mouse sobre toda la fila */
+.item-proceso:hover .paso-flecha-numero {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.item-proceso h4 {
+    transition: all 0.3s ease;
+}
+
+.item-proceso:hover h4 {
+    transform: translateX(10px);
+}
+/* Efecto para las tarjetas pequeñas de clubes */
+.club-mini-card {
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.club-mini-card:hover {
+    transform: translateX(10px);
+    border-color: #3498db !important;
+}
+
+/* Título flecha para que sea responsive */
+@media (max-width: 768px) {
+    .titulo-flecha-derecha {
+        font-size: 1rem;
+        clip-path: none !important;
+        border-radius: 10px;
+    }
+}
