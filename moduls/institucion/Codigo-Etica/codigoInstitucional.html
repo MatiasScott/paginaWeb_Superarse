@@ -4,60 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Código de Ética | IST Superarse</title>
-
-    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <link href="/css/style.css" rel="stylesheet" />
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease; }
+    </style>
+     <script src="/js/common/page-head.js"></script>
+     
 </head>
-<body>
+<body class="bg-light">
     <div class="container-fluid bg-light position-relative shadow"></div>
 
     <div class="container-fluid py-5 container-top">
         <div class="container">
-            <div class="row mb-5">
-                <div class="col-12">
-                    <p class="section-title pr-5"><span class="pr-2">Acciones Preventivas y Correctivas</span></p>
-                    <div class="video-wrapper">
+            <div class="text-center mb-5">
+        <p class="section-title px-5"><span class="px-2">Nuestra Esencia</span></p>
+        <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/332fLkCX0-I" title="Video Institucional" allowfullscreen></iframe>
                     </div>
+       
+    </div>
+
+
+            <div class="row"> 
+    
+    <div class="col-lg-5 mb-4">
+        <div class="card-main p-4 shadow-sm" style="border-radius: 15px; background: #fff;"> 
+            <div class="icon-circle mb-3"><i class="fas fa-gavel"></i></div> 
+            
+            <p class="section-title pr-5">
+                <span class="pr-2">Nuestras Normativas</span>
+            </p>
+            <h1 class="mb-4 titulo-institucional h2">Código de Ética</h1>
+
+            <div class="mensaje-texto text-muted lh-lg" style="text-align: justify;">
+                <p>El Código Institucional del Instituto Superior Tecnológico Superarse es un compendio de principios y normas que regulan el comportamiento ético de nuestra comunidad académica.</p>
+                <p>Este documento es fundamental para fomentar un ambiente de respeto, integridad y responsabilidad, asegurando que todas nuestras actividades se enmarquen dentro de los más altos estándares morales.</p>
+                <p>Le invitamos a familiarizarse con este código, ya que su aplicación es esencial para el buen funcionamiento y la reputación de nuestra institución.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-7 mb-4">
+        <div class="codigo-card p-4 shadow-sm" style="border-radius: 15px; background: #fff; height: 100%;"> 
+            <h3 class="mb-4 text-center titulo-institucional" style="font-size: 1.5rem;">Documento Normativo</h3>
+            
+            <div id="pdf-container" style="min-height: 650px; background: #f8f9fa; border-radius: 8px;">
+                <div class="d-flex align-items-center justify-content-center w-100" style="height: 400px;">
+                    <div class="spinner-border text-primary" role="status"></div>
                 </div>
             </div>
 
-            <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <p class="section-title pr-5"><span class="pr-2">Nuestras Normativas</span></p>
-                    <h1 class="mb-4 titulo-institucional">Código de Ética</h1>
-
-                    <div class="texto-justificado">
-                        <p>El Código Institucional del Instituto Superior Tecnológico Superarse es un compendio de principios y normas que regulan el comportamiento ético de nuestra comunidad académica.</p>
-                        <p>Este documento es fundamental para fomentar un ambiente de respeto, integridad y responsabilidad, asegurando que todas nuestras actividades se enmarquen dentro de los más altos estándares morales.</p>
-                        <p>Le invitamos a familiarizarse con este código, ya que su aplicación es esencial para el buen funcionamiento y la reputación de nuestra institución.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-7">
-                    <div class="codigo-card">
-                        <h3 class="mb-4 text-center titulo-institucional" style="font-size: 1.5rem;">Documento Normativo</h3>
-                        
-                        <div id="pdf-container">
-                            <div class="d-flex align-items-center justify-content-center w-100">
-                                <div class="spinner-border text-primary" role="status"></div>
-                            </div>
-                        </div>
-
-                        <div class="pdf-controls">
-                            <button id="prev-page" class="btn-pdf"><i class="fas fa-chevron-left"></i></button>
-                            <span id="page-num">Cargando...</span>
-                            <button id="next-page" class="btn-pdf"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                </div>
+            <div class="pdf-controls mt-3 d-flex justify-content-center align-items-center">
+                <button id="prev-page" class="btn-pdf mr-3"><i class="fas fa-chevron-left"></i></button>
+                <span id="page-num" class="font-weight-bold">Cargando...</span>
+                <button id="next-page" class="btn-pdf ml-3"><i class="fas fa-chevron-right"></i></button>
             </div>
+        </div>
+    </div>
+
+</div>
         </div>
     </div>
 
@@ -69,7 +73,7 @@
     </div>
 
     <div class="footer-container"></div>
-
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>

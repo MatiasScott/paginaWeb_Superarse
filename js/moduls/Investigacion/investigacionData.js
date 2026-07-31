@@ -7,35 +7,48 @@ const investigacionData = [
     content: `
       <div class="row align-items-start g-4">
         <div class="col-12 col-lg-7">
-          <h4>La Dirección de Investigación, Desarrollo e Innovación (I+D+i)</h4>
-          <p>
+          <h4 class="fw-bold mb-4" style="color: #003366;">La Dirección de Investigación, Desarrollo e Innovación (I+D+i)</h4>
+          <p class="text-justify">
             La Dirección de Investigación, Desarrollo e Innovación del Tecnológico Superarse está conformada por un equipo multidisciplinario de docentes e investigadores comprometidos con la generación de conocimiento relevante y la búsqueda de soluciones innovadoras para los desafíos actuales.
           </p>
-          <p>
+          <p class="text-justify">
             Nuestra misión es fomentar la investigación aplicada, el desarrollo tecnológico y la innovación, promoviendo la participación activa de estudiantes y fortaleciendo las capacidades investigativas de la institución.
           </p>
         </div>
-        <div class="col-12 col-lg-5 d-flex justify-content-center">
-          <div class="card-container bienestar-equipo-card w-100">
-            <div class="bienestar-equipo-imagen">
-              <img src="/assets/img/Investigacion/07 - CONTACTO RELACIONES INSTITUCIONALES-02.png" alt="Director de Investigación Desarrollo e Innovación" class="img-fluid" />
+
+        <div class="col-lg-5 d-flex justify-content-center">
+          <div class="card-container bienestar-equipo-card d-flex flex-column align-items-center p-4">
+            
+            <div class="bienestar-equipo-imagen mb-6 text-center">
+              <img src="/assets/img/Investigacion/07 - CONTACTO RELACIONES INSTITUCIONALES-02.png" 
+                   alt="Director de Investigación Desarrollo e Innovación" 
+                   class="img-fluid img-reflect-center" />
             </div>
-            <div class="bienestar-contacto-panel">
-              <h5 class="mb-3">Contacto</h5>
-              <p class="mb-2">
-                <i class="fas fa-envelope text-primary mr-2"></i>
-                <a href="mailto:josue.tello@superarse.edu.ec" style="color: inherit; text-decoration: none;">josue.tello@superarse.edu.ec</a>
-              </p>
-              <a href="https://wa.me/593998836452?text=Hola,%20me%20gustaría%20más%20información%20sobre%20Investigación" class="d-flex align-items-center mb-0" style="color: inherit; text-decoration: none;">
-                <i class="fas fa-mobile-alt text-primary mr-2"></i>
-                <span>0998836452</span>
-              </a>
+
+            <div class="bienestar-contacto-panel w-100 text-center mb-3" style="max-width: 500px;">
+              <h5 class="fw-bold mb-3 text-primary text-uppercase">Contacto</h5>
+              <div class="contact-info-list text-start d-inline-block">
+                <p class="mb-2">
+                  <i class="fas fa-envelope text-primary me-2"></i>
+                  josue.tello@superarse.edu.ec
+                </p>
+                <p class="mb-2">
+                  <i class="fas fa-clock text-primary me-2"></i>
+                  Lunes a viernes de 08:00 a 17:00
+                </p>
+              </div>
             </div>
-            <p class="text-center mb-0">Director de Investigación Desarrollo e Innovación</p>
+
+            <p class="text-center fw-bold text-muted">Director de Investigación Desarrollo e Innovación</p>
+            
+            <a href="https://wa.me/593998836452?text=Hola,%20me%20gustaría%20más%20información%20sobre%20Investigación" 
+               class="btn btn-success mb-2" 
+               target="_blank">
+              <i class="fab fa-whatsapp me-2"></i>Chatear por WhatsApp
+            </a>
           </div>
         </div>
       </div>
-     
     `,
   },
   {
@@ -269,7 +282,7 @@ const investigacionData = [
     title: "Congreso AgroVet 2026",
     content: `
     <div>
-      <img src="https://agrovet.superarse.ec/img/icons/IconoSostenibilidad.png" alt="Congreso AgroVet 2026" style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 15px;">
+       <img src="/assets/img/Investigacion/Agrovet.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
     </div>
       <h4>Primer Congreso de Producción AgroPecuaria Sostenible y Bienestar Animal</h4>
       <p>

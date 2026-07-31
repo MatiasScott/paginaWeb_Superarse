@@ -4,23 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Organigrama Institucional | Instituto Superarse</title>
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease; }
+    </style>
     <script src="/js/common/page-head.js"></script>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-   
   </head>
 
   <body class="bg-light">
    <div class="container-fluid bg-light position-relative shadow"></div>
 
-    <div class="container-fluid espaciado-menu">
+    <div class="container-fluid py-5 container-top">
       <div class="container">
         <div class="text-center mb-5">
-          <span class="text-uppercase fw-bold text-primary" style="letter-spacing: 3px; font-size: 0.9rem;">Estructura Interna</span>
-          <h1 class="display-4 fw-bold mt-2">Nuestro Organigrama Institucional</h1>
-          <div class="section-title-line"></div>
-        </div>
+        <p class="section-title px-5"><span class="px-2">ESTRUCTURA INTERNA</span></p>
+        <h1 class="display-4 fw-bold mt-2">Nuestro Organigrama Institucional</h1>
+       
+    </div>
 
         <div class="row justify-content-center">
           <div class="col-lg-11 mb-5">
@@ -50,7 +50,7 @@
             </div>
           </div>
 
-          <div class="col-lg-12 text-center">
+          <div class="col-lg-10 text-center">
             <div class="organigrama-photo-wrapper shadow-sm">
               <iframe 
                 src="/assets/docs/institucion/organigrama/Organigrama_Superarse.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" 
@@ -71,6 +71,18 @@
 
     <div class="footer-container"></div>
 
-    <script src="/js/common/page-scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="/js/moduls/header.js"></script>
+    <script src="/js/moduls/footer.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/moduls/Institucion/mensajeRectora.js"></script>
   </body>
 </html>

@@ -49,20 +49,20 @@
                 <strong><select class="mx-1 border-b focus:outline-none appearance-none">
                     <option value="">Seleccione</option>
                     <option value="ADMINISTRACIÓN">ADMINISTRACIÓN</option>
-                <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
-                <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
-                <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
-                <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
-                <option value="MINERÍA">MINERÍA</option>
-                <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
-                <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
-                <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
-                <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">TÉCNICO SUPERIOR EN MARKETING DIGITAL</option>
-                <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
-                <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR </option>
-                <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
+                    <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
+                    <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
+                    <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
+                    <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
+                    <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
+                     <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">MARKETING DIGITAL Y DISEÑO MULTIMEDIA</option>
+                    <option value="MINERÍA">MINERÍA</option>
+                    <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
+                    <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
+                    <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
+                    <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR</option>
+                    <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
                 </select></strong>,
-                para el periodo académico Noviembre 2025 - Abril 2026.
+                para el periodo académico <strong> Mayo - Octubre 2026.</strong> 
             </div>
 
             <p class="mt-4">Por la atención brindada, anticipo mis agradecimientos.</p>
@@ -136,7 +136,7 @@
         Descargar Solicitud de Reingreso
     </button>
 
-      <script src="js/SR.js?=v2"></script>
+      <script src="js/SR.js?=v1.1"></script>
    
 </body>
 </html>

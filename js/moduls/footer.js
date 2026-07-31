@@ -1,7 +1,7 @@
 var footerData = {
     // Enlace flotante de WhatsApp
     whatsapp: {
-        enlace: "https://wa.me/593995901732?text=Hola%2C%20necesito%20información%20sobre%20sus%20carreras.",
+        enlace: "https://wa.me/593995901732?text=Hola%2C%20quisiera%20más%20información%20sobre%20sus%20carreras.",
         imagenSrc: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
         alt: "WhatsApp"
     },
@@ -26,17 +26,16 @@ var footerData = {
         titulo: "Póngase en contacto",
         elementos: [
             { icono: "fa fa-map-marker-alt", titulo: "Dirección", "texto": "<a href=\"https://www.google.com/maps/search/?api=1&query=Av.+General+Rumiñahui+e+Isla+Pinta+1111,+Sangolqui\" target=\"_blank\" style=\"color: white;\">Av. General Rumiñahui e Isla Pinta 1111, Sangolqui</a>"},
-            { icono: "fa fa-envelope", titulo: "Email", texto: "<a href=\"mailto:matriculas@superarse.edu.ec\" style=\"color: white;\">matriculas@superarse.edu.ec</a>" },
-            { icono: "fa fa-phone-alt", titulo: "Teléfono", texto: "<a href=\"https://wa.me/593939330980\" target=\"_blank\" style=\"color: white;\">(02) 393-0980</a>" }
+            { icono: "fa fa-envelope", titulo: "Email", texto: "matriculas@superarse.edu.ec" },
+       
         ]
     },
     // Contenido de la tercera columna (Enlaces rápidos)
     enlacesRapidos: {
-        titulo: "Enlaces rápidos",
+        titulo: "Enlaces rápidos estudiantes",
         items: [
-            { texto: "SGPRO", enlace: "https://sgpro.superarse.ec/" },
-            { texto: "Superarse Conectados", enlace: "https://superarse.ec/" },
-            { texto: "Because he is Nice", enlace: "https://becasuperarse.ec/" },
+            { texto: "SUPERARSE CONECTADOS ", enlace: "https://superarse.ec/" },
+            { texto: "BECAUSE HE IS NICE ", enlace: "https://becasuperarse.ec/" },
             { texto: "II CTM 2025", enlace: "https://2ctm2025.superarse.ec/" },
              { texto: "CONGRESO AGROVET", enlace: "https://agrovet.superarse.ec/" },
              { texto: "CURSOS EDUCACIÓN CONTINUA E INGLÉS", enlace: "https://eci.superarse.ec/" },
@@ -44,17 +43,17 @@ var footerData = {
             
         ]
     },
-    // Contenido de la cuarta columna (Admisiones)
-    admisiones: {
-        titulo: "Admisiones",
-        formulario: {
-            placeholderNombre: "Nombres Completos",
-            placeholderEmail: " Correo Personal",
-             placeholderWhatsapp: "WhatsApp: 09********",
-            placeholderDescription:"Por favor, describe tu requerimiento y un asesor se pondrá en contacto contigo pronto para ayudarte.",
-            textoBoton: "ENVIAR"
-        }
+    
+    enlacesRapidos2:{
+        titulo:"Enlaces rápidos administrativos",
+        items:[
+                { texto: "SGPRO", enlace: "https://sgpro.superarse.ec/" },
+                { texto: "SIG", enlace: "https://sig.superarse.ec/" },
+                { texto: "CONECTADOS ADMINISTRATIVOS", enlace: "https://superarse.ec/admin/login"},
+                { texto: "ATLAS", enlace: "https://atlas.superarse.ec/"},
+            ]
     },
+ 
     // Texto del pie de página
     copyright: {
         texto: "&copy; <a class='text-primary font-weight-bold' href='#'>Superarse.edu.ec</a>. All Rights Reserved. Designed by <a class='text-primary font-weight-bold' href='https://superarse.edu.ec/'>Instituto Superarse</a>"

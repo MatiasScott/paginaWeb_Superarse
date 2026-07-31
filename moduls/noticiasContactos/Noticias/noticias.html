@@ -4,45 +4,30 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataformas - Noticias</title>
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease; }
+    </style>
+    <script src="/js/common/page-head.js"></script>
 
-    <title>Plataformas</title>
-    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
-    <!-- Favicon -->
-
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet" />
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-
-    <!-- Flaticon Font -->
-    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
-
-    <!-- Libraries Stylesheet -->
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="/css/noticias.css">
 </head>
 
-<body class="body-plataforma">
+<body class="body-plataforma bg-light">
 
     <div class="container-fluid bg-light position-relative shadow"></div>
 
     <div class="container-fluid py-5 container-top">
         <div class="container">
 
-            <h1 class="h1-plataforma text-center mb-4">
-                Noticias Instituto Superarse
-            </h1>
+            <div class="text-center pb-2">
+                <p class="section-title px-5">
+                    <span class="px-2">ÚLTIMAS</span>
+                </p>
+                <h1 class="mb-4">Noticias <br>Instituto Superarse </h1>
+            </div>
 
             <div class="noticias-buscador">
-                <input type="text" id="buscadorNoticias" placeholder="Buscar noticias...">
+                <input type="text" id="buscadorNoticias" placeholder="🔎 Buscar noticias por título o contenido...">
             </div>
 
             <div id="noticias-grid" class="noticias-grid"></div>
@@ -63,11 +48,156 @@
 
     <script src="/js/moduls/header.js"></script>
     <script src="/js/moduls/footer.js"></script>
-    <script src="/js/moduls/noticias/dataNoticias.js"></script>
+    
+    <script src="/js/moduls/noticias/dataNoticias.js?v=2"></script>
 
     <script src="/js/global.js"></script>
     <script src="/js/main.js"></script>
 
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    // 1. CONFIGURACIÓN DEL PAGINADOR
+    const noticiasPorPagina = 6; // Muestra 6 tarjetas por página
+    let paginaActual = 1;
+    let noticiasFiltradas = [];
+
+    const gridContainer = document.getElementById("noticias-grid");
+    const paginacionContainer = document.getElementById("paginacionNoticias");
+    const inputBuscador = document.getElementById("buscadorNoticias");
+
+    // 2. INICIALIZACIÓN Y ORDENAMIENTO DE DATOS
+    function inicializarNoticias() {
+        // Verificamos que tu array 'noticiasView' exista
+        const listaBase = typeof noticiasView !== "undefined" ? noticiasView : [];
+        
+        // Ordenamos las noticias por fecha: de la más reciente a la más antigua
+        noticiasFiltradas = [...listaBase].sort((a, b) => {
+            return new Date(b.fecha) - new Date(a.fecha);
+        });
+        
+        renderizarPagina(paginaActual);
+        crearControlesPaginacion();
+    }
+
+    // 3. RENDERIZAR LAS TARJETAS EN PANTALLA
+    function renderizarPagina(pagina) {
+        gridContainer.innerHTML = "";
+
+        if (noticiasFiltradas.length === 0) {
+            gridContainer.innerHTML = `
+                <div class="text-center w-100 py-5">
+                    <p class="text-muted lead">No se encontraron noticias con ese criterio de búsqueda.</p>
+                </div>`;
+            return;
+        }
+
+        // Segmentación matemática del array
+        const indiceInicial = (pagina - 1) * noticiasPorPagina;
+        const indiceFinal = indiceInicial + noticiasPorPagina;
+        const noticiasDePagina = noticiasFiltradas.slice(indiceInicial, indiceFinal);
+
+        // Mapeo adaptado exactamente a tus propiedades (imagen, titulo, resumen, enlace, fecha)
+        noticiasDePagina.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "noticia-card";
+            card.innerHTML = `
+                <div class="noticia-img-box">
+                    <img src="${item.imagen || '/assets/img/default-news.jpg'}" alt="${item.titulo}">
+                </div>
+                <div class="noticia-body">
+                    <span class="noticia-fecha">
+                        <i class="far fa-calendar-alt mr-1"></i> ${formatearFecha(item.fecha)}
+                    </span>
+                    <h3 class="noticia-titulo">${item.titulo}</h3>
+                    <p class="noticia-desc">${item.resumen || ''}</p>
+                    <a href="${item.enlace || '#'}" ${item.enlace !== '#' ? 'target="_blank"' : ''} class="btn btn-outline-success btn-sm mt-auto alignment-btn" style="border-radius: 10px; font-weight: bold; width: fit-content;">
+                        Leer más <i class="fas fa-arrow-right ml-1" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            `;
+            gridContainer.appendChild(card);
+        });
+    }
+
+    // 4. CREAR BOTONES DE LA PAGINACIÓN
+    function crearControlesPaginacion() {
+        paginacionContainer.innerHTML = "";
+        const totalPaginas = Math.ceil(noticiasFiltradas.length / noticiasPorPagina);
+
+        if (totalPaginas <= 1) return; // Ocultar si todo entra en una sola página
+
+        // Botón Anterior
+        const btnAnt = document.createElement("button");
+        btnAnt.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        btnAnt.disabled = paginaActual === 1;
+        btnAnt.addEventListener("click", () => {
+            paginaActual--;
+            actualizarVista();
+        });
+        paginacionContainer.appendChild(btnAnt);
+
+        // Botones de Páginas Numeradas
+        for (let i = 1; i <= totalPaginas; i++) {
+            const btnNum = document.createElement("button");
+            btnNum.innerText = i;
+            if (i === paginaActual) btnNum.className = "active";
+            
+            btnNum.addEventListener("click", () => {
+                paginaActual = i;
+                actualizarVista();
+            });
+            paginacionContainer.appendChild(btnNum);
+        }
+
+        // Botón Siguiente
+        const btnSig = document.createElement("button");
+        btnSig.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        btnSig.disabled = paginaActual === totalPaginas;
+        btnSig.addEventListener("click", () => {
+            paginaActual++;
+            actualizarVista();
+        });
+        paginacionContainer.appendChild(btnSig);
+    }
+
+    function actualizarVista() {
+        renderizarPagina(paginaActual);
+        crearControlesPaginacion();
+        // Desplazamiento suave para que el usuario no se quede abajo al cambiar de página
+        document.querySelector(".container-top").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // 5. FILTRADO EN TIEMPO REAL DESDE EL BUSCADOR
+    if (inputBuscador) {
+        inputBuscador.addEventListener("input", function (e) {
+            const textoBusqueda = e.target.value.toLowerCase().trim();
+            const listaBase = typeof noticiasView !== "undefined" ? noticiasView : [];
+
+            noticiasFiltradas = listaBase.filter(item => {
+                const tituloOk = item.titulo ? item.titulo.toLowerCase().includes(textoBusqueda) : false;
+                const resumenOk = item.resumen ? item.resumen.toLowerCase().includes(textoBusqueda) : false;
+                return tituloOk || resumenOk;
+            }).sort((a, b) => new Date(b.fecha) - new Date(a.fecha)); // Mantiene ordenadas las búsquedas
+
+            paginaActual = 1; // Reinicia a la página 1 en cada filtrado
+            renderizarPagina(paginaActual);
+            crearControlesPaginacion();
+        });
+    }
+
+    // Función auxiliar para que la fecha se lea más humana (Ej: 09 de junio de 2026)
+    function formatearFecha(fechaString) {
+        if(!fechaString) return "Reciente";
+        const partes = fechaString.split('-');
+        if(partes.length !== 3) return fechaString;
+        const meses = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+        return `${partes[2]} de ${meses[parseInt(partes[1]) - 1]} del ${partes[0]}`;
+    }
+
+    // Inicializar todo el componente
+    inicializarNoticias();
+});
+    </script>
 </body>
 
 </html>

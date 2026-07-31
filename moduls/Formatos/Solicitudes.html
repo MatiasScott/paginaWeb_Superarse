@@ -4,41 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Repositorio de Solicitudes</title>
-
-  <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
-
-  <!-- Librerías del proyecto -->
-  <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet">
-  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-  <!-- Estilos globales -->
-  <link href="/css/style.css" rel="stylesheet">
-
+  <style>
+        body { opacity: 0; transition: opacity 0.3s ease; }
+    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/js/common/page-head.js"></script>
+  
 </head>
 
-<body>
-
-<!-- CONTENEDOR HEADER (TU HEADER REAL) -->
-<div class="container-fluid bg-light position-relative shadow container-top"></div>
-
+<body class="servicios-unificado bg-light">
+    <div class="container-fluid bg-light position-relative shadow"></div>
 <!-- CONTENIDO PRINCIPAL -->
-<div class="container-fluid py-5">
+  <div class="container-fluid  container-top">
   <div class="container">
-    <h1 class="text-center mb-5">Solicitudes Estudiantiles</h1>
+     <div class="text-center pb-2">
+          <p class="section-title px-5">
+            <span class="px-2">FORMATOS</span>
+          </p>
+          <h3 class="mb-4">De <BR>Solicitudes Estudiantiles </h3>
+          <h3 class="alert alert-warning text-center py-2" style="font-size: 1.25rem;">
+        ⚠️ <strong>¡Atención!</strong> Subir firmado manualmente o digitalmente
+    </h3>
+        </div>
 
-    <div class="row">
-      <!-- FORMATO 1 -->
-    <div class="col-md-4 mb-4">
-  <div class="card card-custom h-100">
+    <div class="row justify-centent-center">
+        
+<!----------------------------------- FORMATO 1 ------------------------------->
+      
+      <div class="col-sm-10 col-md-6 col-lg-4 mb-4">
+  <div class="card card-custom h-100 mx-auto">
+    <img src="/assets/img/solicitud.jpg" class="card-img-top" alt="Contrato de inscripción y matrícula">
+    <div class="card-body text-center">
+      <h5 class="card-title">
+        <i class="fas fa-file-signature text-primary mr-2"></i>
+        Contrato de inscripción y matrícula
+      </h5>
+      <p class="card-text">
+        Documento oficial para formalizar el proceso de inscripción y matrícula en la institución.
+      </p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="/Formatos/Solicitudes/contrato_inscripcion.php" class="btn btn-primary" target="_blank">
+          <i class="fas fa-file-alt"></i> Generar Contrato
+        </a>
+        <a href="/Formatos/Solicitudes/subir.php?tipo=Contrato de Matricula" class="btn btn-success">
+          <i class="fas fa-upload"></i> Subir
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!------------------------------------ FORMATO 2 ------------------------------->
+
+    <div class="col-sm-10 col-md-6 col-lg-4 mb-4">
+  <div class="card card-custom h-100 mx-auto">
     <img src="/assets/img/solicitud.jpg" class="card-img-top" alt="Solicitud de Reingreso">
     <div class="card-body text-center">
       <h5 class="card-title">
@@ -48,23 +67,22 @@
       <p class="card-text">
         Permite solicitar el reingreso a la institución luego de un periodo de inactividad.
       </p>
-        <div class="d-flex justify-content-center gap-2">
-      <a href="/Formatos/Solicitudes/indexSR.php" class="btn btn-primary" target="_blank">
-        <i class="fas fa-file-alt"></i> Llenar Solicitud
-      </a>
-       <a href="/Formatos/Solicitudes/subir.php?tipo=solicitud_reingreso" class="btn btn-success">
-    <i class="fas fa-upload"></i> Subir
-  </a>
-  </div>
+      <div class="d-flex justify-content-center flex-wrap gap-2">
+        <a href="/Formatos/Solicitudes/indexSR.php" class="btn btn-primary" target="_blank">
+          <i class="fas fa-file-alt"></i> Llenar<br> Solicitud
+        </a>
+        <a href="/Formatos/Solicitudes/subir.php?tipo=Solicitud de Reingreso" class="btn btn-success">
+          <i class="fas fa-upload"></i> Subir
+        </a>
+      </div>
     </div>
   </div>
 </div>
 
-
-      <!-- FORMATO 2 -->
+<!----------------------------------- FORMATO 3 -------------------------------->
      
-<div class="col-md-4 mb-4">
-  <div class="card card-custom h-100">
+<div class="col-sm-10 col-md-6 col-lg-4 mb-4">
+  <div class="card card-custom h-100 mx-auto">
     <img src="/assets/img/solicitud.jpg" class="card-img-top" alt="Solicitud de Homologación">
     <div class="card-body text-center">
       <h5 class="card-title">
@@ -78,7 +96,7 @@
       <a href="/Formatos/Solicitudes/indexSH.php" class="btn btn-primary" target="_blank">
         <i class="fas fa-file-alt"></i> Llenar Solicitud
       </a>
-       <a href="/Formatos/Solicitudes/subir.php?tipo=Solicitud_Homologación" class="btn btn-success">
+       <a href="/Formatos/Solicitudes/subir.php?tipo=Solicitud de Homologación" class="btn btn-success">
     <i class="fas fa-upload"></i> Subir
   </a>
 </div>
@@ -86,9 +104,10 @@
   </div>
 </div>
 
-      <!-- FORMATO 3 -->
-       <div class="col-md-4 mb-4">
-  <div class="card card-custom h-100">
+<!------------------------------------ FORMATO 4 --------------------------------->
+
+       <div class="col-sm-10 col-md-6 col-lg-4 mb-4">
+  <div class="card card-custom h-100 mx-auto">
     <img src="/assets/img/solicitud.jpg" class="card-img-top" alt="Formato Inscripción">
     <div class="card-body text-center">
       <h5 class="card-title">
@@ -103,7 +122,7 @@
     <i class="fas fa-file-alt"></i> Llenar Solicitud
   </a>
 
-  <a href="/Formatos/Solicitudes/subir.php?tipo=cambio_malla" class="btn btn-success">
+  <a href="/Formatos/Solicitudes/subir.php?tipo=Cambio de Malla" class="btn btn-success">
     <i class="fas fa-upload"></i> Subir
   </a>
 </div>
@@ -113,9 +132,10 @@
 </div>
 
 
-      <!-- FORMATO 4 -->
-      <div class="col-md-4 mb-4">
-  <div class="card card-custom h-100">
+<!---------------------------- FORMATO 5 ----------------------------------------->
+
+      <div class="col-sm-10 col-md-6 col-lg-4 mb-4">
+  <div class="card card-custom h-100 mx-auto">
     <img src="/assets/img/solicitud.jpg" class="card-img-top" alt="Solicitud de Tercera Matrícula">
     <div class="card-body text-center">
       <h5 class="card-title">
@@ -129,16 +149,18 @@
       <a href="/Formatos/Solicitudes/indexSTM.php" class="btn btn-primary" target="_blank">
         <i class="fas fa-file-alt"></i> Llenar Solicitud
       </a>
-       <a href="/Formatos/Solicitudes/subir.php?tipo=Tercera_matricula" class="btn btn-success">
+       <a href="/Formatos/Solicitudes/subir.php?tipo=Tercera de Matricula" class="btn btn-success">
     <i class="fas fa-upload"></i> Subir
   </a>
 </div>
     </div>
   </div>
 </div>
-      <!-- FORMATO 5 -->
-      <div class="col-md-4 mb-4">
-  <div class="card card-custom h-100">
+
+<!------------------------------ FORMATO 6 ------------------------------------>
+      
+      <div class="col-sm-10 col-md-6 col-lg-4 mb-4">
+  <div class="card card-custom h-100 mx-auto">
     <img src="/assets/img/solicitud.jpg" class="card-img-top" alt="Solicitud cambio de carrera">
     <div class="card-body text-center">
       <h5 class="card-title">
@@ -152,7 +174,7 @@
       <a href="/Formatos/Solicitudes/indexSCC.php" class="btn btn-primary" target="_blank">
         <i class="fas fa-file-alt"></i> Llenar Solicitud
       </a>
-       <a href="/Formatos/Solicitudes/subir.php?tipo=cambio_carrera" class="btn btn-success">
+       <a href="/Formatos/Solicitudes/subir.php?tipo=Cambio de Carrera" class="btn btn-success">
     <i class="fas fa-upload"></i> Subir
   </a>
 </div>
@@ -160,10 +182,10 @@
   </div>
 </div>
 
+<!--------------------------------- FORMATO 7 --------------------------------->
 
-      <!-- FORMATO 6 -->
-     <div class="col-md-4 mb-4">
-  <div class="card card-custom h-100">
+     <div class="col-sm-10 col-md-6 col-lg-4 mb-4">
+  <div class="card card-custom h-100 mx-auto">
     <img src="/assets/img/solicitud.jpg" class="card-img-top" alt="Retiro Voluntario de Asignaturas">
     <div class="card-body text-center">
       <h5 class="card-title">
@@ -177,15 +199,13 @@
       <a href="/Formatos/Solicitudes/indexSRVA.php" class="btn btn-primary" target="_blank">
         <i class="fas fa-file-alt"></i> Llenar Solicitud
       </a>
-       <a href="/Formatos/Solicitudes/subir.php?tipo=retiro_voluntario" class="btn btn-success">
+       <a href="/Formatos/Solicitudes/subir.php?tipo=Retiro Voluntario" class="btn btn-success">
     <i class="fas fa-upload"></i> Subir
   </a>
 </div>
     </div>
   </div>
 </div>
-
-
     </div>
   </div>
 </div>

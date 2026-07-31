@@ -2,43 +2,43 @@
 
 const facilitiesData = [
   {
-    icono: "flaticon-032-book", // Símbolo de educación y conocimiento.
+    icono: "fi fi-rr-notebook", // Planificación (Libreta/Agenda)
     titulo: "Planificación Académica",
-    enlace: "/moduls/subMenu/Procesos-Academicos/procesosAcedemicos.html",
+    enlace: "../../Procesos-Academicos",
   },
   {
-    icono: "flaticon-036-boy", // Representa a la comunidad o a una persona.
+    icono: "fi fi-rr-users-alt", // Vinculación (Comunidad/Grupos)
     titulo: "Vinculación con la Sociedad",
-    enlace: "/moduls/subMenu/vinculacionSociedad/Vinculacion-con-la-sociedad/vinculacionSociedad.html",
+    enlace: "../../Vinculacion-con-la-Sociedad",
   },
   {
-    icono: "flaticon-019-pencil", // Simboliza el trabajo intelectual y la investigación.
+    icono: "fi fi-rr-microscope", // Investigación
     titulo: "Investigación",
-    enlace: "/moduls/subMenu/Investigacion/investigacion.html",
+    enlace: "../../Investigacion",
   },
   {
-    icono: "flaticon-047-backpack", // Representa un viaje o la preparación para el trabajo.
+    icono: "fi fi-rr-briefcase", // Prácticas (Maletín profesional)
     titulo: "Prácticas Preprofesionales",
-    enlace: "/moduls/subMenu/vinculacionSociedad/Practicas-Preprofesionales/practicasPreprofesionales.html",
+    enlace: "../../Practicas-Preprofesionales",
   },
   {
-    icono: "flaticon-014-blackboard", // Símbolo clásico del conocimiento.
+    icono: "fi fi-rr-graduation-cap", // Titulación
     titulo: "Titulación",
-    enlace: "/moduls/subMenu/Titulacion/titulacion.html",
+    enlace: "../../Titulacion",
   },
   {
-    icono: "flaticon-023-girl", // Representa una persona o un equipo.
+    icono: "fi fi-rr-user-gear", // Talento Humano (Gestión de personas)
     titulo: "Talento Humano",
-    enlace: "/moduls/subMenu/Talento-Humano/talentoHumano.html",
+    enlace: "../../Talento-Humano",
   },
   {
-    icono: "flaticon-028-kindergarten", // Simboliza el bienestar y la seguridad.
+    icono: "fi fi-rr-heart", // Bienestar
     titulo: "Bienestar Institucional",
-    enlace: "/moduls/subMenu/Bienestar-Institucional/bienestarInstitucional.html",
+    enlace: "../../Bienestar-Institucional",
   },
   {
-    icono: "flaticon-029-clock", // Puede simbolizar el tiempo o un proceso de evaluación.
+    icono: "fi fi-rr-chalkboard-user", // Evaluación (Profesor/Pizarra)
     titulo: "Evaluación Docente",
-    enlace: "/moduls/subMenu/Evaluacion-Docente/evaluacionDocente.html",
+    enlace: "../../Evaluacion-Docente",
   },
 ];

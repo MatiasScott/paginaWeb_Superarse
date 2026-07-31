@@ -1,9 +1,10 @@
 /* Base visual global para vistas internas de moduls/ */
 
 .container-fluid.py-5.container-top {
-  padding-top: 3rem !important;
+ /* padding-top: 3rem !important;/*/
   padding-bottom: 3rem !important;
 }
+
 
 
 .vista-head {
@@ -50,9 +51,7 @@
   font-weight: 700;
 }
 
-.container-top p {
-  color: #495057;
-}
+
 
 .container-top .row.align-items-center,
 .container-top .row.align-items-start {

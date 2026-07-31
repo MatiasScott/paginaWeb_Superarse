@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const animateNumbers = (element) => {
     const numberElement = element.querySelector('.number');
 
-    // ⚠️ Evitar que se ejecute más de una vez
     if (numberElement.classList.contains('animated')) return;
     numberElement.classList.add('animated');
 
@@ -23,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (percentage < 1) {
         requestAnimationFrame(animate);
       } else {
-        // ✅ Asegurar valor final exacto
         numberElement.textContent = finalValue;
       }
     };
@@ -36,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         animateNumbers(entry.target);
 
-        // 🔥 Dejar de observar para evitar re-ejecución
         obs.unobserve(entry.target);
       }
     });
@@ -47,5 +44,4 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.stat-item').forEach(item => {
     observer.observe(item);
   });
-
 });

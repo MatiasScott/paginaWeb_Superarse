@@ -23,7 +23,7 @@ $tipo = $_GET['tipo'] ?? 'Solicitud Académica';
         <div class="card-body">
           <h4 class="text-center mb-4">Subir <?= htmlspecialchars($tipo) ?></h4>
 
-          <form action="/enviar_solicitud.php" method="POST" enctype="multipart/form-data">
+          <form action="/procesar_solicitud.php" method="POST" enctype="multipart/form-data">
             
             <!-- Enviar el tipo de solicitud -->
             <input type="hidden" name="tipo" value="<?= htmlspecialchars($tipo) ?>">

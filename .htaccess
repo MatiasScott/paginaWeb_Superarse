@@ -1,13 +1,28 @@
 RewriteEngine On
 
+# =====================================================================
+# CONTROL DE CACHÉ: FUERZA LAS ACTUALIZACIONES INMEDIATAS (EVITA EL ?v=1)
+# =====================================================================
+<FilesMatch "\.(html|htm|js|css)$">
+    FileETag None
+    <IfModule mod_headers.c>
+        Header unset ETag
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+    </IfModule>
+</FilesMatch>
+# =====================================================================
+
 # Quitar index.html
-RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html(?:[\s?]|$) [NC]
-RewriteRule ^index\.html$ /%1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/index\.html
+RewriteRule ^index\.html$ / [R=301,L]
 
 # URL corta
 
 # INSTITUCION
 
+RewriteRule ^MisionVision/?$ moduls/institucion/MisionVision/index.html [L]
 RewriteRule ^MensajeRectora/?$ moduls/institucion/MensajeRectora/index.html [L]
 RewriteRule ^MisionVision/?$ moduls/institucion/MisionVision/index.html [L]
 RewriteRule ^Organigrama/?$ moduls/institucion/Organigrama/organigrama.html [L]
@@ -42,11 +57,16 @@ RewriteRule ^ECSET/?$ moduls/gestionAcademica/ECSET/escuelaAdministracionIndustr
 #SERVICIOS
 
 RewriteRule ^Bienestar-Institucional/?$ moduls/subMenu/Bienestar-Institucional/bienestarInstitucional.html [L]
+RewriteRule ^Graduados/?$ moduls/Servicios/Graduados/graduados.html [L]
+RewriteRule ^Biblioteca-Institucional/?$ moduls/Servicios/Biblioteca-Institucional/biblioteca.html [L]
 RewriteRule ^Equipo-Conectados/?$ moduls/noticiasContactos/Equipo-Conectados/contactanos.html [L]
 
 #FORMATOS
 
 RewriteRule ^Formatos/?$ moduls/Formatos/Solicitudes.html [L]
+
+#RECIDENCIA ESTUDIANTIL
+RewriteRule ^Residencia/?$ moduls/Servicios/Residencia/residencia.html [L]
 
 #ADMISIONES
 
@@ -59,34 +79,35 @@ RewriteRule ^Vinculacion-con-la-Sociedad/?$ moduls/subMenu/vinculacionSociedad//
 RewriteRule ^Practicas-Preprofesionales/?$ moduls/subMenu/vinculacionSociedad//Practicas-Preprofesionales/practicasPreprofesionales.html [L]
 RewriteRule ^Relaciones-InterInstitucionales/?$ moduls/subMenu/vinculacionSociedad//Relaciones-InterInstitucionales/RelacionesInterinstitucionales.html [L]
 RewriteRule ^Presencia-en-la-Comunidad/?$ moduls/subMenu/vinculacionSociedad//Presencia-en-la-Comunidad/PresenciaComunidad.html [L]
-RewriteRule ^Vinculacion/?$ assets/docs/Vinculacion//Modelo_Gestion_IDIVS_2024_2028.pdf [L]
+RewriteRule ^Vinculacion/?$ /assets/docs/Vinculacion//Modelo_Gestion_IDIVS_2024_2028.pdf [L]
 
 #PRACTICAS PRE-PROFESIONALES
 
-RewriteRule ^PracticasPreprofesionales/?$ assets/docs/PracticasPreprofesionales//REGLAMENTO-PRACTICAS-PRE-PROFESIONALES.pdf [L]
+RewriteRule ^PracticasPreprofesionales/?$ /assets/docs/PracticasPreprofesionales//REGLAMENTO-PRACTICAS-PRE-PROFESIONALES.pdf [L]
 
 # RELACIONES INTERINSTITUCIONALES
 
-RewriteRule ^Relaciones-Inter-Institucionales/?$ assets/docs/Relaciones-Inter-Institucionales//ISTS-GIDIVS-07-004-CONVENIO-MARCO-FORMATO.pdf [L]
+RewriteRule ^Relaciones-Inter-Institucionales/?$ /assets/docs/Relaciones-Inter-Institucionales//ISTS-GIDIVS-07-004-CONVENIO-MARCO-FORMATO.pdf [L]
 
 # INVESTIGACIÓN
 RewriteRule ^Investigacion/?$ moduls/subMenu/Investigacion//investigacion.html [L]
-RewriteRule ^MODELO_INVESTIGACION/?$ assets/docs/Investigacion/MODELO_INVESTIGACION/MODELO_DE_GESTION_DE_LA_INVESTIGACION_DESARROLLO_INNOVACION.pdf [L]
-RewriteRule ^REGLAMENTO_DE_INVESTIGACION/?$ assets/docs/Investigacion/REGLAMENTO_DE_INVESTIGACION/REGLAMENTO_DE_INVESTIGACION_DESARROLLO_E_INNOVACION.pdf [L]
-RewriteRule ^DOMINIOS_ACADEMICOS/?$ assets/docs/Investigacion/DOMINIOS_ACADEMICOS/Dominios_Academicos_de_Investigacion_2024_2028.pdf [L]
-RewriteRule ^PLANIFICACION_GESTION_INVESTIGACION/?$ assets/docs/Investigacion/PLANIFICACION_GESTION_INVESTIGACION/Planificacion_gestion_Investigacion_2025.pdf [L]
-RewriteRule ^ESTUDOS_EM_CIENCIAS_AGRARIAS/?$ assets/docs/Investigacion/ESTUDOS_EM_CIENCIAS_AGRARIAS/Estudio_em_Ciencias_agrarias.pdf [L]
-RewriteRule ^CONGRESO_ITPS_ODS/?$ assets/docs/Investigacion/CONGRESO_ITPS_ODS/ITPS_ODS.pdf [L]
-RewriteRule ^HUMANIDADES_E_CIENCIAS_SOCIAIS/?$ assets/docs/Investigacion/HUMANIDADES_E_CIENCIAS_SOCIAIS/humanidades-e-ciencias-sociais-perspectivas.pdf [L]
-RewriteRule ^TOPOGRAFIA_SUBTERRANEA/?$ assets/docs/Investigacion/TOPOGRAFIA_SUBTERRANEA/LIBRO_TOPOGRAFIA_SUBTERRÁNEA.pdf [L]
+RewriteRule ^MODELO_INVESTIGACION/?$ /assets/docs/Investigacion/MODELO_INVESTIGACION/MODELO_DE_GESTION_DE_LA_INVESTIGACION_DESARROLLO_INNOVACION.pdf [L]
+RewriteRule ^REGLAMENTO_DE_INVESTIGACION/?$ /assets/docs/Investigacion/REGLAMENTO_DE_INVESTIGACION/REGLAMENTO_DE_INVESTIGACION_DESARROLLO_E_INNOVACION.pdf [L]
+RewriteRule ^DOMINIOS_ACADEMICOS/?$ /assets/docs/Investigacion/DOMINIOS_ACADEMICOS/Dominios_Academicos_de_Investigacion_2024_2028.pdf [L]
+RewriteRule ^PLANIFICACION_GESTION_INVESTIGACION/?$ /assets/docs/Investigacion/PLANIFICACION_GESTION_INVESTIGACION/Planificacion_gestion_Investigacion_2025.pdf [L]
+RewriteRule ^DOMINIOS_ACADEMICOS/?$ /assets/docs/Investigacion/DOMINIOS_ACADEMICOS/Dominios_Academicos_de_Investigacion_2024_2028.pdf [L]
+RewriteRule ^ESTUDOS_EM_CIENCIAS_AGRARIAS/?$ /assets/docs/Investigacion/ESTUDOS_EM_CIENCIAS_AGRARIAS/Estudio_em_Ciencias_agrarias.pdf [L]
+RewriteRule ^CONGRESO_ITPS_ODS/?$ /assets/docs/Investigacion/CONGRESO_ITPS_ODS/ITPS_ODS.pdf [L]
+RewriteRule ^HUMANIDADES_E_CIENCIAS_SOCIAIS/?$ /assets/docs/Investigacion/HUMANIDADES_E_CIENCIAS_SOCIAIS/humanidades-e-ciencias-sociais-perspectivas.pdf [L]
+RewriteRule ^TOPOGRAFIA_SUBTERRANEA/?$ /assets/docs/Investigacion/TOPOGRAFIA_SUBTERRANEA/LIBRO_TOPOGRAFIA_SUBTERRÁNEA.pdf [L]
 
 #CALENDARIOS
 
-RewriteRule ^CALENDARIO_ACADEMICO/?$ assets/docs/Calendarios/CALENDARIO_ACADEMICO/CALENDARIO_ACADEMICO_2025_2026.pdf [L]
-RewriteRule ^CALENDARIO_DE_TITULACION/?$ assets/docs/Calendarios/CALENDARIO_DE_TITULACION/CRONOGRAMA_PROYECTOS_TITULACION.pdf [L]
-RewriteRule ^CALENDARIO_INVESTIGACION/?$ assets/docs/Calendarios/CALENDARIO_INVESTIGACION/PLANIFICACION_GESTION_INVESTIGACION_2026.pdf [L]
-RewriteRule ^CALENDARIO_VINCULACION/?$ assets/docs/Calendarios/CALENDARIO_VINCULACION/CRONOGRAMA_VINCULACION_SOCIEDAD_2025.pdf [L]
-RewriteRule ^CALENDARIO_PRACTICAS_PREPROFESIONALES/?$ assets/docs/Calendarios/CALENDARIO_PRACTICAS_PREPROFESIONALES/CRONOGRAMA_PRACTICAS_PREPROFESIONALES_2025_2026.pdf [L]
+RewriteRule ^CALENDARIO_ACADEMICO/?$ /assets/docs/Calendarios/CALENDARIO_ACADEMICO/Calendario_Academico_PAO_Mayo_Octubre_2026.2.pdf [L]
+RewriteRule ^CALENDARIO_DE_TITULACION/?$ /assets/docs/Calendarios/CALENDARIO_DE_TITULACION/CRONOGRAMA_PROYECTOS_TITULACION.pdf [L]
+RewriteRule ^CALENDARIO_INVESTIGACION/?$ /assets/docs/Calendarios/CALENDARIO_INVESTIGACION/PLANIFICACION_GESTION_INVESTIGACION_2026.pdf [L]
+RewriteRule ^CALENDARIO_VINCULACION/?$ /assets/docs/Calendarios/CALENDARIO_VINCULACION/CRONOGRAMA_VINCULACION_SOCIEDAD_2025.pdf [L]
+RewriteRule ^CALENDARIO_PRACTICAS_PREPROFESIONALES/?$ /assets/docs/Calendarios/CALENDARIO_PRACTICAS_PREPROFESIONALES/CRONOGRAMA_PRACTICAS_PREPROFESIONALES_2025_2026.pdf [L]
 
 
 #NOTICIAS
@@ -140,9 +161,10 @@ RewriteRule ^ADMINISTRACION/?$ assets/docs/gestionAcademica/ADMINISTRACION/MALLA
 RewriteRule ^MARKETING_DIGITAL/?$ assets/docs/gestionAcademica/MARKETING_DIGITAL/MALLA_MARKETING_DIGITAL_2026.pdf [L]
 RewriteRule ^MARKETING_DISEÑO_MULTIMEDIA/?$ assets/docs/gestionAcademica/MARKETING_DISEÑO_MULTIMEDIA/MALLA_MARKETING_DIGITAL_DISEÑO_MULTIMEDIA_2026.pdf [L]
 RewriteRule ^VENTAS_CON_IA/?$ assets/docs/gestionAcademica/VENTAS_CON_IA/Malla_de_ventas_IA.pdf [L]
-RewriteRule ^INSTRUMENTACION_QUIRURGICA/?$ assets/docs/gestionAcademica/INSTRUMENTACION_QUIRURGICA/MALLA_INSTRUMENTCION_QUIRURGICA.pdf [L]
+RewriteRule ^INSTRUMENTACION_QUIRURGICA/?$ assets/docs/gestionAcademica/INSTRUMENTACION_QUIRURGICA/MALLA_CURRICULAR_INSTRUMENTACIÓN_QUIRÚRGICA.pdf [L]
 RewriteRule ^EDUCACION_BASICA/?$ assets/docs/gestionAcademica/EDUCACION_BASICA/MALLA_EDUCACION_BASICA.pdf [L]
 RewriteRule ^EDUCACION_BILINGUE/?$ assets/docs/gestionAcademica/EDUCACION_BILINGUE/MALLA_EDUCACION_BILINGUE.pdf [L]
+RewriteRule ^ENFERMERIA/?$ assets/docs/gestionAcademica/ENFERMERIA/MALLA_CURRICULAR_ENFERMERÍA.pdf [L]
 
 # BIENESTAR INSTITUCIONAL 
 
@@ -157,43 +179,44 @@ RewriteRule ^PLAN_IGUALDAD_2026/?$ assets/docs/BienestarEstudiantil/Plan-Igualda
 
 #TITULACION
 
-RewriteRule ^REGLAMENTO_TITULACION/?$ assets/docs/Titulacion/REGLAMENTO_TITULACION/Reglamento_Titulacion.pdf [L]
-RewriteRule ^CRONOGRAMA_TRABAJO_TITULACION/?$ assets/docs/Titulacion/CRONOGRAMA_TRABAJO_TITULACION/Cronograma_trabajo_titulacion.pdf [L]
-RewriteRule ^PLAN_TRABAJO_TITULACION/?$ assets/docs/Titulacion/PLAN_TRABAJO_TITULACION/Plan_Trabajo_Titulacion.docx [L]
-RewriteRule ^REGISTRO_HORAS_TUTORIAS/?$ assets/docs/Titulacion/REGISTRO_HORAS_TUTORIAS/Registro_horas_tutorias_Titulacion.xlsx [L]
-RewriteRule ^FORMATO_TRABAJO_TITULACION/?$ assets/docs/Titulacion/FORMATO_TRABAJO_TITULACION/Formato_trabajo_titulacion.docx [L]
-RewriteRule ^CALENDARIO_EXAMEN_COMPLEXIVO/?$ assets/docs/Titulacion/CALENDARIO_EXAMEN_COMPLEXIVO/Cronograma_examen_complexivo.pdf [L]
+RewriteRule ^REGLAMENTO_TITULACION/?$ /assets/docs/Titulacion/REGLAMENTO_TITULACION/Reglamento_Titulacion.pdf [L]
+RewriteRule ^CRONOGRAMA_TRABAJO_TITULACION/?$ /assets/docs/Titulacion/CRONOGRAMA_TRABAJO_TITULACION/Cronograma_trabajo_titulacion.pdf [L]
+RewriteRule ^PLAN_TRABAJO_TITULACION/?$ /assets/docs/Titulacion/PLAN_TRABAJO_TITULACION/Plan_Trabajo_Titulacion.docx [L]
+RewriteRule ^REGISTRO_HORAS_TUTORIAS/?$ /assets/docs/Titulacion/REGISTRO_HORAS_TUTORIAS/Registro_horas_tutorias_Titulacion.xlsx [L]
+RewriteRule ^FORMATO_TRABAJO_TITULACION/?$ /assets/docs/Titulacion/FORMATO_TRABAJO_TITULACION/Formato_trabajo_titulacion.docx [L]
+RewriteRule ^CALENDARIO_EXAMEN_COMPLEXIVO/?$ /assets/docs/Titulacion/CALENDARIO_EXAMEN_COMPLEXIVO/Cronograma_examen_complexivo.pdf [L]
 
 #TALENTO HUMANO 
 
-RewriteRule ^Induccion/?$ assets/docs/TalentoHumano/Induccion/Bienvenido_familia_Superarse.pdf [L]
+RewriteRule ^Induccion/?$ /assets/docs/TalentoHumano/Induccion/Bienvenido_familia_Superarse.pdf [L]
 
 #UNIDAD DE SEGURIDAD Y SALUD OCUPACIONAL 
 
-RewriteRule ^MATRIZ_DE_RIESGO/?$ assets/docs/SeguridadyPlanOcupacional/MATRIZ_DE_RIESGO/Matriz_de_Riesgos.pdf [L]
-RewriteRule ^PLAN_DE_EMERGENCIA/?$ assets/docs/SeguridadyPlanOcupacional/PLAN_DE_EMERGENCIA/Plan_de_emergencia.pdf [L]
-RewriteRule ^REGLAMENTO/?$ assets/docs/SeguridadyPlanOcupacional/REGLAMENTO/Reglamento.pdf [L]
+RewriteRule ^MATRIZ_DE_RIESGO/?$ /assets/docs/SeguridadyPlanOcupacional/MATRIZ_DE_RIESGO/Matriz_de_Riesgos.pdf [L]
+RewriteRule ^PLAN_DE_EMERGENCIA/?$ /assets/docs/SeguridadyPlanOcupacional/PLAN_DE_EMERGENCIA/Plan_de_emergencia.pdf [L]
+RewriteRule ^REGLAMENTO/?$ /assets/docs/SeguridadyPlanOcupacional/REGLAMENTO/Reglamento.pdf [L]
 
 # FORMATOS 
 
 
-
 # Ocultar moduls
-RewriteCond %{THE_REQUEST} \s/+(.*/)?moduls/([^\s?]+) [NC]
-RewriteRule ^moduls/(.*)$ /%1$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/moduls/([^\s]+)
+RewriteRule ^moduls/(.*)$ /$1 [R=301,L]
 
 
-RewriteCond %{REQUEST_URI} !/(moduls|assets)(/|$) [NC]
+RewriteCond %{REQUEST_URI} !^/moduls/
+RewriteCond %{REQUEST_URI} !^/assets/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)$ moduls/$1 [L]
+RewriteRule ^(.*)$ moduls/$1 [L]
 
 
 DirectoryIndex index.html
+``` Puedes guardar este código con total confianza en tu servidor.
 
 # php -- BEGIN cPanel-generated handler, do not edit
-# Set the “ea-php82” package as the default “PHP” programming language.
+# Set the “ea-php74” package as the default “PHP” programming language.
 <IfModule mime_module>
-  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+  AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
 </IfModule>
 # php -- END cPanel-generated handler, do not edit

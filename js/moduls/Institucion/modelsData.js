@@ -15,6 +15,11 @@ const modelsData = [
         id: "modelThree",
         filePath: "/assets/docs/institucion/modelos/MODELO_TECNOLOGICO_SUPERARSE_2024.pdf",
     },
+    {
+        title: "Modelo Pedagógico",
+        id: "modelFour",
+        filePath: "/modeloPedagogico",
+    },
 ];
 
 // 2. Configuración de PDF.js

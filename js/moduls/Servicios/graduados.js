@@ -4,6 +4,7 @@ const graduadosData = {
   descripcion:
     "Este espacio está orientado a mantener el vínculo con nuestros graduados, facilitar su actualización profesional y fortalecer la red de oportunidades académicas y laborales.",
 
+ 
  beneficios: [
     {
       icono: "fas fa-briefcase",
@@ -30,6 +31,7 @@ const graduadosData = {
       enlace: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=Q55kP6NREkOuuxxVvxRacM1iUyNvm6NAt-AsANiElZxUNllXWDJIMlEyM1M2WkVLSjlTTTE5NkJMUi4u&route=shorturl" // <--- Agregado
     },
 ],
+
 
   servicios: [
     "Actualización de datos de graduados",
@@ -171,7 +173,7 @@ function renderizarBeneficiosGraduados() {
             </div>
             <h5 class="fw-bold text-dark">${item.titulo}</h5>
             <p class="text-muted small mb-0">${item.descripcion}</p>
-            <div class="mt-3 text-primary fw-bold small">Ver más <i class="fas fa-chevron-right ms-1"></i></div>
+            <div class="mt-3 text-primary fw-bold small">Ingresa <i class="fas fa-chevron-right ms-1"></i></div>
           </div>
         </a>
       </div>

@@ -277,7 +277,9 @@ function generarEscuelaDeVeterinaria() {
   const modalsContainer = document.querySelector("#veterinarySchoolModals");
 
   if (!cardsContainer || !modalsContainer) {
-    console.error("No se encontraron los contenedores para la Escuela de Veterinaria.");
+    console.error(
+      "No se encontraron los contenedores para las tarjetas o modales de la Escuela de Veterinaria. Revisa los IDs."
+    );
     return;
   }
 
@@ -285,140 +287,114 @@ function generarEscuelaDeVeterinaria() {
   let modalsHTML = "";
 
   veterinarySchoolData.forEach((career) => {
-      cardsHTML += `
-      <div class="col-lg-4 col-md-6 mb-5">
-        <div class="card h-100 border-0 shadow-lg" style="border-radius: 20px; transition: all 0.4s ease; overflow: hidden; background: #fff; cursor: pointer;" 
-             onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)';" 
-             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';">
-          
-          <div style="position: relative; height: 500px; overflow: hidden;">
-            <img src="${career.imagePath}" alt="${career.title}" style="width: 100%; height: 100%; object-fit: cover;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);"></div>
-            
-            <span style="position: absolute; top: 15px; right: 15px; background: #28a745; color: white; padding: 5px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
-              Cupos Disponibles
-            </span>
-          </div>
-
-          <div class="card-body p-4 d-flex flex-column justify-content-between">
-            <div>
-              <h4 class="font-weight-bold mb-2" style="color: #2c3e50; font-size: 1.25rem; line-height: 1.2;">
-                ${career.title}
-              </h4>
-              <p class="text-muted mb-4" style="font-size: 0.9rem;">
-                Explora tu futuro profesional y conviértete en un experto en esta área de alta demanda.
-              </p>
-            </div>
-
-            <button class="btn btn-block py-2" 
-                    style="background: linear-gradient(90deg, #28a745, #20c997); color: white; border-radius: 12px; font-weight: bold; border: none; transition: 0.3s;"
-                    data-toggle="modal" data-target="#${career.id}Modal">
-              Más Información <i class="fas fa-arrow-right ml-2"></i>
-            </button>
-          </div>
+    // Generar la tarjeta de la carrera
+    cardsHTML += `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="career-card text-center p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+          <h3 class="mb-3">${career.title}</h3>
+          <a
+            href="#"
+            class="d-block mb-3"
+            data-toggle="modal"
+            data-target="#${career.id}Modal"
+          >
+            <img
+              src="${career.imagePath}"
+              alt="Imagen de ${career.title}"
+              class="img-fluid rounded"
+            />
+          </a>
+          <p class="text-muted">
+            Haz clic en la imagen para ver más detalles de la carrera.
+          </p>
         </div>
       </div>
     `;
-    const profileList = career.profile.map((item) => `<li><i class="fas fa-check-circle text-success mr-2"></i>${item}</li>`).join("");
-    const careerPathList = career.careerPath.map((item) => `<li><i class="fas fa-arrow-right text-primary mr-2"></i>${item}</li>`).join("");
-    const perfilEgresado = career.perfilEgresado || "El profesional estará capacitado para liderar procesos de salud animal, bienestar y salud pública con excelencia técnica.";
+
+    // Generar el modal de la carrera
+    const profileList = career.profile
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+    const careerPathList = career.careerPath
+      .map((item) => `<li>${item}</li>`)
+      .join("");
 
     modalsHTML += `
-      <div class="modal fade" id="${career.id}Modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-          <div class="modal-content modal-glass-uniform" style="background-image: url('${career.imagePath}'); border-radius: 20px; overflow: hidden; border: none;">
-            
-            <style>
-              .modal-glass-uniform { position: relative; background-size: cover; background-position: center; }
-              .modal-glass-uniform::before {
-                content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); z-index: 0;
-              }
-              .content-wrapper-vete { position: relative; z-index: 1; }
-              .glass-section-vete {
-                background: rgba(255, 255, 255, 0.6); border-radius: 15px; padding: 20px;
-                margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.2);
-              }
-              .vete-label {
-                background: linear-gradient(90deg, #28a745, #20c997);
-                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-                font-weight: bold; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 10px;
-              }
-            </style>
+      <div
+        class="modal fade"
+        id="${career.id}Modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="${career.id}ModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="${career.id}ModalLabel">
+                ${career.title}
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
 
-            <div class="modal-body content-wrapper-vete p-5">
-              <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 25px; top: 20px; font-size: 30px;">&times;</button>
+            <h4><i class="fas fa-file-alt"></i> Resolución</h4>
+            <strong><p>${career.resolucion}</p></strong>
+              <h4><i class="fas fa-file-alt"></i> Descripción de la Carrera</h4>
+              <p style="text-align: justify;">${career.description}</p>
 
-              <div class="text-center mb-5">
-                <h1 class="display-4 font-weight-bold text-dark">${career.title}</h1>
-                <div style="width: 60px; height: 4px; background: #28a745; margin: 10px auto; border-radius: 10px;"></div>
-              </div>
+              <h4><i class="fas fa-user"></i> Perfil Profesional</h4>
+              <ul style="text-align: justify;">${profileList}</ul>
 
-              <div class="glass-section-vete text-center">
-                <span class="vete-label">Resolución Oficial</span>
-                <h5 class="mb-0 mt-2 font-weight-bold text-secondary">${career.resolucion}</h5>
-              </div>
+              <h4><i class="fas fa-briefcase"></i> Campo Laboral</h4>
+              <p style="text-align: justify;">Los  ${career.title} pueden desempeñarse en:</p>
+              <ul style="text-align: justify;">${careerPathList}</ul>
 
-              <div class="glass-section-vete">
-                <span class="vete-label"><i class="fas fa-info-circle mr-2"></i>Sobre la Carrera</span>
-                <p class="lead mt-3 text-justify text-dark" style="font-size: 1.05rem;">${career.description}</p>
-              </div>
+              <h4><i class="fas fa-clock"></i> Duración de la Carrera</h4>
+              <p style="text-align: justify;">
+                La carrera tiene una duración de <strong>${career.duration}</strong>, incluyendo prácticas preprofesionales supervisadas.
+              </p>
 
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <div class="glass-section-vete h-100">
-                    <span class="vete-label"><i class="fas fa-user-md mr-2"></i>Perfil Profesional</span>
-                    <ul class="list-unstyled mt-3 text-dark" style="line-height: 1.8;">${profileList}</ul>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <div class="glass-section-vete h-100">
-                    <span class="vete-label"><i class="fas fa-graduation-cap mr-2"></i>Perfil de Egreso</span>
-                    <p class="mt-3 text-dark text-justify">${perfilEgresado}</p>
-                  </div>
-                </div>
-              </div>
+              <h4><i class="fas fa-laptop-code"></i> Modalidad</h4>
+              <p>
+                <strong>${career.modality}</strong>
+              </p>
 
-              <div class="row">
-                <div class="col-md-4 mb-3">
-                  <div class="glass-section-vete h-100 text-center">
-                    <span class="vete-label text-center">Campo Laboral</span>
-                    <ul class="list-unstyled mt-3 text-left small text-dark">${careerPathList}</ul>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center">
-                    <span class="vete-label">Duración</span>
-                    <h3 class="font-weight-bold mt-2 text-dark">${career.duration}</h3>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center">
-                    <span class="vete-label font-weight-bold">Modalidad</span>
-                    <h3 class="font-weight-bold mt-2 text-success">${career.modality}</h3>
-                  </div>
-                </div>
-              </div>
-
-              <div class="glass-section-vete text-center py-4" style="background: rgba(40, 167, 69, 0.08);">
-                <h5 class="font-weight-bold mb-3 text-dark">Plan Académico</h5>
-                <a href="${career.curriculumLink}" target="_blank" class="btn btn-success btn-lg px-5 shadow-sm" style="border-radius: 50px;">
-                  <i class="fas fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
+              <hr />
+              <h4><i class="fas fa-list-ol"></i> Malla Curricular</h4>
+              <p style="text-align: justify;">
+                Consulta el plan de estudios detallado para esta carrera. Aquí podrás ver la distribución de asignaturas por semestre, créditos y requisitos.
+              </p>
+              <div class="text-center">
+                <a
+                  href="${career.curriculumLink}"
+                  target="_blank"
+                  class="btn btn-info py-2 px-4"
+                >
+                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
                 </a>
               </div>
 
-              <div class="mt-4 text-center">
-                <p class="text-muted mb-1">¿Deseas matricularte?</p>
-                <div class="d-flex justify-content-center align-items-center flex-wrap">
-                  <a href="#" class="mx-3 text-dark font-weight-bold" style="text-decoration: none;"><i class="fab fa-whatsapp text-success mr-1"></i> WhatsApp Admisiones</a>
-                  <a href="#" class="mx-3 text-dark font-weight-bold" style="text-decoration: none;"><i class="fas fa-envelope text-danger mr-1"></i> Correo Electrónico</a>
-                </div>
-              </div>
-
+              <hr />
+              <p class="text-muted text-center">
+                Para más detalles sobre requisitos de admisión o si tienes alguna pregunta adicional, por favor contacta a la secretaría académica.
+              </p>
             </div>
-            
-            <div class="modal-footer border-0">
-              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar Ventana</button>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
             </div>
           </div>
         </div>
@@ -888,310 +864,75 @@ function generarInvestigacionIDi() {
     return;
   }
 
-  let linearHTML = "";
-  const resumenIds = [
-    "modeloInvestigacionVinculacion",
-    "normativaInvestigacion",
-    "dominiosLineasInvestigacion",
-  ];
-  const resumenSet = new Set(resumenIds);
-  const eventosIds = [
-    "congresoTopografia2025",
-    "congresoTopografia2023",
-    "seminarioEquino",
-    "congresoAgrovet2026",
-  ];
-  const eventosSet = new Set(eventosIds);
-  const resumenMap = Object.fromEntries(
-    investigacionData
-      .filter((entry) => !entry.isSection && resumenSet.has(entry.id))
-      .map((entry) => [entry.id, entry])
-  );
-  const eventosMap = Object.fromEntries(
-    investigacionData
-      .filter((entry) => !entry.isSection && eventosSet.has(entry.id))
-      .map((entry) => [entry.id, entry])
-  );
-  const publicacionesIds = [
-    "publicacionesMayoOctubre2025",
-    "publicacionesNoviembreAbril2025",
-    "publicacionesMayoOctubre2024",
-    "publicacionesNoviembre2023Abril2024",
-    "publicacionesMayoOctubre2023",
-    "publicacionesMayoOctubre202",
-  ];
-  const publicacionesSet = new Set(publicacionesIds);
-  const publicacionesMap = Object.fromEntries(
-    investigacionData
-      .filter((entry) => !entry.isSection && publicacionesSet.has(entry.id))
-      .map((entry) => [entry.id, entry])
-  );
-  let resumenRenderizado = false;
-  let eventosRenderizados = false;
-  let publicacionesRenderizadas = false;
-
-  const quitarPrimerH4 = (html) =>
-    html.replace(/^\s*<h4[^>]*>[\s\S]*?<\/h4>\s*/i, "");
-  const limpiarTexto = (texto) =>
-    texto.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-  const obtenerTitulosPublicaciones = (html) => {
-    const coincidencias = [...html.matchAll(/<h4[^>]*>([\s\S]*?)<\/h4>/gi)];
-    return coincidencias
-      .map((match) => limpiarTexto(match[1]))
-      .filter((titulo) => titulo.length > 0);
-  };
+  let listHTML = "";
+  let modalsHTML = "";
 
   investigacionData.forEach((item) => {
     if (item.isSection) {
-      linearHTML += `
-        <h4 class="mt-5 mb-3 text-primary">${item.title}</h4>
+      // Generar el encabezado de sección
+      listHTML += `
+        <h5 class="mt-4 mb-2 ml-3">${item.title}</h5>
       `;
-      return;
-    }
-
-    if (resumenSet.has(item.id)) {
-      if (resumenRenderizado) {
-        return;
-      }
-
-      const celdasResumen = resumenIds
-        .map((id) => {
-          const resumen = resumenMap[id];
-          if (!resumen) {
-            return "";
-          }
-
-          return `
-            <td style="vertical-align: top; width: 33.33%; min-width: 280px;">
-              <h5 class="mb-3">${resumen.title}</h5>
-              ${quitarPrimerH4(resumen.content)}
-            </td>
-          `;
-        })
-        .join("");
-
-      linearHTML += `
-        <div class="table-responsive mb-4">
-          <table class="table table-bordered bg-white mb-0">
-            <tbody>
-              <tr>
-                ${celdasResumen}
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    } else {
+      // Generar el ítem de la lista (enlace)
+      listHTML += `
+        <a
+          href="#"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center ${item.isSection ? 'ml-3' : ''}"
+          data-toggle="modal"
+          data-target="#${item.id}Modal"
+        >
+          <span>${item.title}</span>
+          <i class="fa fa-arrow-right"></i>
+        </a>
       `;
 
-      resumenRenderizado = true;
-      return;
-    }
-
-    if (eventosSet.has(item.id)) {
-      if (eventosRenderizados) {
-        return;
-      }
-
-      const eventosDisponibles = eventosIds
-        .map((id) => {
-          const evento = eventosMap[id];
-          if (!evento) {
-            return null;
-          }
-
-          return `
-            <td style="vertical-align: top; width: 50%; min-width: 320px;">
-              <h5 class="mb-3">${evento.title}</h5>
-              ${quitarPrimerH4(evento.content)}
-            </td>
-          `;
-        })
-        .filter(Boolean);
-
-      const fila1 = `${eventosDisponibles[0] || "<td></td>"}${eventosDisponibles[1] || "<td></td>"}`;
-      const fila2 = `${eventosDisponibles[2] || "<td></td>"}${eventosDisponibles[3] || "<td></td>"}`;
-
-      linearHTML += `
-        <div class="table-responsive mb-4">
-          <table class="table table-bordered bg-white mb-0">
-            <tbody>
-              <tr>
-                ${fila1}
-              </tr>
-              <tr>
-                ${fila2}
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      `;
-
-      eventosRenderizados = true;
-      return;
-    }
-
-    if (item.id === "simposioAdministracion") {
-      return;
-    }
-
-    if (publicacionesSet.has(item.id)) {
-      if (publicacionesRenderizadas) {
-        return;
-      }
-
-      const periodosPublicaciones = publicacionesIds
-        .map((id) => publicacionesMap[id])
-        .filter(Boolean)
-        .map((periodo) => {
-          const publicaciones = obtenerTitulosPublicaciones(periodo.content).map((titulo, indice) => ({
-            titulo,
-            llave: `${periodo.id}-${indice}`,
-          }));
-          return {
-            id: periodo.id,
-            periodo: periodo.title,
-            publicaciones: publicaciones.length
-              ? publicaciones
-              : [{ titulo: "Sin publicaciones registradas", llave: `${periodo.id}-0` }],
-          };
-        });
-
-      const totalPublicaciones = periodosPublicaciones.reduce(
-        (acumulado, periodo) => acumulado + periodo.publicaciones.length,
-        0
-      );
-      const maximoPublicaciones = Math.max(
-        ...periodosPublicaciones.map((periodo) => periodo.publicaciones.length),
-        1
-      );
-
-      const graficoBarras = periodosPublicaciones
-        .map((periodo) => {
-          const valor = periodo.publicaciones.length;
-          const porcentaje = (valor / maximoPublicaciones) * 100;
-
-          return `
-            <div class="mb-3">
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <small class="font-weight-bold">${periodo.periodo}</small>
-                <small>${valor}</small>
+      // Generar el modal del ítem
+      modalsHTML += `
+        <div
+          class="modal fade"
+          id="${item.id}Modal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="${item.id}ModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="${item.id}ModalLabel">
+                  ${item.title}
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-              <div class="progress" style="height: 10px;">
-                <div class="progress-bar bg-info" role="progressbar" style="width: ${porcentaje}%" aria-valuenow="${valor}" aria-valuemin="0" aria-valuemax="${maximoPublicaciones}"></div>
+              <div class="modal-body">
+                ${item.content}
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
-          `;
-        })
-        .join("");
-
-      const filasTablaPublicaciones = periodosPublicaciones
-        .map((periodo) => {
-          return periodo.publicaciones
-            .map((publicacion, indice) => {
-              const celdaPeriodo =
-                indice === 0
-                  ? `<td rowspan="${periodo.publicaciones.length}" style="vertical-align: middle; width: 35%;"><strong>${periodo.periodo}</strong></td>`
-                  : "";
-
-              return `
-                <tr>
-                  ${celdaPeriodo}
-                  <td>
-                    <button
-                      type="button"
-                      class="btn btn-link p-0 text-left"
-                      onclick="mostrarPublicacionInvestigacion('${periodo.id}')"
-                    >
-                      ${publicacion.titulo}
-                    </button>
-                  </td>
-                </tr>
-              `;
-            })
-            .join("");
-        })
-        .join("");
-
-      const detallePublicacionesHTML = publicacionesIds
-        .map((id) => publicacionesMap[id])
-        .filter(Boolean)
-        .map(
-          (periodo) => `
-            <article class="card border-0 shadow-sm mb-4 d-none" data-publicacion-periodo="${periodo.id}">
-              <div class="card-body">
-                <h5 class="mb-3">${periodo.title}</h5>
-                ${periodo.content}
-              </div>
-            </article>
-          `
-        )
-        .join("");
-
-      if (typeof window.mostrarPublicacionInvestigacion !== "function") {
-        window.mostrarPublicacionInvestigacion = function (periodoId) {
-          const contenedor = document.getElementById("publicacionesDetalleDinamico");
-          if (!contenedor) {
-            return;
-          }
-
-          const tarjetas = contenedor.querySelectorAll("[data-publicacion-periodo]");
-          tarjetas.forEach((tarjeta) => tarjeta.classList.add("d-none"));
-
-          const tarjetaObjetivo = contenedor.querySelector(`[data-publicacion-periodo="${periodoId}"]`);
-          if (tarjetaObjetivo) {
-            tarjetaObjetivo.classList.remove("d-none");
-            tarjetaObjetivo.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        };
-      }
-
-      linearHTML += `
-        <div class="card border-0 shadow-sm mb-4">
-          <div class="card-body">
-            <h5 class="mb-3">Gráfico de Publicaciones por Período</h5>
-            <p class="mb-3 text-muted">Total de publicaciones registradas: <strong>${totalPublicaciones}</strong></p>
-            ${graficoBarras}
           </div>
-        </div>
-
-        <div class="table-responsive mb-4">
-          <table class="table table-bordered table-hover bg-white mb-0">
-            <thead class="thead-light">
-              <tr>
-                <th>Período académico</th>
-                <th>Publicación</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${filasTablaPublicaciones}
-            </tbody>
-          </table>
-        </div>
-
-        <div id="publicacionesDetalleDinamico">
-          <div class="alert alert-light border mb-4" role="alert">
-            Selecciona una publicación de la tabla para visualizar su contenido.
-          </div>
-          ${detallePublicacionesHTML}
         </div>
       `;
-
-      publicacionesRenderizadas = true;
-      return;
     }
-
-    linearHTML += `
-      <article id="${item.id}" class="card border-0 shadow-sm mb-4">
-        <div class="card-body">
-          <h5 class="mb-3">${item.title}</h5>
-          ${item.content}
-        </div>
-      </article>
-    `;
   });
 
-  listContainer.classList.remove("list-group", "list-group-flush");
-  listContainer.innerHTML = linearHTML;
-  modalsContainer.innerHTML = "";
+  listContainer.innerHTML = listHTML;
+  modalsContainer.innerHTML = modalsHTML;
 }
 
 // En tu archivo main.js o practicas.js

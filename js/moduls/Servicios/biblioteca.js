@@ -78,18 +78,11 @@ const bibliotecaData = {
       icono: "fas fa-book-open",
       color: "#003087",
     },
-    {
-      nombre: "eLibro",
-      descripcion: "Biblioteca online.",
-      url: "https://elibro.net/es/lc/superarse/login_usuario/?next=/es/lc/superarse/inicio/",
-      icono: "fas fa-flask",
-      color: "#e30613",
-    },
   ],
 
   horarios: [
-    { dia: "Lunes – Viernes", horario: "08:00 – 17:00" },
-    { dia: "Sábado", horario: "08:00 – 13:00" },
+    { dia: "Lunes – Viernes", horario: "09:00 – 14:00" },
+   
   ],
 
   contacto: {

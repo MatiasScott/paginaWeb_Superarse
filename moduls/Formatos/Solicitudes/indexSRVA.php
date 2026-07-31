@@ -67,22 +67,22 @@
                 </div>
             </div>
 
-            <p class="mb-2 font-bold">Para el periodo académico PAO NOV25-ABR26. </p>De la carrera de
+            <p class="mb-2 font-bold">Para el periodo académico PAO <strong>Mayo - Octubre 26.</strong> </p>De la carrera de
             <strong><select class="mx-2 border-b focus:outline-none appearance-none">
-                    <option value="">Seleccione</option>
+                     <option value="">Seleccione</option>
                     <option value="ADMINISTRACIÓN">ADMINISTRACIÓN</option>
-                <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
-                <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
-                <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
-                <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
-                <option value="MINERÍA">MINERÍA</option>
-                <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
-                <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
-                <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
-                <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">TÉCNICO SUPERIOR EN MARKETING DIGITAL</option>
-                <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
-                <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR </option>
-                <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
+                    <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
+                    <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
+                    <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
+                    <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
+                    <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
+                     <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">MARKETING DIGITAL Y DISEÑO MULTIMEDIA</option>
+                    <option value="MINERÍA">MINERÍA</option>
+                    <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
+                    <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
+                    <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
+                    <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR</option>
+                    <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
                 </select></strong>.
 
             <p class="mb-1">A continuación, detallo el motivo por el cuál solicito el retiro voluntario de asignaturas:</p>

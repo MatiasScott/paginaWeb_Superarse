@@ -1,12 +1,27 @@
-/* CSS PERSONALIZADO - LOOK UNIVERSITARIO PRO */
-    :root {
-        --primary-blue: #004481;
-        --soft-blue: rgba(0, 68, 129, 0.08);
-        --text-gray: #555555;
+
+
+    /* Estilos del Video */
+    .video-modern-wrapper {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        background: #000;
+    }
+    .embed-responsive {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+    }
+    .embed-responsive-16by9 { padding-top: 56.25%; }
+    .embed-responsive-item {
+        position: absolute;
+        top: 0; bottom: 0; left: 0;
+        width: 100%; height: 100%;
+        border: none;
     }
 
-    .container-top { padding-top: 100px; }
-    
     /* Misión y Visión */
     .card-main {
         border: none;
@@ -14,80 +29,73 @@
         background: #ffffff;
         transition: transform 0.3s ease;
         box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        height: 100%; /* Asegura altura igual */
+        height: 100%;
     }
-    
     .icon-circle {
-        width: 70px;
-        height: 70px;
+        width: 70px; height: 70px;
         background: var(--soft-blue);
         color: var(--primary-blue);
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-        margin-bottom: 20px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 28px; margin-bottom: 20px;
     }
 
-    /* Contenedor principal con Flexbox para centrar sobrantes */
+    /* GRID DE VALORES (Corrección Flexbox) */
     #contenedor-valores-cards {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important; /* ESTO centra los dos de abajo */
-        gap: 25px !important;
-        padding: 20px 0 !important;
-    }
-
-    /* Definimos el ancho de las tarjetas para que entren 3 por fila */
-    .card-valor-pro {
-        background: #ffffff !important;
-        border-radius: 20px !important;
-        padding: 35px !important;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
-        transition: all 0.3s ease !important;
-        display: flex !important;
-        flex-direction: column !important;
-        
-        /* Ancho para 3 columnas (restando el gap) */
-        width: calc(33.333% - 25px) !important; 
-        min-width: 300px !important; /* Para que no se flaquen mucho */
-        border: 1px solid #f0f0f0 !important;
-    }
-
-    /* Ajuste para tablets (2 por fila) */
-    @media (max-width: 992px) {
-        .card-valor-pro {
-            width: calc(50% - 25px) !important;
-        }
-    }
-
-    /* Ajuste para celulares (1 por fila) */
-    @media (max-width: 768px) {
-        .card-valor-pro {
-            width: 100% !important;
-        }
-    }
-
-    /* Estilos internos (se mantienen igual) */
-    .icon-wrapper-pro {
-        width: 60px;
-        height: 60px;
-        background: rgba(0, 68, 129, 0.08);
-        color: #004481;
-        border-radius: 15px;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        margin-bottom: 25px;
+        flex-wrap: wrap;
+        justify-content: center; /* Centra las tarjetas sobrantes */
+        gap: 25px;
+        padding: 20px 0;
+    }
+
+    .card-valor-pro {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #f0f0f0;
+        
+        /* Uso de flex-basis para manejo responsivo pro */
+        flex: 1 1 calc(33.333% - 25px); 
+        min-width: 300px;
+        max-width: 400px; /* Evita que una sola tarjeta se estire demasiado si está sola */
+    }
+
+    .icon-wrapper-pro {
+        width: 60px; height: 60px;
+        background: var(--soft-blue);
+        color: var(--primary-blue);
+        border-radius: 15px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 24px; margin-bottom: 25px;
     }
 
     .card-valor-pro:hover {
-        transform: translateY(-10px) !important;
-        box-shadow: 0 15px 35px rgba(0, 68, 129, 0.1) !important;
-        border-color: #004481 !important;
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 68, 129, 0.1);
+        border-color: var(--primary-blue);
     }
 
-    .card-valor-pro h4 { color: #004481; font-weight: 700; }
+    .card-valor-pro h4 { color: var(--primary-blue); font-weight: 700; }
     .card-valor-pro p { text-align: justify; color: #666; line-height: 1.6; }
+
+    /* RESPONSIVO */
+    @media (max-width: 992px) {
+        .card-valor-pro {
+            flex: 1 1 calc(50% - 25px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container-top { padding-top: 60px; }
+        .card-valor-pro {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+        .display-4 { font-size: 2.5rem; }
+    }
+

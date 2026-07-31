@@ -1,78 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Reglamentos, leyes, normas, instituto superior tecnológico, superarse" name="keywords" />
     <meta content="Explore el marco normativo..." name="description" />
     <title>Normativas Generales - Instituto Superarse</title>
-
-    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <link href="/css/style.css" rel="stylesheet" />
-
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease; }
+    </style>
+    <script src="/js/common/page-head.js"></script>
 </head>
-<body>
+<body class="bg-light">
+    
     <div class="container-fluid bg-light position-relative shadow"></div>
 
     <div class="container-fluid py-5 container-top">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <p class="section-title pr-5">
-                        <span class="pr-2">Marco Regulatorio Integral</span>
-                    </p>
-                    <h1 class="mb-4">Nuestras Normativas Generales</h1>
-                    <div class="text-justify">
-                        <p class="lead">
-                            Las normativas generales del Instituto Superior Tecnológico
-                            Superarse son el pilar que complementa nuestros reglamentos y
-                            códigos específicos. Establecen los lineamientos fundamentales
-                            para la gestión institucional y la interacción de toda la
-                            comunidad.
-                        </p>
-                        <p class="text-muted small">
-                            Este documento es esencial para asegurar la coherencia en la
-                            aplicación de nuestras políticas, promover la transparencia y
-                            garantizar que todas las operaciones y actividades del Tecnológico Superarse se
-                            desarrollen dentro de un marco legal y ético sólido.
-                        </p>
-                        <p class="text-muted small">
-                            Le invitamos a consultar este documento clave para entender el
-                            contexto regulatorio que sustenta nuestro compromiso con la
-                            calidad y la excelencia.
-                        </p>
-                    </div>
-                </div>
+            <div class="row align-items-start">
                 
-                <div class="col-lg-8">
-                    <div class="normativa-card-premium text-center">
-                        <h4 class="mb-3 text-dark font-weight-bold">
-                            <i class="fas fa-file-pdf text-danger mr-2"></i> Documento de Normativas
-                        </h4>
-
-                        <div class="control-pill-container">
-                            <button id="prev-page" class="btn btn-info rounded-pill px-4">
-                                <i class="fas fa-arrow-left"></i> Anterior
-                            </button>
-                            <span id="page-num" class="font-weight-bold text-primary" style="font-size: 1.1rem;">Página: 1</span>
-                            <button id="next-page" class="btn btn-info rounded-pill px-4">
-                                Siguiente <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-
-                        <div id="pdf-container" class="shadow-sm">
-                            <div class="p-5 text-white">Preparando visor de alta resolución...</div>
-                        </div>
-
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="card-main p-4 p-md-5 shadow-sm" style="border-radius: 15px; background: #fff;">
                         
+                        <div class="d-flex justify-content-center mb-3">
+                            <div class="icon-circle shadow-sm" style="width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #ed7d31; border: 2px solid #ed7d31;">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                        </div>
+
+                        <div class="text-center pb-2">
+                            <p class="section-title px-2 px-md-5 d-inline-block">
+                                <span class="px-2">Marco Regulatorio Integral</span>
+                            </p>
+                            <h1 class="mb-4 titulo-institucional h2 mt-3">Nuestras Normativas Generales</h1>
+                        </div>
+
+                        <div class="mensaje-texto text-muted lh-lg" style="text-align: justify;">
+                            
+                            <p >
+                                Las normativas generales del Instituto Superior Tecnológico
+                                Superarse son el pilar que complementa nuestros reglamentos y
+                                códigos específicos. Establecen los lineamientos fundamentales
+                                para la gestión institucional y la interacción de toda la
+                                comunidad.
+                            </p>
+                            <p>
+                                Este documento es esencial para asegurar la coherencia en la
+                                aplicación de nuestras políticas, promover la transparencia y
+                                garantizar que todas las operaciones y actividades del Tecnológico Superarse se
+                                desarrollen dentro de un marco legal y ético sólido.
+                            </p>
+                            <p>
+                                Le invitamos a consultar este documento clave para entender el
+                                contexto regulatorio que sustenta nuestro compromiso con la
+                                calidad y la excelencia.
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <div class="col-lg-7 mb-4">
+    <div class="codigo-card p-3 p-md-4 shadow-sm" style="border-radius: 15px; background: #fff; height: 100%;"> 
+        
+        <h3 class="mb-4 text-center titulo-institucional" style="font-size: 1.5rem;">Documento Normativo</h3>
+        
+        <div id="pdf-container" style="min-height: 800px; height: 70vh; background: #f8f9fa; border-radius: 8px; position: relative; overflow: hidden;" class="border">
+            <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                <div class="spinner-border text-primary" role="status"></div>
+            </div>
+        </div>
+
+        <div class="mt-4 p-2 p-md-3 d-flex justify-content-center align-items-center" 
+             style="background-color: #f0f4f8; border-radius: 50px; width: 100%;">
+            
+            <button id="prev-page" class="btn d-flex align-items-center justify-content-center shadow-sm flex-shrink-0" 
+                    style="width: 40px; height: 40px; border-radius: 50%; background-color: #17a2b8; border: none; color: white;">
+                <i class="fas fa-chevron-left" style="font-size: 0.9rem;"></i>
+            </button>
+            
+            <span id="page-num" class="mx-2 mx-md-4 font-weight-bold text-center" 
+                  style="color: #003366; font-size: 0.9rem; min-width: 100px;">
+                Página: 1 de 18
+            </span>
+            
+            <button id="next-page" class="btn d-flex align-items-center justify-content-center shadow-sm flex-shrink-0" 
+                    style="width: 40px; height: 40px; border-radius: 50%; background-color: #17a2b8; border: none; color: white;">
+                <i class="fas fa-chevron-right" style="font-size: 0.9rem;"></i>
+            </button>
+            
+        </div>
+        
+    </div>
+</div>
+                
             </div>
         </div>
     </div>
@@ -83,6 +103,7 @@
         <div class="color-stripe color-stripe-3"></div>
         <div class="color-stripe color-stripe-4"></div>
     </div>
+
     <div class="footer-container"></div>
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

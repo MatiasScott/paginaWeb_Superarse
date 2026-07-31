@@ -11,11 +11,21 @@ const bienestarData = {
 
 contenido2: `
 <div class="container-fluid py-5 bg-white bienestar-seccion-biopsico">
-    <div class="d-flex justify-content-center mb-5">
+    <div class="d-flex flex-column align-items-center mb-5">
+    <div class="d-flex justify-content-center mb-3">
         <div class="titulo-flecha-derecha">
             ACOMPAÑAMIENTO BIOPSICOSOCIAL
         </div>
     </div>
+    <div class="text-container text-center" style="max-width: 800px;">
+    <div class="col-md-12">
+                <div class="caja-texto-borde mb-4" style="border-color: #F54927;">
+                    <p class="mb-0"> El acompañamiento biopsicosocial se define como un enfoque integral de apoyo que considera simultánemamente los aspectos biológicos, psicológicos y sociales de la persona, buscando promover su bienestar y salud mental holística .</p>
+                </div>
+            </div>
+            </div>
+    
+</div>
 
     <div class="container">
         <div class="row align-items-center mb-5">
@@ -28,17 +38,16 @@ contenido2: `
                 </div>
             </div>
 
-            <div class="col-md-7 text-center">
-                <div class="contenedor-reflejo">
-                    <img src="/assets/img/bienestarEstudiantil/AcompanamientoPsicopedagogico/psicopedagogico4(1).jpg" 
-                         alt="Acompañamiento Biopsicosocial" class="img-fluida-reflejo">
-                </div>
-            </div>
+          <div class="col-md-7 text-center">
+    <div class="contenedor-imagen-simple">
+        <img src="/assets/img/bienestarEstudiantil/AcompanamientoBiopsicosocial/Carrusel2.jpeg" 
+             alt="Acompañamiento Biopsicosocial" 
+             class="img-fluid rounded shadow-sm">
+    </div>
+</div>
             
         </div>
-<br></br>
-            <br></br>
-            <br></br>
+            
         <div class="row text-center g-4 justify-content-center mt-5">
             
             <div class="col-6 col-md-3">
@@ -75,15 +84,18 @@ contenido2: `
             </div>
 
             <div class="col-6 col-md-3">
-                <div class="biopsico-pilar-card h-100 p-3 rounded-4 shadow-sm" style="border-bottom: 5px solid #F8E71C; background-color: white;">
-                    <div class="biopsico-icono-wrapper rounded-circle p-4 mb-3 d-flex align-items-center justify-content-center mx-auto" style="background-color: rgba(248, 231, 28, 0.1); width: 100px; height: 100px;">
-                        <i class="fas fa-hands-holding fa-3x" style="color: #F8E71C;"></i>
-                    </div>
-                    <div class="cajita-informativa rounded-3 p-2 text-black" style="background-color: #F8E71C; font-size: 0.8rem; text-transform: uppercase;">
-                        <p class="mb-0 fw-bold letter-spacing-1">ACOMPAÑAMIENTO EN LA ADVERSIDAD</p>
-                    </div>
-                </div>
-            </div>
+    <div class="biopsico-pilar-card h-100 p-3 rounded-4 shadow-sm" style="border-bottom: 5px solid #f1c40f; background-color: white;">
+        <div class="biopsico-icono-wrapper rounded-circle p-4 mb-3 d-flex align-items-center justify-content-center mx-auto" 
+             style="background-color: #fef9e7; width: 100px; height: 100px; border: 1px solid #fcf3cf;">
+            
+            <i class="fas fa-hand-holding-heart fa-3x" style="color: #f1c40f; filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.1));"></i>
+        </div>
+        
+        <div class="cajita-informativa rounded-3 p-2 text-center" style="background-color: #f1c40f; color: #333; font-size: 0.8rem; text-transform: uppercase;">
+            <p class="mb-0 fw-bold" style="letter-spacing: 0.5px; line-height: 1.2;">ACOMPAÑAMIENTO EN LA ADVERSIDAD</p>
+        </div>
+    </div>
+</div>
         </div>
 
     </div> </div> `,
@@ -94,16 +106,27 @@ contenido3: `
         <div class="titulo-flecha-derecha" style="background-color: #7bc54a;">
             ACOMPAÑAMIENTO PSICOPEDAGÓGICO
         </div>
+        
     </div>
+     <div class="col-md-12">
+                <div class="caja-texto-borde mb-4" style="border-color: #04DB53;">
+                    <p class="mb-0"> El acompañamiento psicopedagógico es un proceso inclusivo que aborda las dificultades de aprendixaje para que todos logren un desarrollo académico adecuado. .</p>
+                </div>
+                
+            </div>
+            </div>
+    
 
     <div class="container">
         <div class="row align-items-center mb-5 pb-5">
-            <div class="col-md-6 text-center mb-4 mb-md-0">
-                <div class="contenedor-reflejo">
-                    <img src="/assets/img/bienestarEstudiantil/AcompanamientoPsicopedagogico/psicopedagogico_foto.jpg" 
-                         alt="Acompañamiento Estudiantil" class="img-fluida-reflejo" style="border-radius: 25px; max-width: 90%;">
-                </div>
-            </div>
+           <div class="col-md-6 text-center mb-4 mb-md-0">
+    <div class="contenedor-imagen-simple">
+        <img src="/assets/img/bienestarEstudiantil/AcompanamientoPsicopedagogico/acompañamientoPsicopedagogico.jpeg" 
+             alt="Acompañamiento Estudiantil" 
+             class="img-fluid shadow" 
+             style="border-radius: 25px; max-width: 75%; height: auto;">
+    </div>
+</div>
 
             <div class="col-md-6">
                 <div class="d-flex flex-wrap justify-content-center align-items-center">
@@ -154,15 +177,20 @@ contenido3: `
                 </div>
             </div>
 
-            <div class="col-md-6 text-center mt-5 mt-md-0">
-                <div class="contenedor-reflejo">
-                    <img src="/assets/img/bienestarEstudiantil/AcompanamientoPsicopedagogico/clase_seguimiento.jpg" 
-                         alt="Sesión de Seguimiento" class="img-fluida-reflejo" style="border-radius: 20px; max-width: 90%;">
-                </div>
-            </div>
+           <div class="col-md-6 text-center mt-5 mt-md-0">
+    <div class="contenedor-imagen-simple">
+        <img src="/assets/img/bienestarEstudiantil/AcompanamientoPsicopedagogico/acompañamientoPsicopedagogico2.jpeg" 
+             alt="Sesión de Seguimiento" 
+             class="img-fluid shadow" 
+             style="border-radius: 20px; max-width: 75%; height: auto;">
+    </div>
+</div>
+
         </div>
     </div>
 </div>
+<br></br>
+<br></br>
 `,
 
  contenido4: `
@@ -177,7 +205,7 @@ contenido3: `
         <div class="row g-4 justify-content-center mb-5">
             
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="flip-card">
+                <div class="flip-card mb-3">
                     <div class="flip-card-inner shadow-sm">
                         <div class="flip-card-front card-socioeconomica">
                             <i class="fas fa-users icon-grande"></i> 
@@ -197,10 +225,13 @@ contenido3: `
                         </div>
                     </div>
                 </div>
+                <div class="bg-white p-3 rounded-4 shadow-sm border text-center" style="min-height: 110px; display: flex; align-items: center; justify-content: center;">
+                    <p class="small mb-0 text-dark">La beca de inclusión está dirigida a estudiantes con enfermedades crónicas, enfermedades catastróficas, discapacidad, mujeres sobrevivientes a violencia basada en género, poblaciones históricamente excluidas y necesidades educativas específicas.</p>
+                </div>
             </div>
 
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="flip-card">
+                <div class="flip-card mb-3">
                     <div class="flip-card-inner shadow-sm">
                         <div class="flip-card-front card-inclusion">
                             <i class="fas fa-wheelchair icon-grande"></i>
@@ -220,10 +251,13 @@ contenido3: `
                         </div>
                     </div>
                 </div>
+                <div class="bg-white p-3 rounded-4 shadow-sm border text-center" style="min-height: 110px; display: flex; align-items: center; justify-content: center;">
+                    <p class="small mb-0 text-dark">La beca socioeconómica está destinada a estudiantes que se encuentran en situación de vulnerabilidad socioeconómica, desempleo o poseen escasos recursos económicos. </p>
+                </div>
             </div>
 
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="flip-card">
+                <div class="flip-card mb-3">
                     <div class="flip-card-inner shadow-sm">
                         <div class="flip-card-front card-especial">
                             <i class="fas fa-horse-head icon-grande"></i>
@@ -242,10 +276,13 @@ contenido3: `
                         </div>
                     </div>
                 </div>
+                <div class="bg-white p-3 rounded-4 shadow-sm border text-center" style="min-height: 110px; display: flex; align-items: center; justify-content: center;">
+                    <p class="small mb-0 text-dark">La Beca Especial se encuentra dirigida a aquellos estudiantes que se benefician de algún convenio, son parte de clubes o situaciones especiales de mérito académico o cultural.</p>
+                </div>
             </div>
 
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="flip-card">
+                <div class="flip-card mb-3">
                     <div class="flip-card-inner shadow-sm">
                         <div class="flip-card-front card-excelencia">
                             <i class="fas fa-graduation-cap icon-grande"></i>
@@ -262,6 +299,9 @@ contenido3: `
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div class="bg-white p-3 rounded-4 shadow-sm border text-center" style="min-height: 110px; display: flex; align-items: center; justify-content: center;">
+                    <p class="small mb-0 text-dark">La Beca de Excelencia Académica se encuentra destinada a estudiantes que poseen un rendimiento académico excelente, ya sea antes de ingresar a la institución o siendo parte de la misma.</p>
                 </div>
             </div>
         </div>
@@ -334,6 +374,13 @@ contenido3: `
             BIENESTAR PSICOLÓGICO
         </div>
     </div>
+    <div class="col-md-12">
+                <div class="caja-texto-borde mb-4" style="border-color: #C28502;">
+                    <p class="mb-0"> Tu salud mental es importante.El binestar psicológico es el resultado de un equilibrio emocional, personal y académico alineado al proyecto de vida de cada miembro de la comunidad educativa .</p>
+                </div>
+                
+            </div>
+            </div>
 
     <div class="container">
         <div class="text-center mb-5">
@@ -361,7 +408,7 @@ contenido3: `
                     <div class="col-6">
                         <div class="club-mini-card shadow-sm p-3 border rounded text-center" data-toggle="modal" data-target="#equitacionModal" style="cursor: pointer; background: #fff; height: 100%;">
                             <i class="fas fa-horse-head mb-2 d-block" style="font-size: 1.5rem;"></i>
-                            <span class="small fw-bold">Club de Equitación</span>
+                            <span class="small fw-bold">Club Western</span>
                         </div>
                     </div>
                     <div class="col-6">
@@ -375,7 +422,7 @@ contenido3: `
 
             <div class="col-lg-5 text-center px-lg-4">
                 <div class="contenedor-reflejo">
-                    <img src="/assets/img/bienestarEstudiantil/BienestarPsicologico/foto_grupal.jpg" 
+                    <img src="/assets/img/bienestarEstudiantil/AcompanamientoPsicopedagogico/BPsicologico.jpeg" 
                          alt="Estudiantes Bienestar" class="img-fluid rounded-3 shadow" style="max-height: 380px; width: 100%; object-fit: cover;">
                 </div>
             </div>
@@ -383,21 +430,25 @@ contenido3: `
             <div class="col-lg-3 text-center">
                 <h4 class="text-primary fw-bold mb-3" style="font-size: 1.1rem;">JORNADAS DE PSICOLOGÍA POSITIVA</h4>
                 <div class="rounded-3 overflow-hidden shadow-sm border">
-                    <img src="/assets/img/bienestarEstudiantil/BienestarPsicologico/jornada_clase.jpg" 
-                         alt="Jornada Positiva" class="img-fluid">
+                    <img src="/assets/img/bienestarEstudiantil/AcompanamientoPsicopedagogico/JPP.jpeg" 
+                         alt="Jornada Positiva" class="img-fluid" >
                 </div>
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col-12 d-flex justify-content-center">
-                <div style="border: 5px solid #ffc000; padding: 10px 60px; border-radius: 15px; background: white; transition: 0.3s;" class="btn-agenda-container">
-                    <a href="https://wa.me/593998409293" target="_blank" style="text-decoration: none; color: #333; font-size: 2rem; font-weight: bold;">
-                        Agenda tu cita aquí
-                    </a>
-                </div>
+        
+
+<div class="row mt-5">
+    <div class="col-12 d-flex justify-content-center">
+        <div class="btn-agenda-animado">
+            <div class="btn-agenda-interno">
+                <a href="https://wa.me/593998409293" target="_blank">
+                    Agenda tu cita aquí
+                </a>
             </div>
         </div>
+    </div>
+</div>
     </div>
 </div>
 
@@ -443,7 +494,7 @@ contenido3: `
 <div class="modal fade" id="equitacionModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header"><h5 class="fw-bold">Club de Equitación</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div>
+            <div class="modal-header"><h5 class="fw-bold">Club Western</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div>
             <div class="modal-body p-4">
                 <div class="row align-items-center">
                     <div class="col-lg-4">
@@ -480,7 +531,6 @@ contenido3: `
     </div>
 </div>
    <br></br>
-    <br></br>
 `,
  
 contenido6: `
@@ -621,40 +671,11 @@ contenido7: `
         </div>
     </div>
 </div>
-
-<style>
-/* Estilo sin contenedores blancos, las fotos pasan sobre el fondo */
-.carrusel-limpio {
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden; /* Importante para que el carrusel funcione */
-    background: transparent;
-}
-
-.img-fluida-full {
-    width: 100%;
-    max-width: 1000px; /* Ancho máximo para que no se deforme en pantallas enormes */
-    height: auto;
-    border-radius: 10px; /* Un toque leve para que no sea tan rígido */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra suave para despegarla del fondo */
-    transition: transform 0.4s ease;
-}
-
-.img-fluida-full:hover {
-    transform: scale(1.02);
-}
-
-/* Títulos más elegantes */
-h2 {
-    font-size: 1.5rem;
-    color: #444;
-}
-</style>
 `,
 contenido8: `
 <div class="container-fluid py-5 bg-light">
     <div class="d-flex justify-content-center mb-5">
-        <div class="titulo-flecha-derecha" style="background-color: #ed7d31; min-width: 70%; color: white; padding: 10px 40px; font-weight: bold; text-align: center; clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);">
+        <div class="titulo-flecha-denuncia">
             EN CASO DE VIOLENCIA BASADA EN GÉNERO
         </div>
     </div>
@@ -662,13 +683,13 @@ contenido8: `
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <div class="p-4 p-md-5 shadow-sm bg-white" style="border-radius: 20px; border-left: 8px solid #dc3545;">
+                <div class="p-4 p-md-5 shadow-sm bg-white contenedor-texto-denuncia">
                     <div class="mb-4">
                         <i class="fas fa-info-circle text-danger fs-3 mb-3"></i>
-                        <p class="fs-5 text-dark" style="text-align: justify; line-height: 1.8;">
+                        <p class="fs-5 text-dark texto-justificado-custom">
                             El presente formulario tiene como objetivo recopilar denuncias de los miembros de la comunidad educativa del <b>Instituto Superior Tecnológico Superarse</b> sobre cualquier tipo de violencia contemplada en el Protocolo de Prevención y Actuación ante casos de acoso, discriminación y violencia basada en género u orientación sexual.
                         </p>
-                        <p class="text-muted" style="text-align: justify;">
+                        <p class="text-muted texto-justificado-custom">
                             Este instrumento busca identificar posibles situaciones de vulneración de derechos asociadas a prejuicios de género, identidad sexual, origen étnico-cultural u otros factores discriminatorios. 
                             <b>La información obtenida será tratada con absoluta confidencialidad</b> y utilizada para implementar medidas preventivas y correctivas que fortalezcan la convivencia institucional.
                         </p>
@@ -686,35 +707,6 @@ contenido8: `
     </div>
 </div>
 
-<style>
-/* Estilo para el botón de ayuda/denuncia */
-.btn-denuncia-urgente {
-    background-color: #dc3545;
-    color: white;
-    padding: 18px 40px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
-    display: inline-block;
-    border: none;
-}
-
-.btn-denuncia-urgente:hover {
-    background-color: #b02a37;
-    color: white;
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.6);
-}
-
-/* Ajuste de tipografía para el cuerpo */
-.text-muted {
-    font-size: 0.95rem;
-    color: #666 !important;
-}
-</style>
 `,
 };
 document.addEventListener('DOMContentLoaded', () => {

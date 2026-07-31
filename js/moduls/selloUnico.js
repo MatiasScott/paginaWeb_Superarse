@@ -56,7 +56,7 @@ const clubsSelloUnico = [
         redes: [
             {
                 claseIcono: "fas fa-file-pdf",
-                enlace: "/assets/pdf/BASES DE POSTULACIÓN A1-2026.pdf",
+                enlace: "/assets/pdf/BASES_DE_POSTULACION_A1_2026.pdf",
                 titulo: "Bases de Postulación",
                 target: "_blank",
             },

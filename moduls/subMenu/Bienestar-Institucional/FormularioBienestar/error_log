@@ -25,3 +25,27 @@ the proper dns entries.
 [06-Oct-2025 20:27:29 UTC] PHP Warning:  Undefined variable $cedula in /home2/superars/public_html/moduls/subMenu/bienestarInstitucional/FormularioBienestar/procesar_solicitud_beca.php on line 247
 [06-Oct-2025 20:27:29 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home2/superars/public_html/moduls/subMenu/bienestarInstitucional/FormularioBienestar/procesar_solicitud_beca.php on line 247
 [06-Oct-2025 21:17:58 UTC] Error al enviar el correo: SMTP Error: Could not authenticate.
+[09-Apr-2026 19:56:49 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 159
+[09-Apr-2026 19:56:49 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 159
+[09-Apr-2026 19:56:49 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 159
+[09-Apr-2026 19:56:49 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 159
+[09-Apr-2026 19:56:49 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 159
+[09-Apr-2026 19:56:49 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 159
+[09-Apr-2026 19:56:49 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 19:56:50 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 19:56:50 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 19:56:50 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 19:56:50 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 19:56:50 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 158
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 158
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 158
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 158
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 158
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "Socioeconómica" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/procesar_solicitud_beca.php on line 158
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60
+[09-Apr-2026 20:06:28 UTC] PHP Warning:  Undefined array key "s" in /home2/superars/public_html/moduls/subMenu/Bienestar-Institucional/FormularioBienestar/vendor/mpdf/mpdf/src/Tag/Br.php on line 60

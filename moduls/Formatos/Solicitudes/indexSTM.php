@@ -56,22 +56,22 @@
                 <strong><input type="text" id="cedulaPrincipal" placeholder="Cédula/Pasaporte" class="w-36 mx-1 border-b"></strong>,
                 en la carrera
                 <strong><select class="border-b mx-1">
-                    <option value="Seleccione">Seleccione</option>
-                <option value="ADMINISTRACIÓN">ADMINISTRACIÓN</option>
-                <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
-                <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
-                <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
-                <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
-                <option value="MINERÍA">MINERÍA</option>
-                <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
-                <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
-                <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
-                <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">TÉCNICO SUPERIOR EN MARKETING DIGITAL</option>
-                <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
-                <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR </option>
-                <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
+                   <option value="">Seleccione</option>
+                    <option value="ADMINISTRACIÓN">ADMINISTRACIÓN</option>
+                    <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
+                    <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
+                    <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
+                    <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
+                    <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
+                     <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">MARKETING DIGITAL Y DISEÑO MULTIMEDIA</option>
+                    <option value="MINERÍA">MINERÍA</option>
+                    <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
+                    <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
+                    <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
+                    <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR</option>
+                    <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
                 </select></strong>,
-                para el periodo académico <strong>Noviembre 2025 – Abril 2026.</strong>
+                para el periodo académico <strong>Mayo – Octubre 2026.</strong>
             </p>
 
             <div class="ml-4 mb-3 space-y-1">

@@ -1,140 +1,170 @@
 <?php
+/**
+ * PROCESAR SOLICITUD CON DOS ARCHIVOS ADJUNTOS (PDF O IMAGEN)
+ * ---------------------------------------------------
+ * Archivo 1: archivo_solicitud (Obligatorio - Solo PDF)
+ * Archivo 2: archivo_anexo (Obligatorio - PDF, JPG o PNG)
+ */
+
+// 0. Prevenir que errores menores ensucien la respuesta JSON
+ob_start(); 
+set_time_limit(120); 
+
 header("Content-Type: application/json; charset=UTF-8");
 header("X-Content-Type-Options: nosniff");
 
+// Asegúrate de que la ruta a tu autoload.php sea correcta
 require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // ===============================================
-// CONFIGURACIÓN SMTP (MISMA QUE ENVIAR_BUZON)
+// CONFIGURACIÓN SMTP (Limpiado de espacios raros)
 // ===============================================
-$smtp_host = 'mail.superarse.ec';
-$smtp_port = 587;
+$smtp_host     = 'mail.superarse.ec';
+$smtp_port     = 587;
 $smtp_username = 'alexander.quinga@superarse.ec';
 $smtp_password = 'Patoboris123';
-$from_email = 'alexander.quinga@superarse.ec';
-$from_name = 'Repositorio de Solicitudes';
+$from_email    = 'alexander.quinga@superarse.ec';
+$from_name     = 'Repositorio de Solicitudes';
 // ===============================================
 
 // SOLO POST
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    if (ob_get_length()) ob_end_clean();
     http_response_code(403);
-    echo json_encode([
-        "success" => false,
-        "message" => "Acceso denegado."
-    ]);
+    echo json_encode(["success" => false, "message" => "Acceso denegado."]);
     exit;
 }
 
-// 1️⃣ VALIDAR ARCHIVO
-if (!isset($_FILES['archivo']) || $_FILES['archivo']['error'] !== 0) {
+/**
+ * FUNCIÓN PARA PROCESAR Y GUARDAR CADA ARCHIVO (MÉTODO SEGURO)
+ */
+function procesarArchivo($fileInputName, $obligatorio = false, $soloPdf = false) {
+    if (!isset($_FILES[$fileInputName]) || $_FILES[$fileInputName]['error'] !== 0) {
+        if ($obligatorio) {
+            return ["error" => "El campo de '$fileInputName' es obligatorio o el archivo es muy pesado."];
+        }
+        return null;
+    }
+
+    $file = $_FILES[$fileInputName];
+
+    // Mapeo de extensiones permitidas
+    $allowedTypes = [
+        'application/pdf' => 'pdf',
+        'image/jpeg'      => 'jpg',
+        'image/png'       => 'png'
+    ];
+
+    // Obtener MIME de forma segura (Plan B si finfo no está activo)
+    if (function_exists('finfo_open')) {
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime  = finfo_file($finfo, $file['tmp_name']);
+        finfo_close($finfo);
+    } else {
+        // Alternativa si el hosting tiene deshabilitado Fileinfo
+        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        $mimesPorExt = ['pdf' => 'application/pdf', 'jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png'];
+        $mime = $mimesPorExt[$ext] ?? 'unknown';
+    }
+
+    if (!array_key_exists($mime, $allowedTypes)) {
+        return ["error" => "Formato no permitido en " . htmlspecialchars($file['name']) . ". Use PDF, JPG o PNG."];
+    }
+
+    if ($soloPdf && $mime !== 'application/pdf') {
+        return ["error" => "La Solicitud (Archivo 1) debe ser estrictamente un PDF."];
+    }
+
+    $extension = $allowedTypes[$mime];
+
+    // Tamaño máximo 5MB
+    if ($file['size'] > 5 * 1024 * 1024) {
+        return ["error" => "El archivo " . htmlspecialchars($file['name']) . " supera los 5MB permitidos."];
+    }
+
+    // Preparar directorio
+    $directorio = __DIR__ . '/uploads/';
+    if (!file_exists($directorio)) {
+        if (!@mkdir($directorio, 0755, true)) {
+            return ["error" => "Error interno: No se pueden crear directorios en el servidor. Revise permisos."];
+        }
+    }
+
+    // Limpiar nombre de archivo
+    $nombreLimpio = preg_replace('/[^A-Za-z0-9_\-]/', '_', pathinfo($file['name'], PATHINFO_FILENAME));
+    $nombreArchivo = $nombreLimpio . '.' . $extension;
+    $contador = 1;
+    
+    while (file_exists($directorio . $nombreArchivo)) {
+        $nombreArchivo = $nombreLimpio . '_' . $contador . '.' . $extension;
+        $contador++;
+    }
+
+    $rutaFinal = $directorio . $nombreArchivo;
+
+    if (move_uploaded_file($file['tmp_name'], $rutaFinal)) {
+        return [
+            "ruta"     => $rutaFinal,
+            "nombre"   => $nombreArchivo,
+            "original" => $file['name']
+        ];
+    }
+
+    return ["error" => "No se pudo guardar " . htmlspecialchars($file['name']) . " en el servidor por restricciones de escritura."];
+}
+
+// 1️⃣ PROCESAR ARCHIVOS
+$resSolicitud = procesarArchivo('archivo_solicitud', true, true);
+if (isset($resSolicitud['error'])) {
+    if (ob_get_length()) ob_end_clean();
     http_response_code(400);
-    echo json_encode([
-        "success" => false,
-        "message" => "No se recibió el archivo PDF."
-    ]);
+    echo json_encode(["success" => false, "message" => $resSolicitud['error']]);
     exit;
 }
 
-$archivo = $_FILES['archivo'];
-
-// Validar MIME
-if (mime_content_type($archivo['tmp_name']) !== 'application/pdf') {
+$resAnexo = procesarArchivo('archivo_anexo', true, false);
+if (isset($resAnexo['error'])) {
+    if (ob_get_length()) ob_end_clean();
     http_response_code(400);
-    echo json_encode([
-        "success" => false,
-        "message" => "Solo se permiten archivos PDF."
-    ]);
+    echo json_encode(["success" => false, "message" => $resAnexo['error']]);
     exit;
 }
 
-// Tamaño máximo 5MB
-if ($archivo['size'] > 5 * 1024 * 1024) {
-    http_response_code(400);
-    echo json_encode([
-        "success" => false,
-        "message" => "El archivo supera los 5MB permitidos."
-    ]);
-    exit;
-}
-
-// 2️⃣ GUARDAR PDF
-$nombreArchivo = 'solicitud_' . date('Ymd_His') . '.pdf';
-$ruta = __DIR__ . '/uploads/' . $nombreArchivo;
-
-if (!move_uploaded_file($archivo['tmp_name'], $ruta)) {
-    http_response_code(500);
-    echo json_encode([
-        "success" => false,
-        "message" => "No se pudo guardar el archivo."
-    ]);
-    exit;
-}
-
-// 3️⃣ DATOS DE LA SOLICITUD
-$tipo = filter_var(trim($_POST["tipo"] ?? "Solicitud Académica"), FILTER_SANITIZE_STRING);
-
-// 4️⃣ ASUNTO
+// 2️⃣ PREPARAR DATOS DEL CORREO
+$tipo = filter_var(trim($_POST["tipo"] ?? "Solicitud Académica"), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $subject = "Nueva Solicitud Académica – " . $tipo;
 
-// 5️⃣ CONTENIDO HTML (MISMO ESTILO QUE BUZÓN)
+$listaArchivos = "<li><strong>SOLICITUD:</strong> " . htmlspecialchars($resSolicitud['original']) . "</li>";
+$listaArchivos .= "<li><strong>COMPROBANTE/BAUCHER:</strong> " . htmlspecialchars($resAnexo['original']) . "</li>";
+
 $email_content = "
-<!DOCTYPE html>
-<html lang='es'>
-<head>
-    <meta charset='UTF-8'>
-    <title>$subject</title>
-</head>
-<body style='margin:0; padding:0; background-color:#f4f6f8; font-family:Arial, Helvetica, sans-serif;'>
+<body style='font-family:Arial, sans-serif; background-color:#f4f6f8; padding:20px;'>
+    <div style='background-color:#ffffff; max-width:600px; margin:0 auto; border-radius:8px; border: 1px solid #e1e4e8; overflow:hidden;'>
+        <div style='background-color:#198754; color:#ffffff; padding:20px; text-align:center;'>
+            <h2 style='margin:0;'>Repositorio de Solicitudes</h2>
+        </div>
+        <div style='padding:30px;'>
+            <p style='font-size:16px;'>Se ha recibido una nueva solicitud y su comprobante de pago:</p>
+            <hr style='border:0; border-top:1px solid #eee;'>
+            <p><strong>Tipo de Solicitud:</strong> $tipo</p>
+            <p><strong>Documentos recibidos:</strong></p>
+            <ul style='background-color:#f8f9fa; padding:15px 35px; border-radius:5px;'>
+                $listaArchivos
+            </ul>
+            <p style='color:#666; font-size:12px; margin-top:30px;'>
+                Enviado automáticamente el: " . date('d/m/Y H:i:s') . "
+            </p>
+        </div>
+        <div style='background-color:#f1f3f5; padding:15px; text-align:center; font-size:12px; color:#999;'>
+            © " . date("Y") . " Superarse - Sistema de Gestión de Solicitudes
+        </div>
+    </div>
+</body>";
 
-<table width='100%' cellpadding='0' cellspacing='0' style='background-color:#f4f6f8; padding:30px 0;'>
-<tr>
-<td align='center'>
-
-<table width='600' cellpadding='0' cellspacing='0' style='background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.08);'>
-
-<tr>
-<td style='background:#198754; color:#ffffff; padding:20px 30px;'>
-<h2 style='margin:0; font-size:20px;'>Repositorio de Solicitudes</h2>
-<p style='margin:5px 0 0; font-size:14px; opacity:0.9;'>Nueva solicitud académica</p>
-</td>
-</tr>
-
-<tr>
-<td style='padding:30px;'>
-<p><strong>Tipo de solicitud:</strong></p>
-<span style='display:inline-block; padding:6px 14px; background:#e9f7ef; color:#198754; border-radius:20px; font-size:13px;'>
-$tipo
-</span>
-
-<p style='margin-top:20px;'>Se adjunta el documento PDF correspondiente a esta solicitud.</p>
-
-<p style='margin-top:20px; font-size:13px; color:#666;'>
-Fecha de envío: " . date('d/m/Y H:i') . "
-</p>
-</td>
-</tr>
-
-<tr>
-<td style='background:#f1f3f5; padding:15px 30px; font-size:12px; color:#666; text-align:center;'>
-Este correo fue generado automáticamente desde el sistema web.<br>
-© " . date("Y") . " Superarse – Todos los derechos reservados.
-</td>
-</tr>
-
-</table>
-
-</td>
-</tr>
-</table>
-
-</body>
-</html>
-";
-
-// 6️⃣ ENVÍO (MISMO MÉTODO QUE BUZÓN)
+// 3️⃣ ENVÍO CON PHPMailer
 $mail = new PHPMailer(true);
 
 try {
@@ -147,31 +177,34 @@ try {
     $mail->Port       = $smtp_port;
     $mail->CharSet    = 'UTF-8';
 
-    $mail->setFrom($from_email, $from_name);
+    $mail->SMTPOptions = [
+        'ssl' => [
+            'verify_peer'       => false,
+            'verify_peer_name'  => false,
+            'allow_self_signed' => true
+        ]
+    ];
 
-    // DESTINATARIO
+    $mail->setFrom($from_email, $from_name);
     $mail->addAddress('matriculassuperarse@gmail.com');
+    $mail->addReplyTo($from_email);
 
     $mail->isHTML(true);
     $mail->Subject = $subject;
     $mail->Body    = $email_content;
-    $mail->AltBody = "Nueva solicitud académica. Se adjunta el PDF.";
 
-    // 📎 ADJUNTO
-    $mail->addAttachment($ruta);
+    // ADJUNTAR ARCHIVOS
+    $mail->addAttachment($resSolicitud['ruta'], "Solicitud_" . $resSolicitud['nombre']);
+    $mail->addAttachment($resAnexo['ruta'], "Comprobante_" . $resAnexo['nombre']);
 
     $mail->send();
+    $mail->smtpClose();
 
-    echo json_encode([
-        "success" => true,
-        "message" => "¡Solicitud enviada correctamente!"
-    ]);
+    if (ob_get_length()) ob_end_clean();
+    echo json_encode(["success" => true, "message" => "¡Solicitud y comprobante enviados correctamente!"]);
 
 } catch (Exception $e) {
+    if (ob_get_length()) ob_end_clean();
     http_response_code(500);
-    error_log("PHPMailer Solicitud Error: " . $mail->ErrorInfo);
-    echo json_encode([
-        "success" => false,
-        "message" => "No se pudo enviar la solicitud. Intente más tarde."
-    ]);
+    echo json_encode(["success" => false, "message" => "Error al enviar el correo: " . $mail->ErrorInfo]);
 }

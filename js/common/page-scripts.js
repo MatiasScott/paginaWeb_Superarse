@@ -8,11 +8,15 @@
   const commonScripts = [
     "https://code.jquery.com/jquery-3.4.1.min.js",
     "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js",
     "/lib/easing/easing.min.js",
     "/lib/owlcarousel/owl.carousel.min.js",
     "/lib/isotope/isotope.pkgd.min.js",
     "/lib/lightbox/js/lightbox.min.js",
     "/js/moduls/header.js",
+    
+   
   ];
 
   const pageScripts = (currentScript.dataset.pageScripts || "")
@@ -34,6 +38,9 @@
     "/js/moduls/core/orchestrator.js",
     "/js/main.js",
     "/js/common/internal-view-normalizer.js",
+    "/js/moduls/noticias/dataNoticias.js",
+    "/js/moduls/Institucion/authoritiesData.js",
+    "/js/moduls/Institucion/codigoInstitucional.js",
   ];
 
   const queue = [...commonScripts, ...pageScripts, ...trailingScripts];
@@ -87,6 +94,5 @@
         console.error("Error inesperado en el loader de scripts:", error);
       });
   }
-
   loadQueue();
 })();

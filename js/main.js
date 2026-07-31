@@ -206,116 +206,106 @@
 })(jQuery);
 
 function generarHeader() {
-  const headerContainer = document.querySelector(
-    "body > .container-fluid.bg-light"
-  );
+  const headerContainer = document.querySelector("body > .container-fluid.bg-light");
   if (!headerContainer) {
     console.error("No se encontró el contenedor principal del header.");
     return;
   }
 
-  const resolvePath = typeof window.resolveSuperarsePath === "function"
-    ? window.resolveSuperarsePath
-    : (path) => path;
-
-  // Función auxiliar para generar submenús de forma recursiva
+  // --- FUNCIÓN AUXILIAR PARA SUBMENÚS MODIFICADA ---
   const generarDropdownMenu = (items) => {
     let menuHtml = "";
     items.forEach((item) => {
+      // Validamos si tiene descripción para el tooltip, si no, se deja vacío
+      const tooltip = item.descripcion ? `title="${item.descripcion}"` : "";
+
       if (item.items) {
-        // Si el ítem tiene sub-ítems, genera otro dropdown (dropright)
         menuHtml += `
-                    <div class="dropdown dropright">
-                        <a class="dropdown-item dropdown-toggle" href="${resolvePath(item.enlace || "#")
-          }" id="${item.id
-          }" aria-haspopup="true" aria-expanded="false">
-                            ${item.texto}
-                        </a>
-                        <div class="dropdown-menu rounded-0 m-0" aria-labelledby="${item.id
-          }">
-                            ${generarDropdownMenu(item.items)}
-                        </div>
-                    </div>
-                `;
+            <div class="dropdown dropright">
+                <a class="dropdown-item dropdown-toggle" href="${item.enlace || "#"}" id="${item.id}" aria-haspopup="true" aria-expanded="false" ${tooltip}>
+                    ${item.texto}
+                </a>
+                <div class="dropdown-menu rounded-0 m-0" aria-labelledby="${item.id}">
+                    ${generarDropdownMenu(item.items)}
+                </div>
+            </div>`;
       } else {
-        // Si es un ítem simple, genera un enlace
-        menuHtml += `<a href="${resolvePath(item.enlace)}" class="dropdown-item" ${item.target ? `target="${item.target}"` : ""
-          }>${item.texto}</a>`;
+        menuHtml += `<a href="${item.enlace}" class="dropdown-item" ${item.target ? `target="${item.target}"` : ""} ${tooltip}>${item.texto}</a>`;
       }
     });
     return menuHtml;
   };
 
-  // Construye la barra superior
+  // --- 1. BARRA SUPERIOR (TOPBAR) ---
   let topbarHtml = `
-        <nav class="navbar navbar-expand-lg py-1 px-0 px-lg-1 fixed-top bg-dark navbar-dark" style="font-size: 0.9rem; z-index: 1030">
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="d-flex justify-content-start w-100">
+    <nav class="navbar navbar-dark bg-dark py-1 px-4 fixed-top d-none d-lg-block" style="font-size: 0.85rem; z-index: 1030; height: 33px;">
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <div class="d-flex align-items-center">
     `;
-  headerData.topbar.slice(0, 2).forEach((item) => {
-    topbarHtml += `<a href="${resolvePath(item.enlace)}" class="navbar-link ${item.clases}"><i class="${item.icono}"></i>${item.texto}</a>`;
+
+  headerData.topbar.slice(0, 1).forEach((item) => {
+    topbarHtml += `<a href="${item.enlace}" class="text-white mr-4" style="text-decoration:none;"><i class="${item.icono} mr-1"></i>${item.texto}</a>`;
   });
-  topbarHtml += `</div><div class="navbar-nav ml-auto" style="margin-right: 10%">`;
-  headerData.topbar.slice(2).forEach((item) => {
+
+  topbarHtml += `
+            </div>
+            <div class="d-flex align-items-center">`;
+
+  headerData.topbar.slice(1).forEach((item) => {
     if (item.items) {
       topbarHtml += `
-                <div class="nav-item dropdown">
-                    <a href="#" class="${item.clases}" data-toggle="dropdown">${item.texto
-        }</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        ${generarDropdownMenu(item.items)}
-                    </div>
+            <div class="dropdown ml-3">
+                <a href="#" class="text-white dropdown-toggle" data-toggle="dropdown" style="text-decoration:none;">${item.texto}</a>
+                <div class="dropdown-menu dropdown-menu-right rounded-0 m-0">
+                    ${generarDropdownMenu(item.items)}
                 </div>
-            `;
+            </div>`;
     } else {
-      topbarHtml += `<a href="${resolvePath(item.enlace)}" class="${item.clases}" ${item.target ? `target="${item.target}"` : ""
-        }>${item.texto}</a>`;
+      topbarHtml += `<a href="${item.enlace}" class="text-white ml-3" style="text-decoration:none;" ${item.target ? `target="${item.target}"` : ""}>${item.texto}</a>`;
     }
   });
-  topbarHtml += `</div></nav>`;
 
-  // Construye la barra de navegación principal
+  topbarHtml += `</div></div></nav>`;
+
+  // --- 2. BARRA PRINCIPAL (MAIN NAV) ---
   let mainNavHtml = `
-        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-1 fixed-top" style="margin-top: 28px; z-index: 1020">
-            <a href="${resolvePath('/index.html')}" class="navbar-brand" style="width: min-content; height: min-content">
-              <img src="${resolvePath('/assets/img/content/logo/superarse_gris.png')}" alt="logo" width="140rem" />
-            </a>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav font-weight-bold mx-auto py-0">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-3 fixed-top custom-nav-responsive" style="z-index: 1020">
+        <a href="/index.html" class="navbar-brand">
+            <img src="/assets/img/content/logo/superarse_gris.png" alt="logo" style="height: 45px; width: auto;" />
+        </a>
+        
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mainNavbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="mainNavbarCollapse">
+            <div class="navbar-nav font-weight-bold mx-auto py-0">
     `;
+
   headerData.mainNav.forEach((item) => {
     if (item.items) {
       mainNavHtml += `
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">${item.texto
-        }</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        ${generarDropdownMenu(item.items)}
-                    </div>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">${item.texto}</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    ${generarDropdownMenu(item.items)}
                 </div>
-            `;
+            </div>`;
     } else {
-      mainNavHtml += `<a href="${resolvePath(item.enlace)}" class="nav-item nav-link">${item.texto}</a>`;
+      mainNavHtml += `<a href="${item.enlace}" class="nav-item nav-link">${item.texto}</a>`;
     }
   });
-  // Añade el enlace final de "Plataformas"
-  mainNavHtml += `
-                </div>
-                <a href="${resolvePath(headerData.finalLink.enlace)}" class="${headerData.finalLink.clases
-    }" ${headerData.finalLink.target ? `target="${headerData.finalLink.target}"` : ""
-    }>
-                    ${headerData.finalLink.texto}
-                </a>
-            </div>
-        </nav>
-    `;
 
-  // Inserta el HTML completo en el contenedor del header
+  mainNavHtml += `
+            </div>
+            <a href="${headerData.finalLink.enlace}" class="${headerData.finalLink.clases} mt-3 mt-lg-0" ${headerData.finalLink.target ? `target="${headerData.finalLink.target}"` : ""}>
+                ${headerData.finalLink.texto}
+            </a>
+        </div>
+    </nav>`;
+
   headerContainer.innerHTML = topbarHtml + mainNavHtml;
 }
-
 // Función para generar y renderizar las tarjetas de aranceles
 function generarAranceles() {
   const contenedorAranceles = document.querySelector(".row.justify-content-center");
@@ -350,62 +340,131 @@ function generarAranceles() {
 
   contenedorAranceles.innerHTML = htmlContent;
 }
-// Función para generar las tarjetas y el carrusel
+// =========================================================================
+// 1. ESTILOS CSS UNIFICADOS (Declarados una sola vez para todo el sitio)
+// =========================================================================
+const modalStylesGlobal = `
+  <style>
+    .modal-glass-uniform { 
+      position: relative; 
+      background-size: cover; 
+      background-position: center; 
+    }
+    .modal-glass-uniform::before {
+      content: ""; 
+      position: absolute; 
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 255, 255, 0.92); 
+      backdrop-filter: blur(10px); 
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 0;
+    }
+    .content-wrapper-construction { 
+      position: relative; 
+      z-index: 1; 
+    }
+    .glass-section-modern {
+      background: rgba(255, 255, 255, 0.6); 
+      border-radius: 15px; 
+      padding: 20px;
+      margin-bottom: 20px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .section-label-v {
+      background: linear-gradient(90deg, #28a745, #20c997);
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+      font-weight: bold; 
+      text-transform: uppercase; 
+      font-size: 0.85rem; 
+      letter-spacing: 1px; 
+      display: block; 
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .modal-body.content-wrapper-construction { padding: 30px 15px !important; }
+      .modal-body h1 { font-size: 1.8rem !important; }
+      .modal-body .lead { font-size: 1rem !important; text-align: left !important; }
+      .glass-section-modern h3 { font-size: 1.4rem !important; }
+      .btn-lg { width: 100%; font-size: 1rem; }
+      .close { right: 15px !important; top: 10px !important; font-size: 35px !important; }
+    }
+  </style>
+`;
+
+// =========================================================================
+// 2. GENERADOR DE TARJETAS (CARRUSEL GENERAL)
+// =========================================================================
 function generarOfertaAcademica() {
-  const contenedorOferta = document.querySelector(
-    ".owl-carousel.ofertaA-carousel"
-  );
+  const contenedorOferta = document.querySelector(".owl-carousel.ofertaA-carousel");
   let htmlContent = "";
 
-  if (contenedorOferta) {
+  if (contenedorOferta && typeof carreras !== "undefined") {
     carreras.forEach((carrera) => {
-      // El HTML de cada tarjeta va dentro de la clase testimonial-item
       htmlContent += `
-        <div class="testimonial-item px-3">
-          <a href="#" class="d-block" data-toggle="modal" data-target="#${carrera.modalId}">
-            <img src="${carrera.imagenSrc}" alt="Imagen de ${carrera.titulo}" class="img-fluid-ofertaA rounded-top" />
-          </a>
-          <p class="text-muted text-center mt-2">Haz clic en la imagen para ver más detalles de la carrera.</p>
-          <div class="card-body text-center">
-            <h4 class="card-title">${carrera.titulo}</h4>
+        <div class="testimonial-item px-3 pb-4">
+          <div class="card shadow-lg border-0" style="border-radius: 25px; overflow: hidden; background: #fff; transition: 0.4s; min-height: 800px; height: auto; display: flex; flex-direction: column;">
+            
+            <div style="position: relative; height: 450px; min-height: 350px; overflow: hidden;">
+              <img src="${carrera.imagenSrc}" alt="${carrera.titulo}" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%);"></div>
+              
+              <span style="position: absolute; top: 15px; right: 15px; background: #FF6347; color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase;">
+                ${carrera.modalidad}
+              </span>
+            </div>
+
+            <div class="card-body p-4 d-flex flex-column" style="flex-grow: 1;">
+              <h4 class="font-weight-bold mb-3" style="min-height: 55px; line-height: 1.2;">
+                ${carrera.titulo}
+              </h4>
+
+              <div class="mb-4" style="background: #f8f9fa; border-radius: 15px; padding: 15px;">
+                <div class="d-flex justify-content-between mb-2 small border-bottom pb-1">
+                  <span class="text-muted"><i class="fas fa-file-contract mr-1"></i> Resolución:</span>
+                  <span class="font-weight-bold text-dark text-right ml-2">${carrera.resolucion}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2 small border-bottom pb-1">
+                  <span class="text-muted"><i class="fas fa-clock mr-1"></i> Duración:</span>
+                  <span class="font-weight-bold text-dark">${carrera.duracion}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2 small border-bottom pb-1">
+                  <span class="text-muted"><i class="fas fa-layer-group mr-1"></i> Niveles:</span>
+                  <span class="font-weight-bold text-dark">${carrera.niveles}</span>
+                </div>
+                <div class="d-flex justify-content-between small">
+                  <span class="text-muted"><i class="fas fa-map mr-1"></i> Malla:</span>
+                  <a href="${carrera.mallaCurricular ? carrera.mallaCurricular.url : '#'}" target="_blank" class="font-weight-bold text-success">Ver Malla</a>
+                </div>
+              </div>
+
+              <div class="text-center mt-auto">
+                <p class="small text-muted mb-2">¿Necesitas ayuda con tu inscripción?</p>
+                <a href="${carrera.waLink}" target="_blank" class="btn btn-block py-2 mb-3" 
+                   style="background: linear-gradient(90deg, #28a745, #20c997); color: white; border-radius: 12px; font-weight: bold; border: none; box-shadow: 0 4px 10px rgba(40,167,69,0.2);">
+                  <i class="fab fa-whatsapp mr-2"></i> Hablar con un Asesor
+                </a>
+                
+                <button class="btn btn-link btn-sm text-secondary font-weight-bold w-100" 
+                        data-toggle="modal" data-target="#${carrera.modalId}" 
+                        style="text-decoration: none; padding-bottom: 10px;">
+                   <i class="fas fa-plus-circle"></i> Ver Detalles
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="card-footer bg-transparent py-4 px-5">
-            <div class="row border-bottom">
-              <div class="col-6 py-1 text-right border-right small"><strong>Resolución</strong></div>
-              <div class="col-6 py-1">${carrera.resolucion}</div>
-            </div>
-            <div class="row border-bottom">
-              <div class="col-6 py-1 text-right border-right small"><strong>Duración</strong></div>
-              <div class="col-6 py-1">${carrera.duracion}</div>
-            </div>
-            <div class="row border-bottom">
-              <div class="col-6 py-1 text-right border-right small"><strong>Modalidad</strong></div>
-              <div class="col-6 py-1">${carrera.modalidad}</div>
-            </div>
-            <div class="row border-bottom">
-              <div class="col-6 py-1 text-right border-right "><strong>Niveles</strong></div>
-              <div class="col-6 py-1">${carrera.niveles}</div>
-            </div>
-            <div class="row">
-              <div class="col-6 py-1 text-right border-right "><strong>Malla</strong></div>
-              <div class="col-6 py-1"><a href="${carrera.mallaCurricular.url}">${carrera.mallaCurricular.texto}</a></div>
-            </div>
-          </div>
-          <div class="card-body text-center mt-auto">
-            <p class="card-title"><strong>¿Quieres comunicarte con un asesor?</strong></p>
-            <a href="${carrera.waLink}" class="btn btn-primary px-4 mx-auto mb-4">Haz clic aquí</a>
-          </div>
-        </div>
-      `;
+        </div>`;
     });
+
     contenedorOferta.innerHTML = htmlContent;
 
-    // Aquí está la parte clave: inicializar el carrusel
-    // Se inicializa después de que el HTML de las tarjetas se ha insertado
+    // Inicialización de Owl Carousel
     $(contenedorOferta).owlCarousel({
       autoplay: true,
       smartSpeed: 1500,
-      dots: false,
+      dots: true,
       loop: true,
       margin: 30,
       responsive: {
@@ -418,182 +477,291 @@ function generarOfertaAcademica() {
   }
 }
 
-// --- Función para generar dinámicamente los modales ---
+// =========================================================================
+// 3. GENERADOR DE MODALES GENERALES (Formato Limpio y Simétrico)
+// =========================================================================
 function generarModalesOfertaAcademica() {
   const body = document.body;
-  
-  // --- VALIDACIÓN DE SEGURIDAD ---
-  // Si la variable 'carreras' no existe, salimos silenciosamente
-  if (typeof carreras === 'undefined' || !carreras) {
-    return;
-  }
+  if (typeof carreras === 'undefined' || !carreras) return;
 
   let modalsHtml = "";
 
   carreras.forEach((carrera) => {
-    // Genera el HTML de la lista de perfil profesional
-    const perfilHtml = carrera.perfilProfesional
-      ? carrera.perfilProfesional.map((item) => `<li>${item}</li>`).join("")
+    const profileList = carrera.perfilProfesional
+      ? carrera.perfilProfesional.map((item) => `<li><i class="fas fa-check-circle text-success mr-2"></i>${item}</li>`).join("")
       : "";
 
-    // Genera el HTML de la lista de campo laboral
-    const campoLaboralHtml = carrera.campoLaboral
-      ? carrera.campoLaboral.map((item) => `<li>${item}</li>`).join("")
+    const careerPathList = carrera.campoLaboral
+      ? carrera.campoLaboral.map((item) => `<li><i class="fas fa-arrow-right text-primary mr-2"></i>${item}</li>`).join("")
       : "";
+
+    // Manejo de perfiles dinámicos en formato de lista string limpia
+    const perfilEgresado = carrera.perfilEgresado
+      ? (Array.isArray(carrera.perfilEgresado) 
+          ? carrera.perfilEgresado.map((item) => `<li><i class="fas fa-check-circle text-success mr-2"></i>${item}</li>`).join("") 
+          : `<li><i class="fas fa-check-circle text-success mr-2"></i>${carrera.perfilEgresado}</li>`)
+      : "<li><i class='fas fa-check-circle text-success mr-2'></i>Formación integral técnica y humanística para el sector profesional.</li>";
 
     modalsHtml += `
-      <div class="modal fade" id="${carrera.modalId}" tabindex="-1" role="dialog" aria-labelledby="${carrera.modalId}Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="${carrera.modalId}Label">${carrera.titulo}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h4><i class="fas fa-file-alt"></i> Descripción de la Carrera</h4>
-              <p style="text-align: justify;">${carrera.descripcionModal}</p>
+      <div class="modal fade" id="${carrera.modalId}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+          <div class="modal-content modal-glass-uniform" style="background-image: url('${carrera.imagenFondo || 'https://via.placeholder.com/1200x800'}'); border-radius: 20px; overflow: hidden; border: none;">
+            
+            <div class="modal-body content-wrapper-construction p-5">
+              <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 25px; top: 20px; font-size: 30px; z-index: 10;">&times;</button>
 
-              <h4><i class="fas fa-user"></i> Perfil Profesional</h4>
-              <ul style="text-align: justify;">${perfilHtml}</ul>
+              <div class="text-center mb-5">
+                <h1 class="font-weight-bold text-dark" style="font-size: 2.5rem;">${carrera.titulo}</h1>
+                <div style="width: 60px; height: 4px; background: #28a745; margin: 10px auto; border-radius: 10px;"></div>
+              </div>
 
-              <h4><i class="fas fa-briefcase"></i> Campo Laboral</h4>
-              <p>Los egresados pueden desempeñarse en:</p>
-              <ul style="text-align: justify;">${campoLaboralHtml}</ul>
+              <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="glass-section-modern h-100 text-center d-flex flex-column justify-content-center" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.03) 0%, rgba(32, 201, 151, 0.03) 100%); border-left: 5px solid #28a745;">
+                    <span class="section-label-v"><i class="fas fa-id-card mr-2"></i>Título que se Otorga</span>
+                    <h4 class="mb-0 mt-2 font-weight-bold" style="color: #2c3e50; letter-spacing: 0.5px; font-size: 1.2rem;">
+                      ${carrera.degree || "Título Profesional Superior"}
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="glass-section-modern h-100 text-center d-flex flex-column justify-content-center">
+                    <span class="section-label-v"><i class="fas fa-file-contract mr-2"></i>Resolución Oficial</span>
+                    <h5 class="mb-0 mt-2 font-weight-bold text-secondary" style="font-size: 1.15rem;">${carrera.resolucion || 'Vigente según normativa CES'}</h5>
+                  </div>
+                </div>
+              </div>
 
-              <h4><i class="fas fa-clock"></i> Duración de la Carrera</h4>
-              <p>${carrera.duracionModal}</p>
+              <div class="glass-section-modern">
+                <span class="section-label-v"><i class="fas fa-info-circle mr-2"></i>Sobre la Carrera</span>
+                <p class="lead mt-3 text-justify text-dark" style="font-size: 1.05rem;">${carrera.descripcionModal || carrera.description || ''}</p>
+              </div>
 
-              <h4><i class="fas fa-laptop-code"></i> Modalidad</h4>
-              <p>${carrera.modalidadModal}</p>
+              <div class="row mb-3">
+                <div class="col-md-12">
+                  <div class="glass-section-modern">
+                    <span class="section-label-v"><i class="fas fa-user-tie mr-2"></i>Perfil de Egreso</span>
+                    <ul class="list-unstyled mt-3 text-dark" style="line-height: 1.8; font-size: 0.95rem; text-align: justify;">
+                      ${profileList || perfilEgresado}
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-              <hr />
+              <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="glass-section-modern h-100">
+                    <span class="section-label-v text-center d-block"><i class="fas fa-briefcase mr-2"></i>Mercado Laboral</span>
+                    <ul class="list-unstyled mt-3 text-dark" style="line-height: 1.8; font-size: 0.95rem; text-align: justify;">
+                      ${careerPathList}
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="row h-100">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <div class="glass-section-modern h-100 text-center d-flex flex-column justify-content-center">
+                        <span class="section-label-v"><i class="far fa-calendar-alt mr-2"></i>Duración</span>
+                        <h3 class="font-weight-bold mt-2 text-dark mb-0" style="font-size: 1.4rem;">${carrera.duracionModal || carrera.duracion}</h3>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="glass-section-modern h-100 text-center d-flex flex-column justify-content-center">
+                        <span class="section-label-v"><i class="fas fa-globe mr-2"></i>Modalidad</span>
+                        <h3 class="font-weight-bold mt-2 text-success mb-0" style="font-size: 1.4rem;">${carrera.modalidadModal || carrera.modalidad}</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              <h4><i class="fas fa-list-ol"></i> Malla Curricular</h4>
-              <p style="text-align: justify;">Consulta el plan de estudios detallado para esta carrera.</p>
-              <div class="text-center">
-                <a href="${carrera.mallaCurricular ? carrera.mallaCurricular.url : '#'}" target="_blank" class="btn btn-info py-2 px-4">
-                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
+              <div class="glass-section-modern text-center py-4" style="background: rgba(40, 167, 69, 0.08);">
+                <h5 class="font-weight-bold mb-3 text-dark">Plan Curricular Actualizado</h5>
+                <a href="${carrera.mallaCurricular ? carrera.mallaCurricular.url : '#'}" target="_blank" class="btn btn-success btn-lg px-5 shadow-sm" style="border-radius: 50px; font-weight: bold;">
+                  <i class="fas fa-file-pdf mr-2"></i> Descargar Malla Curricular
                 </a>
               </div>
 
-              <hr />
-              <p class="text-muted text-center">Para más detalles, contacta a la secretaría académica.</p>
+              <div class="mt-4 text-center">
+                <p class="text-muted mb-3" style="font-size: 1.1rem;">¿Tienes preguntas sobre el proceso de admisión?</p>
+                <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+                  <a href="https://wa.me/593995901732" class="mx-3 my-2 text-dark font-weight-bold" style="text-decoration: none; font-size: 1.1rem;">
+                    <i class="fab fa-whatsapp text-success mr-2" style="font-size: 1.3rem;"></i> Soporte de Admisiones
+                  </a>
+                  <a href="mailto:admisiones@superarse.edu.ec" class="mx-3 my-2 text-dark font-weight-bold" style="text-decoration: none; font-size: 1.1rem;">
+                    <i class="fas fa-envelope text-danger mr-2" style="font-size: 1.3rem;"></i> admisiones@superarse.edu.ec
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+            <div class="modal-footer border-0 p-3">
+              <button type="button" class="btn btn-outline-secondary btn-sm px-4" data-dismiss="modal" style="border-radius: 50px;">Cerrar Ventana</button>
             </div>
           </div>
         </div>
-      </div>
-    `;
+      </div>`;
   });
 
-  body.insertAdjacentHTML("beforeend", modalsHtml);
+  // SE USA INTERSACIÓN SEGURA AL FINAL DEL BODY SIN SOBREESCRIBIR CONTENEDORES INTERNOS
+  body.insertAdjacentHTML("beforeend", modalStylesGlobal + modalsHtml);
 }
 
 function generarSelloUnico() {
-  const contenedorSello = document.querySelector(
-    ".owl-carousel.selloU-carousel"
-  );
+  const contenedorSello = document.querySelector(".owl-carousel.selloU-carousel");
   let htmlContent = "";
 
-  // Asegúrate de que el array de datos esté disponible
   if (contenedorSello && typeof clubsSelloUnico !== "undefined") {
+    
+    // 1. Inyección de estilos CSS exclusivos y modernos para el Sello Único
+    if (!document.getElementById("estilos-sello-unico")) {
+      const estilos = document.createElement("style");
+      estilos.id = "estilos-sello-unico";
+      estilos.innerHTML = `
+        .sello-card {
+          background: #ffffff;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+          transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          border: 1px solid rgba(0,0,0,0.03);
+        }
+        .sello-card:hover {
+          transform: translateY(-12px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        .sello-img-container {
+          position: relative;
+          height: 280px;
+          overflow: hidden;
+          background: #f4f6f9;
+        }
+        .img-fluid-selloU {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .sello-card:hover .img-fluid-selloU {
+          transform: scale(1.1);
+        }
+        /* Capa interactiva de redes sociales */
+        .sello-overlay {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: linear-gradient(to top, rgba(40, 167, 69, 0.85), rgba(32, 201, 151, 0.4));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: all 0.4s ease;
+          transform: translateY(20px);
+        }
+        .sello-card:hover .sello-overlay {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .sello-btn-social {
+          width: 42px;
+          height: 42px;
+          line-height: 40px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          color: #fff !important;
+          border: 1px solid rgba(255,255,255,0.4);
+          margin: 0 6px;
+          transition: all 0.3s ease;
+          display: inline-block;
+          text-align: center;
+        }
+        .sello-btn-social:hover {
+          background: #ffffff;
+          color: #28a745 !important;
+          transform: scale(1.15);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .sello-info {
+          padding: 25px 20px;
+        }
+        .sello-title {
+          font-weight: 700;
+          color: #2c3e50;
+          font-size: 1.3rem;
+          margin-bottom: 6px;
+          transition: color 0.3s;
+        }
+        .sello-card:hover .sello-title {
+          color: #28a745;
+        }
+        .sello-sub {
+          font-size: 0.9rem;
+          color: #7f8c8d;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+          margin-bottom: 0;
+        }
+      `;
+      document.head.appendChild(estilos);
+    }
+
+    // 2. Construcción de las tarjetas optimizadas
     clubsSelloUnico.forEach((club) => {
       let redesHtml = "";
-      // Construye el HTML de las redes sociales si existen
-      if (club.redes.length > 0) {
-        redesHtml = `<div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">`;
+      
+      if (club.redes && club.redes.length > 0) {
+        redesHtml = `<div class="sello-overlay">`;
         club.redes.forEach((red) => {
           redesHtml += `
-                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px" href="${red.enlace}" title="${red.titulo}">
-                            <i class="${red.claseIcono}"></i>
-                        </a>
-                    `;
+            <a class="sello-btn-social" href="${red.enlace}" target="_blank" title="${red.titulo}">
+              <i class="${red.claseIcono}"></i>
+            </a>
+          `;
         });
         redesHtml += `</div>`;
       }
 
-      // Genera el HTML de la tarjeta completa
       htmlContent += `
-                <div class="text-center team mb-5">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid-selloU" src="${club.imagenSrc}" alt="${club.alt}" />
-                        ${redesHtml}
-                    </div>
-                    <h4>${club.titulo}</h4>
-                    <ip>${club.subtitulo}</ip>
-                </div>
-            `;
-    });
-
-    // Inserta el HTML generado en el contenedor
-    contenedorSello.innerHTML = htmlContent;
-
-    // Finalmente, inicializa el carrusel con la librería OWL Carousel
-    $(contenedorSello).owlCarousel({
-      center: true,
-      autoplay: true,
-      smartSpeed: 2000,
-      dots: true,
-      loop: true,
-      responsive: {
-        0: { items: 1 },
-        576: { items: 1 },
-        768: { items: 2 },
-        992: { items: 3 },
-      },
-    });
-  }
-}
-
-function generarNoticias() {
-  const contenedorNoticias = document.querySelector(".owl-carousel.noticias-carousel");
-  let htmlContent = "";
-
-  if (contenedorNoticias && typeof noticias !== "undefined") {
-
-    noticias.forEach((noticia, index) => {
-
-      let imagenesHtml = "";
-
-      noticia.imagenes.forEach((img, i) => {
-        imagenesHtml += `
-          <a href="${img}" data-lightbox="noticia-${index}" data-title="${noticia.titulo}">
-            <img class="img-fluid-selloU noticia-img" src="${img}" alt="${noticia.titulo}">
-          </a>
-        `;
-      });
-
-      htmlContent += `
-        <div class="text-center team mb-5">
-          <div class="noticia-galeria">
-            ${imagenesHtml}
+        <div class="p-3"> <!-- Contenedor de separación interna para el carrusel -->
+          <div class="sello-card">
+            <div class="sello-img-container">
+              <img class="img-fluid-selloU" src="${club.imagenSrc}" alt="${club.alt || club.titulo}" />
+              ${redesHtml}
+            </div>
+            <div class="sello-info text-center">
+              <h4 class="sello-title">${club.titulo}</h4>
+              <p class="sello-sub"><i class="fas fa-star mr-1 text-warning"></i> ${club.subtitulo}</p>
+            </div>
           </div>
-          <h4>${noticia.titulo}</h4>
-          <p>${noticia.subtitulo}</p>
         </div>
       `;
     });
 
-    contenedorNoticias.innerHTML = htmlContent;
+    // Inserta el contenido limpio
+    contenedorSello.innerHTML = htmlContent;
 
-    $(contenedorNoticias).owlCarousel({
+    // 3. Inicialización interactiva de OWL Carousel
+    $(contenedorSello).owlCarousel({
       center: true,
       autoplay: true,
-      smartSpeed: 2000,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true, // Pausa el carrusel si el usuario pone el mouse encima
+      smartSpeed: 1200,
       dots: true,
       loop: true,
+      margin: 15,
       responsive: {
-        0: { items: 1 },
-        768: { items: 2 },
+        0: { items: 1, center: false },
+        576: { items: 1, center: false },
+        768: { items: 2, center: false },
         992: { items: 3 }
       }
     });
   }
 }
+
 
 function generarTestimonios() {
   const contenedorTestimonios = document.querySelector(
@@ -601,45 +769,52 @@ function generarTestimonios() {
   );
   let htmlContent = "";
 
-  // Verifica que el contenedor y el array de testimonios existan
   if (contenedorTestimonios && typeof testimonios !== "undefined") {
+    // Destruir el carrusel si ya fue inicializado previamente (evita bugs al recargar)
+    if ($(contenedorTestimonios).hasClass('owl-loaded')) {
+        $(contenedorTestimonios).owlCarousel('destroy');
+    }
+
     testimonios.forEach((testimonio) => {
       htmlContent += `
-                <div class="testimonial-item px-3">
-                    <div class="bg-light shadow-sm rounded mb-4 p-4">
-                        <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                        ${testimonio.texto}
+                <div class="testimonial-item px-3 py-2">
+                    <div class="testimonial-card shadow-sm rounded mb-4 p-4 position-relative">
+                        <i class="fas fa-quote-left testimonial-quote-icon"></i>
+                        <p class="testimonial-text text-secondary mb-0">${testimonio.texto}</p>
                     </div>
-                    <div class="d-flex align-items-center">
-                        <img
-                            class="rounded-circle"
-                            src="${testimonio.imagenSrc}"
-                            style="width: 70px; height: 70px"
-                            alt="Imagen de ${testimonio.nombre}"
-                        />
-                        <div class="pl-3">
-                            <h5>${testimonio.nombre}</h5>
-                            <ip>${testimonio.carrera}</ip>
+                    
+                    <div class="d-flex align-items-center pl-2">
+                        <div class="testimonial-img-wrapper">
+                            <img
+                                class="rounded-circle"
+                                src="${testimonio.imagenSrc || '/assets/img/default-user.jpg'}"
+                                alt="Imagen de ${testimonio.nombre}"
+                            />
+                        </div>
+                        <div class="pl-3 text-left">
+                            <h5 class="testimonial-name mb-1">${testimonio.nombre}</h5>
+                            <p class="testimonial-career mb-0 text-muted small font-weight-bold">${testimonio.carrera}</p>
                         </div>
                     </div>
                 </div>
             `;
     });
 
-    // Inserta el HTML generado en el contenedor del carrusel
     contenedorTestimonios.innerHTML = htmlContent;
 
-    // Inicializa el carrusel con la configuración de OWL Carousel
+    // Inicializa Owl Carousel con transiciones optimizadas para móviles
     $(contenedorTestimonios).owlCarousel({
       autoplay: true,
-      smartSpeed: 1500,
+      autoplayTimeout: 5000,
+      smartSpeed: 1000,
       dots: true,
       loop: true,
+      margin: 10,
       responsive: {
-        0: { items: 1 },
-        576: { items: 1 },
-        768: { items: 2 },
-        992: { items: 3 },
+        0: { items: 1 },    // 1 testimonio en celular vertical
+        576: { items: 1 },  // 1 testimonio en celular horizontal
+        768: { items: 2 },  // 2 testimonios en tablets
+        992: { items: 3 },  // 3 testimonios en pantallas de computadora
       },
     });
   }
@@ -654,154 +829,85 @@ function generarFooter() {
   }
 
   let footerHtml = `
-        <a href="${footerData.whatsapp.enlace
-    }" target="_blank" class="whatsapp-float">
-            <img src="${footerData.whatsapp.imagenSrc}" alt="${footerData.whatsapp.alt
-    }" width="50" height="50" />
-        </a>
+  <div class="botones-flotantes-grupo">
+
+    <a href="${footerData.whatsapp.enlace}" target="_blank" class="whatsapp-float-container text-decoration-none">
+        <div class="whatsapp-badge-msg">
+            ¡Bienvenido al Instituto Superarse!
+        </div>
+        <div class="whatsapp-btn-circle">
+            <span class="whatsapp-notification-count">1</span>
+            <img src="${footerData.whatsapp.imagenSrc}" alt="${footerData.whatsapp.alt}" width="32" height="32" />
+        </div>
+    </a>
         
-<a href="javascript:void(0)"
-   id="${footerData.buzon.id}"
-   class="buzon-float">
+    <a href="javascript:void(0)" id="${footerData.buzon.id}" class="buzon-float text-decoration-none">
+        <i class="${footerData.buzon.icon}"></i>
+        <span class="buzon-tooltip">
+            ${footerData.buzon.tooltip}
+        </span>
+    </a>
 
-  <i class="${footerData.buzon.icon}"></i>
-
-  <span class="buzon-tooltip">
-    ${footerData.buzon.tooltip}
-  </span>
-</a>
-        <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
-            <div class="row pt-5">
-                <div class="col-lg-3 col-md-6 mb-5">
-                    <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0" style="font-size: 40px; line-height: 40px">
-                        <img src="${footerData.info.logo}" height="90px" />
-                    </a>
-                    
-                    <div class="d-flex justify-content-center mt-4 ">
-                        ${footerData.info.redes
-      .map(
-        (red) => `
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px" href="${red.enlace}">
-                                <i class="${red.icono}"></i>
-                            </a>
-                        `
-      )
-      .join("")}
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-5">
-                    <h3 class="text-primary mb-4">${footerData.contacto.titulo
-    }</h3>
-                    ${footerData.contacto.elementos
-      .map(
-        (el) => `
-                        <div class="d-flex">
-                            <h4 class="fa ${el.icono} text-primary"></h4>
-                            <div class="pl-3">
-                                <h5 class="text-white">${el.titulo}</h5>
-                                <p>${el.texto}</p>
-                            </div>
-                        </div>
-                    `
-      )
-      .join("")}
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-5">
-                    <h3 class="text-primary mb-4">${footerData.enlacesRapidos.titulo
-    }</h3>
-                    <div class="d-flex flex-column justify-content-start">
-                        ${footerData.enlacesRapidos.items
-      .map(
-        (item) => `
-                            <a class="text-white mb-2" href="${item.enlace}">
-                                <i class="fa fa-angle-right mr-2"></i>${item.texto}
-                            </a>
-                        `
-      )
-      .join("")}
-                    </div>
-                </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-    <h3 class="text-primary mb-4">${footerData.admisiones.titulo}</h3>
-
-    <!-- iframe oculto -->
-    <iframe name="iframeRespuesta" style="display:none;"></iframe>
-
-    <form 
-        action="../../../backend/enviar-correo.php" 
-        method="POST"
-        target="iframeRespuesta"
-        onsubmit="limpiarMensaje()"
-    >
-        <div class="form-group">
-            <input 
-                type="text" 
-                name="nombre" 
-                class="form-control border-0 py-4" 
-                placeholder="${footerData.admisiones.formulario.placeholderNombre}" 
-                required
-            />
-        </div>
-
-        <div class="form-group">
-            <input 
-                type="email"
-                name="email"
-                class="form-control border-0 py-4"
-                placeholder="${footerData.admisiones.formulario.placeholderEmail}"
-                required
-            />
-        </div>
-
-        <div class="form-group">
-            <input 
-                type="tel"
-                name="celular"
-                class="form-control border-0 py-4"
-                placeholder="${footerData.admisiones.formulario.placeholderWhatsapp}"
-                required
-            />
-        </div>
-
-        <div class="form-group">
-            <textarea 
-                name="description" 
-                class="form-control textarea-as-input"
-                placeholder="${footerData.admisiones.formulario.placeholderDescription}" 
-                rows="3" 
-                required></textarea>
-        </div>
-
-        <div>
-            <button class="btn btn-primary btn-block border-0 py-3" type="submit">
-                ${footerData.admisiones.formulario.textoBoton}
-            </button>
-        </div>
-
-        <!-- MENSAJE DE RESPUESTA -->
-        <div id="mensaje-formulario" class="mensaje-formulario"></div>
-    </form>
 </div>
-<style>
-.mensaje-formulario {
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #28a745; /* verde éxito */
-}
-</style>
 
+    <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0" style="font-size: 40px; line-height: 40px">
+                    <img src="${footerData.info.logo}" height="90px" />
+                </a>
+                
+                <div class="d-flex justify-content-center mt-4 ">
+                    ${footerData.info.redes.map((red) => `
+                        <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px" href="${red.enlace}">
+                            <i class="${red.icono}"></i>
+                        </a>
+                    `).join("")}
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">${footerData.contacto.titulo}</h3>
+                ${footerData.contacto.elementos.map((el) => `
+                    <div class="d-flex">
+                        <h4 class="fa ${el.icono} text-primary"></h4>
+                        <div class="pl-3">
+                            <h5 class="text-white">${el.titulo}</h5>
+                            <p>${el.texto}</p>
+                        </div>
+                    </div>
+                `).join("")}
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">${footerData.enlacesRapidos.titulo}</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    ${footerData.enlacesRapidos.items.map((item) => `
+                        <a class="text-white mb-2" href="${item.enlace}">
+                            <i class="fa fa-angle-right mr-2"></i>${item.texto}
+                        </a>
+                    `).join("")}
+                </div>
             </div>
             
-
-            <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, 0.2)">
-                <p class="m-0 text-center text-white">
-                    ${footerData.copyright.texto}
-                </p>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">${footerData.enlacesRapidos2.titulo}</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    ${footerData.enlacesRapidos2.items.map((item) => `
+                        <a class="text-white mb-2" href="${item.enlace}">
+                            <i class="fa fa-angle-right mr-2"></i>${item.texto}
+                        </a>
+                    `).join("")}
+                </div>
             </div>
         </div>
+
+        <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, 0.2)">
+            <p class="m-0 text-center text-white">
+                ${footerData.copyright.texto}
+            </p>
+        </div>
+    </div>
 <!-------------------------------- INICIO BUZÓN ------------------------------->
         <!-- Modal del Buzón -->
         <div id="buzonModal" class="buzon-modal">
@@ -922,7 +1028,7 @@ function inicializarBuzon() {
       formData.append('tipo', tipo);
       formData.append('mensaje', mensaje);
 
-      fetch('/enviar-buzon.php', { method: 'POST', body: formData })
+      fetch('backend/enviar-buzon.php', { method: 'POST', body: formData })
         .then(res => res.json())
         .then(data => {
           if (data.success) {
@@ -959,36 +1065,25 @@ window.addEventListener('DOMContentLoaded', inicializarBuzon);
 
 
 
-// Función para generar y renderizar las 'Facilities'
 function generarFacilities() {
-  // Encuentra el contenedor principal
   const container = document.querySelector(".container-submenu .row");
 
-  // --- VALIDACIÓN SILENCIOSA ---
-  // Si no se encuentra el contenedor en esta página, salimos sin mostrar error.
-  if (!container) {
-    return;
-  }
-
-  // Verificamos que los datos de facilities existan para evitar errores
-  if (typeof facilitiesData === 'undefined' || !facilitiesData) {
-    return;
-  }
+  if (!container) return;
+  if (typeof facilitiesData === 'undefined' || !facilitiesData) return;
 
   let htmlContent = "";
 
-  // Itera sobre el array de datos y crea el HTML para cada tarjeta
-  facilitiesData.forEach((facility, index) => {
-    // Definimos el tamaño de las columnas.
-    const colClass = "col-lg-3"; 
+  facilitiesData.forEach((facility) => {
+    // 2 columnas en móvil (col-6), 3 en tablet (col-md-4), 4 en PC (col-lg-3)
+    const colClass = "col-6 col-sm-6 col-md-4 col-lg-3"; 
 
     htmlContent += `
-        <div class="${colClass} col-md-4 col-sm-6 pb-1">
-            <a href="${facility.enlace}" class="btn btn-block p-0">
-                <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px">
-                    <i class="${facility.icono} h1 font-weight-normal text-primary mb-3"></i>
-                    <div class="pl-4">
-                        <h4>${facility.titulo}</h4>
+        <div class="${colClass} pb-1">
+            <a href="${facility.enlace}" class="text-decoration-none">
+                <div class="facility-card d-flex flex-column align-items-center text-center bg-light shadow-sm border-top rounded mb-4" style="padding: 30px">
+                    <i class="${facility.icono} h1 font-weight-normal text-primary mb-2"></i>
+                    <div class="facility-text-wrapper">
+                        <h4 class="text-dark mb-0">${facility.titulo}</h4>
                     </div>
                 </div>
             </a>
@@ -996,11 +1091,8 @@ function generarFacilities() {
     `;
   });
 
-  // Inserta el HTML generado en el contenedor
   container.innerHTML = htmlContent;
 }
-
-// Menu de Institucional
 
 // Esta función puede ir en tu main.js o en un archivo aparte
 function generarValores() {
@@ -1256,6 +1348,215 @@ function generarReglamentosAcordeon() {
 
   accordionContainer.innerHTML = accordionHTML;
 }
+//*****************************************************************************/                ESCUELA DE CONTRUCCION Y EXTRACCION SOSTENIBLE ECSOS                    
+//*************************************************************************** */
+
+function generarConstruccionYExtraccion() {
+  const cardsContainer = document.querySelector("#constructionAndExtractionCards");
+  const modalsContainer = document.querySelector("#constructionAndExtractionModals");
+
+  if (!cardsContainer || !modalsContainer) {
+    console.error("No se encontraron los contenedores para la Escuela de Construcción y Extracción. Revisa los IDs.");
+    return;
+  }
+
+  let cardsHTML = "";
+  let modalsHTML = "";
+
+  // 1. Estilos CSS declarados UNA SOLA VEZ fuera del bucle
+  const modalStyles = `
+    <style>
+      .modal-glass-uniform { 
+        position: relative; 
+        background-size: cover; 
+        background-position: center; 
+      }
+      .modal-glass-uniform::before {
+        content: ""; 
+        position: absolute; 
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(255, 255, 255, 0.9); 
+        backdrop-filter: blur(10px); 
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 0;
+      }
+      .content-wrapper-construction { 
+        position: relative; 
+        z-index: 1; 
+      }
+      .glass-section-modern {
+        background: rgba(255, 255, 255, 0.6); 
+        border-radius: 15px; 
+        padding: 20px;
+        margin-bottom: 20px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+      .section-label-v {
+        background: linear-gradient(90deg, #28a745, #20c997);
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent;
+        font-weight: bold; 
+        text-transform: uppercase; 
+        font-size: 0.85rem; 
+        letter-spacing: 1px; 
+        display: block; 
+        margin-bottom: 10px;
+      }
+    </style>
+  `;
+
+  constructionAndExtractionData.forEach((career) => {
+    // Render de las Cards
+    cardsHTML += `
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card h-100 border-0 shadow-lg" style="border-radius: 20px; transition: all 0.4s ease; overflow: hidden; background: #fff; cursor: pointer;" 
+             onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';">
+          
+          <div style="position: relative; height: 500px; overflow: hidden;">
+            <img src="${career.imagePath}" alt="${career.title}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);"></div>
+            
+            <span style="position: absolute; top: 15px; right: 15px; background: #28a745; color: white; padding: 5px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
+              Cupos Disponibles
+            </span>
+          </div>
+
+          <div class="card-body p-4 d-flex flex-column justify-content-between">
+            <div>
+              <h4 class="font-weight-bold mb-2" style="color: #2c3e50; font-size: 1.25rem; line-height: 1.2;">
+                ${career.title}
+              </h4>
+              <p class="text-muted mb-4" style="font-size: 0.9rem;">
+                Explora tu futuro profesional y conviértete en un experto en esta área de alta demanda.
+              </p>
+            </div>
+
+            <button class="btn btn-block py-2" 
+                    style="background: linear-gradient(90deg, #f27230, #ff8c42); color: white; border-radius: 12px; font-weight: bold; border: none; transition: 0.3s;"
+                    data-toggle="modal" data-target="#${career.id}Modal">
+              Más Información <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Procesamiento de arreglos con respaldo por si vienen vacíos
+    const profileList = career.profile?.map((item) => `<li><i class="fas fa-check-circle text-success mr-2"></i>${item}</li>`).join("") || "";
+    const careerPathList = career.careerPath?.map((item) => `<li><i class="fas fa-arrow-right text-primary mr-2"></i>${item}</li>`).join("") || "";
+
+    // Render de los Modals
+    modalsHTML += `
+      <div class="modal fade" id="${career.id}Modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+          <div class="modal-content modal-glass-uniform" style="background-image: url('${career.imagePath}'); border-radius: 20px; overflow: hidden; border: none;">
+            
+            <div class="modal-body content-wrapper-construction p-5">
+              <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 25px; top: 20px; font-size: 30px;">&times;</button>
+
+              <div class="text-center mb-5">
+                <h1 class="display-4 font-weight-bold text-dark">${career.title}</h1>
+                <div style="width: 60px; height: 4px; background: #28a745; margin: 10px auto; border-radius: 10px;"></div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="glass-section-modern h-100 text-center d-flex flex-column justify-content-center" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.03) 0%, rgba(32, 201, 151, 0.03) 100%); border-left: 5px solid #28a745;">
+                    <span class="section-label-v"><i class="fas fa-id-card mr-2"></i>Título Otorgado</span>
+                    <h4 class="mb-0 mt-2 font-weight-bold" style="color: #2c3e50; letter-spacing: 0.5px; font-size: 1.2rem;">
+                      ${career.degree || "Título en trámite"}
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="glass-section-modern h-100 text-center d-flex flex-column justify-content-center">
+                    <span class="section-label-v"><i class="fas fa-file-contract mr-2"></i>Resolución Oficial</span>
+                    <h5 class="mb-0 mt-2 font-weight-bold text-secondary" style="font-size: 1.15rem;">${career.resolucion}</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass-section-modern">
+                <span class="section-label-v"><i class="fas fa-hammer mr-2"></i>Sobre la Carrera</span>
+                <p class="lead mt-3 text-justify text-dark" style="font-size: 1.05rem;">${career.description}</p>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-12">
+                  <div class="glass-section-modern">
+                    <span class="section-label-v"><i class="fas fa-hard-hat mr-2"></i>Perfil de egreso</span>
+                    <ul class="list-unstyled mt-3 text-dark" style="line-height: 1.8; font-size: 0.95rem; text-align: justify;">
+                      ${profileList}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <div class="glass-section-modern h-100">
+                    <span class="section-label-v text-center"><i class="fas fa-briefcase mr-2"></i>Mercado Laboral</span>
+                    <ul class="list-unstyled mt-3 text-left small text-dark" style="line-height: 1.8; font-size: 0.95rem;">
+                      ${careerPathList}
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="row h-100">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <div class="glass-section-modern h-100 text-center d-flex flex-column justify-content-center">
+                        <span class="section-label-v"><i class="far fa-calendar-alt mr-2"></i>Duración</span>
+                        <h3 class="font-weight-bold mt-2 text-dark mb-0" style="font-size: 1.4rem;">${career.duration}</h3>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="glass-section-modern h-100 text-center d-flex flex-column justify-content-center">
+                        <span class="section-label-v"><i class="fas fa-globe mr-2"></i>Modalidad</span>
+                        <h3 class="font-weight-bold mt-2 text-success mb-0" style="font-size: 1.4rem;">${career.modality}</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass-section-modern text-center py-4" style="background: rgba(40, 167, 69, 0.08);">
+                <h5 class="font-weight-bold mb-3 text-dark">Plan Curricular Sostenible</h5>
+                <a href="${career.curriculumLink}" target="_blank" class="btn btn-success btn-lg px-5 shadow-sm" style="border-radius: 50px;">
+                  <i class="fas fa-file-pdf mr-2"></i> Descargar Malla Curricular
+                </a>
+              </div>
+
+              <div class="mt-4 text-center">
+                <p class="text-muted mb-3" style="font-size: 1.1rem;">¿Tienes preguntas sobre el proceso?</p>
+                <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+                  <a href="https://wa.me/593995901732" class="mx-3 my-2 text-dark font-weight-bold" style="text-decoration: none; font-size: 1.1rem;">
+                    <i class="fab fa-whatsapp text-success mr-2" style="font-size: 1.3rem;"></i> Soporte de Admisiones
+                  </a>
+                  <a href="mailto:admisiones@superarse.edu.ec" class="mx-3 my-2 text-dark font-weight-bold" style="text-decoration: none; font-size: 1.1rem;">
+                    <i class="fas fa-envelope text-danger mr-2" style="font-size: 1.3rem;"></i> admisiones@superarse.edu.ec
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            
+            <div class="modal-footer border-0 p-3">
+              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  // Inyección final en el DOM (Estilos globales + Modales)
+  cardsContainer.innerHTML = cardsHTML;
+  modalsContainer.innerHTML = modalStyles + modalsHTML;
+}
+
 // menu de gestion academica
 // Esta función puede ir en tu main.js o en un archivo aparte
 function generarEscuelaDeSalud() {
@@ -1441,6 +1742,8 @@ function generarEducacionYHumanidades() {
   modalsContainer.innerHTML = modalsHTML;
 }
 
+<!---------------------- ESCUELA DE VETERINARIA (ECAVET) ---------------------->
+
 function generarEscuelaDeVeterinaria() {
   const cardsContainer = document.querySelector("#veterinarySchoolCards");
   const modalsContainer = document.querySelector("#veterinarySchoolModals");
@@ -1453,8 +1756,52 @@ function generarEscuelaDeVeterinaria() {
   let cardsHTML = "";
   let modalsHTML = "";
 
+  // 1. Estilos CSS declarados UNA SOLA VEZ fuera del bucle
+  const modalStyles = `
+    <style>
+      .modal-glass-uniform { 
+        position: relative; 
+        background-size: cover; 
+        background-position: center; 
+      }
+      .modal-glass-uniform::before {
+        content: ""; 
+        position: absolute; 
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(255, 255, 255, 0.9); 
+        backdrop-filter: blur(10px); 
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 0;
+      }
+      .content-wrapper-vete { 
+        position: relative; 
+        z-index: 1; 
+      }
+      .glass-section-vete {
+        background: rgba(255, 255, 255, 0.6); 
+        border-radius: 15px; 
+        padding: 20px;
+        margin-bottom: 20px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+      .vete-label {
+        background: linear-gradient(90deg, #28a745, #20c997);
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent;
+        font-weight: bold; 
+        text-transform: uppercase; 
+        font-size: 0.85rem; 
+        letter-spacing: 1px; 
+        display: block; 
+        margin-bottom: 10px;
+      }
+    </style>
+  `;
+
   veterinarySchoolData.forEach((career) => {
-      cardsHTML += `
+    // Render de las Cards
+    cardsHTML += `
       <div class="col-lg-4 col-md-6 mb-5">
         <div class="card h-100 border-0 shadow-lg" style="border-radius: 20px; transition: all 0.4s ease; overflow: hidden; background: #fff; cursor: pointer;" 
              onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)';" 
@@ -1480,41 +1827,25 @@ function generarEscuelaDeVeterinaria() {
             </div>
 
             <button class="btn btn-block py-2" 
-                    style="background: linear-gradient(90deg, #28a745, #20c997); color: white; border-radius: 12px; font-weight: bold; border: none; transition: 0.3s;"
-                    data-toggle="modal" data-target="#${career.id}Modal">
+             style="background: linear-gradient(90deg, #32cd32, #26e6a4); color: white; border-radius: 12px; font-weight: bold; border: none; transition: 0.3s;"
+             data-toggle="modal" data-target="#${career.id}Modal">
               Más Información <i class="fas fa-arrow-right ml-2"></i>
             </button>
           </div>
         </div>
       </div>
     `;
-    const profileList = career.profile.map((item) => `<li><i class="fas fa-check-circle text-success mr-2"></i>${item}</li>`).join("");
-    const careerPathList = career.careerPath.map((item) => `<li><i class="fas fa-arrow-right text-primary mr-2"></i>${item}</li>`).join("");
-    const perfilEgresado = career.perfilEgresado || "El profesional estará capacitado para liderar procesos de salud animal, bienestar y salud pública con excelencia técnica.";
 
+    // Procesamiento de arreglos con respaldo por si vienen vacíos
+    const profileList = career.profile?.map((item) => `<li><i class="fas fa-check-circle text-success mr-2"></i>${item}</li>`).join("") || "";
+    const careerPathList = career.careerPath?.map((item) => `<li><i class="fas fa-arrow-right text-primary mr-2"></i>${item}</li>`).join("") || "";
+
+    // Render de los Modals
     modalsHTML += `
       <div class="modal fade" id="${career.id}Modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
           <div class="modal-content modal-glass-uniform" style="background-image: url('${career.imagePath}'); border-radius: 20px; overflow: hidden; border: none;">
             
-            <style>
-              .modal-glass-uniform { position: relative; background-size: cover; background-position: center; }
-              .modal-glass-uniform::before {
-                content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); z-index: 0;
-              }
-              .content-wrapper-vete { position: relative; z-index: 1; }
-              .glass-section-vete {
-                background: rgba(255, 255, 255, 0.6); border-radius: 15px; padding: 20px;
-                margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.2);
-              }
-              .vete-label {
-                background: linear-gradient(90deg, #28a745, #20c997);
-                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-                font-weight: bold; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 10px;
-              }
-            </style>
-
             <div class="modal-body content-wrapper-vete p-5">
               <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 25px; top: 20px; font-size: 30px;">&times;</button>
 
@@ -1523,9 +1854,21 @@ function generarEscuelaDeVeterinaria() {
                 <div style="width: 60px; height: 4px; background: #28a745; margin: 10px auto; border-radius: 10px;"></div>
               </div>
 
-              <div class="glass-section-vete text-center">
-                <span class="vete-label">Resolución Oficial</span>
-                <h5 class="mb-0 mt-2 font-weight-bold text-secondary">${career.resolucion}</h5>
+              <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.03) 0%, rgba(32, 201, 151, 0.03) 100%); border-left: 5px solid #28a745;">
+                    <span class="vete-label"><i class="fas fa-id-card mr-2"></i>Título Otorgado</span>
+                    <h4 class="mb-0 mt-2 font-weight-bold" style="color: #2c3e50; letter-spacing: 0.5px; font-size: 1.2rem;">
+                      ${career.degree || "Título en trámite"}
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center">
+                    <span class="vete-label"><i class="fas fa-file-contract mr-2"></i>Resolución Oficial</span>
+                    <h5 class="mb-0 mt-2 font-weight-bold text-secondary" style="font-size: 1.15rem;">${career.resolucion}</h5>
+                  </div>
+                </div>
               </div>
 
               <div class="glass-section-vete">
@@ -1533,38 +1876,41 @@ function generarEscuelaDeVeterinaria() {
                 <p class="lead mt-3 text-justify text-dark" style="font-size: 1.05rem;">${career.description}</p>
               </div>
 
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <div class="glass-section-vete h-100">
-                    <span class="vete-label"><i class="fas fa-user-md mr-2"></i>Perfil Profesional</span>
-                    <ul class="list-unstyled mt-3 text-dark" style="line-height: 1.8;">${profileList}</ul>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <div class="glass-section-vete h-100">
-                    <span class="vete-label"><i class="fas fa-graduation-cap mr-2"></i>Perfil de Egreso</span>
-                    <p class="mt-3 text-dark text-justify">${perfilEgresado}</p>
+              <div class="row mb-3">
+                <div class="col-md-12">
+                  <div class="glass-section-vete">
+                    <span class="vete-label"><i class="fas fa-user-md mr-2"></i>Perfil de egreso</span>
+                    <ul class="list-unstyled mt-3 text-dark" style="line-height: 1.8; font-size: 0.95rem; text-align: justify;">
+                      ${profileList}
+                    </ul>
                   </div>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-md-4 mb-3">
-                  <div class="glass-section-vete h-100 text-center">
-                    <span class="vete-label text-center">Campo Laboral</span>
-                    <ul class="list-unstyled mt-3 text-left small text-dark">${careerPathList}</ul>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <div class="glass-section-vete h-100">
+                    <span class="vete-label text-center"><i class="fas fa-briefcase mr-2"></i>Mercado Laboral</span>
+                    <ul class="list-unstyled mt-3 text-left small text-dark" style="line-height: 1.8; font-size: 0.95rem;">
+                      ${careerPathList}
+                    </ul>
                   </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                  <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center">
-                    <span class="vete-label">Duración</span>
-                    <h3 class="font-weight-bold mt-2 text-dark">${career.duration}</h3>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center">
-                    <span class="vete-label font-weight-bold">Modalidad</span>
-                    <h3 class="font-weight-bold mt-2 text-success">${career.modality}</h3>
+                
+                <div class="col-md-6">
+                  <div class="row h-100">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center">
+                        <span class="vete-label"><i class="far fa-calendar-alt mr-2"></i>Duración</span>
+                        <h3 class="font-weight-bold mt-2 text-dark mb-0" style="font-size: 1.4rem;">${career.duration}</h3>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="glass-section-vete h-100 text-center d-flex flex-column justify-content-center">
+                        <span class="vete-label"><i class="fas fa-globe mr-2"></i>Modalidad</span>
+                        <h3 class="font-weight-bold mt-2 text-success mb-0" style="font-size: 1.4rem;">${career.modality}</h3>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1577,16 +1923,20 @@ function generarEscuelaDeVeterinaria() {
               </div>
 
               <div class="mt-4 text-center">
-                <p class="text-muted mb-1">¿Deseas matricularte?</p>
-                <div class="d-flex justify-content-center align-items-center flex-wrap">
-                  <a href="#" class="mx-3 text-dark font-weight-bold" style="text-decoration: none;"><i class="fab fa-whatsapp text-success mr-1"></i> WhatsApp Admisiones</a>
-                  <a href="#" class="mx-3 text-dark font-weight-bold" style="text-decoration: none;"><i class="fas fa-envelope text-danger mr-1"></i> Correo Electrónico</a>
+                <p class="text-muted mb-3" style="font-size: 1.1rem;">¿Deseas matricularte?</p>
+                <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+                  <a href="https://wa.me/593995901732" class="mx-3 my-2 text-dark font-weight-bold" style="text-decoration: none; font-size: 1.1rem;">
+                    <i class="fab fa-whatsapp text-success mr-2" style="font-size: 1.3rem;"></i> Soporte de Admisiones
+                  </a>
+                  <a href="mailto:admisiones@superarse.edu.ec" class="mx-3 my-2 text-dark font-weight-bold" style="text-decoration: none; font-size: 1.1rem;">
+                    <i class="fas fa-envelope text-danger mr-2" style="font-size: 1.3rem;"></i> admisiones@superarse.edu.ec
+                  </a>
                 </div>
               </div>
 
             </div>
             
-            <div class="modal-footer border-0">
+            <div class="modal-footer border-0 p-3">
               <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar Ventana</button>
             </div>
           </div>
@@ -1595,95 +1945,207 @@ function generarEscuelaDeVeterinaria() {
     `;
   });
 
+  // Inyección de elementos en el DOM (Estilos únicos + Modales)
   cardsContainer.innerHTML = cardsHTML;
-  modalsContainer.innerHTML = modalsHTML;
+  modalsContainer.innerHTML = modalStyles + modalsHTML;
 }
 
+<!---------------------- ESCUELA DE ADMINISTRACIÓN (ECSET) -------------------->
 
-// Esta función puede ir en tu main.js o en un archivo aparte
 function generarAdministracionEIndustria() {
   const cardsContainer = document.querySelector("#administrationAndIndustryCards");
-  const modalsContainer = document.querySelector("#administrationAndIndustryModals" );
+  const modalsContainer = document.querySelector("#administrationAndIndustryModals");
 
-  // VALIDACIÓN SILENCIOSA
-  // Si no se encuentran los contenedores, salimos de la función sin reportar error.
   if (!cardsContainer || !modalsContainer) {
-    return;
-  }
-
-  // Verificamos que los datos existan para evitar errores de referencia
-  if (typeof administrationAndIndustryData === 'undefined') {
+    console.error("No se encontraron los contenedores para Administración e Industria.");
     return;
   }
 
   let cardsHTML = "";
   let modalsHTML = "";
 
+  // 1. Los estilos CSS se declaran UNA SOLA VEZ aquí afuera para evitar duplicados en el DOM
+  const modalStyles = `
+    <style>
+      .modal-glass {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+      }
+      .modal-glass::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+        z-index: 0;
+      }
+      .modal-body-content {
+        position: relative;
+        z-index: 1;
+      }
+      .info-card-modern {
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+      .text-gradient-title {
+        background: linear-gradient(90deg, #28a745, #20c997);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 10px;
+      }
+    </style>
+  `;
+
   administrationAndIndustryData.forEach((career) => {
-    // Generar la tarjeta de la carrera
+    // Render de las Cards
     cardsHTML += `
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="career-card text-center p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between">
-          <h3 class="mb-3">${career.title}</h3>
-          <a
-            href="#"
-            class="d-block mb-3"
-            data-toggle="modal"
-            data-target="#${career.id}Modal"
-          >
-            <img
-              src="${career.imagePath}"
-              alt="Imagen de ${career.title}"
-              class="img-fluid rounded"
-            />
-          </a>
-          <p class="text-muted">
-            Haz clic en la imagen para ver más detalles de la carrera.
-          </p>
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card h-100 border-0 shadow-lg" style="border-radius: 20px; transition: all 0.4s ease; overflow: hidden; background: #fff; cursor: pointer;" 
+             onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';">
+          
+          <div style="position: relative; height: 500px; overflow: hidden;">
+            <img src="${career.imagePath}" alt="${career.title}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);"></div>
+            
+            <span style="position: absolute; top: 15px; right: 15px; background: #28a745; color: white; padding: 5px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
+              Cupos Disponibles
+            </span>
+          </div>
+
+          <div class="card-body p-4 d-flex flex-column justify-content-between">
+            <div>
+              <h4 class="font-weight-bold mb-2" style="color: #2c3e50; font-size: 1.25rem; line-height: 1.2;">
+                ${career.title}
+              </h4>
+              <p class="text-muted mb-4" style="font-size: 0.9rem;">
+                Explora tu futuro profesional y conviértete en un experto en esta área de alta demanda.
+              </p>
+            </div>
+
+            <button class="btn btn-block py-2" 
+             style="background: linear-gradient(90deg, #0f52ba, #4a90e2); color: white; border-radius: 12px; font-weight: bold; border: none; transition: 0.3s;"
+             data-toggle="modal" data-target="#${career.id}Modal">
+              Más Información <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
         </div>
       </div>
     `;
 
-    // Generar el modal de la carrera
-    const profileList = career.profile.map((item) => `<li>${item}</li>`).join("");
-    const careerPathList = career.careerPath.map((item) => `<li>${item}</li>`).join("");
+    // Procesamiento de arreglos con respaldo por si vienen vacíos
+    const profileList = career.profile?.map((item) => `<li><i class="fas fa-check-circle text-success mr-2"></i>${item}</li>`).join("") || "";
+    const careerPathList = career.careerPath?.map((item) => `<li><i class="fas fa-arrow-right text-primary mr-2"></i>${item}</li>`).join("") || "";
 
+    // Render de los Modals
     modalsHTML += `
-      <div class="modal fade" id="${career.id}Modal" tabindex="-1" role="dialog" aria-labelledby="${career.id}ModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="${career.id}ModalLabel">${career.title}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h4><i class="fas fa-file-alt"></i> Resolución</h4>
-              <strong><p>${career.resolucion}</p></strong>
-              <h4><i class="fas fa-file-alt"></i> Descripción de la Carrera</h4>
-              <p style="text-align: justify;">${career.description}</p>
-              <h4><i class="fas fa-user"></i> Perfil Profesional</h4>
-              <ul style="text-align: justify;">${profileList}</ul>
-              <h4><i class="fas fa-briefcase"></i> Campo Laboral</h4>
-              <p style="text-align: justify;">Los tecnólogos en ${career.title} pueden desempeñarse en:</p>
-              <ul style="text-align: justify;">${careerPathList}</ul>
-              <h4><i class="fas fa-clock"></i> Duración de la Carrera</h4>
-              <p>La carrera tiene una duración de <strong>${career.duration}</strong>.</p>
-              <h4><i class="fas fa-laptop-code"></i> Modalidad</h4>
-              <p><strong>${career.modality}</strong></p>
-              <hr />
-              <h4><i class="fas fa-list-ol"></i> Malla Curricular</h4>
-              <div class="text-center">
-                <a href="${career.curriculumLink}" target="_blank" class="btn btn-info py-2 px-4">
-                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
+      <div class="modal fade" id="${career.id}Modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+          <div class="modal-content modal-glass" style="background-image: url('${career.imagePath}'); border-radius: 20px; overflow: hidden; border: none;">
+            
+            <div class="modal-body modal-body-content p-5">
+              <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 25px; top: 20px; font-size: 30px;">&times;</button>
+
+              <div class="text-center mb-5">
+                <h1 class="display-4 font-weight-bold text-dark">${career.title}</h1>
+                <div style="width: 60px; height: 4px; background: #28a745; margin: 10px auto; border-radius: 10px;"></div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="info-card-modern h-100 text-center d-flex flex-column justify-content-center" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.03) 0%, rgba(32, 201, 151, 0.03) 100%); border-left: 5px solid #28a745;">
+                    <span class="text-gradient-title"><i class="fas fa-id-card mr-2"></i>Título Otorgado</span>
+                    <h4 class="mb-0 mt-2 font-weight-bold" style="color: #2c3e50; letter-spacing: 0.5px; font-size: 1.2rem;">
+                      ${career.degree || "Título en trámite"}
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-card-modern h-100 text-center d-flex flex-column justify-content-center">
+                    <span class="text-gradient-title"><i class="fas fa-file-contract mr-2"></i>Resolución Oficial</span>
+                    <h5 class="mb-0 mt-2 font-weight-bold text-secondary" style="font-size: 1.15rem;">${career.resolucion}</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-card-modern">
+                <span class="text-gradient-title"><i class="fas fa-info-circle mr-2"></i>Sobre la Carrera</span>
+                <p class="lead mt-3 text-justify text-dark" style="font-size: 1.05rem;">${career.description}</p>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-12">
+                  <div class="info-card-modern">
+                    <span class="text-gradient-title"><i class="fas fa-user-graduate mr-2"></i>Perfil de egreso</span>
+                    <ul class="list-unstyled mt-3 text-dark" style="line-height: 1.8; font-size: 0.95rem; text-align: justify;">
+                      ${profileList}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <div class="info-card-modern h-100">
+                    <span class="text-gradient-title text-center"><i class="fas fa-briefcase mr-2"></i>Mercado Laboral</span>
+                    <ul class="list-unstyled mt-3 text-left small text-dark" style="line-height: 1.8; font-size: 0.95rem;">
+                      ${careerPathList}
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="row h-100">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <div class="info-card-modern h-100 text-center d-flex flex-column justify-content-center">
+                        <span class="text-gradient-title"><i class="far fa-calendar-alt mr-2"></i>Duración</span>
+                        <h3 class="font-weight-bold mt-2 text-dark mb-0" style="font-size: 1.4rem;">${career.duration}</h3>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="info-card-modern h-100 text-center d-flex flex-column justify-content-center">
+                        <span class="text-gradient-title"><i class="fas fa-globe mr-2"></i>Modalidad</span>
+                        <h3 class="font-weight-bold mt-2 text-success mb-0" style="font-size: 1.4rem;">${career.modality}</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-card-modern text-center py-4" style="background: rgba(40, 167, 69, 0.08);">
+                <h5 class="font-weight-bold mb-3 text-dark">Plan de Estudios Completo</h5>
+                <a href="${career.curriculumLink}" target="_blank" class="btn btn-success btn-lg px-5 shadow-sm" style="border-radius: 50px;">
+                  <i class="fas fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
                 </a>
               </div>
-              <hr />
-              <p class="text-muted text-center">Para más detalles... contacta a la secretaría académica.</p>
+
+              <div class="mt-4 text-center">
+                <p class="text-muted mb-3" style="font-size: 1.1rem;">¿Necesitas más información?</p>
+                <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+                  <a href="https://wa.me/593995901732" class="mx-3 my-2 text-dark font-weight-bold" style="text-decoration: none; font-size: 1.1rem;">
+                    <i class="fab fa-whatsapp text-success mr-2" style="font-size: 1.3rem;"></i> Soporte de Admisiones
+                  </a>
+                  <a href="mailto:admisiones@superarse.edu.ec" class="mx-3 my-2 text-dark font-weight-bold" style="text-decoration: none; font-size: 1.1rem;">
+                    <i class="fas fa-envelope text-danger mr-2" style="font-size: 1.3rem;"></i> admisiones@superarse.edu.ec
+                  </a>
+                </div>
+              </div>
+
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            
+            <div class="modal-footer border-0 p-3">
+              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar Ventana</button>
             </div>
           </div>
         </div>
@@ -1691,9 +2153,11 @@ function generarAdministracionEIndustria() {
     `;
   });
 
+  // 3. Inyección final en el DOM (Inyectamos los estilos solo una vez junto a los modales)
   cardsContainer.innerHTML = cardsHTML;
-  modalsContainer.innerHTML = modalsHTML;
+  modalsContainer.innerHTML = modalStyles + modalsHTML;
 }
+
 //*************************************************************************************************************** */
 // BALANCE GENERALL balancegeneral.js
 /* /js/main.js */
@@ -1888,32 +2352,40 @@ function generarPlanesAcademicos() {
   container.innerHTML = cardsHTML;
 }
 
-// CUMPLIMIENTO TRIBUTARIO cumplimientoTributario.js 
-/* documentosLogic.js */
 document.addEventListener("DOMContentLoaded", function () {
   const documentosList = document.getElementById("documentos-list");
 
-  // Verificar si el contenedor y los datos existen antes de continuar
   if (documentosList && typeof documentosData !== 'undefined') {
+    documentosList.innerHTML = ""; // Limpia todo
+
     documentosData.forEach((documento) => {
       const listItem = document.createElement("li");
-      listItem.className = "list-group-item d-flex justify-content-between align-items-center";
+      
+      // Forzamos que sea una fila completa (d-flex y w-100)
+      listItem.className = "list-group-item d-flex justify-content-between align-items-center w-100 border-bottom py-3";
+      listItem.style.display = "flex"; 
 
       const titleSpan = document.createElement("span");
       titleSpan.textContent = documento.title;
+     
+     
 
       const link = document.createElement("a");
       link.href = documento.file;
       link.target = "_blank";
-      link.className = "btn btn-sm btn-primary";
+      link.className = "btn btn-sm btn-primary px-3";
+      link.style.backgroundColor = "#17a2b8"; // Color turquesa de tu imagen de balances
+      link.style.border = "none";
 
       const icon = document.createElement("i");
       icon.className = "fa fa-file-pdf mr-2";
 
       link.appendChild(icon);
       link.appendChild(document.createTextNode(" Ver PDF"));
+      
       listItem.appendChild(titleSpan);
       listItem.appendChild(link);
+      
       documentosList.appendChild(listItem);
     });
   }
@@ -1961,97 +2433,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 //
 
-function generarConstruccionYExtraccion() {
-  const cardsContainer = document.querySelector("#constructionAndExtractionCards");
-  const modalsContainer = document.querySelector("#constructionAndExtractionModals");
-
-  // VALIDACIÓN SILENCIOSA
-  // Si no se encuentran los contenedores, salimos de la función sin reportar error.
-  if (!cardsContainer || !modalsContainer) {
-    return;
-  }
-
-  // Verificamos que los datos existan para evitar errores de referencia
-  if (typeof constructionAndExtractionData === 'undefined') {
-    return;
-  }
-
-  let cardsHTML = "";
-  let modalsHTML = "";
-
-  constructionAndExtractionData.forEach((career) => {
-    // Generar la tarjeta de la carrera
-    cardsHTML += `
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="career-card text-center p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between">
-          <h3 class="mb-3">${career.title}</h3>
-          <a
-            href="#"
-            class="d-block mb-3"
-            data-toggle="modal"
-            data-target="#${career.id}Modal"
-          >
-            <img
-              src="${career.imagePath}"
-              alt="Imagen de ${career.title}"
-              class="img-fluid rounded"
-            />
-          </a>
-          <p class="text-muted">
-            Haz clic en la imagen para ver más detalles de la carrera.
-          </p>
-        </div>
-      </div>
-    `;
-
-    // Generar el modal de la carrera
-    const profileList = career.profile.map(item => `<li>${item}</li>`).join("");
-    const careerPathList = career.careerPath.map(item => `<li>${item}</li>`).join("");
-
-    modalsHTML += `
-      <div class="modal fade" id="${career.id}Modal" tabindex="-1" role="dialog" aria-labelledby="${career.id}ModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="${career.id}ModalLabel">${career.title}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h4><i class="fas fa-file-alt"></i> Resolución</h4>
-              <strong><p>${career.resolucion}</p></strong>
-              <h4><i class="fas fa-file-alt"></i> Descripción de la Carrera</h4>
-              <p style="text-align: justify;">${career.description}</p>
-              <h4><i class="fas fa-user"></i> Perfil Profesional</h4>
-              <ul style="text-align: justify;">${profileList}</ul>
-              <h4><i class="fas fa-briefcase"></i> Campo Laboral</h4>
-              <p>Los tecnólogos en ${career.title} pueden desempeñarse en:</p>
-              <ul>${careerPathList}</ul>
-              <h4><i class="fas fa-clock"></i> Duración de la Carrera</h4>
-              <p style="text-align: justify;">La carrera tiene una duración de <strong>${career.duration}</strong>, incluyendo prácticas preprofesionales supervisadas.</p>
-              <h4><i class="fas fa-laptop-code"></i> Modalidad</h4>
-              <p><strong>${career.modality}</strong></p>
-              <hr />
-              <h4><i class="fas fa-list-ol"></i> Malla Curricular</h4>
-              <div class="text-center">
-                <a href="${career.curriculumLink}" target="_blank" class="btn btn-info py-2 px-4">
-                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
-                </a>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-
-  cardsContainer.innerHTML = cardsHTML;
-  modalsContainer.innerHTML = modalsHTML;
-}
 
 // Modulo de Vinculacion
 
@@ -2133,325 +2514,208 @@ function generarAreasDeVinculacion() {
   listContainer.innerHTML = listHTML;
   modalsContainer.innerHTML = modalsHTML;
 }
-// Esta función puede ir en tu main.js o en un archivo aparte
 function generarInvestigacionIDi() {
   const listContainer = document.querySelector("#investigacionList");
   const modalsContainer = document.querySelector("#investigacionModals");
 
-  // --- VALIDACIÓN SILENCIOSA ---
-  // Si no existen los contenedores en esta página, salimos sin mostrar error.
-  if (!listContainer || !modalsContainer) {
-    return;
-  }
-
-  // Verificamos que los datos de investigación existan
-  if (typeof investigacionData === 'undefined') {
-    return;
-  }
+  if (!listContainer || !modalsContainer) return;
+  if (typeof investigacionData === 'undefined') return;
 
   let linearHTML = "";
-  const resumenIds = [
-    "modeloInvestigacionVinculacion",
-    "normativaInvestigacion",
-    "dominiosLineasInvestigacion",
-  ];
+  
+  // Identificadores de secciones (se mantienen iguales)
+  const resumenIds = ["modeloInvestigacionVinculacion", "normativaInvestigacion", "dominiosLineasInvestigacion"];
   const resumenSet = new Set(resumenIds);
-  const eventosIds = [
-    "congresoTopografia2025",
-    "congresoTopografia2023",
-    "seminarioEquino",
-    "congresoAgrovet2026",
-  ];
+  const eventosIds = ["congresoTopografia2025", "congresoTopografia2023", "seminarioEquino", "congresoAgrovet2026"];
   const eventosSet = new Set(eventosIds);
-  const resumenMap = Object.fromEntries(
-    investigacionData
-      .filter((entry) => !entry.isSection && resumenSet.has(entry.id))
-      .map((entry) => [entry.id, entry])
-  );
-  const eventosMap = Object.fromEntries(
-    investigacionData
-      .filter((entry) => !entry.isSection && eventosSet.has(entry.id))
-      .map((entry) => [entry.id, entry])
-  );
-  const publicacionesIds = [
-    "publicacionesMayoOctubre2025",
-    "publicacionesNoviembreAbril2025",
-    "publicacionesMayoOctubre2024",
-    "publicacionesNoviembre2023Abril2024",
-    "publicacionesMayoOctubre2023",
-    "publicacionesMayoOctubre202",
-  ];
+  const publicacionesIds = ["publicacionesMayoOctubre2025", "publicacionesNoviembreAbril2025", "publicacionesMayoOctubre2024", "publicacionesNoviembre2023Abril2024", "publicacionesMayoOctubre2023", "publicacionesMayoOctubre202"];
   const publicacionesSet = new Set(publicacionesIds);
-  const publicacionesMap = Object.fromEntries(
-    investigacionData
-      .filter((entry) => !entry.isSection && publicacionesSet.has(entry.id))
-      .map((entry) => [entry.id, entry])
-  );
+
+  const resumenMap = Object.fromEntries(investigacionData.filter(e => !e.isSection && resumenSet.has(e.id)).map(e => [e.id, e]));
+  const eventosMap = Object.fromEntries(investigacionData.filter(e => !e.isSection && eventosSet.has(e.id)).map(e => [e.id, e]));
+  const publicacionesMap = Object.fromEntries(investigacionData.filter(e => !e.isSection && publicacionesSet.has(e.id)).map(e => [e.id, e]));
+
   let resumenRenderizado = false;
   let eventosRenderizados = false;
   let publicacionesRenderizadas = false;
 
-  const quitarPrimerH4 = (html) =>
-    html.replace(/^\s*<h4[^>]*>[\s\S]*?<\/h4>\s*/i, "");
-  const limpiarTexto = (texto) =>
-    texto.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const quitarPrimerH4 = (html) => html.replace(/^\s*<h4[^>]*>[\s\S]*?<\/h4>\s*/i, "");
+  const limpiarTexto = (texto) => texto.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   const obtenerTitulosPublicaciones = (html) => {
     const coincidencias = [...html.matchAll(/<h4[^>]*>([\s\S]*?)<\/h4>/gi)];
-    return coincidencias
-      .map((match) => limpiarTexto(match[1]))
-      .filter((titulo) => titulo.length > 0);
+    return coincidencias.map(match => limpiarTexto(match[1])).filter(t => t.length > 0);
   };
 
   investigacionData.forEach((item) => {
+    // DISEÑO DE TÍTULOS DE SECCIÓN (Estilo Yachay: Mayúsculas, espaciado y borde inferior)
     if (item.isSection) {
       linearHTML += `
-        <h4 class="mt-5 mb-3 text-primary">${item.title}</h4>
+        <div class="col-12 mt-5 mb-4">
+          <h2 class="text-uppercase fw-bold" style="color: #003366; letter-spacing: 1px; border-left: 5px solid #00aae4; padding-left: 15px;">
+            ${item.title}
+          </h2>
+        </div>
       `;
       return;
     }
 
+    // DISEÑO DE RESUMEN (Cards Modernas en lugar de tablas)
     if (resumenSet.has(item.id)) {
-      if (resumenRenderizado) {
-        return;
-      }
+      if (resumenRenderizado) return;
+      
+      const cardsResumen = resumenIds.map(id => {
+        const resumen = resumenMap[id];
+        if (!resumen) return "";
+        return `
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm" style="border-radius: 12px; transition: transform 0.3s;">
+              <div class="card-body p-4">
+                <div class="mb-3"><i class="fas fa-microscope fa-2x text-info"></i></div>
+                <h5 class="fw-bold mb-3" style="color: #003366;">${resumen.title}</h5>
+                <div class="text-muted small">${quitarPrimerH4(resumen.content)}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
 
-      const celdasResumen = resumenIds
-        .map((id) => {
-          const resumen = resumenMap[id];
-          if (!resumen) {
-            return "";
-          }
-
-          return `
-            <td style="vertical-align: top; width: 33.33%; min-width: 280px;">
-              <h5 class="mb-3">${resumen.title}</h5>
-              ${quitarPrimerH4(resumen.content)}
-            </td>
-          `;
-        })
-        .join("");
-
-      linearHTML += `
-        <div class="table-responsive mb-4">
-          <table class="table table-bordered bg-white mb-0">
-            <tbody>
-              <tr>
-                ${celdasResumen}
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      `;
-
+      linearHTML += `<div class="row">${cardsResumen}</div>`;
       resumenRenderizado = true;
       return;
     }
 
+    // DISEÑO DE EVENTOS (Grid de 2 columnas con acento visual)
     if (eventosSet.has(item.id)) {
-      if (eventosRenderizados) {
-        return;
-      }
+      if (eventosRenderizados) return;
 
-      const eventosDisponibles = eventosIds
-        .map((id) => {
-          const evento = eventosMap[id];
-          if (!evento) {
-            return null;
-          }
+      const cardsEventos = eventosIds.map(id => {
+        const evento = eventosMap[id];
+        if (!evento) return "";
+        return `
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 border-top border-4 border-primary shadow-sm">
+              <div class="card-body">
+                <h5 class="fw-bold" style="color: #003366;">${evento.title}</h5>
+                <div class="mt-3">${quitarPrimerH4(evento.content)}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
 
-          return `
-            <td style="vertical-align: top; width: 50%; min-width: 320px;">
-              <h5 class="mb-3">${evento.title}</h5>
-              ${quitarPrimerH4(evento.content)}
-            </td>
-          `;
-        })
-        .filter(Boolean);
-
-      const fila1 = `${eventosDisponibles[0] || "<td></td>"}${eventosDisponibles[1] || "<td></td>"}`;
-      const fila2 = `${eventosDisponibles[2] || "<td></td>"}${eventosDisponibles[3] || "<td></td>"}`;
-
-      linearHTML += `
-        <div class="table-responsive mb-4">
-          <table class="table table-bordered bg-white mb-0">
-            <tbody>
-              <tr>
-                ${fila1}
-              </tr>
-              <tr>
-                ${fila2}
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      `;
-
+      linearHTML += `<div class="row">${cardsEventos}</div>`;
       eventosRenderizados = true;
       return;
     }
 
-    if (item.id === "simposioAdministracion") {
-      return;
-    }
-
+    // DISEÑO DE PUBLICACIONES (Estilo Dashboard Universitario)
     if (publicacionesSet.has(item.id)) {
-      if (publicacionesRenderizadas) {
-        return;
-      }
+      if (publicacionesRenderizadas) return;
 
-      const periodosPublicaciones = publicacionesIds
-        .map((id) => publicacionesMap[id])
-        .filter(Boolean)
-        .map((periodo) => {
-          const publicaciones = obtenerTitulosPublicaciones(periodo.content).map((titulo, indice) => ({
-            titulo,
-            llave: `${periodo.id}-${indice}`,
-          }));
-          return {
-            id: periodo.id,
-            periodo: periodo.title,
-            publicaciones: publicaciones.length
-              ? publicaciones
-              : [{ titulo: "Sin publicaciones registradas", llave: `${periodo.id}-0` }],
-          };
-        });
+      const periodosPublicaciones = publicacionesIds.map(id => publicacionesMap[id]).filter(Boolean).map(periodo => {
+        const pubs = obtenerTitulosPublicaciones(periodo.content).map((titulo, idx) => ({ titulo, llave: `${periodo.id}-${idx}` }));
+        return { id: periodo.id, periodo: periodo.title, publicaciones: pubs.length ? pubs : [{ titulo: "Sin publicaciones", llave: `${periodo.id}-0` }] };
+      });
 
-      const totalPublicaciones = periodosPublicaciones.reduce(
-        (acumulado, periodo) => acumulado + periodo.publicaciones.length,
-        0
-      );
-      const maximoPublicaciones = Math.max(
-        ...periodosPublicaciones.map((periodo) => periodo.publicaciones.length),
-        1
-      );
+      const totalPubs = periodosPublicaciones.reduce((acc, p) => acc + p.publicaciones.length, 0);
+      const maxPubs = Math.max(...periodosPublicaciones.map(p => p.publicaciones.length), 1);
 
-      const graficoBarras = periodosPublicaciones
-        .map((periodo) => {
-          const valor = periodo.publicaciones.length;
-          const porcentaje = (valor / maximoPublicaciones) * 100;
-
-          return `
-            <div class="mb-3">
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <small class="font-weight-bold">${periodo.periodo}</small>
-                <small>${valor}</small>
-              </div>
-              <div class="progress" style="height: 10px;">
-                <div class="progress-bar bg-info" role="progressbar" style="width: ${porcentaje}%" aria-valuenow="${valor}" aria-valuemin="0" aria-valuemax="${maximoPublicaciones}"></div>
-              </div>
+      const barrasPublicaciones = periodosPublicaciones.map(p => {
+        const porcentaje = (p.publicaciones.length / maxPubs) * 100;
+        return `
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-bold small text-secondary">${p.periodo}</span>
+              <span class="badge rounded-pill bg-primary">${p.publicaciones.length}</span>
             </div>
-          `;
-        })
-        .join("");
+            <div class="progress" style="height: 8px; border-radius: 10px; background-color: #e9ecef;">
+              <div class="progress-bar" style="width: ${porcentaje}%; background: linear-gradient(90deg, #003366, #00aae4);"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
 
-      const filasTablaPublicaciones = periodosPublicaciones
-        .map((periodo) => {
-          return periodo.publicaciones
-            .map((publicacion, indice) => {
-              const celdaPeriodo =
-                indice === 0
-                  ? `<td rowspan="${periodo.publicaciones.length}" style="vertical-align: middle; width: 35%;"><strong>${periodo.periodo}</strong></td>`
-                  : "";
+      const filasTabla = periodosPublicaciones.map(p => {
+        return p.publicaciones.map((pub, i) => `
+          <tr>
+            ${i === 0 ? `<td rowspan="${p.publicaciones.length}" class="align-middle fw-bold bg-light" style="width:30%; color:#003366;">${p.periodo}</td>` : ""}
+            <td class="py-3">
+              <a href="javascript:void(0)" class="text-decoration-none text-dark hover-link" onclick="mostrarPublicacionInvestigacion('${p.id}')">
+                <i class="far fa-file-alt me-2 text-info"></i> ${pub.titulo}
+              </a>
+            </td>
+          </tr>
+        `).join("");
+      }).join("");
 
-              return `
-                <tr>
-                  ${celdaPeriodo}
-                  <td>
-                    <button
-                      type="button"
-                      class="btn btn-link p-0 text-left"
-                      onclick="mostrarPublicacionInvestigacion('${periodo.id}')"
-                    >
-                      ${publicacion.titulo}
-                    </button>
-                  </td>
-                </tr>
-              `;
-            })
-            .join("");
-        })
-        .join("");
-
-      const detallePublicacionesHTML = publicacionesIds
-        .map((id) => publicacionesMap[id])
-        .filter(Boolean)
-        .map(
-          (periodo) => `
-            <article class="card border-0 shadow-sm mb-4 d-none" data-publicacion-periodo="${periodo.id}">
-              <div class="card-body">
-                <h5 class="mb-3">${periodo.title}</h5>
-                ${periodo.content}
-              </div>
-            </article>
-          `
-        )
-        .join("");
+      linearHTML += `
+        <div class="row mt-4">
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm p-4 mb-4" style="background-color: #f8f9fa;">
+              <h5 class="fw-bold mb-4">Métricas de Impacto</h5>
+              <p class="small text-muted">Producción científica por ciclo académico.</p>
+              <div class="display-5 fw-bold text-primary mb-4">${totalPubs}</div>
+              ${barrasPublicaciones}
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="table-responsive shadow-sm rounded">
+              <table class="table table-hover bg-white mb-0 border-0">
+                <thead style="background-color: #003366; color: white;">
+                  <tr><th class="py-3">Período</th><th class="py-3">Título de la Investigación</th></tr>
+                </thead>
+                <tbody>${filasTabla}</tbody>
+              </table>
+            </div>
+            <div id="publicacionesDetalleDinamico" class="mt-4">
+               <div class="alert alert-info border-0 shadow-sm" style="background-color: #e3f2fd; color: #0056b3;">
+                <i class="fas fa-info-circle me-2"></i> Seleccione un título arriba para ver detalles.
+               </div>
+               ${periodosPublicaciones.map(p => `
+                 <article class="card border-0 shadow mb-4 d-none" data-publicacion-periodo="${p.id}" style="border-left: 5px solid #00aae4 !important;">
+                   <div class="card-body p-4">
+                     <h4 class="fw-bold" style="color: #003366;">${p.periodo}</h4>
+                     <hr>
+                     ${publicacionesMap[p.id].content}
+                   </div>
+                 </article>
+               `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
 
       if (typeof window.mostrarPublicacionInvestigacion !== "function") {
-        window.mostrarPublicacionInvestigacion = function (periodoId) {
+        window.mostrarPublicacionInvestigacion = function (id) {
           const contenedor = document.getElementById("publicacionesDetalleDinamico");
-          if (!contenedor) {
-            return;
-          }
-
-          const tarjetas = contenedor.querySelectorAll("[data-publicacion-periodo]");
-          tarjetas.forEach((tarjeta) => tarjeta.classList.add("d-none"));
-
-          const tarjetaObjetivo = contenedor.querySelector(`[data-publicacion-periodo="${periodoId}"]`);
-          if (tarjetaObjetivo) {
-            tarjetaObjetivo.classList.remove("d-none");
-            tarjetaObjetivo.scrollIntoView({ behavior: "smooth", block: "start" });
+          contenedor.querySelectorAll("[data-publicacion-periodo]").forEach(t => t.classList.add("d-none"));
+          const target = contenedor.querySelector(`[data-publicacion-periodo="${id}"]`);
+          if (target) {
+            target.classList.remove("d-none");
+            target.scrollIntoView({ behavior: "smooth", block: "center" });
           }
         };
       }
-
-      linearHTML += `
-        <div class="card border-0 shadow-sm mb-4">
-          <div class="card-body">
-            <h5 class="mb-3">Gráfico de Publicaciones por Período</h5>
-            <p class="mb-3 text-muted">Total de publicaciones registradas: <strong>${totalPublicaciones}</strong></p>
-            ${graficoBarras}
-          </div>
-        </div>
-
-        <div class="table-responsive mb-4">
-          <table class="table table-bordered table-hover bg-white mb-0">
-            <thead class="thead-light">
-              <tr>
-                <th>Período académico</th>
-                <th>Publicación</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${filasTablaPublicaciones}
-            </tbody>
-          </table>
-        </div>
-
-        <div id="publicacionesDetalleDinamico">
-          <div class="alert alert-light border mb-4" role="alert">
-            Selecciona una publicación de la tabla para visualizar su contenido.
-          </div>
-          ${detallePublicacionesHTML}
-        </div>
-      `;
 
       publicacionesRenderizadas = true;
       return;
     }
 
+    // DISEÑO PARA OTROS ARTÍCULOS GENÉRICOS
     linearHTML += `
-      <article id="${item.id}" class="card border-0 shadow-sm mb-4">
-        <div class="card-body">
-          <h5 class="mb-3">${item.title}</h5>
-          ${item.content}
-        </div>
-      </article>
+      <div class="col-12 mb-4">
+        <article id="${item.id}" class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h5 class="fw-bold" style="color: #003366;">${item.title}</h5>
+            <div class="mt-3">${item.content}</div>
+          </div>
+        </article>
+      </div>
     `;
   });
 
   listContainer.classList.remove("list-group", "list-group-flush");
-  listContainer.innerHTML = linearHTML;
+  listContainer.innerHTML = `<div class="container-fluid p-0">${linearHTML}</div>`;
 
   if (modalsContainer) {
     modalsContainer.innerHTML = "";
@@ -2697,6 +2961,10 @@ function generarModuloNoticias() {
   contenedor.innerHTML = html;
 }
 
+const noticiasPorPagina = 6;
+let paginaActual = 1;
+let noticiasFiltradas = [];
+
 function iniciarNoticias() {
 
   if (typeof noticiasView === "undefined") return;
@@ -2840,7 +3108,6 @@ document.addEventListener("DOMContentLoaded", () => {
   generarOfertaAcademica();
   generarModalesOfertaAcademica();
   generarSelloUnico();
-  generarNoticias();
   generarTestimonios();
   generarAranceles();
   generarModuloNoticias();

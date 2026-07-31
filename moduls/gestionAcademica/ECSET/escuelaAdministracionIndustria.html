@@ -1,71 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="Free HTML Templates" name="keywords" />
-    <meta content="Free HTML Templates" name="description" />
-    <title>Escuela de Ciencias Sociales, Empresariales y Tecnologicas ECSET</title>
+    <meta content="Educación Superior, Negocios, Tecnología, Ciencias Sociales" name="keywords" />
+    <meta content="Oferta Académica Escuela de Ciencias Sociales, Empresariales y Tecnológicas" name="description" />
+    <title>Escuela de Ciencias Sociales, Empresariales y Tecnológicas ECSET</title>
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease; }
+    </style>
 
-    <!-- Favicon -->
-    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
+    <script src="/js/common/page-head.js" data-extra-styles="/css/modals-custom.css"></script>
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
-      rel="stylesheet"
-    />
+    <style>
+      /* Posicionamiento del logo en la esquina superior izquierda */
+      .logo-superior-izq {
+        position: absolute;
+        top: 25px;         /* Distancia desde el borde superior */
+        left: 100px;        /* Distancia desde el borde izquierdo */
+        max-width: 180px;   /* Ajusta este ancho según el tamaño de tu logo */
+        height: auto;      /* Mantiene la proporción de la imagen */
+        z-index: 10;       /* Asegura que quede por encima de los círculos de fondo */
+      }
 
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- Flaticon Font -->
-    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
-
-    <!-- Libraries Stylesheet -->
-    <link
-      href="/lib/owlcarousel/assets/owl.carousel.min.css"
-      rel="stylesheet"
-    />
-    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet" />
+      /* Adaptación para pantallas de celulares o tablets */
+      @media (max-width: 991px) {
+        .logo-superior-izq {
+          position: relative;
+          display: block;
+          margin: 0 auto 25px auto; /* Se centra arriba del título en pantallas chicas */
+          top: 0;
+          left: 0;
+          max-width: 150px;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <div class="container-fluid bg-light position-relative shadow"></div>
+  <body class="bg-light">
+    <div class="container-fluid bg-light position-relative shadow-sm" id="header-container"></div>
 
-    <div class="container-fluid py-5 container-top">
-      <div class="container">
-        <p class="section-title pr-5 text-center">
-          <span class="pr-2">Nuestra Formación</span>
-        </p>
-        <h1 class="mb-5 text-center">Oferta Académica</h1>
+    <div class="container-fluid py-5 container-top position-relative">
+      
+      <img src="\assets\img\gestionAcademica\Logos\ECSET.png" alt="Logo Escuela" class="logo-superior-izq" />
 
-        <h2 class="text-center mb-4">Escuela de Ciencias Sociales, Empresariales y Tecnologicas ECSET</h2>
-        <div
-          class="row justify-content-center "
-          id="administrationAndIndustryCards"
-        ></div>
+      <svg class="bg-circles" width="400" height="400" viewBox="0 0 100 100">
+        <circle cx="80" cy="20" r="40" fill="#517CE0" /> 
+      </svg>
+
+      <div class="container text-center">
+        <div class="text-center pb-2">
+          <p class="section-title px-5">
+             <span class="px-2">NUESTRA FORMACIÓN</span>
+          </p>
+          <h1 class="mb-4">Oferta Académica</h1>
+        </div>
+        
+        <div class="school-badgeECSET">
+            <i class="fas fa-chart-line mr-2"></i> Escuela de Ciencias Sociales, Empresariales y Tecnológicas ECSET
+        </div>
+
+        <div class="row justify-content-center" id="administrationAndIndustryCards">
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-success" role="status">
+                    <span class="sr-only">Cargando carreras de ECSET...</span>
+                </div>
+            </div>
+        </div>
       </div>
     </div>
 
-    <div id="administrationAndIndustryModals" ></div>
+    <div id="administrationAndIndustryModals"></div>
 
     <div class="color-bar-container">
-    <div class="color-stripe color-stripe-1"></div>
-    <div class="color-stripe color-stripe-2"></div>
-    <div class="color-stripe color-stripe-3"></div>
-    <div class="color-stripe color-stripe-4"></div>
-</div>
+        <div class="color-stripe color-stripe-1"></div>
+        <div class="color-stripe color-stripe-2"></div>
+        <div class="color-stripe color-stripe-3"></div>
+        <div class="color-stripe color-stripe-4"></div>
+    </div>
 
     <div class="footer-container"></div>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="/lib/easing/easing.min.js"></script>
@@ -73,11 +87,18 @@
     <script src="/lib/isotope/isotope.pkgd.min.js"></script>
     <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="/js/moduls/header.js"></script>
     <script src="/js/moduls/footer.js"></script>
     <script src="/js/moduls/GestionAcademica/administrationAndIndustryData.js?v=1"></script>
     <script src="/js/global.js"></script>
     <script src="/js/main.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        if (typeof generarAdministracionEIndustria === "function") {
+          generarAdministracionEIndustria();
+        }
+      });
+    </script>
   </body>
 </html>

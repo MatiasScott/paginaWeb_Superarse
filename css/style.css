@@ -91,7 +91,7 @@ body {
 @media (max-width: 991.98px) {
   body {
     /* Ajusta este valor si el logo y el menú hamburguesa ocupan más o menos espacio */
-    padding-top: 100px;
+    padding-top: 45px;
   }
 }
 
@@ -1396,6 +1396,27 @@ pre code {
     flex: 0 0 33.33333%;
     max-width: 33.33333%;
   }
+  @media (max-width: 767.98px) {
+    /* Centra la columna entera */
+    .col-md-4 {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Ajusta la tarjeta para que no se pegue a los bordes y se centre */
+    .card-custom {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%; 
+        max-width: 350px; /* Evita que el cuadro se vea gigante en celulares anchos */
+    }
+    
+    /* Centra los botones dentro de la tarjeta si se llegan a deslinear */
+    .card-body .d-flex {
+        flex-wrap: wrap; /* Si los botones son muy largos, uno debajo del otro */
+        justify-content: center !important;
+    }
+}
 
   .col-md-5 {
     flex: 0 0 41.66667%;
@@ -7212,7 +7233,6 @@ button.bg-dark:focus {
 }
 
 
-
 .bg-transparent {
   background-color: transparent !important;
 }
@@ -8586,11 +8606,6 @@ button.bg-dark:focus {
   margin: 0.5rem !important;
 }
 
-.mt-2,
-.my-2 {
-  margin-top: 0.5rem !important;
-}
-
 .mr-2,
 .mx-2 {
   margin-right: 0.5rem !important;
@@ -8812,10 +8827,6 @@ button.bg-dark:focus {
   padding-right: 3rem !important;
 }
 
-.pb-5,
-.py-5 {
-  padding-bottom: 3rem !important;
-}
 
 .pl-5,
 .px-5 {
@@ -11072,7 +11083,7 @@ a.text-dark:focus {
 
 .section-title span {
   position: relative;
-  background: #ffffff;
+  background: #f8f9fa;
   z-index: 1;
 }
 
@@ -11276,22 +11287,85 @@ a.text-dark:focus {
   background: #17a2b8;
 }
 
-.noticias-carousel .owl-dots {
-  text-align: center;
+.noticias-header-carousel-container {
+  --nhc-image-height: 100%;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding-bottom: 35%;
+  height: 0;
+  overflow: hidden;
 }
 
-.noticias-carousel .owl-dot {
-  display: inline-block;
-  margin: 0 auto;
-  width: 50%;
-  height: 70%;
-  border-radius: 10px;
-  background: #dddddd;
+.noticias-header-carousel-95 {
+  --nhc-image-height: 95%;
 }
 
-.noticias-carousel .owl-dot.active {
-  background: #17a2b8;
+.noticias-header-carousel-90 {
+  --nhc-image-height: 90%;
 }
+
+.noticias-header-carousel-slide {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: var(--nhc-image-height);
+  transform: translateY(-40%);
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.noticias-header-carousel-slide.is-active {
+  opacity: 1;
+}
+
+.noticias-header-carousel-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.noticias-header-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0;
+  cursor: pointer;
+}
+
+.noticias-header-carousel-dot.is-active {
+  background: #ffffff;
+}
+
+
+
+
+
+.carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.carousel-img,
+.video-inst {
+  transition: opacity .6s ease;
+}
+
 
 .noticia-galeria {
   display: flex;
@@ -11337,71 +11411,6 @@ a.text-dark:focus {
   height: 100%;
 }
 
-.noticias-header-carousel-container {
-  --nhc-image-height: 100%;
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-}
-
-.noticias-header-carousel-95 {
-  --nhc-image-height: 95%;
-}
-
-.noticias-header-carousel-90 {
-  --nhc-image-height: 90%;
-}
-
-.noticias-header-carousel-track {
-  position: absolute;
-  inset: 0;
-}
-
-.noticias-header-carousel-slide {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: var(--nhc-image-height);
-  transform: translateY(-50%);
-  object-fit: contain;
-  object-position: center;
-  opacity: 0;
-  transition: opacity 0.7s ease;
-}
-
-.noticias-header-carousel-slide.is-active {
-  opacity: 1;
-}
-
-.noticias-header-carousel-dots {
-  position: absolute;
-  left: 50%;
-  bottom: 14px;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 2;
-}
-
-.noticias-header-carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 0;
-  background: rgba(255, 255, 255, 0.6);
-  padding: 0;
-  cursor: pointer;
-}
-
-.noticias-header-carousel-dot.is-active {
-  background: #ffffff;
-}
-
 .carousel-img {
   position: absolute;
   top: 0;
@@ -11415,104 +11424,6 @@ a.text-dark:focus {
 .carousel-img,
 .video-inst {
   transition: opacity .6s ease;
-}
-
-/* Media query para pantallas de computadora (ancho mayor a 992px) */
-@media (min-width: 992px) {
-  .video-responsive-container {
-    margin: 2rem auto;
-    /* Ajusta el margen en pantallas grandes */
-  }
-}
-
-/* Estilos para el botón flotante de WhatsApp */
-.whatsapp-float {
-  position: fixed;
-  /* Hace que el botón "flote" */
-  bottom: 20px;
-  /* Distancia desde la parte inferior de la pantalla */
-  right: 20px;
-  /* Distancia desde la parte derecha de la pantalla */
-  background-color: #25D366;
-  /* Color verde de WhatsApp */
-  color: white;
-  border-radius: 50%;
-  /* Lo hace redondo */
-  text-align: center;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-  /* Sombra para que destaque */
-  z-index: 1000;
-  /* Asegura que esté por encima de otros elementos */
-  display: flex;
-  /* Para centrar la imagen */
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  /* Ancho del círculo */
-  height: 60px;
-  /* Alto del círculo */
-}
-
-.whatsapp-float img {
-  width: 35px;
-  /* Tamaño de la imagen dentro del círculo */
-  height: 35px;
-  vertical-align: middle;
-  /* Para asegurar que la imagen esté centrada si no usas flex */
-}
-
-.whatsapp-float:hover {
-  background-color: #1DA851;
-  /* Color un poco más oscuro al pasar el ratón */
-}
-
-/* Estilos para el botón flotante del buzón */
-.buzon-float {
-  position: fixed;
-  bottom: 90px;
-  /* Arriba del botón de WhatsApp */
-  right: 20px;
-  background: linear-gradient(135deg, #17a2b8 0%, #0B77BD 100%);
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.buzon-float i {
-  font-size: 28px;
-}
-
-.buzon-float:hover {
-  background: linear-gradient(135deg, #0B77BD 0%, #17a2b8 100%);
-  transform: scale(1.1);
-}
-
-.buzon-float .buzon-tooltip {
-  position: absolute;
-  right: 70px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  white-space: nowrap;
-  font-size: 13px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-}
-
-.buzon-float:hover .buzon-tooltip {
-  opacity: 1;
-  visibility: visible;
 }
 
 /* Estilos para el modal del buzón */
@@ -11922,72 +11833,83 @@ a.text-dark:focus {
   /* Centra los elementos horizontalmente */
   align-items: center;
 }
-
+/* --- ESTILOS BASE: ESTADÍSTICAS (ESCRITORIO) --- */
 .stats-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  padding: 20px;
-}
-
-.stat-number {
-  /* Use a bold or heavy font for the number */
-  font-family: "Avenir Next Bold", sans-serif;
-  font-size: 2.5em;
-  /* Make the number larger */
-  color: #333;
-  /* Use a dark color */
-}
-
-.stat-text {
-  /* Use a regular or medium font for the text */
-  font-family: "Avenir Next Medium", sans-serif;
-  font-size: 1.2em;
-  color: #666;
-  /* Use a softer color */
+  padding: 40px 20px;
+  flex-wrap: wrap; /* Permite que los elementos bajen si no caben en tablets */
 }
 
 .stat-item {
   flex: 1;
-  margin: 0 10px;
-  /* Agregamos una transición para que el efecto sea suave */
+  min-width: 200px; 
+  margin: 15px 10px;
   transition: transform 0.3s ease-in-out;
 }
 
-/* Esta es la pseudo-clase para el efecto de zoom al pasar el mouse */
 .stat-item:hover {
-  transform: scale(1.2);
-  /* 1.2 significa un 15% de aumento de tamaño */
+  transform: scale(1.1); 
 }
 
 .number {
+  font-family: "Avenir Next Bold", sans-serif;
   font-size: 4em;
   font-weight: bold;
+  line-height: 1;
 }
 
 .label {
+  font-family: "Avenir Next Medium", sans-serif;
   font-size: 1.2em;
   color: #555;
-  margin-top: 5px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.blue {
-  color: #3498db;
+/* --- COLORES INSTITUCIONALES --- */
+.blue { color: #3498db; }
+.green { color: #2ecc71; }
+.orange-light { color: #f39c12; }
+.orange-dark { color: #e67e22; }
+
+/* --- RESPONSIVO: TABLETAS (Menor a 992px) --- */
+@media (max-width: 992px) {
+  .number {
+    font-size: 3.2em;
+  }
+  .label {
+    font-size: 1.1em;
+  }
 }
 
-.green {
-  color: #2ecc71;
-}
+/* --- RESPONSIVO: MÓVILES (Menor a 768px) --- */
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column; /* Apila los números verticalmente */
+    padding: 20px 10px;
+  }
 
-.orange-light {
-  color: #f39c12;
-}
+  .stat-item {
+    width: 100%;
+    margin: 20px 0;
+  }
 
-.orange-dark {
-  color: #e67e22;
-}
+  .stat-item:hover {
+    transform: none; /* Evita efectos raros en pantallas táctiles */
+  }
 
+  .number {
+    font-size: 2.8em; /* Tamaño adaptado para pantallas angostas */
+  }
+
+  .label {
+    font-size: 1em;
+  }
+}
 .separate-image-section {
   display: flex;
   /* para centrar fácilmente */
@@ -12439,6 +12361,50 @@ a.text-dark:focus {
 .custom-carousel-nav.custom-next {
   right: 0;
 }
+/* Valor para móviles (por defecto) */
+.custom-nav-margin {
+    margin-top: 26px !important;
+}
+
+/* Valor para computadoras (pantallas grandes LG) */
+@media (min-width: 992px) {
+    .custom-nav-margin {
+        margin-top: 31px !important;
+    }
+}
+/* --- AJUSTES DE RESPONSIVE PARA NAVBARS --- */
+
+/* 1. Computadoras (Pantallas Grandes) */
+@media (min-width: 992px) {
+    .custom-nav-responsive {
+        /* Bajamos la barra blanca para que quepa la negra arriba */
+        margin-top: 33px !important;
+        /* Aseguramos que la barra blanca sea delgada */
+        height: 65px; 
+    }
+}
+
+/* 2. Celulares y Tablets (Pantallas Medianas/Pequeñas) */
+@media (max-width: 991.98px) {
+    .custom-nav-responsive {
+        /* En móvil la barra negra desaparece, así que la blanca sube al tope */
+        margin-top: 0px !important;
+    }
+
+    /* Ajuste para que el menú desplegable no se corte si es muy largo */
+    .navbar-collapse {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+}
+
+/* Ajuste del logo para que siempre se vea bien */
+.navbar-brand img {
+
+    width: auto;
+}
 
 /* Media Query para dispositivos móviles: */
 @media (max-width: 768px) {
@@ -12864,7 +12830,7 @@ a.text-dark:focus {
 .flip-card {
   background-color: transparent;
   width: 100%;
-  height: 600px;
+  height: 450px;
   /* Altura fija para las tarjetas */
   perspective: 1000px;
   /* Efecto 3D para el giro */
@@ -12898,11 +12864,10 @@ a.text-dark:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   color: white;
-  overflow-y: auto;
   /* Color del texto */
 }
 
@@ -13047,7 +13012,7 @@ a.text-dark:focus {
 /* Estilos para los pasos de postulación a becas */
 .proceso-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   padding: 20px;
 }
@@ -14043,7 +14008,7 @@ border:1px solid #ddd;
 /* Altura adaptable para que sea RESPONSIVO */
 .pdf-embed-photo {
   width: 100%;
-  height: 780px; /* Altura para pantallas grandes */
+  height: 670px; /* Altura para pantallas grandes */
   border: none;
   display: block;
 }
@@ -14562,60 +14527,151 @@ iframe::-webkit-scrollbar {
         }
         
 /*---------------------------NORMATIVA -----------------------------*/
- 
-    
-        .normativa-card-premium {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-top: 5px solid #003973;
-        }
+/* =========================
+   CARD PREMIUM
+========================= */
+.normativa-card-premium {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 5px solid #003973;
+    transition: 0.3s;
+}
 
-        .control-pill-container {
-            background: #fff;
-            padding: 10px 20px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            margin-bottom: 15px;
-        }
+/* =========================
+   CONTROLES SUPERIORES
+========================= */
+.control-pill-container {
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* 🔥 permite adaptarse */
+}
 
-        /* AJUSTE DE TAMAÑO: Altura mayor para lectura cómoda */
-        #pdf-container {
-            width: 100%;
-            background: #525659; /* Color gris oscuro tipo visor profesional */
-            border-radius: 12px;
-            border: 1px solid #eee;
-            margin-top: 10px;
-            min-height: 800px; /* Más alto para que se vea más contenido */
-            overflow-y: auto;
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-        }
+/* =========================
+   VISOR PDF
+========================= */
+#pdf-container {
+    width: 100%;
+    background: #525659;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    margin-top: 10px;
 
-        /* Asegura que el canvas use todo el ancho */
-        canvas {
-            max-width: 95% !important; 
-            height: auto !important;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-            background: white;
-        }
-          /* Este margen evita que el menú tape tu título */
-      .espaciado-menu {
-        padding-top: 100px; /* Ajusta este valor (80px, 120px) según el alto de tu menú */
-        padding-bottom: 50px;
-      }
-      
-      /* Estilo para los párrafos */
-      .mensaje-texto p {
-        text-align: justify;
-      }
-      /******************************** OFERTA ACADEMICA ****************************/
+    min-height: 70vh;     /* 🔥 adaptable */
+    max-height: 85vh;     /* 🔥 evita que sea gigante */
+
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 15px 0;
+}
+
+/* =========================
+   CANVAS PDF
+========================= */
+canvas {
+    max-width: 95% !important;
+    height: auto !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background: white;
+}
+
+/* =========================
+   ESPACIADO MENÚ
+========================= */
+.espaciado-menu {
+    padding-top: 110px; /* ajustado al header */
+    padding-bottom: 50px;
+}
+
+/* =========================
+   TEXTO
+========================= */
+.mensaje-texto p {
+    text-align: justify;
+}
+
+/* =========================
+   TABLETS
+========================= */
+@media (max-width: 992px) {
+
+    .normativa-card-premium {
+        padding: 20px;
+    }
+
+    #pdf-container {
+        min-height: 65vh;
+        max-height: 80vh;
+    }
+
+    .control-pill-container {
+        gap: 10px;
+        padding: 10px 15px;
+    }
+}
+
+/* =========================
+   CELULARES
+========================= */
+@media (max-width: 768px) {
+
+    .normativa-card-premium {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .control-pill-container {
+        flex-direction: column; /* 🔥 se apila */
+        align-items: stretch;
+        gap: 8px;
+        border-radius: 15px;
+    }
+
+    #pdf-container {
+        min-height: 60vh;
+        max-height: 75vh;
+        padding: 10px 0;
+    }
+
+    canvas {
+        max-width: 98% !important;
+    }
+
+    .espaciado-menu {
+        padding-top: 120px;
+    }
+}
+
+/* =========================
+   CELULARES PEQUEÑOS
+========================= */
+@media (max-width: 480px) {
+
+    .normativa-card-premium {
+        padding: 12px;
+    }
+
+    #pdf-container {
+        min-height: 55vh;
+        max-height: 70vh;
+    }
+
+    .espaciado-menu {
+        padding-top: 130px;
+    }
+}
+/******************************** OFERTA ACADEMICA ****************************/
 
       .main-title {
         font-weight: 800;
@@ -14624,16 +14680,42 @@ iframe::-webkit-scrollbar {
         margin-top: 15px;
       }
 
-      .school-badge {
-        display: inline-block;
-        background: linear-gradient(90deg, #28a745, #20c997);
-        color: white;
-        padding: 10px 25px;
-        border-radius: 15px;
-        font-weight: 700;
-        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
-        margin-bottom: 40px;
+     .school-badge {
+      display: inline-block !important;
+      /* CAMBIO: Mismo degradado verde claro y esmeralda vivo que el botón */
+      background: linear-gradient(90deg, #32cd32, #26e6a4) !important;
+      color: white !important;
+      padding: 10px 25px !important;
+      border-radius: 15px !important;
+      font-weight: 700 !important;
+      /* CAMBIO: Sombra ajustada con el nuevo verde brillante para que dé un brillo natural */
+      box-shadow: 0 4px 15px rgba(50, 205, 50, 0.25) !important;
+      margin-bottom: 40px !important;
+     }
+      .school-badgeECSOS {
+       display: inline-block;
+       /* CAMBIO: Mismo degradado anaranjado/tomate que el botón */
+       background: linear-gradient(90deg, #f27230, #ff8c42);
+       color: white;
+       padding: 10px 25px;
+       border-radius: 15px;
+       font-weight: 700;
+       /* CAMBIO: Sombra ajustada al nuevo color anaranjado para que se vea natural */
+       box-shadow: 0 4px 15px rgba(242, 114, 48, 0.25);
+       margin-bottom: 40px;
       }
+     .school-badgeECSET {
+      display: inline-block !important;
+      /* CAMBIO: Mismo degradado azul corporativo que el botón */
+      background: linear-gradient(90deg, #0f52ba, #4a90e2) !important;
+      color: white !important;
+      padding: 10px 25px !important;
+      border-radius: 15px !important;
+      font-weight: 700 !important;
+      /* CAMBIO: Sombra ajustada a tono azul para un efecto de brillo natural */
+      box-shadow: 0 4px 15px rgba(15, 82, 186, 0.3) !important;
+      margin-bottom: 40px !important;
+     }
 
       /* Decoración de fondo: Círculo Tomate solicitado */
       .bg-circles {
@@ -14652,132 +14734,7 @@ iframe::-webkit-scrollbar {
         #constructionAndExtractionCards {
         margin-top: 20px;
       }
-
-
-
-
-
-
-
-
-
-      /*-------------------------AUTORIDADES -------------------------*/
-      
-              :root { --blue-dark: #004481; --line-color: #004481; --yellow-accent: #ffc107; }
-        body { background-color: #f8f9fa; font-family: 'Nunito', sans-serif; color: #444; }
-        
-        /* Estilos para la sección de texto superior */
-        .intro-section { padding: 80px 20px 20px; max-width: 1000px; margin: 0 auto; }
-        .section-title { 
-            display: inline-block; 
-            color: var(--blue-dark); 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-weight: 700; 
-            border-left: 4px solid var(--yellow-accent); 
-            padding-left: 15px;
-            margin-bottom: 15px;
-        }
-        .main-heading { color: var(--blue-dark); font-size: 2.5rem; margin-bottom: 30px; }
-        .lead-text { font-size: 1.1rem; line-height: 1.8; text-align: justify; margin-bottom: 1.5rem; }
-
-        /* Estilos del Organigrama */
-        .organigrama-scroll { padding: 40px 20px 80px; overflow-x: auto; }
-        
-        /* ESTILOS DE LA TARJETA CON EFECTO ZOOM COMPLETO */
-        .auth-card {
-            background: white; 
-            border-radius: 12px; 
-            padding: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-            display: inline-block;
-            width: 180px; 
-            border-top: 4px solid var(--blue-dark);
-            margin: 8px; 
-            position: relative; 
-            z-index: 5;
-            content-visibility: auto; 
-            contain-intrinsic-size: 180px 200px;
-            
-            /* Transición suave para todos los efectos */
-            transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s;
-            will-change: transform, box-shadow; /* Optimización */
-        }
-
-        /* EFECTO HOVER EN TODA LA TARJETA */
-        .auth-card:hover {
-            transform: scale(1.08) translateY(-5px); /* Zoom suave y elevación */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra más profunda */
-            z-index: 10; /* Se superpone a las líneas y otras tarjetas */
-        }
-
-        .auth-img-container {
-            width: 65px; height: 65px; margin: 0 auto 8px;
-            border-radius: 8px; overflow: hidden; border: 1px solid #ddd;
-            background: #f9f9f9;
-        }
-        
-        /* Efecto zoom interno opcional en la foto (mantenido para dinamismo) */
-        .auth-img-container img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.3s ease; 
-        }
-        .auth-card:hover .auth-img-container img {
-            transform: scale(1.1); /* Zoom ligero interno en la foto */
-        }
-
-        .auth-name { font-weight: 800; font-size: 0.75rem; color: #333; margin: 0; line-height: 1.2; min-height: 30px; display: flex; align-items: center; justify-content: center; }
-        .auth-pos { font-size: 0.6rem; color: var(--blue-dark); font-weight: 700; text-transform: uppercase; display: block; margin-top: 3px; border-top: 1px solid #eee; padding-top: 4px; }
-        .auth-email { font-size: 0.55rem; color: #666; text-decoration: none; display: block; margin-top: 5px; word-break: break-all; }
-        .auth-email:hover { color: var(--blue-dark); text-decoration: underline; }
-
-        /* Conectores del Árbol */
-        .tree ul { padding-top: 5px; position: relative; display: flex; justify-content: center; padding-left: 0; }
-        .tree li { text-align: center; list-style-type: none; position: relative; padding: 15px 0px 0 0px; }
-        .tree li::before, .tree li::after {
-            content: ''; position: absolute; top: 0; right: 50%;
-            border-top: 2px solid var(--line-color); width: 50%; height: 20px;
-        }
-        .tree li::after { right: auto; left: 50%; border-left: 2px solid var(--line-color); }
-        .tree li:only-child::after, .tree li:only-child::before { display: none; }
-        .tree li:only-child { padding-top: 0; }
-        .tree li:first-child::before, .tree li:last-child::after { border: 0 none; }
-        .tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; border-left: 2px solid var(--line-color); width: 0; height: 20px; }
-
-        .vertical-stack { display: flex; flex-direction: column; align-items: center; padding-top: 10px !important; }
-        .vertical-stack li { padding: 10px 0 0 0 !important; width: 100%; }
-        .vertical-stack li::before, .vertical-stack li::after { display: none !important; }
-        .vertical-stack::before {
-            content: ''; position: absolute; top: 0; left: 50%;
-            border-left: 2px solid var(--line-color); height: 100%; width: 0;
-        }
-
-        /* MODO RESPONSIVO */
-        @media (max-width: 768px) {
-            .main-heading { font-size: 1.8rem; }
-            .tree ul { flex-direction: column; align-items: center; }
-            .tree li::after, .tree li::before, .tree ul ul::before, .vertical-stack::before { display: none !important; }
-            .tree li { padding: 10px 0; }
-            .auth-card { width: 90%; max-width: 280px; }
-            /* Desactivar zoom en móvil para evitar saltos de pantalla */
-            .auth-card:hover { transform: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        }
-      .investigacion-shell {
-        max-width: none !important;
-        padding-left: 10% !important;
-        padding-right: 10% !important;
-      }
-
-      @media (max-width: 991.98px) {
-        .investigacion-shell {
-          padding-left: 5% !important;
-          padding-right: 5% !important;
-        }
-      }
-
-/*----------------------------- BIENESTAR UNIVERSITARIO -----------------------------*/
+/*----------------------------- BIENESTAR Institucional -----------------------------*/
 
 .bienestar-flecha-wrapper {
     display: flex;
@@ -14850,7 +14807,7 @@ iframe::-webkit-scrollbar {
 }
 
 .img-fluida-reflejo {
-    width: 100%;
+    width: 80%;
     max-width: 500px;
     border-radius: 30px; /* Bordes redondeados como en la foto */
     
@@ -15041,4 +14998,795 @@ iframe::-webkit-scrollbar {
         clip-path: none !important;
         border-radius: 10px;
     }
+}
+/* ------------------------------ BOTON DE COLORES --------------------------*>
+    /* Contenedor principal con el efecto de borde */
+    .btn-agenda-animado {
+        position: relative;
+        width: fit-content;
+        /* El padding define el grosor del borde de colores */
+        padding: 4px; 
+        border-radius: 18px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+
+    /* La capa de tus 4 colores que gira */
+    .btn-agenda-animado::before {
+        content: '';
+        position: absolute;
+        width: 150%;
+        height: 400%;
+        /* Usamos tus colores exactos: Azul, Verde, Amarillo, Naranja */
+        background: conic-gradient(
+            #0B77BD, 
+            #8bdf31, 
+            #fabd2e, 
+            #ef7a15, 
+            #0B77BD
+        );
+        animation: girar-colores 4s linear infinite;
+        z-index: -2;
+    }
+
+    /* El interior blanco del botón */
+    .btn-agenda-interno {
+        background: white;
+        padding: 12px 50px;
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    /* Estilo del texto */
+    .btn-agenda-interno a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Efecto al pasar el mouse */
+    .btn-agenda-animado:hover .btn-agenda-interno {
+        background: #fdfdfd;
+        transform: scale(0.98); /* Pequeño efecto de pulsación */
+    }
+
+    /* Animación de rotación */
+    @keyframes girar-colores {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* Ajuste para celulares */
+    @media (max-width: 768px) {
+        .btn-agenda-interno {
+            padding: 10px 25px;
+        }
+        .btn-agenda-interno a {
+            font-size: 1.3rem;
+        }
+    }
+
+/*/ --------------------- SCROLL DE EL CARRUCEL DEL INDEX----------------------*/
+.noticias-header-carousel-container {
+    position: relative;
+}
+
+.noticias-scroll-down {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 25;
+    font-size: 38px;
+    cursor: pointer;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: color 0.8s ease, transform 0.3s ease, opacity 0.3s ease;
+    animation: doubleBounce 2.5s infinite;
+    text-decoration: none !important;
+    display: block; /* Se ve por defecto en PC */
+}
+
+/* Colores dinámicos */
+.color-index-0 { color: #3099C7 !important; }
+.color-index-1 { color: #F39200 !important; }
+
+@keyframes doubleBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    40% { transform: translateX(-50%) translateY(-15px); opacity: 0.7; }
+    60% { transform: translateX(-50%) translateY(-7px); opacity: 0.9; }
+}
+
+/* --- REGLA PARA OCULTAR EN MÓVILES --- */
+@media (max-width: 768px) {
+    .noticias-scroll-down {
+        display: none !important; /* Desaparece en tablets y celulares */
+    }
+}
+/* --------------------------- INVESTIGACIÓN ---------------------------------*/
+ .investigacion-shell {
+        max-width: none !important;
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+      }
+
+      @media (max-width: 991.98px) {
+        .investigacion-shell {
+          padding-left: 5% !important;
+          padding-right: 5% !important;
+        }
+      }
+
+/* ---------------------- PROCESO DE ADMISIÓN ---------------------------------*/
+ /* Estilos para asegurar uniformidad en los pasos */
+        .card-custom {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .card-custom:hover {
+            transform: translateY(-5px);
+        }
+        .card-img-top {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            height: 200px;
+            object-fit: cover;
+        }
+        /* Ajuste para que los botones siempre queden alineados abajo */
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .card-text {
+            flex-grow: 1;
+        }
+        .btn-primary {
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+/* ---------------------------------- ICONOS --------------------------------*/
+/* ========================================================
+   ESTILOS CON FONDO SUBLIMADO PARA COMPUTADORA (PC)
+   ======================================================== */
+.facility-card {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 160px;
+    justify-content: center;
+    background-color: #fcfdfe !important; /* Fondo base limpio */
+    
+    /* EFECTO SUBLIMADO: Patrón geométrico sutil de líneas de circuitos/puntos */
+    background-image: 
+        radial-gradient(rgba(23, 162, 184, 0.15) 1px, transparent 0),
+        radial-gradient(rgba(23, 162, 184, 0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    
+    border-top: 4px solid #17a2b8 !important; /* Línea de color institucional */
+    overflow: hidden;
+}
+
+.facility-text-wrapper {
+    width: 100%;
+    z-index: 2; /* Asegura que el texto quede sobre el fondo */
+}
+
+.facility-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+}
+
+.facility-card i {
+    z-index: 2;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+/* ========================================================
+   EFECTO HOVER INTERACTIVO (EFECTO DESTACADO)
+   ======================================================== */
+.facility-card:hover {
+    transform: translateY(-6px);
+    /* El sublimado se vuelve ligeramente más nítido y el fondo se ilumina */
+    background-color: #ffffff !important;
+    background-image: 
+        radial-gradient(rgba(23, 162, 184, 0.25) 1.5px, transparent 0),
+        radial-gradient(rgba(23, 162, 184, 0.15) 1.5px, transparent 0);
+    box-shadow: 0 15px 30px rgba(23, 162, 184, 0.18) !important;
+    border-top-color: #117a8b !important; /* Oscurece el borde superior al pasar el mouse */
+}
+
+/* Animación sutil en el icono al hacer hover */
+.facility-card:hover i {
+    transform: scale(1.12) translateY(-2px);
+}
+
+/* ========================================================
+   RESPONSIVO: Optimización para Celular (Dos Columnas)
+   ======================================================== */
+@media (max-width: 576px) {
+    .facility-card {
+        padding: 15px 8px !important; /* Espaciado interno perfecto para pantallas móviles */
+        height: 135px;                /* Altura compacta y uniforme */
+        margin-bottom: 15px !important;
+        background-size: 16px 16px;   /* Escalamos el sublimado para pantallas chicas */
+    }
+    
+    .facility-card i.h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .facility-card h4 {
+        font-size: 0.82rem !important; /* Ajuste tipográfico exacto para evitar desbordes */
+    }
+}
+/*-------------------------------TESTIMONIOS ---------------------------------*/
+
+/* ========================================================
+   ESTILOS PREMIUM PARA CARRUSEL DE TESTIMONIOS
+   ======================================================== */
+
+/* Globo de texto del testimonio */
+.testimonial-card {
+    background-color: #fcfdfe !important;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-bottom: 4px solid #17a2b8 !important; /* Línea de color base en el fondo */
+    transition: all 0.4s ease;
+    
+    /* SUBLIMADO: Mismo patrón tecnológico sutil adaptado a los testimonios */
+    background-image: 
+        radial-gradient(rgba(23, 162, 184, 0.12) 1px, transparent 0),
+        radial-gradient(rgba(23, 162, 184, 0.08) 1px, transparent 0);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+}
+
+/* Icono de las comillas */
+.testimonial-quote-icon {
+    font-size: 1.8rem;
+    color: #17a2b8;
+    opacity: 0.7;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* Tipografía de la opinión */
+.testimonial-text {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* Contenedor de la foto de perfil */
+.testimonial-img-wrapper {
+    width: 70px;
+    height: 70px;
+    padding: 3px;
+    background: #ffffff;
+    border: 2px solid #17a2b8; /* Círculo con el color de la institución */
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(23, 162, 184, 0.15);
+}
+
+.testimonial-img-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+/* Datos del estudiante */
+.testimonial-name {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 1.05rem;
+}
+
+.testimonial-career {
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* ========================================================
+   EFECTO INTERACTIVO AL PASAR EL MOUSE (HOVER)
+   ======================================================== */
+.testimonial-item:hover .testimonial-card {
+    transform: translateY(-5px);
+    background-color: #ffffff !important;
+    box-shadow: 0 12px 25px rgba(23, 162, 184, 0.15) !important;
+    border-bottom-color: #117a8b !important;
+}
+
+/* Personalización de los puntitos de navegación (Owl Carousel Dots) */
+.testimonial-carousel .owl-dots {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.testimonial-carousel .owl-dot {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.testimonial-carousel .owl-dot span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #ccc !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Puntito activo cambia al color institucional de forma alargada y elegante */
+.testimonial-carousel .owl-dot.active span {
+    background: #17a2b8 !important;
+    width: 24px;
+    border-radius: 6px;
+}
+
+/* ========================================================
+   RESPONSIVO: Ajustes para pantallas de celular
+   ======================================================== */
+@media (max-width: 576px) {
+    .testimonial-card {
+        padding: 20px !important; /* Ajuste de espacio para que no se vea gigante en móvil */
+    }
+    
+    .testimonial-text {
+        font-size: 0.9rem; /* Texto un poquito más compacto para que no use tanto scroll */
+    }
+
+    .testimonial-img-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .testimonial-name {
+        font-size: 0.95rem;
+    }
+}
+
+/*-------------------------------WHATSAPP -----------------------------------*/
+
+/* ========================================================
+   CONTENEDOR DE BOTONES (ESQUINA INFERIOR DERECHA)
+   ======================================================== */
+.botones-flotantes-grupo {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column-reverse; /* Coloca el primer elemento abajo y los siguientes arriba */
+    gap: 15px; /* Separación fija y limpia entre el botón de WhatsApp y el de Buzón */
+    align-items: flex-end;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+/* ========================================================
+   ESTILOS DE WHATSAPP Y SU MENSAJE OCULTO/ANIMADO
+   ======================================================== */
+.whatsapp-float-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+/* El bocadillo ahora inicia oculto (opacity: 0) y ligeramente desplazado */
+.whatsapp-badge-msg {
+    position: absolute;
+    bottom: 75px; /* Se posiciona flotando exactamente encima de su propio botón */
+    right: 0;
+    background: #ffffff;
+    color: #2c3e50;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    white-space: nowrap; /* Evita que el texto se parta en dos líneas chuecas */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10000;
+}
+
+/* Flechita del bocadillo de WhatsApp */
+.whatsapp-badge-msg::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 22px;
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    transform: rotate(45deg);
+}
+
+/* BOTÓN CIRCULAR WHATSAPP */
+.whatsapp-btn-circle {
+    width: 60px;
+    height: 60px;
+    background-color: #17a2b8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(23, 162, 184, 0.3);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* NOTIFICACIÓN ROJA */
+.whatsapp-notification-count {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #dc3545;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.3);
+}
+
+/* ========================================================
+   ESTILOS DE TU BOTÓN DE BUZÓN original
+   ======================================================== */
+.buzon-float {
+    width: 60px; /* Un poco más pequeño que WhatsApp para jerarquía visual */
+    height: 60px;
+    background-color: #6c757d; /* Color neutro elegante, cámbialo si usas otro */
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Tooltip nativo de tu buzón (por si acaso) */
+.buzon-tooltip {
+    position: absolute;
+    right: 65px;
+    background: #333;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+/* ========================================================
+   ACCIONES HOVER (¡AQUÍ SUCEDE LA MAGIA!)
+   ======================================================== */
+
+/* Al pasar el mouse sobre WhatsApp, se REVELA el mensaje sin tapar el buzón */
+.whatsapp-float-container:hover .whatsapp-badge-msg {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.whatsapp-float-container:hover .whatsapp-btn-circle {
+    transform: scale(1.08);
+}
+
+/* Hover de tu Buzón */
+.buzon-float:hover {
+    transform: scale(1.08);
+    background-color: #5a6268;
+}
+.buzon-float:hover .buzon-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ----------------------------AUTORIDADES ----------------------------------*/
+ 
+:root { 
+    --blue-dark: #004481; 
+    --line-color: #cbd5e0; 
+    --yellow-accent: #ffc107; 
+    --bg-light: #f8fafc;
+}
+
+/* 1. CONTENEDOR PRINCIPAL: Centrado absoluto y limpieza de scroll */
+.organigrama-scroll { 
+    padding: 100px 20px; /* Espacio extra arriba para las fotos que sobresalen */
+    overflow-x: auto; 
+    background: linear-gradient(to bottom, #ffffff, var(--bg-light));
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el árbol horizontalmente */
+    width: 100%;
+    min-height: 400px;
+}
+
+/* 2. ESTRUCTURA DEL ÁRBOL */
+.tree {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tree ul { 
+    padding-top: 30px; 
+    position: relative; 
+    display: flex; 
+    justify-content: center; 
+    padding-left: 0; 
+    margin: 0;
+}
+
+.tree li { 
+    text-align: center; 
+    list-style-type: none; 
+    position: relative; 
+    padding: 30px 10px 0 10px; /* Padding superior para dar aire a los conectores */
+    transition: all 0.5s;
+}
+
+/* 3. CONECTORES (Líneas del árbol) */
+.tree li::before, .tree li::after {
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    right: 50%;
+    border-top: 2px solid var(--line-color); 
+    width: 50%; 
+    height: 30px;
+}
+
+.tree li::after { 
+    right: auto; 
+    left: 50%; 
+    border-left: 2px solid var(--line-color); 
+}
+
+/* Curvas en las esquinas para estilo genealógico */
+.tree li:first-child::after { border-radius: 15px 0 0 0; }
+.tree li:last-child::before { border-right: 2px solid var(--line-color); border-radius: 0 15px 0 0; }
+
+/* Quitar líneas sobrantes */
+.tree li:only-child::after, .tree li:only-child::before { display: none; }
+.tree li:only-child { padding-top: 0; }
+.tree li:first-child::before, .tree li:last-child::after { border: 0 none; }
+
+/* Conector vertical hacia abajo */
+.tree ul ul::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 50%; 
+    border-left: 2px solid var(--line-color); 
+    width: 0; 
+    height: 30px; 
+}
+
+/* 4. TARJETA PROFESIONAL (Rediseñada) */
+.auth-card {
+    background: white; 
+    border-radius: 15px; 
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 68, 129, 0.05); 
+    display: inline-block;
+    width: 180px; 
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--blue-dark); 
+    margin: 0; /* Sin margen externo para no romper las líneas */
+    position: relative; 
+    z-index: 5;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Efecto Hover */
+.auth-card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 20px 40px rgba(0, 68, 129, 0.12);
+    border-top-color: var(--yellow-accent);
+    z-index: 10;
+}
+
+/* 5. IMAGEN DE PERFIL CIRCULAR */
+.auth-img-container {
+    width: 70px; 
+    height: 70px; 
+    margin: -45px auto 10px; /* Sube la imagen para que flote sobre la tarjeta */
+    border-radius: 50%; 
+    overflow: hidden; 
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: #fdfdfd;
+}
+
+.auth-img-container img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+/* 6. TEXTOS */
+.auth-name { 
+    font-weight: 700; 
+    font-size: 0.8rem; 
+    color: #1a202c; 
+    margin: 10px 0 5px; 
+    line-height: 1.2;
+}
+
+.auth-pos { 
+    font-size: 0.65rem; 
+    color: var(--blue-dark); 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+    background: rgba(0, 68, 129, 0.05);
+    padding: 4px 8px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.auth-email { 
+    font-size: 0.6rem; 
+    color: #718096; 
+    text-decoration: none; 
+    display: block; 
+    margin-top: 8px;
+    word-break: break-all;
+}
+
+/* 7. STACK VERTICAL (Coordinaciones) */
+.vertical-stack { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding-top: 20px !important; 
+}
+
+.vertical-stack li { 
+    padding: 10px 0 !important; 
+}
+
+.vertical-stack::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 50%;
+    border-left: 2px solid var(--line-color); 
+    height: 100%; 
+    width: 0;
+}
+
+/* 8. MODO RESPONSIVO (Móvil) */
+@media (max-width: 768px) {
+    .organigrama-scroll {
+        align-items: flex-start; /* Permite scroll natural en móvil */
+    }
+    .tree ul { 
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .tree li { 
+        padding: 15px 0; 
+        width: 100%; 
+    }
+    /* Ocultamos líneas en móvil para evitar caos visual */
+    .tree li::after, .tree li::before, .tree ul ul::before, .vertical-stack::before { 
+        display: none !important; 
+    }
+    .auth-card { 
+        width: 80%; 
+        max-width: 250px; 
+        margin-top: 30px; 
+    }
+}
+/* ===================================
+   SECRETARIA EN FORMA T
+=================================== */
+
+.secretaria-node{
+    position: absolute !important;
+    left: -260px;
+    top: 120px;
+    z-index: 20;
+}
+
+/* línea horizontal hacia el centro */
+.secretaria-node::after{
+    content: '';
+    position: absolute;
+    width: 120px;
+    border-top: 2px solid var(--line-color);
+    top: 60px;
+    right: -120px;
+}
+
+/* eliminar líneas automáticas */
+.secretaria-node::before{
+    display: none !important;
+}
+/* ===================================
+   SECRETARIA AL LADO DERECHO
+=================================== */
+
+#node-secretaria .auth-card{
+    position: relative;
+    right: -210px;
+}
+
+/* línea horizontal */
+#node-secretaria .auth-card::after{
+    content: '';
+    position: absolute;
+    width: 120px;
+    border-top: 2px solid var(--line-color);
+    left: -120px;
+    top: 50%;
+}
+
+/* unión central hacia secretaria */
+#node-secretaria{
+    position: relative;
+}
+
+/* línea que conecta al eje */
+#node-secretaria::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 70px;
+    background: var(--line-color);
+    left: -120px;
+    top: -70px;
+}
+/* ===================================
+   CONTINUAR LINEA VERTICAL
+=================================== */
+
+/* línea vertical que continúa */
+#node-secretaria::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 260px;
+    background: var(--line-color);
+
+    top: -120px;
+    left: 50%;
+
+    transform: translateX(-50%);
+    z-index: -1;
 }

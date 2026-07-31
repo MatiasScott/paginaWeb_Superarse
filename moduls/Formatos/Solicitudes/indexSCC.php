@@ -51,38 +51,38 @@
                 <strong><input type="text" id="cedulaPrincipal" placeholder="Cédula/Pasaporte" class="w-40 mx-1 border-b"></strong>
                 , me dirijo a usted para solicitar formalmente el cambio de carrera dentro de esta institución. Actualmente me encuentro matriculado en la carrera de
                 <strong><select class="mx-1 border-b border-gray-400 max-w-xl">
-                    <option value="">Seleccione</option>
+               <option value="">Seleccione</option>
                     <option value="ADMINISTRACIÓN">ADMINISTRACIÓN</option>
-                <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
-                <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
-                <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
-                <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
-                <option value="MINERÍA">MINERÍA</option>
-                <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
-                <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
-                <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
-                <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">TÉCNICO SUPERIOR EN MARKETING DIGITAL</option>
-                <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
-                <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR </option>
-                <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
+                    <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
+                    <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
+                    <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
+                    <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
+                    <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
+                     <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">MARKETING DIGITAL Y DISEÑO MULTIMEDIA</option>
+                    <option value="MINERÍA">MINERÍA</option>
+                    <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
+                    <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
+                    <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
+                    <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR</option>
+                    <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
                 </select></strong>; sin embargo, debido a 
                 <input type="text" placeholder="Escriba aquí el motivo detallado..." class="w-[800px] mx-1 border-b border-gray-400 text-left">
                 , considero que la carrera de 
                 <strong><select class="mx-1 border-b border-gray-400 max-w-xl">
-                    <option value="seleccione"> Seleccione</option>
-                   <option value="ADMINISTRACIÓN">ADMINISTRACIÓN</option>
-                <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
-                <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
-                <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
-                <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
-                <option value="MINERÍA">MINERÍA</option>
-                <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
-                <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
-                <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
-                <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">TÉCNICO SUPERIOR EN MARKETING DIGITAL</option>
-                <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
-                <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR </option>
-                <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
+                    <option value="">Seleccione</option>
+                    <option value="ADMINISTRACIÓN">ADMINISTRACIÓN</option>
+                    <option value="EDUCACIÓN BÁSICA">EDUCACIÓN BÁSICA</option>
+                    <option value="EDUCACION BILINGÜE">EDUCACION BILINGÜE</option>
+                    <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
+                    <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
+                    <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
+                     <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">MARKETING DIGITAL Y DISEÑO MULTIMEDIA</option>
+                    <option value="MINERÍA">MINERÍA</option>
+                    <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
+                    <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
+                    <option value="SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES">SEGURIDAD Y PREVENCIÓN DE RIESGOS LABORALES</option>
+                    <option value="TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR ">TOPOGRAFÍA CON NIVEL EQUIVALENTE A TECNOLOGIA SUPERIOR</option>
+                    <option value="VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL">VENTAS ESTRATÉGICAS CON INTELIGENCIA ARTIFICIAL</option>
                 </select></strong>, es la más adecuada para mi desarrollo académico y profesional.
             </div>
 
