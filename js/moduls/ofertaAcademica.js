@@ -198,7 +198,7 @@ const carreras = [
     titulo: 'Enfermería',
     modalId: 'enfermeriaModal',
     degree: 'Técnico/a Superior en Enfermería',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaSalud/instrumentacionQuirurgica/InstrumentacionQuirurgica.png',
+    imagenSrc: '/assets/img/gestionAcademica/escuelaSalud/instrumentacionQuirurgica/enfermeria.png',
     resolucion: 'RPC-SO-21-NO.386-2026',
     duracion: '2 Años',
     modalidad: 'Presencial',
