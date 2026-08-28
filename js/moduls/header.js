@@ -11,14 +11,14 @@ const headerData = {
         },
          {
            
-            enlace: 'https://sgpro.superarse.ec/',
+            enlace: 'https://sgpro.superarse.edu.ec',
             texto: 'SGPRO ',
             clases :"navbar-brand d-none d-lg-block",
             target: '_blank'
         },
         {
            
-            enlace: 'https://superarse.ec/',
+            enlace: 'https://conectados.superarse.edu.ec',
             texto: 'Superarse Conectados ',
             clases :"navbar-brand d-none d-lg-block",
             target: '_blank'

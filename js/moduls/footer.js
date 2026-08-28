@@ -34,12 +34,12 @@ var footerData = {
     enlacesRapidos: {
         titulo: "Enlaces rápidos estudiantes",
         items: [
-            { texto: "SUPERARSE CONECTADOS ", enlace: "https://superarse.ec/" },
+            { texto: "SUPERARSE CONECTADOS ", enlace: "https://conectados.superarse.edu.ec" },
             { texto: "BECAUSE HE IS NICE ", enlace: "https://becasuperarse.ec/" },
-            { texto: "II CTM 2025", enlace: "https://2ctm2025.superarse.ec/" },
-             { texto: "CONGRESO AGROVET", enlace: "https://agrovet.superarse.ec/" },
-             { texto: "CURSOS EDUCACIÓN CONTINUA E INGLÉS", enlace: "https://eci.superarse.ec/" },
-              { texto: "BECAS SUPERARSE", enlace: "https://becas.superarse.ec/" }
+            { texto: "II CTM 2025", enlace: "https://2ctm.superarse.edu.ec" },
+             { texto: "CONGRESO AGROVET", enlace: "https://agrovet.superarse.edu.ec" },
+             { texto: "CURSOS EDUCACIÓN CONTINUA E INGLÉS", enlace: "https://eci.superarse.edu.ec" },
+              { texto: "BECAS SUPERARSE", enlace: "https://becas.superarse.edu.ec" }
             
         ]
     },
@@ -47,10 +47,10 @@ var footerData = {
     enlacesRapidos2:{
         titulo:"Enlaces rápidos administrativos",
         items:[
-                { texto: "SGPRO", enlace: "https://sgpro.superarse.ec/" },
+                { texto: "SGPRO", enlace: "https://sgpro.superarse.edu.ec" },
                 { texto: "SIG", enlace: "https://sig.superarse.ec/" },
-                { texto: "CONECTADOS ADMINISTRATIVOS", enlace: "https://superarse.ec/admin/login"},
-                { texto: "ATLAS", enlace: "https://atlas.superarse.ec/"},
+                { texto: "CONECTADOS ADMINISTRATIVOS", enlace: "https://conectados.superarse.edu.ec/admin/login"},
+                { texto: "ATLAS", enlace: "https://atlas.superarse.edu.ec"},
             ]
     },
  

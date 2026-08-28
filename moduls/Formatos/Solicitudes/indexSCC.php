@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
@@ -58,7 +59,7 @@
                     <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
                     <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
                     <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
-                     <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">MARKETING DIGITAL Y DISEÑO MULTIMEDIA</option>
+                    <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">MARKETING DIGITAL Y DISEÑO MULTIMEDIA</option>
                     <option value="MINERÍA">MINERÍA</option>
                     <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
                     <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
@@ -76,7 +77,7 @@
                     <option value="ENFERMERÍA VETERINARIA">ENFERMERÍA VETERINARIA</option>
                     <option value="INSTRUMENTACION QUIRURGICA">INSTRUMENTACION QUIRURGICA</option>
                     <option value="MARKETING DIGITAL">MARKETING DIGITAL</option>
-                     <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">MARKETING DIGITAL Y DISEÑO MULTIMEDIA</option>
+                    <option value="TÉCNICO SUPERIOR EN MARKETING DIGITAL">MARKETING DIGITAL Y DISEÑO MULTIMEDIA</option>
                     <option value="MINERÍA">MINERÍA</option>
                     <option value="PRODUCCIÓN ANIMAL">PRODUCCIÓN ANIMAL</option>
                     <option value="SEGURIDAD E HIGIENE DEL TRABAJO<">SEGURIDAD E HIGIENE DEL TRABAJO</option>
