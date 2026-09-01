@@ -1,4 +1,13 @@
 const noticiasView = [
+        
+    {
+        titulo: " Cronograma del Proceso de Evaluación Integral Docente",
+        fecha: "2026-09-01",
+        resumen: "Estimados docentes: En esta sección encontrarán las fechas límite y etapas clave del proceso de evaluación. Les invitamos a revisar detenidamente cada fase y a preparar sus requisitos con anticipación. Su participación oportuna es fundamental para el éxito de su trayectoria profesional.",
+        imagen: "/assets/img/content/noticias/AutoEvalucion.jpg",
+        enlace: "/assets/img/content/noticias/AutoEvalucion.jpg"
+    },
+
     {
         titulo: " Alertas de Fishing",
         fecha: "2026-06-25",
