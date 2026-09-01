@@ -1,0 +1,21 @@
+services:
+  pagina-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: pagina-web
+    restart: unless-stopped
+
+    ports:
+      - "8083:80"
+
+    volumes:
+      - ./:/var/www/html
+
+    networks:
+      - moodle_net
+
+networks:
+  moodle_net:
+    external: true
