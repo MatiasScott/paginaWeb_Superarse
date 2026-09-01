@@ -1,5 +1,14 @@
 const noticias = [
     {
+        titulo: "Cronograma del Proceso de Evaluación Integral Docente",
+        subtitulo: "2026",
+        alt: "Cronograma del Proceso de Evaluación Integral Docente",
+        imagenes: [
+            "/assets/img/content/noticias/AutoEvalucion.jpg"
+        ],
+        redes: []
+    },
+    {
         titulo: "Acreditación",
         subtitulo: "2026",
         alt: "Acreditación 2026",

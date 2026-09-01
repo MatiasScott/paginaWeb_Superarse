@@ -7,17 +7,30 @@
 
     // 1. ESTRUCTURA DE OBJETOS CON FECHAS DE VIGENCIA
     var todasLasPublicaciones = [
+      
+      //N5
+      {
+        src: "/assets/img/content/noticias/noticiasheader/Evaluacion_profesores_4.jpg",
+        inicio: "2026-08-31",
+        fin: "2026-09-13" // ACTIVO HOY
+      },
+      //N4
+      {
+        src: "/assets/img/content/noticias/noticiasheader/Evaluacion_profesores_3.jpg",
+        inicio: "2026-08-31",
+        fin: "2026-09-13" // ACTIVO HOY
+      },
       //N3
       {
-        src: "/assets/img/content/noticias/noticiasheader/Digital_Future.jpg",
-        inicio: "2026-06-23",
-        fin: "2026-07-25" // ACTIVO HOY
+        src: "/assets/img/content/noticias/noticiasheader/Evaluacion_profesores_2.jpg",
+         inicio: "2026-08-31",
+        fin: "2026-09-13" // ACTIVO HOY
       },
       //N2
       {
-        src: "/assets/img/content/noticias/noticiasheader/PROCESO_ESPECIALES_POST.jpg",
-        inicio: "2026-06-22",
-        fin: "2026-06-28" // ACTIVO HOY
+        src: "/assets/img/content/noticias/noticiasheader/Evaluacion_profesores_1.jpg",
+        inicio: "2026-08-31",
+        fin: "2026-09-13" // ACTIVO HOY
       },
      //N1
      {
@@ -27,7 +40,7 @@
       }
     ];
 
-    // 2. FILTRAR M0†9GICAMENTE SOLO LAS PUBLICACIONES VIGENTES
+    // 2. FILTRAR Mï¿½0ï¿½9GICAMENTE SOLO LAS PUBLICACIONES VIGENTES
     var images = todasLasPublicaciones.filter(function (post) {
       if (!post.inicio || !post.fin) return false;
 
@@ -48,7 +61,7 @@
       return;
     }
 
-    // Creaci¨®n de elementos del DOM
+    // Creaciï¿½ï¿½n de elementos del DOM
     var track = document.createElement("div");
     track.className = "noticias-header-carousel-track";
     
@@ -58,7 +71,7 @@
     var slides = [];
     var dotButtons = [];
 
-    // Iteramos sobre las im¨¢genes que S0ˆ1 pasaron el filtro de hoy
+    // Iteramos sobre las imï¿½ï¿½genes que Sï¿½0ï¿½1 pasaron el filtro de hoy
     images.forEach(function (post, index) {
       var img = document.createElement("img");
       img.src = post.src;
@@ -66,7 +79,7 @@
       // Solo el primero tiene la clase activa al inicio
       img.className = "noticias-header-carousel-slide" + (index === 0 ? " is-active" : "");
       
-      // Control de visibilidad inicial por CSS en l¨ªnea para evitar parpadeos
+      // Control de visibilidad inicial por CSS en lï¿½ï¿½nea para evitar parpadeos
       if (index !== 0) {
         img.style.opacity = "0";
         img.style.pointerEvents = "none";
@@ -75,7 +88,7 @@
         img.style.pointerEvents = "auto";
       }
       
-      img.style.transition = "opacity 0.8s ease-in-out"; // Transici¨®n suave garantizada
+      img.style.transition = "opacity 0.8s ease-in-out"; // Transiciï¿½ï¿½n suave garantizada
       track.appendChild(img);
       slides.push(img);
 
@@ -93,7 +106,7 @@
     container.innerHTML = "";
     container.appendChild(track);
     
-    // Solo mostramos los botones de abajo si hay m¨¢s de 1 publicaci¨®n activa
+    // Solo mostramos los botones de abajo si hay mï¿½ï¿½s de 1 publicaciï¿½ï¿½n activa
     if (images.length > 1) {
       container.appendChild(dots);
     }
@@ -117,7 +130,7 @@
     var currentIndex = 0;
     var intervalId = null;
 
-    // FUNCI0ˆ7N DE CAMBIO REPARADA
+    // FUNCIï¿½0ï¿½7N DE CAMBIO REPARADA
     function showSlide(index) {
       if (slides.length === 0) return;
       
@@ -149,7 +162,7 @@
     }
 
     function startAutoplay() {
-      // CONTROL DE SEGURIDAD CR0ˆ1TICO: Si solo hay 1 imagen activa HOY, frena el Autoplay de golpe
+      // CONTROL DE SEGURIDAD CRï¿½0ï¿½1TICO: Si solo hay 1 imagen activa HOY, frena el Autoplay de golpe
       if (slides.length < 2) return;
       
       intervalId = setInterval(function() {
