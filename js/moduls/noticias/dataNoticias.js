@@ -1,4 +1,11 @@
 const noticiasView = [
+    {
+        titulo: " 1ER SEMINARIO DE SEGURIDAD SALUD Y PREVENCIÓN DE RIESGOS",
+        fecha: "2026-09-02",
+        resumen: "Nos complace invitarles al 1er Seminario de Seguridad, Salud y Prevención de Riesgos, un espacio clave diseñado para promover la cultura del autocuidado y actualizar los conocimientos en bienestar laboral. A través de este encuentro, buscamos fortalecer las competencias técnicas y preventivas de nuestro equipo, garantizando entornos de trabajo mucho más seguros, saludables y eficientes para todos.",
+        imagen: "/assets/img/content/noticias/Seminario_noticia.jpg",
+        enlace: "/assets/img/content/noticias/Seminario_noticia.jpg"
+    },
         
     {
         titulo: " Cronograma del Proceso de Evaluación Integral Docente",

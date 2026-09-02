@@ -7,7 +7,12 @@
 
     // 1. ESTRUCTURA DE OBJETOS CON FECHAS DE VIGENCIA
     var todasLasPublicaciones = [
-      
+        //N5
+      {
+        src: "/assets/img/content/noticias/noticiasheader/Seminario_banner.jpg",
+        inicio: "2026-09-02",
+        fin: "2026-09-26" // ACTIVO HOY
+      },
       //N5
       {
         src: "/assets/img/content/noticias/noticiasheader/Evaluacion_profesores_4.jpg",
