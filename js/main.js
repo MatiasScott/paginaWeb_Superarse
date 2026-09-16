@@ -883,7 +883,7 @@ function generarFooter() {
                 <h3 class="text-primary mb-4">${footerData.enlacesRapidos.titulo}</h3>
                 <div class="d-flex flex-column justify-content-start">
                     ${footerData.enlacesRapidos.items.map((item) => `
-                        <a class="text-white mb-2" href="${item.enlace}">
+                        <a class="text-white mb-2" href="${item.enlace}" target="_blank" rel="noreferrer">
                             <i class="fa fa-angle-right mr-2"></i>${item.texto}
                         </a>
                     `).join("")}
@@ -894,7 +894,7 @@ function generarFooter() {
                 <h3 class="text-primary mb-4">${footerData.enlacesRapidos2.titulo}</h3>
                 <div class="d-flex flex-column justify-content-start">
                     ${footerData.enlacesRapidos2.items.map((item) => `
-                        <a class="text-white mb-2" href="${item.enlace}">
+                        <a class="text-white mb-2" href="${item.enlace}" target="_blank" rel="noreferrer">
                             <i class="fa fa-angle-right mr-2"></i>${item.texto}
                         </a>
                     `).join("")}
