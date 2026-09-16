@@ -48,7 +48,7 @@ var footerData = {
         titulo:"Enlaces rápidos administrativos",
         items:[
                 { texto: "SGPRO", enlace: "https://sgpro.superarse.edu.ec" },
-                { texto: "SIG", enlace: "https://sig.superarse.ec/" },
+                { texto: "SIG", enlace: "https://sig.superarse.edu.ec/" },
                 { texto: "CONECTADOS ADMINISTRATIVOS", enlace: "https://conectados.superarse.edu.ec/admin/login"},
                 { texto: "ATLAS", enlace: "https://atlas.superarse.edu.ec"},
             ]
