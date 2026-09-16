@@ -1741,8 +1741,7 @@ function generarEducacionYHumanidades() {
   cardsContainer.innerHTML = cardsHTML;
   modalsContainer.innerHTML = modalsHTML;
 }
-
-<!---------------------- ESCUELA DE VETERINARIA (ECAVET) ---------------------->
+//                               ESCUELA DE VETERINARIA (ECAVET) 
 
 function generarEscuelaDeVeterinaria() {
   const cardsContainer = document.querySelector("#veterinarySchoolCards");
@@ -1950,7 +1949,7 @@ function generarEscuelaDeVeterinaria() {
   modalsContainer.innerHTML = modalStyles + modalsHTML;
 }
 
-<!---------------------- ESCUELA DE ADMINISTRACIÓN (ECSET) -------------------->
+//                               ESCUELA DE ADMINISTRACIÓN (ECSET) 
 
 function generarAdministracionEIndustria() {
   const cardsContainer = document.querySelector("#administrationAndIndustryCards");
