@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const controller = new AbortController();
             const timeout = setTimeout(() => controller.abort(), 10000);
 
-            const response = await fetch('backend/enviar-buzon.php', {
+            const response = await fetch(APP.asset('buzon/enviar'), {
                 method: 'POST',
                 body: formData,
                 signal: controller.signal

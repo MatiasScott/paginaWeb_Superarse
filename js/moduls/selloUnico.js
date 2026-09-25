@@ -1,15 +1,15 @@
-// /js/selloUnico.js
+// js/moduls/selloUnico.js — requiere js/common/config.js (window.APP)
 
 const clubsSelloUnico = [
     {
-        imagenSrc: "/assets/img/content/selloUnico/Logo-veterinaria.png",
+        imagenSrc: APP.asset("assets/img/content/selloUnico/Logo-veterinaria.png"),
         alt: "Logo de la Clínica Veterinaria Tu HuellaVet",
         titulo: "Tu huellaVet",
         subtitulo: "Clínica Veterinaria",
         redes: [
             {
                 claseIcono: "fa fa-search",
-                enlace: "https://tuhuella.dog/",
+                enlace: "https://clinicatuhuella.com/",
                 titulo: "Sitio Web",
                 target: "_blank",
             },
@@ -28,35 +28,29 @@ const clubsSelloUnico = [
         ],
     },
     {
-        imagenSrc: "/assets/img/content/selloUnico/Formatos-web-agosto-04.jpg",
-        alt: "Logo del Club de Muay Thai",
+        imagenSrc: APP.asset("assets/img/content/selloUnico/Logo_c_d_c.jpg"),
+        alt: "Logo del Club de Creación de contenido ",
         titulo: "Club de",
         subtitulo: "Muay Thai",
         redes: [],
     },
+   
     {
-        imagenSrc: "/assets/img/content/selloUnico/Formatos-web-agosto-03.jpg",
-        alt: "Logo del Club de Western",
-        titulo: "Club de",
-        subtitulo: "Equitación",
-        redes: [],
-    },
-    {
-        imagenSrc: "/assets/img/content/selloUnico/Formatos-web-agosto-02.jpg",
+        imagenSrc: APP.asset("assets/img/content/selloUnico/Formatos-web-agosto-02.jpg"),
         alt: "Logo del Club de Danza",
         titulo: "Club de",
         subtitulo: "Danza",
         redes: [],
     },
     {
-        imagenSrc: "/assets/img/content/selloUnico/BHIN_2026v2.jpeg",
+        imagenSrc: APP.asset("assets/img/content/selloUnico/BHIN_2026v2.jpeg"),
         alt: "Becas en Ingles - Because he is nice",
         titulo: "Becas en Ingles - Because he is nice",
         subtitulo: "Becas en Ingles",
         redes: [
             {
                 claseIcono: "fas fa-file-pdf",
-                enlace: "/assets/pdf/BASES_DE_POSTULACION_A1_2026.pdf",
+                enlace: APP.asset("assets/pdf/BASES_DE_POSTULACION_A1_2026.pdf"),
                 titulo: "Bases de Postulación",
                 target: "_blank",
             },

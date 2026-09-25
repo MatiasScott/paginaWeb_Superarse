@@ -5,19 +5,19 @@
   if (!currentScript || !head) { return; }
 
   const commonLinks = [
-    { rel: "icon", href: "/assets/img/content/logo/superarse_gris.png" },
+    { rel: "icon", href: APP.asset("assets/img/content/logo/superarse_gris.png") },
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous" },
     { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" },
     { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" },
-    { rel: "stylesheet", href: "/lib/flaticon/font/flaticon.css" },
-    { rel: "stylesheet", href: "/lib/owlcarousel/assets/owl.carousel.min.css" },
-    { rel: "stylesheet", href: "/lib/lightbox/css/lightbox.min.css" },
-    { rel: "stylesheet", href: "/css/style.css?V=1.2" },
-    { rel: "stylesheet", href: "/css/vistas-internas.css" },
-    { rel: "stylesheet", href: "/css/vistas-personalizadas.css" },
-    { rel: "stylesheet", href: "/css/MisionVision.css" },
-    { rel: "stylesheet", href: "/css/noticias.css"},
-    { rel: "stylesheet", href: "/css/bienestarInstitucional.css"}
+    { rel: "stylesheet", href: APP.asset("lib/flaticon/font/flaticon.css") },
+    { rel: "stylesheet", href: APP.asset("lib/owlcarousel/assets/owl.carousel.min.css") },
+    { rel: "stylesheet", href: APP.asset("lib/lightbox/css/lightbox.min.css") },
+    { rel: "stylesheet", href: APP.asset("css/style.css?V=1.2") },
+    { rel: "stylesheet", href: APP.asset("css/vistas-internas.css") },
+    { rel: "stylesheet", href: APP.asset("css/vistas-personalizadas.css") },
+    { rel: "stylesheet", href: APP.asset("css/mision-vision.css") },
+    { rel: "stylesheet", href: APP.asset("css/noticias.css")},
+    { rel: "stylesheet", href: APP.asset("css/bienestar-institucional.css")}
   ];
 
   const extraStyles = (currentScript.dataset.extraStyles || "")

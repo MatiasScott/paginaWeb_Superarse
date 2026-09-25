@@ -4,5 +4,3 @@
 .htaccess.before-deploy-*
 .htaccess.disabled
 composer.phar
-composer-setup.php
-backend/error_log

@@ -1,9 +1,5 @@
    // Obtener la URL completa del buzón
-        // Detectar si estamos en desarrollo o producción
-        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-        const buzonURL = isLocalhost 
-            ? window.location.origin + '/landing_frontend_superarse_v2/pages/buzon.html'
-            : window.location.origin + '/pages/buzon.html';
+        const buzonURL = window.location.origin + APP.asset('buzon');
         document.getElementById('urlText').textContent = buzonURL;
 
         // Actualizar enlace del botón

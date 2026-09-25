@@ -1,22 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
   const cuadrosTexto = document.querySelectorAll('.cuadro-texto');
+  if (!cuadrosTexto.length) { return; }
+
+  function aparece(cuadro) {
+    cuadro.classList.add('aparece');
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    cuadrosTexto.forEach(aparece);
+    return;
+  }
+
+  // Revela de inmediato los que ya están dentro de la ventana (evita paneles invisibles al cargar).
+  const alto = window.innerHeight || document.documentElement.clientHeight || 0;
+  cuadrosTexto.forEach((cuadro) => {
+    if (cuadro.getBoundingClientRect().top < alto) {
+      aparece(cuadro);
+    }
+  });
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Si el elemento entra en la vista, añadimos la clase 'aparece'
-        entry.target.classList.add('aparece');
+        aparece(entry.target);
       } else {
-        // Si el elemento sale de la vista, quitamos la clase 'aparece'
         entry.target.classList.remove('aparece');
       }
     });
   }, {
-    // La animación se activará cuando el 20% del elemento sea visible
-    threshold: 0.5
+    threshold: 0.1,
   });
 
-  cuadrosTexto.forEach(cuadro => {
-    observer.observe(cuadro);
-  });
+  cuadrosTexto.forEach((cuadro) => observer.observe(cuadro));
 });

@@ -4,7 +4,9 @@ node_modules/
 *.log
 vendor/
 storage/
+# Credenciales reales: nunca se suben. La plantilla sí.
 .env
+!.env.example
 
 # Backups locales del servidor
 *.backup-*

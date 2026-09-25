@@ -3,9 +3,10 @@
 const carreras = [
   {
     titulo: 'Educación Básica',
+    url: APP.asset('ECSET/educacion-basica'),
     modalId: 'educacionBasicaModal',
     degree:'Tecnólogo/a Superior en Educación Básica',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaEducacionHumanidades/educacionBasica.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaEducacionHumanidades/educacionBasica.png'),
     resolucion: 'RPC-SO-03-No.039-2023',
     duracion: '2 Años',
     modalidad: 'En línea',
@@ -39,9 +40,10 @@ const carreras = [
 },
 {
     titulo: 'Educación  Bilingüe ',
+    url: APP.asset('ECSET/educacion-bilingue'),
     modalId: 'educacionBilingueModal',
     degree:'Tecnólogo/a	Superior	en Educación Bilingüe',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaEducacionHumanidades/educacionBilingue.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaEducacionHumanidades/educacionBilingue.png'),
     resolucion: ' RPC-SO-36-No.594-2024',
     duracion: '2 Años',
     modalidad: 'Híbrida',
@@ -77,9 +79,10 @@ const carreras = [
 
   {
     titulo: 'Enfermería Veterinaria',
+    url: APP.asset('ECAVET/enfermeria-veterinaria'),
     modalId: 'enfermeriaVeterinariaModal',
     degree: "Tecnólogo/a Superior en Enfermería Veterinaria",
-    imagenSrc: '/assets/img/gestionAcademica/escuelaVeterinaria/enfermeriaVeterinaria.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaVeterinaria/enfermeriaVeterinaria.png'),
     resolucion: 'RPC-SO-26-No.429-2024',
     duracion: '2 Años',
     modalidad: 'Híbrida',
@@ -116,9 +119,10 @@ const carreras = [
 
   {
     titulo: 'Producción Animal',
+    url: APP.asset('ECAVET/produccion-animal'),
     modalId: 'produccionAnimalModal',
     degree: 'Tecnólogo/a	Superior	en Producción Animal',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaVeterinaria/produccionAnimal.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaVeterinaria/produccionAnimal.png'),
     resolucion: 'RPC-SO-28- No.469 -2024',
     duracion: '2 Años',
     modalidad: 'Híbrida',
@@ -152,9 +156,10 @@ const carreras = [
 <!----------------------------------------------------------------------------->
   {
     titulo: 'Instrumentación Quirúrgica',
+    url: APP.asset('ECSET/instrumentacion-quirurgica'),
     modalId: 'instrumentacionQuirurgicaModal',
     degree: 'Tecnólogo/a Superior en Instrumentación Quirúrgica',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaSalud/instrumentacionQuirurgica/InstrumentacionQuirurgica.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaSalud/instrumentacionQuirurgica/InstrumentacionQuirurgica.png'),
     resolucion: 'RPC-SE-11-No.039-2024',
     duracion: '2 Años',
     modalidad: 'Presencial',
@@ -196,9 +201,10 @@ const carreras = [
 
   {
     titulo: 'Enfermería',
+    url: APP.asset('ECSET/enfermeria'),
     modalId: 'enfermeriaModal',
     degree: 'Técnico/a Superior en Enfermería',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaSalud/instrumentacionQuirurgica/enfermeria.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaSalud/instrumentacionQuirurgica/enfermeria.png'),
     resolucion: 'RPC-SO-21-NO.386-2026',
     duracion: '2 Años',
     modalidad: 'Presencial',
@@ -243,9 +249,10 @@ const carreras = [
 <!----------------------------------------------------------------------------->
   {
     titulo: 'Marketing Digital',
+    url: APP.asset('ECSET/marketing-digital'),
     modalId: 'marketingDigitalModal',
     degree:'Técnico/a Superior en Marketing Digital',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaAdministracionIndustria/marketing.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaAdministracionIndustria/marketing.png'),
     resolucion: 'RPC-SO-47-No.721-2025',
     duracion: '1 Año',
     modalidad: 'Línea',
@@ -282,9 +289,10 @@ const carreras = [
 },
  {
     titulo: 'Marketing Digital y Diseño Multimedia',
+    url: APP.asset('ECSET/marketing-digital-diseno-multimedia'),
     modalId: 'marketingDigitalMultimediaModal',
     degree: 'Tecnólogo/a Superior en Marketing Digital y Diseño Multimedia',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaAdministracionIndustria/IMAGEN CARRERA MKTD - DM.jpg',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaAdministracionIndustria/IMAGEN CARRERA MKTD - DM.jpg'),
     resolucion: 'RPC-SO-07-No.109-2026',
     duracion: '2 Años',
     modalidad: 'Línea',
@@ -323,9 +331,10 @@ const carreras = [
 },
 {
     titulo: 'Administración',
+    url: APP.asset('ECSET/administracion'),
     modalId: 'administracionModal',
     degree:'Técnico/a Superior en Administración',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaAdministracionIndustria/ADMINISTRACION.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaAdministracionIndustria/ADMINISTRACION.png'),
     resolucion: 'RPC-SO-45-No.727-2024',
     duracion: '1 Año',
     modalidad: 'Línea',
@@ -365,9 +374,10 @@ const carreras = [
 
  {
     titulo: 'Ventas estratégicas con inteligencia artificial ',
+    url: APP.asset('ECSET/ventas-estrategicas-inteligencia-artificial'),
     modalId: 'ventasModal',
     degree:'Técnico/a Superior en Ventas Estratégicas con Inteligencia Artificial',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaAdministracionIndustria/Venta_estratégicas_IA.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaAdministracionIndustria/Venta_estratégicas_IA.png'),
     resolucion: 'RPC-SO-50-No.756-2025',
     duracion: '1 Año',
     modalidad: 'Línea',
@@ -401,9 +411,10 @@ const carreras = [
 
   {
     titulo: 'Seguridad e Higiene del Trabajo',
+    url: APP.asset('ECSOS/seguridad-e-higiene-del-trabajo'),
     modalId: 'seguridadHigieneModal',
     degree: 'Tecnólogo/a Superior en Seguridad e Higiene del Trabajo',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaConstruccionExtraccion/Higiene del trabajo.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaConstruccionExtraccion/Higiene del trabajo.png'),
     resolucion: 'RPC-SO-01-No.001-2025',
     duracion: '2 Años',
     modalidad: 'Línea',
@@ -440,9 +451,10 @@ const carreras = [
 },
   {
     titulo: 'Seguridad y Prevención de Riesgos Laborales',
+    url: APP.asset('ECSOS/seguridad-prevencion-riesgos-laborales'),
     modalId: 'prevencionRiesgosModal',
     degree: 'Técnico/a Superior en	Seguridad y Prevención de	Riesgos Laborales',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaConstruccionExtraccion/Riesgos Laborales.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaConstruccionExtraccion/Riesgos Laborales.png'),
     resolucion: 'RPC-SO-42-No.685-2024',
     duracion: '1 Año',
     modalidad: 'Línea',
@@ -483,9 +495,10 @@ const carreras = [
   
   {
     titulo: 'Topografía',
+    url: APP.asset('ECSOS/topografia'),
     modalId: 'topografiaModal',
     degree: 'Topógrafo/a con nivel equivalente a Tecnólogo Superior',
-    imagenSrc: '/assets/img/gestionAcademica/escuelaConstruccionExtraccion/TOPOGRAFIA.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaConstruccionExtraccion/TOPOGRAFIA.png'),
     resolucion: 'RPC-SO-12-No.320-2021',
     duracion: '2 Años',
     modalidad: 'Híbrida',
@@ -521,9 +534,10 @@ const carreras = [
 },
   {
     titulo: 'Minería',
+    url: APP.asset('ECSOS/mineria'),
     modalId: 'mineriaModal',
     degree: "Tecnólogo/a Superior en Minería",
-    imagenSrc: '/assets/img/gestionAcademica/escuelaConstruccionExtraccion/MINERIA.png',
+    imagenSrc: APP.asset('assets/img/gestionAcademica/escuelaConstruccionExtraccion/MINERIA.png'),
     resolucion: 'RPC-SO-50-No.796-2022',
     duracion: '2 Años',
     modalidad: 'Híbrida',

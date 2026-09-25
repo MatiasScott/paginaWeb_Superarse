@@ -1,0 +1,98 @@
+/* Modal "Subir solicitud" - envío por EmailJS (fondo oscuro + ventana centrada) */
+.modal-backdrop.show {
+    opacity: 0.6;
+}
+
+.solicitud-enviar-modal .modal-content {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.solicitud-enviar-modal .modal-header {
+    background: linear-gradient(135deg, #198754 0%, #0f6b41 100%);
+    color: #ffffff;
+    border-bottom: 0;
+    padding: 16px 20px;
+}
+
+.solicitud-enviar-modal .modal-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.solicitud-enviar-modal .close {
+    color: #ffffff;
+    text-shadow: none;
+    opacity: 0.9;
+    font-size: 1.6rem;
+}
+
+.solicitud-enviar-modal .close:hover {
+    opacity: 1;
+}
+
+.solicitud-enviar-modal .modal-body {
+    padding: 20px 24px;
+}
+
+.solicitud-enviar-modal .modal-footer {
+    border-top: 0;
+    padding: 12px 24px 20px;
+}
+
+.solicitud-enviar-modal label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.solicitud-enviar-modal .form-control {
+    border-radius: 8px;
+}
+
+.solicitud-enviar-modal .form-control:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+}
+
+.solicitud-enviar-modal .solicitud-enviar-aviso {
+    border-left: 4px solid #ffc107;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.solicitud-enviar-modal .solicitud-enviar-status {
+    display: none;
+    border-radius: 8px;
+    font-size: 0.92rem;
+}
+
+.solicitud-enviar-modal .solicitud-enviar-status.solicitud-enviar-success {
+    display: block;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.solicitud-enviar-modal .solicitud-enviar-status.solicitud-enviar-error {
+    display: block;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.solicitud-enviar-modal #solicitudEnviarSubmit {
+    border-radius: 50px;
+    padding: 8px 24px;
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .solicitud-enviar-modal .modal-dialog {
+        margin: 0.5rem auto;
+    }
+    .solicitud-enviar-modal .modal-body {
+        padding: 16px;
+    }
+}

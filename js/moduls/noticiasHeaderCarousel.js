@@ -9,37 +9,37 @@
     var todasLasPublicaciones = [
         //N5
       {
-        src: "/assets/img/content/noticias/noticiasheader/Seminario_banner.jpg",
+        src: APP.asset("assets/img/content/noticias/noticiasheader/Seminario_banner.jpg"),
         inicio: "2026-09-02",
         fin: "2026-09-26" // ACTIVO HOY
       },
       //N5
       {
-        src: "/assets/img/content/noticias/noticiasheader/Evaluacion_profesores_4.jpg",
+        src: APP.asset("assets/img/content/noticias/noticiasheader/Evaluacion_profesores_4.jpg"),
         inicio: "2026-08-31",
         fin: "2026-09-13" // ACTIVO HOY
       },
       //N4
       {
-        src: "/assets/img/content/noticias/noticiasheader/Evaluacion_profesores_3.jpg",
+        src: APP.asset("assets/img/content/noticias/noticiasheader/Evaluacion_profesores_3.jpg"),
         inicio: "2026-08-31",
         fin: "2026-09-13" // ACTIVO HOY
       },
       //N3
       {
-        src: "/assets/img/content/noticias/noticiasheader/Evaluacion_profesores_2.jpg",
+        src: APP.asset("assets/img/content/noticias/noticiasheader/Evaluacion_profesores_2.jpg"),
          inicio: "2026-08-31",
         fin: "2026-09-13" // ACTIVO HOY
       },
       //N2
       {
-        src: "/assets/img/content/noticias/noticiasheader/Evaluacion_profesores_1.jpg",
+        src: APP.asset("assets/img/content/noticias/noticiasheader/Evaluacion_profesores_1.jpg"),
         inicio: "2026-08-31",
         fin: "2026-09-13" // ACTIVO HOY
       },
      //N1
      {
-        src: "/assets/img/content/noticias/noticiasheader/Prueba1.jpeg",
+        src: APP.asset("assets/img/content/noticias/noticiasheader/Prueba1.jpeg"),
         inicio: "2026-06-12", // ACTIVO HOY
         fin: "2040-12-31" 
       }
