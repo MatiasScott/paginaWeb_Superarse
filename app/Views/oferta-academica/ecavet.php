@@ -6,7 +6,7 @@ $title = 'Escuela de Ciencias Agropecuarias y Veterinarias ECAVET';
 $extraStyles = asset('css/modals-custom.css');
 
 $escape = static fn (string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
-$careerBase = base() . $schoolUrl;
+$careerBase = rtrim($schoolUrl, '/') . '/';
 
 ob_start();
 ?>
