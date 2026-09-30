@@ -146,6 +146,8 @@ function urlFor(string $range): string
 }
 
 if (!$isAuthorized):
+    // El estado HTTP debe fijarse antes de emitir cualquier salida.
+    http_response_code(403);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -186,7 +188,6 @@ if (!$isAuthorized):
 </body>
 </html>
 <?php
-    http_response_code(403);
     return;
 endif;
 
