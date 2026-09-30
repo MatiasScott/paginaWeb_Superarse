@@ -846,10 +846,10 @@ h2 {
 }
 
 .bienestar-menu-btn.is-active {
-  background: linear-gradient(135deg, #0b77bd, #21a0b8);
+  background: #4A90E2;
   border-color: transparent;
   color: #ffffff;
-  box-shadow: 0 6px 16px rgba(11, 119, 189, 0.35);
+  box-shadow: 0 6px 16px rgba(74, 144, 226, 0.35);
 }
 
 .bienestar-menu-btn.is-active i {

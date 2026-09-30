@@ -28,7 +28,7 @@ class FormularioBienestarController
 
         $model = $this->model;
         ob_start();
-        require ROOT_PATH . '/app/Views/Services/formulario-bienestar.php';
+        require ROOT_PATH . '/app/Views/services/formulario-bienestar.php';
         $content = ob_get_clean();
 
         require ROOT_PATH . '/app/Views/layouts/standalone.php';
