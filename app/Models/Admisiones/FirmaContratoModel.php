@@ -4,8 +4,17 @@ declare(strict_types=1);
 
 namespace App\Models\Admisiones;
 
+use App\Models\Catalogos\CatalogoAcademicoModel;
+
 final class FirmaContratoModel
 {
+    private CatalogoAcademicoModel $catalogo;
+
+    public function __construct(?CatalogoAcademicoModel $catalogo = null)
+    {
+        $this->catalogo = $catalogo ?? new CatalogoAcademicoModel();
+    }
+
     public function titulo(): string
     {
         return 'Contrato de Matrícula';
@@ -13,18 +22,7 @@ final class FirmaContratoModel
 
     public function carreras(): array
     {
-        return [
-            'Tecnólogo en Instrumentación Quirúrgica',
-            'Tecnólogo en Educación Básica',
-            'Tecnología Superior en Enfermería Veterinaria',
-            'Tecnólogo en Producción Animal',
-            'Técnico Superior en Marketing Digital',
-            'Seguridad e Higiene del Trabajo',
-            'Seguridad y Prevención de Riesgos Laborales',
-            'Técnico Superior en Administración',
-            'Tecnología Superior en Topografía',
-            'Tecnólogo en Minería',
-        ];
+        return $this->catalogo->programas();
     }
 
     public function asesores(): array

@@ -3,32 +3,30 @@ declare(strict_types=1);
 
 namespace App\Models\Services;
 
+use App\Models\Catalogos\CatalogoAcademicoModel;
+
 class FormularioBienestarModel
 {
+    private CatalogoAcademicoModel $catalogo;
+
+    public function __construct(?CatalogoAcademicoModel $catalogo = null)
+    {
+        $this->catalogo = $catalogo ?? new CatalogoAcademicoModel();
+    }
+
+    /**
+     * @return array<string, string> valor => etiqueta
+     */
     public function periodos(): array
     {
-        return [
-            'MAY-OCT26'   => 'PAO MAY-OCT 2026',
-            'NOV26-ABR27' => 'PAO NOV 2026-ABR 2027',
-        ];
+        $periodos = $this->catalogo->periodos();
+
+        return array_combine($periodos, $periodos);
     }
 
     public function carreras(): array
     {
-        return [
-            'Topografía con Nivel Equivalente a Tecnología Superior',
-            'Mineria',
-            'Seguridad y Prevención de Riesgos Laborales',
-            'Enfermería Veterinaria',
-            'Producción Animal',
-            'Administración',
-            'Marketing Digital',
-            'Marketing Digital y Diseño Multimedia',
-            'Ventas estratégicas con inteligencia artificial',
-            'Instrumentación Quirúrgica',
-            'Educacion Básica',
-            'Educación Bilingüe',
-        ];
+        return $this->catalogo->programas();
     }
 
     public function niveles(): array

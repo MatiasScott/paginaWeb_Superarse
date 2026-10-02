@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\Services;
 
+use App\Models\Catalogos\CatalogoAcademicoModel;
 use App\Models\Services\SolicitudesModel;
 
 final class SolicitudesController
@@ -24,6 +25,10 @@ final class SolicitudesController
             require ROOT_PATH . '/app/Views/errors/404.php';
             return;
         }
+
+        $catalogo = new CatalogoAcademicoModel();
+        $carreras = $catalogo->programas();
+        $periodoActual = $catalogo->periodoActual() ?? '____________________';
 
         require ROOT_PATH . '/app/Views/solicitudes/' . $tipos[$slug];
     }
@@ -116,8 +121,8 @@ final class SolicitudesController
             $mail->isSMTP();
             $mail->Host       = getenv('SUPERARSE_SMTP_HOST') ?: 'smtp.office365.com';
             $mail->SMTPAuth   = true;
-                $mail->Username   = getenv('SUPERARSE_SMTP_ALT_USERNAME') ?: 'alexander.quinga@superarse.edu.ec';
-                $mail->Password   = getenv('SUPERARSE_SMTP_ALT_PASSWORD') ?: '';
+            $mail->Username   = getenv('SUPERARSE_SMTP_ALT_USERNAME') ?: 'alexander.quinga@superarse.edu.ec';
+            $mail->Password   = getenv('SUPERARSE_SMTP_ALT_PASSWORD') ?: '';
             $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
             $mail->CharSet    = 'UTF-8';
