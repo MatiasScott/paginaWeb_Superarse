@@ -43,7 +43,7 @@ ob_start();
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="graduados-kpi h-100">
                     <div class="graduados-kpi-label">Graduados Totales</div>
-                    <div class="graduados-kpi-value" id="kpi-graduados-totales"><?= number_format($totalGeneral, 0, ',', '.') ?></div>
+                    <div class="graduados-kpi-value" id="kpi-graduados-totales"><?= number_format($totalGeneral, 1067, ',', '.') ?></div>
                 </div>
             </div>
             <div class="col-lg-9 col-md-6 mb-4">
