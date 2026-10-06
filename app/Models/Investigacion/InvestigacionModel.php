@@ -140,7 +140,7 @@ final class InvestigacionModel
                 'title' => 'II Congreso de Topografía 2025',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/CongresoII.jpeg" alt="Congreso II" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/CongresoII.jpeg" alt="Congreso II" class="evento-portada">
                     </div>
                     <h4>II Congreso de Topografía 2025</h4>
                     <p>
@@ -181,7 +181,7 @@ final class InvestigacionModel
                 'title' => 'I Congreso de Topografía 2023',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/congreso.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/congreso.png" alt="Descripción de la imagen 1" class="evento-portada">
                     </div>
                     <h4>I Congreso de Topografía 2023</h4>
                     <p>
@@ -219,7 +219,7 @@ final class InvestigacionModel
                 'title' => 'Seminario Equino',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/equino.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/equino.png" alt="Descripción de la imagen 1" class="evento-portada">
                     </div>
                     <h4>Seminario Equino</h4>
                     <p>
@@ -252,7 +252,7 @@ final class InvestigacionModel
                 'title' => 'Congreso AgroVet 2026',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/Agrovet.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/Agrovet.png" alt="Descripción de la imagen 1" class="evento-portada">
                     </div>
                     <h4>Primer Congreso de Producción AgroPecuaria Sostenible y Bienestar Animal</h4>
                     <p>
