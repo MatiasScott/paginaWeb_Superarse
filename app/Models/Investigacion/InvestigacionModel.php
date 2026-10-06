@@ -135,12 +135,96 @@ final class InvestigacionModel
                 HTML,
             ],
             ['section' => true, 'title' => 'Eventos'],
+             [
+                'id' => 'SeminarioMineris2026',
+                'title' => 'Seminario de Minería 2026',
+                'content' => <<<HTML
+                    <div>
+                      <img src="{$b}/assets/img/Investigacion/Seminario-ECSOS.png" alt="Mineria" style="width: 100%; height: auto; margin-bottom: 15px;">
+                    </div>
+                    <h4>Seminario de Minería 2026</h4>
+                    <p>
+                      El Seminario de Minería 2026 fue un espacio académico organizado por el Instituto Superior Tecnológico Superarse, a través de la Escuela de Ciencias de la Tierra, Minería y afines (ECSOS), orientado al fortalecimiento de conocimientos y al intercambio de experiencias relacionadas con la actividad minera y sus principales desafíos en el contexto actual.
+                    </p>
+                    <p>
+                      El evento propició el encuentro entre estudiantes, docentes, profesionales y representantes del sector, generando un espacio para abordar aspectos técnicos, tecnológicos, ambientales y de seguridad vinculados con la formación y el ejercicio profesional en el ámbito minero.
+                    </p>
+                    <ul>
+                      <li>	Exploración y explotación de recursos minerales.</li>
+                      <li>	Procesos y métodos de explotación minera.</li>
+                      <li>	Seguridad y salud ocupacional en minería.</li>
+                      <li>	Tecnología e innovación aplicada al sector minero.</li>
+                      <li>	Minería responsable y sostenibilidad ambiental.</li>
+                      <li>	Experiencias y perspectivas profesionales del sector minero.</li>
+                      <li>	Vinculación entre la formación académica y la industria minera.<li>
+                    </ul>
+                    <p><strong>Fecha:</strong>25 septiembre 2026</p>
+                    <p><strong>Lugar:</strong>Instituto Superior Tecnológico Superarse.</p>
+                    <p><strong>Organiza:</strong>Escuela ECSOS – Instituto Superior Tecnológico Superarse.</p>
+                 
+                HTML,
+            ],
+              [
+                'id' => 'DigitalFuture2026',
+                'title' => 'Primer Congreso Internacional de Transformación Digital e Innovación Tecnológica',
+                'content' => <<<HTML
+                    <div>
+                      <img src="{$b}/assets/img/Investigacion/Digital_future.png" alt="Digital" style="width: 100%; height: auto; margin-bottom: 15px;">
+                    </div>
+                    <h4>Primer Congreso Internacional de Transformación Digital e Innovación Tecnológica</h4>
+                    <p>
+                      Digital Future 2026 es un evento académico-científico orientado a la difusión de investigaciones, innovaciones tecnológicas, experiencias y soluciones digitales que contribuyen a la transformación de la sociedad, la educación y los sectores productivos.
+                    </p>
+                    <p>
+                      El congreso promueve el intercambio de conocimiento entre la academia, el sector tecnológico, las organizaciones y la sociedad, fortaleciendo el diálogo interdisciplinario y la generación de propuestas innovadoras frente a los desafíos de la transformación digital.
+                    </p>
+                    <ul>
+                      <li>	Inteligencia artificial, ciencia de datos y tecnologías emergentes.</li>
+                      <li>	Transformación digital e innovación tecnológica.</li>
+                      <li>	Educación, tecnología y nuevas metodologías de aprendizaje.</li>
+                      <li>	Desarrollo de software, sistemas y soluciones digitales.</li>
+                      <li>	Emprendimiento, industria 4.0 y transformación de los sectores productivos.</li>
+                      <li>	Ciberseguridad, conectividad y tecnologías para la sociedad.</li>
+                      <li>	Experiencias y proyectos de innovación con impacto académico, empresarial y social.<li>
+                    </ul>
+                    <p><strong>Fecha:</strong>23 y 24 de julio del 2026</p>
+                    <p><strong>Lugar:</strong>Instituto Superior Tecnológico Superarse (Campus Alpallana, Quito).</p>
+                 
+                HTML,
+            ],
+            [
+                'id' => 'DiaMedicoVeterinario',
+                'title' => 'Conversatorio - Día del Médico Veterinario 2026',
+                'content' => <<<HTML
+                    <div>
+                      <img src="{$b}/assets/img/Investigacion/Dia_del_enfermero.jpg" alt="Día del Médico Veterinario 2026" style="width: 100%; height: auto; margin-bottom: 15px;">
+                    </div>
+                    <h4>Conversatorio - Día del Médico Veterinario 2026</h4>
+                    <p>
+                      El Día del Médico Veterinario 2026 fue un evento académico y conmemorativo organizado por el Instituto Superior Tecnológico Superarse, a través de la Escuela de Ciencias Agropecuarias, Veterinarias y de Tecnologías (ECAVET), orientado a reconocer la importancia de la profesión veterinaria y su contribución al bienestar animal, la salud pública y el desarrollo sostenible del sector agropecuario.
+                    </p>
+                    <p>
+                      El evento promovió un espacio de encuentro entre estudiantes, docentes, profesionales y actores del sector veterinario, fortaleciendo el intercambio de conocimientos, experiencias y perspectivas sobre los desafíos actuales de la medicina veterinaria y el rol del profesional en la sociedad.
+                    </p>
+                    <ul>
+                      <li>	Medicina veterinaria, salud y bienestar animal.</li>
+                      <li>	Innovación y nuevas tecnologías aplicadas al sector veterinario.</li>
+                      <li>	Producción pecuaria sostenible y manejo responsable de los animales.</li>
+                      <li>	Salud pública, prevención y enfoque integral de la profesión veterinaria.</li>
+                      <li>	Experiencias profesionales y vinculación entre academia y sector productivo.</li>
+                      <li>	Reconocimiento a la labor y aporte de los profesionales veterinarios.</li>
+                    </ul>
+                    <p><strong>Fecha:</strong>9 de julio de 2026</p>
+                    <p><strong>Lugar:</strong>Instituto Superior Tecnológico Superarse, Quito.</p>
+                    <p><strong>Organiza:</strong>Escuela de Ciencias Agropecuarias, Veterinarias y de Tecnologías (ECAVET).</p>
+                HTML,
+            ],
             [
                 'id' => 'congresoTopografia2025',
                 'title' => 'II Congreso de Topografía 2025',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/CongresoII.jpeg" alt="Congreso II" class="evento-portada">
+                      <img src="{$b}/assets/img/Investigacion/CongresoII.jpeg" alt="Congreso II" style="width: 100%; height: auto; margin-bottom: 15px;">
                     </div>
                     <h4>II Congreso de Topografía 2025</h4>
                     <p>
@@ -181,7 +265,7 @@ final class InvestigacionModel
                 'title' => 'I Congreso de Topografía 2023',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/congreso.png" alt="Descripción de la imagen 1" class="evento-portada">
+                      <img src="{$b}/assets/img/Investigacion/congreso.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
                     </div>
                     <h4>I Congreso de Topografía 2023</h4>
                     <p>
@@ -219,7 +303,7 @@ final class InvestigacionModel
                 'title' => 'Seminario Equino',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/equino.png" alt="Descripción de la imagen 1" class="evento-portada">
+                      <img src="{$b}/assets/img/Investigacion/equino.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
                     </div>
                     <h4>Seminario Equino</h4>
                     <p>
@@ -252,7 +336,7 @@ final class InvestigacionModel
                 'title' => 'Congreso AgroVet 2026',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/Agrovet.png" alt="Descripción de la imagen 1" class="evento-portada">
+                      <img src="{$b}/assets/img/Investigacion/Agrovet.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
                     </div>
                     <h4>Primer Congreso de Producción AgroPecuaria Sostenible y Bienestar Animal</h4>
                     <p>
@@ -337,10 +421,10 @@ final class InvestigacionModel
                 'content' => <<<HTML
                     <h4>Planificación Gestión de Investigación PAO mayo - octubre 2025</h4>
                     <p>
-                      Accede al plan de gestión de investigación para el periodo mayo - octubre 2025, que detalla los objetivos, actividades clave y recursos asignados para la investigación durante este semestre.
+                      Accede al plan de gestión de investigación correspondiente al periodo mayo - octubre 2026, que detalla los objetivos, actividades clave y recursos asignados para fortalecer la investigación durante este semestre.
                     </p>
                     <p>
-                      Conoce las directrices y el enfoque de nuestra gestión para este PAO.
+                      Conoce las directrices, estrategias y líneas de acción que orientan la gestión de investigación del Instituto durante este PAO.
                     </p>
                     <a
                       href="{$b}/PLANIFICACION_GESTION_INVESTIGACION"
@@ -353,9 +437,9 @@ final class InvestigacionModel
             ],
             [
                 'id' => 'proyectosInvestigacionPAO',
-                'title' => 'Proyectos de Investigación PAO NOVIEMBRE 2025 - ABRIL 2026',
+                'title' => 'Proyectos de Investigación PAO MAYO 2026 - OCTUBRE 2026',
                 'content' => <<<HTML
-                    <h4>Proyectos de Investigación PAO NOVIEMBRE 2025 - ABRIL 2026</h4>
+                    <h4>Proyectos de Investigación PAO MAYO 2026 - OCTUBRE 2026</h4>
                     <h5><strong>Requisitos</strong></h5>
                     <ul>
                       <li>Descargar y llenar los formatos solicitados (Perfil de proyecto de investigación).</li>
@@ -368,7 +452,7 @@ final class InvestigacionModel
                       Por favor, asegúrese de enviar los documentos del proyecto con copia a la coordinación de cada escuela a la que pertenezca.
                     </p>
                     <p>
-                      Consulta la lista de proyectos de investigación aprobados o en desarrollo para el periodo académico ordinario NOVIEMBRE 2025 - ABRIL 2026, incluyendo sus resúmenes y los equipos de investigación involucrados.
+                      Consulta la lista de proyectos de investigación aprobados o en desarrollo para el periodo académico ordinario MAYO 2026 - OCTUBRE 2026, incluyendo sus resúmenes y los equipos de investigación involucrados.
                     </p>
                     <ul>
                       <li><strong>Escuela de Veterinaria:</strong> Para contactar directamente al responsable del área, envíe un correo a: <a href="mailto:francisco.velastegui@superarse.edu.ec">Francisco Velastegui</a></li>
@@ -441,6 +525,124 @@ final class InvestigacionModel
                 HTML,
             ],
             ['section' => true, 'title' => 'Publicaciones'],
+            ['id' => 'publicacionesNoviembre2025Abril2026',
+                'title' => 'Noviembre 2025 - Abril 2026',
+                'content' => <<<HTML
+                    <h4> Diseño de bloques nutricionales (BN) para cuyes y ovejas existentes en la hacienda Agusbella ubicada en la parroquia de Rumipamba</h4>
+                    <p>
+                       La suplementación con bloques nutricionales elaborados con insumos locales mejoró significativamente el rendimiento productivo de cuyes y ovinos en sistemas rurales. Los animales suplementados presentaron mayor ganancia de peso, menor mortalidad y mejor condición corporal que aquellos sin suplementación. Además, el bajo costo de producción de los bloques los convierte en una alternativa viable y económica para pequeños productores, contribuyendo al fortalecimiento de la producción pecuaria rural y a la formación técnica aplicada.
+                    </p>
+                    <a
+                      href="https://publicacionestecnoecuatoriano.edu.ec/index.php/editorialtecnoecuatoriano/article/view/130/174"
+                      target="_blank"
+                      class="btn btn-sm btn-info mt-3"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver Publicación
+                    </a>
+                    <h4>EVALUACIÓN DE LA CADENA DE FRÍO EN LA COMERCIALIZACIÓN DE QUESO CRIOLLO EN EL CANTÓN LOMAS DE SARGENTILLO</h4>
+                    
+                    <p>
+                       A nivel mundial el queso gracias a su gran nivel nutritivo se ha convertido en uno de los alimentos más consumidos. Su composición se basa en proteínas, grasas combinado con su sabor y textura lo convierten en alimento de alto consumo, su conservación está estrechamente ligado a la cadena de frío que constituye un factor fundamental en la calidad de los productos lácteos. El objetivo de este estudio fue evaluar la cadena de frío mediante el monitoreo de la temperatura de quesos criollos durante su comercialización en el cantón Lomas de Sargentillo. Se seleccionaron cinco locales comerciales mediante un muestreo aleatorio estratificado, evaluando los productos durante un periodo de 21 días.
+                    </p>
+                    <a
+                      href="https://www.scilit.com/publications/28cd25bb626cfaae8cef765317f93d81"
+                      target="_blank"
+                      class="btn btn-sm btn-info mt-3"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver Publicación
+                    </a>
+                     <h4>CÁLCULO INTEGRAL APLICADO A LA AGROINDUSTRIA PARA EL APRENDIZAJE PRÁCTICO</h4>
+                    
+                    <p>
+                       Estimado lector, el aprendizaje del Cálculo Integral es importante debido a que propicia el pensamiento lógico-analítico y se utiliza como herramienta para resolver problemas reales y concretos de diversas áreas del conocimiento, no sólo en Matemáticas y Física, sino en disciplinas tales como la Ingeniería, Economía, entre otras. La aplicación de los teoremas esenciales propicia en las personas que estudian o practican los métodos del cálculo integral una evolución en sus capacidades de abstracción y razonamiento que conlleva a una madurez matemática, necesarios para operar y aplicar funciones matemáticas con variable real en el planteamiento y solución de situaciones prácticas que llegan a presentarse en su ejercicio profesional.
+                    </p>
+                    <a
+                      href="https://grupoblr.com/2026/04/10/libro-calculo-integral-aplicado-a-la-agroindustria-manual-didactico-para-el-aprendizaje-practico/"
+                      target="_blank"
+                      class="btn btn-sm btn-info mt-3"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver Publicación
+                    </a>
+                     <h4>Implementación Participativa de un Modelo Comunitario de Gestión Sostenible de Residuos Sólidos para fortalecer la Educación Ambiental y la Economía Circular</h4>
+                    
+                    <p>
+                      La investigación analiza la gestión de residuos sólidos en la Plaza César Chiriboga, donde se generan aproximadamente 40 toneladas mensuales, principalmente de materia orgánica. Mediante encuestas, talleres de compostaje, prototipos de composteras y manuales prácticos, se promovió el aprovechamiento de estos residuos. Los resultados evidenciaron un potencial económico anual de hasta USD 48.180 mediante la producción de compost, además de fortalecer la educación ambiental y la economía circular.
+                      <strong>Palabras clave:</strong> residuos sólidos, materia orgánica, compostaje, economía circular.
+                    </p>
+                    <a
+                      href="https://www.calameo.com/read/008147044e4d9ab9d4bc3"
+                      target="_blank"
+                      class="btn btn-sm btn-info mt-3"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver Publicación
+                    </a>
+                     <h4>“Cuentos que conectan”: Proyecto de motivación a la lectura en niños y niñas de 6 a 8 años de edad con necesidades educativas especiales con TDH mediante cuentos generados con inteligencia artificial generativa</h4>
+                    
+                    <p>
+                      La investigación analiza el impacto de cuentos personalizados generados con inteligencia artificial en la motivación y comprensión lectora de nueve niños de 6 a 8 años con TDAH. Mediante un diseño cuasiexperimental y enfoque mixto, se utilizaron cuentos creados con ChatGPT e imágenes generadas con Meta AI, acompañados de actividades multisensoriales durante ocho semanas. Los resultados evidenciaron un incremento del 25% en la comprensión lectora, además de mejoras en la atención, participación y motivación. Se concluye que la IA puede apoyar prácticas pedagógicas inclusivas.
+                      <strong>Palabras clave:</strong> TDAH, inteligencia artificial generativa, inclusión, educación
+                    </p>
+                    <a
+                      href="https://www.calameo.com/read/008147044e4d9ab9d4bc3"
+                      target="_blank"
+                      class="btn btn-sm btn-info mt-3"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver Publicación
+                    </a>
+                       <h4>Educación inclusiva adaptativa mediante la implementación de 
+                      inteligencia artificial generativa para optimizar la motivación lectora 
+                      en estudiantes de 6 a 8 años con dislexia y TDAH en entornos iniciales y 
+                      básicos de Sangolquí</h4>
+                    
+                    <p>
+                      La investigación evaluó el uso de cuentos personalizados con inteligencia artificial para fortalecer la lectura en niños de 6 a 8 años con TDAH y dislexia. Mediante un diseño cuasiexperimental de ocho semanas, se evidenciaron mejoras en motivación, comprensión, escritura, reconocimiento de palabras y participación. Se concluye que la IA puede contribuir a una educación más inclusiva mediante recursos adaptativos.
+                      <strong>Palabras clave:</strong> educación inclusiva, inteligencia artificial, lectoescritura, dislexia, TDAH.
+                    </p>
+                    <a
+                      href="https://isbnecuador.com/catalogo.php?mode=detalle&nt=108590"
+                      target="_blank"
+                      class="btn btn-sm btn-info mt-3"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver Publicación
+                    </a>
+                        <h4>Impact of extensive cattle ranching on The Forests and Páramos of the Rumipamba Parish through satellite images and spatial statistics</h4>
+                    
+                    <p>
+                     La ganadería extensiva genera un impacto ambiental significativo sobre los ecosistemas naturales. Sin embargo, este impacto aún no ha sido cuantificado, especialmente en los valles interandinos, donde la presencia de bosques nativos y páramos es fundamental para la regulación climática y la seguridad hídrica. Nuestra investigación se centra en la parroquia Rumipamba.El objetivo principal de esta investigación es cuantificar los cambios en la cobertura y uso del suelo entre los años 2019 y 2024, identificando las áreas correspondientes a pastizales, bosques y páramos, así como evaluar la relación entre la expansión de los pastizales, utilizada como indicador indirecto de la expansión ganadera, y la degradación de los ecosistemas estratégicos.
+                    </p>
+                    <a
+                      href="https://www.revistasipgh.org/index.php/regeo/article/view/6128"
+                      target="_blank"
+                      class="btn btn-sm btn-info mt-3"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver Publicación
+                    </a>
+                         <h4>Libro de memorias segundo congreso de topografía yminería 2025</h4>
+                    
+                    <p>
+                     El libro recopila las memorias del Segundo Congreso de Topografía y Minería 2025, reuniendo contribuciones académicas y técnicas relacionadas con la topografía, la minería y sus aplicaciones. La obra presenta investigaciones y experiencias orientadas al desarrollo tecnológico, la innovación y la aplicación de conocimientos especializados en estos campos, constituyéndose en un espacio de difusión de resultados científicos y profesionales.
+                    </p>
+                    <a
+                      href="https://isbnecuador.com/catalogo.php?mode=busqueda_menu&id_autor=105895"
+                      target="_blank"
+                      class="btn btn-sm btn-info mt-3"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver Publicación
+                    </a>
+                         <h4>Creación de Narrativas Digitales sobre los Peligros y Amenazas en red usando Herramientas de Inteligencia Artificial</h4>
+                    
+                    <p>
+                     El uso creciente de internet ha incrementado riesgos como el ciberbullying, sexting, vamping y grooming. Esta investigación analiza el uso de herramientas de inteligencia artificial para crear narrativas digitales orientadas a concientizar sobre estos peligros. Mediante un enfoque cuantitativo, descriptivo y bibliográfico, se compararon herramientas de IA y aplicaciones Web 2.0 según calidad, tiempo, facilidad de uso e innovación. Participaron 10 estudiantes de Asistencia Pedagógica del Instituto Tecnológico Superior Superarse, quienes diseñaron un plan de concientización aplicado en centros educativos. Los resultados permitieron valorar la utilidad y facilidad de estas tecnologías para la creación de recursos educativos.
+                    <strong>Palabras clave:</strong> inteligencia artificial, narrativas digitales, riesgos en internet, educomunicación, TIC.
+                    </p>
+                    <a
+                      href="https://editorial.itca.edu.ec/index.php/editorial/en/catalog/view/5/13/23"
+                      target="_blank"
+                      class="btn btn-sm btn-info mt-3"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver Publicación
+                    </a>
+                HTML,],
             [
                 'id' => 'publicacionesMayoOctubre2025',
                 'title' => 'Mayo 2025 - Octubre 2025',
