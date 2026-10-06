@@ -123,7 +123,7 @@ final class Config
         }
 
         // Evita duplicar el prefijo si el valor ya lo incluye
-        if (self::$basePath !== '' && str_starts_with($path, self::$basePath . '/')) {
+        if (self::$basePath !== '' && ($path === self::$basePath || str_starts_with($path, self::$basePath . '/'))) {
             return $path;
         }
 
@@ -222,15 +222,19 @@ final class Config
     {
         $documentRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
         $root = realpath(ROOT_PATH);
+        $documentRoot = is_string($documentRoot) && $documentRoot !== '' ? realpath($documentRoot) : false;
 
-        if (is_string($documentRoot) && $documentRoot !== '' && $root !== false) {
+        if ($documentRoot !== false && $root !== false) {
+            $root = str_replace('\\', '/', $root);
             $documentRoot = rtrim(str_replace('\\', '/', $documentRoot), '/');
+            $comparisonRoot = DIRECTORY_SEPARATOR === '\\' ? strtolower($root) : $root;
+            $comparisonDocumentRoot = DIRECTORY_SEPARATOR === '\\' ? strtolower($documentRoot) : $documentRoot;
 
-            if ($root === $documentRoot) {
+            if ($comparisonRoot === $comparisonDocumentRoot) {
                 return '';
             }
 
-            if (str_starts_with($root . '/', $documentRoot . '/')) {
+            if (str_starts_with($comparisonRoot . '/', $comparisonDocumentRoot . '/')) {
                 return self::normalizeBasePath(substr($root, strlen($documentRoot)));
             }
         }

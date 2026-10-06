@@ -6,7 +6,7 @@ $title = 'Escuela de Construcción y Extracción Sostenible ECSOS';
 $extraStyles = asset('css/modals-custom.css');
 
 $escape = static fn (string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
-$careerBase = rtrim($schoolUrl, '/') . '/';
+$careerBase = rtrim(url($schoolUrl), '/') . '/';
 
 ob_start();
 ?>

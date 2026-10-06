@@ -74,7 +74,7 @@
     }
     path = String(path);
     if (isExternal(path)) { return path; }
-    if (base !== '' && path.indexOf(base + '/') === 0) { return path; }
+    if (base !== '' && (path === base || path.indexOf(base + '/') === 0)) { return path; }
     return base + '/' + path.replace(/^\/+/, '');
   }
 

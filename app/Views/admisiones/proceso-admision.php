@@ -46,7 +46,7 @@ ob_start();
                                         <?= $escape((string) $paso['boton']) ?>
                                     </button>
                                 <?php else: ?>
-                                    <a href="<?= $escape((string) $paso['enlace']) ?>" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                    <a href="<?= $escape(url((string) $paso['enlace'])) ?>" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                                         <?= $escape((string) $paso['boton']) ?>
                                     </a>
                                 <?php endif; ?>

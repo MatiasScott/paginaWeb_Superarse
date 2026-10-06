@@ -71,12 +71,12 @@ ob_start();
                                 <div class="text-center mt-4">
                                     <?php if (isset($item['buttons'])): ?>
                                         <?php foreach ($item['buttons'] as $button): ?>
-                                            <a href="<?= $escape($button['link']) ?>" target="_blank" class="btn btn-primary py-2 px-4 m-2" rel="noopener noreferrer">
+                                            <a href="<?= $escape(url($button['link'])) ?>" target="_blank" class="btn btn-primary py-2 px-4 m-2" rel="noopener noreferrer">
                                                 <i class="<?= $escape($button['buttonIcon']) ?>"></i> <?= $button['buttonText'] ?>
                                             </a>
                                         <?php endforeach; ?>
                                     <?php else: ?>
-                                        <a href="<?= $escape($item['link']) ?>" target="_blank" class="btn btn-primary py-2 px-4" rel="noopener noreferrer">
+                                        <a href="<?= $escape(url($item['link'])) ?>" target="_blank" class="btn btn-primary py-2 px-4" rel="noopener noreferrer">
                                             <i class="<?= $escape($item['buttonIcon']) ?>"></i> <?= $item['buttonText'] ?>
                                         </a>
                                     <?php endif; ?>

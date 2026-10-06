@@ -63,8 +63,8 @@ function generarHeader() {
 
   let mainNavHtml = `
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-3 fixed-top custom-nav-responsive" style="z-index: 1020">
-        <a href=APP.asset("index.html") class="navbar-brand">
-            <img src=APP.asset("assets/img/content/logo/superarse_gris.png") alt="logo" style="height: 45px; width: auto;" />
+        <a href="${APP.url('')}" class="navbar-brand">
+            <img src="${APP.asset('assets/img/content/logo/superarse_gris.png')}" alt="logo" style="height: 45px; width: auto;" />
         </a>
         
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mainNavbarCollapse">

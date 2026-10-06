@@ -43,7 +43,7 @@ ob_start();
                     <div class="col-lg-5 text-center">
                         <ul id="documentos-list">
                             <li>
-                                <a href="<?= $escape($proto['document']['link']) ?>" target="_blank" class="doc-item-link">
+                                <a href="<?= $escape(url($proto['document']['link'])) ?>" target="_blank" class="doc-item-link">
                                     <i class="fas fa-file-pdf icon-badge"></i>
                                     <span><?= $escape($proto['document']['title']) ?></span>
                                 </a>

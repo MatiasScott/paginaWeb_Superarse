@@ -96,7 +96,7 @@ ob_start();
         <div class="container-fluid py-5">
             <div class="container text-center">
                 <div class="cards-container">
-                    <a href="<?= $escape((string) $autoevaluacionCard['link']) ?>" target="_blank" class="card-link">
+                    <a href="<?= $escape(url((string) $autoevaluacionCard['link'])) ?>" target="_blank" class="card-link">
                         <div class="card-doc">
                             <i class="<?= $escape((string) $autoevaluacionCard['icon']) ?> card-icon"></i>
                             <h4 class="card-title"><?= $escape((string) $autoevaluacionCard['title']) ?></h4>

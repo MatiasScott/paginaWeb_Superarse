@@ -49,7 +49,8 @@ final class BalancesAuditadosModel
     public function balances(): array
     {
         return [
-            ['year' => 2024, 'file' => '/bancesAuditados'],
+            ['year' => 2025, 'file' => '/balancesAuditados2025'],
+            ['year' => 2024, 'file' => '/balancesAuditados'],
             ['year' => 2023, 'file' => '#'],
             ['year' => 2022, 'file' => '#'],
             ['year' => 2021, 'file' => '#'],

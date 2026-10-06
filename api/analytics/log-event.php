@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Endpoint receptor de eventos del tracker.js
  * Recibe JSON por POST y lo registra con un INSERT preparado.
  */
+
 declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
@@ -59,7 +61,7 @@ try {
         ':section_name' => analyticsField($payload['section_name'] ?? null, 100),
         ':element_text' => analyticsField($payload['element_text'] ?? null, 255),
         ':element_id'   => analyticsField($payload['element_id'] ?? null, 100),
-        ':element_class'=> analyticsField($payload['element_class'] ?? null, 255),
+        ':element_class' => analyticsField($payload['element_class'] ?? null, 255),
         ':element_tag'  => analyticsField($payload['element_tag'] ?? null, 20),
         ':page_url'     => $pageUrl,
         ':user_ip'      => $ip,

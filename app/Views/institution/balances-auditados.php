@@ -45,7 +45,7 @@ ob_start();
                             <?php foreach ($balances as $balance): ?>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <span>BALANCE AUDITADO <?= $escape((string) $balance['year']) ?></span>
-                                    <a href="<?= $escape($balance['file']) ?>" target="_blank" class="btn btn-sm btn-primary">
+                                    <a href="<?= $escape(url($balance['file'])) ?>" target="_blank" class="btn btn-sm btn-primary">
                                         <i class="fa fa-file-pdf mr-2"></i> Ver PDF
                                     </a>
                                 </li>

@@ -53,7 +53,7 @@ ob_start();
                             <?php foreach ($documents as $documento): ?>
                                 <li class="list-group-item d-flex justify-content-between align-items-center w-100 border-bottom py-3">
                                     <span><?= $escape($documento['title']) ?></span>
-                                    <a href="<?= $escape($documento['file']) ?>" target="_blank"
+                                    <a href="<?= $escape(url($documento['file'])) ?>" target="_blank"
                                        class="btn btn-sm btn-primary px-3"
                                        style="background-color: #17a2b8; border: none;">
                                         <i class="fa fa-file-pdf mr-2"></i> Ver PDF

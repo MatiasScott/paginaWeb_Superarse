@@ -74,7 +74,7 @@ function generarFooter() {
        </div>`
     : `<h3 class="text-primary mb-4">${footerData.admisiones.titulo}</h3>
        <iframe name="iframeRespuesta" style="display:none;"></iframe>
-       <form action=APP.asset("contacto/enviar") method="POST"
+       <form action="${APP.url('contacto/enviar')}" method="POST"
              target="iframeRespuesta" onsubmit="limpiarMensaje()">
          <div class="form-group">
            <input type="text" name="nombre" class="form-control border-0 py-4"

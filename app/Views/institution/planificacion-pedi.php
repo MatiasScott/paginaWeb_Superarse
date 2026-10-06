@@ -57,7 +57,7 @@ ob_start();
                 <div class="cta-pdf-box p-5 text-center shadow" style="border-radius: 20px; background: linear-gradient(45deg, var(--primary), #003366);">
                     <h3 class="mb-3 text-white"><?= $escape((string) $cta['heading']) ?></h3>
                     <p class="mb-4 text-white"><?= $escape((string) $cta['text']) ?></p>
-                    <a href="<?= $escape((string) $cta['link']) ?>" target="_blank" class="btn btn-light btn-lg rounded-pill px-5 fw-bold">
+                    <a href="<?= $escape(url((string) $cta['link'])) ?>" target="_blank" class="btn btn-light btn-lg rounded-pill px-5 fw-bold">
                         <i class="fa fa-file-pdf mr-2"></i> <?= $escape((string) $cta['buttonText']) ?>
                     </a>
                     <div class="mt-4">

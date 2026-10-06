@@ -270,8 +270,8 @@ function generarHeader() {
   // --- 2. BARRA PRINCIPAL (MAIN NAV) ---
   let mainNavHtml = `
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-3 fixed-top custom-nav-responsive" style="z-index: 1020">
-        <a href=APP.asset("index.html") class="navbar-brand">
-            <img src=APP.asset("assets/img/content/logo/superarse_gris.png") alt="logo" style="height: 45px; width: auto;" />
+        <a href="${APP.url('')}" class="navbar-brand">
+            <img src="${APP.asset('assets/img/content/logo/superarse_gris.png')}" alt="logo" style="height: 45px; width: auto;" />
         </a>
         
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mainNavbarCollapse">
@@ -436,7 +436,7 @@ function generarOfertaAcademica() {
                 </div>
                 <div class="d-flex justify-content-between small">
                   <span class="text-muted"><i class="fas fa-map mr-1"></i> Malla:</span>
-                  <a href="${carrera.mallaCurricular ? carrera.mallaCurricular.url : '#'}" target="_blank" data-section="Malla Curricular" class="font-weight-bold text-success">Ver Malla</a>
+                  <a href="${APP.url(carrera.mallaCurricular ? carrera.mallaCurricular.url : '#')}" target="_blank" data-section="Malla Curricular" class="font-weight-bold text-success">Ver Malla</a>
                 </div>
               </div>
 
@@ -577,7 +577,7 @@ function generarModalesOfertaAcademica() {
 
               <div class="glass-section-modern text-center py-4" style="background: rgba(40, 167, 69, 0.08);">
                 <h5 class="font-weight-bold mb-3 text-dark">Plan Curricular Actualizado</h5>
-                <a href="${carrera.mallaCurricular ? carrera.mallaCurricular.url : '#'}" target="_blank" data-section="Malla Curricular" class="btn btn-success btn-lg px-5 shadow-sm" style="border-radius: 50px; font-weight: bold;">
+                <a href="${APP.url(carrera.mallaCurricular ? carrera.mallaCurricular.url : '#')}" target="_blank" data-section="Malla Curricular" class="btn btn-success btn-lg px-5 shadow-sm" style="border-radius: 50px; font-weight: bold;">
                   <i class="fas fa-file-pdf mr-2"></i> Descargar Malla Curricular
                 </a>
               </div>

@@ -71,7 +71,7 @@ ob_start();
                             <?php foreach ($calendarios as $item): ?>
                                 <li class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-center border shadow-sm mb-3 rounded p-3">
                                     <span class="font-weight-bold mb-2 mb-md-0 text-dark"><?= $escape($item['titulo']) ?></span>
-                                    <a href="<?= $escape($item['enlace']) ?>" target="_blank" class="btn btn-info rounded-pill px-4 shadow-sm">
+                                    <a href="<?= $escape(url($item['enlace'])) ?>" target="_blank" class="btn btn-info rounded-pill px-4 shadow-sm">
                                         <i class="fa fa-file-pdf mr-2"></i> Ver PDF
                                     </a>
                                 </li>

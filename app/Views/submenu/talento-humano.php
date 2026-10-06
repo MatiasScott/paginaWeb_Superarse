@@ -368,7 +368,7 @@ ob_start();
                             </div>
                             <div class="d-flex justify-content-center flex-wrap gap-3">
                                 <?php foreach ($ssoBotones as $boton): ?>
-                                    <a href="<?= $escape($boton['enlace']) ?>" target="_blank" class="btn btn-primary mx-2"><?= $escape($boton['label']) ?></a>
+                                    <a href="<?= $escape(url($boton['enlace'])) ?>" target="_blank" class="btn btn-primary mx-2"><?= $escape($boton['label']) ?></a>
                                 <?php endforeach; ?>
                             </div>
                         </div>

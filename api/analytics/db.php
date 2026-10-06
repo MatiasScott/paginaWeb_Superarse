@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Conexión PDO a MySQL - Analítica Superarse
  *
@@ -6,6 +7,7 @@
  * tiene ese archivo, se usan los valores de respaldo de abajo para no romper
  * la instalación.
  */
+
 declare(strict_types=1);
 
 require_once __DIR__ . '/../../app/Core/Env.php';

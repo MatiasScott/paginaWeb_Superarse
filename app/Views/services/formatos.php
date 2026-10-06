@@ -38,12 +38,12 @@ ob_start();
                             </p>
                             <div class="d-flex justify-content-center gap-2 flex-wrap">
                                 <?php if (!empty($formato['generar'])): ?>
-                                    <a href="<?= $escape((string) $formato['generar']['url']) ?>" class="btn btn-primary" target="_blank">
+                                    <a href="<?= $escape(url((string) $formato['generar']['url'])) ?>" class="btn btn-primary" target="_blank">
                                         <i class="fas fa-file-alt"></i> <?= $escape((string) $formato['generar']['texto']) ?>
                                     </a>
                                 <?php endif; ?>
                                 <?php if (!empty($formato['llenar'])): ?>
-                                    <a href="<?= $escape((string) $formato['llenar']['url']) ?>" class="btn btn-primary" target="_blank">
+                                    <a href="<?= $escape(url((string) $formato['llenar']['url'])) ?>" class="btn btn-primary" target="_blank">
                                         <i class="fas fa-file-alt"></i> <?= $escape((string) $formato['llenar']['texto']) ?>
                                     </a>
                                 <?php endif; ?>

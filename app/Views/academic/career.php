@@ -193,7 +193,7 @@ $escape = static function (string $value): string {
         <section class="text-center mb-5">
             <h2>Malla curricular</h2>
             <p>Consulta el plan de estudios detallado de esta carrera.</p>
-            <a href="<?= $escape($career['curriculum']) ?>" target="_blank" rel="noopener" data-section="Malla Curricular" class="btn btn-info">
+            <a href="<?= $escape(url($career['curriculum'])) ?>" target="_blank" rel="noopener" data-section="Malla Curricular" class="btn btn-info">
                 Ver malla curricular PDF
             </a>
         </section>
