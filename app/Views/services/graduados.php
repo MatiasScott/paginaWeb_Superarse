@@ -24,6 +24,15 @@ $anios = array_keys($anios);
 
 $totalesPorAnio = array_fill_keys($anios, 0);
 $totalGeneral = 0;
+foreach ($estadisticasCarreras as $carrera) {
+    foreach ($carrera['anios'] as $anio => $valor) {
+        $valor = (int) $valor;
+        if (array_key_exists($anio, $totalesPorAnio)) {
+            $totalesPorAnio[$anio] += $valor;
+        }
+        $totalGeneral += $valor;
+    }
+}
 
 ob_start();
 ?>
@@ -43,7 +52,7 @@ ob_start();
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="graduados-kpi h-100">
                     <div class="graduados-kpi-label">Graduados Totales</div>
-                    <div class="graduados-kpi-value" id="kpi-graduados-totales"><?= number_format($totalGeneral, 1067, ',', '.') ?></div>
+                    <div class="graduados-kpi-value" id="kpi-graduados-totales"><?= number_format($totalGeneral, 0, ',', '.') ?></div>
                 </div>
             </div>
             <div class="col-lg-9 col-md-6 mb-4">
@@ -90,8 +99,6 @@ ob_start();
                                     <?php
                                     $valor = (int) ($carrera['anios'][$anio] ?? 0);
                                     $totalCarrera += $valor;
-                                    $totalesPorAnio[$anio] += $valor;
-                                    $totalGeneral += $valor;
                                     ?>
                                     <td class="text-center"><?= $valor ?></td>
                                 <?php endforeach; ?>
