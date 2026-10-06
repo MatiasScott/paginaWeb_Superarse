@@ -30,8 +30,8 @@ $obtenerTitulosPublicaciones = static function (string $html) use ($limpiarTexto
 };
 
 $resumenIds       = ['modeloInvestigacionVinculacion', 'normativaInvestigacion', 'dominiosLineasInvestigacion'];
-$eventosIds       = ['congresoTopografia2025', 'congresoTopografia2023', 'seminarioEquino', 'congresoAgrovet2026'];
-$publicacionesIds = ['publicacionesMayoOctubre2025', 'publicacionesNoviembreAbril2025', 'publicacionesMayoOctubre2024', 'publicacionesNoviembre2023Abril2024', 'publicacionesMayoOctubre2023', 'publicacionesMayoOctubre202'];
+$eventosIds       = ['SeminarioMineris2026', 'DigitalFuture2026', 'DiaMedicoVeterinario', 'congresoTopografia2025', 'congresoTopografia2023', 'seminarioEquino', 'congresoAgrovet2026', 'simposioAdministracion'];
+$publicacionesIds = ['publicacionesNoviembre2025Abril2026', 'publicacionesMayoOctubre2025', 'publicacionesNoviembreAbril2025', 'publicacionesMayoOctubre2024', 'publicacionesNoviembre2023Abril2024', 'publicacionesMayoOctubre2023', 'publicacionesMayoOctubre202'];
 
 $porId = [];
 foreach ($items as $item) {
