@@ -31,7 +31,7 @@ const clubsSelloUnico = [
         imagenSrc: APP.asset("assets/img/content/selloUnico/Logo_c_d_c.jpg"),
         alt: "Logo del Club de Creación de contenido ",
         titulo: "Club de",
-        subtitulo: "Muay Thai",
+        subtitulo: "Creación de contenido",
         redes: [],
     },
    
