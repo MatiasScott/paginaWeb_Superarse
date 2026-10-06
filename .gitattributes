@@ -1,1 +1,3 @@
 assets/docs/Investigacion/Guia/GUÍA[[:space:]]GENERAL[[:space:]]DE[[:space:]]ESTUDIO[[:space:]]DE.pdf filter=lfs diff=lfs merge=lfs -text
+assets/videos/*.mp4 filter=lfs diff=lfs merge=lfs -text
+assets/videos/Mision,[[:space:]]Vision[[:space:]]y[[:space:]]Valores[[:space:]]Institucionales-VersionLigera.mp4 filter=lfs diff=lfs merge=lfs -text
