@@ -110,8 +110,8 @@ final class BibliotecaInstitucionalModel
         return [
             'ubicacion' => 'Sede Matriz, Bloque B',
             'telefono' => '(02) 393-0980',
-            'email' => 'nathaly.ortiz@superarse.edu.ec',
-            'responsable' => 'Nathaly Ortiz - Coordinadora de Biblioteca',
+            'email' => 'jennifer.betancourt@superarse.edu.ec',
+            'responsable' => 'Jennifer Betancourt - Coordinadora de Biblioteca',
         ];
     }
 
