@@ -85,7 +85,7 @@ final class BibliotecaInstitucionalModel
             [
                 'nombre' => 'Biblioteca Dra. Mery Navas',
                 'descripcion' => 'Biblioteca Física del Instituto Superarse.',
-                'url' => 'https://biblioteca.superarse.ec/',
+                'url' => 'https://biblioteca.superarse.edu.ec/',
                 'icono' => 'fas fa-book-open',
                 'color' => '#003087',
             ],
