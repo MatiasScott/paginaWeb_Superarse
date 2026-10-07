@@ -31,13 +31,13 @@ final class GraduadosModel
                 'icono' => 'fas fa-briefcase',
                 'titulo' => 'Bolsa de empleo',
                 'descripcion' => 'Acceso a convocatorias laborales y pasantías compartidas por aliados institucionales.',
-                'enlace' => 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=Q55kP6NREkOuuxxVvxRacM1iUyNvm6NAt-AsANiElZxUN1FYVVJSWjNTS1BQVDE0TzhMQlJNMzhKNS4u&route=shorturl',
+                'enlace' => 'https://forms.cloud.microsoft/r/ZW3eqsVBz9?origin=lprLink',
             ],
             [
                 'icono' => 'fas fa-chalkboard-teacher',
                 'titulo' => 'Capacitación continua',
                 'descripcion' => 'Difusión de cursos, talleres y eventos de actualización académica y profesional.',
-                'enlace' => 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=Q55kP6NREkOuuxxVvxRacM1iUyNvm6NAt-AsANiElZxUN1FYVVJSWjNTS1BQVDE0TzhMQlJNMzhKNS4u&route=shorturl',
+                'enlace' => 'https://eci.superarse.edu.ec/',
             ],
             [
                 'icono' => 'fas fa-network-wired',
@@ -49,7 +49,7 @@ final class GraduadosModel
                 'icono' => 'fas fa-user-check',
                 'titulo' => 'Seguimiento institucional',
                 'descripcion' => 'Registro y actualización de trayectoria laboral para fortalecer la calidad educativa.',
-                'enlace' => 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=Q55kP6NREkOuuxxVvxRacM1iUyNvm6NAt-AsANiElZxUNllXWDJIMlEyM1M2WkVLSjlTTTE5NkJMUi4u&route=shorturl',
+                'enlace' => 'https://forms.cloud.microsoft/r/Ee17B7iWyG?origin=lprLink',
             ],
         ];
     }

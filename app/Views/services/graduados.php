@@ -159,13 +159,6 @@ ob_start();
                         <p class="mb-2"><i class="fas fa-phone-alt text-primary mr-2"></i><?= $escape((string) $contacto['telefono']) ?></p>
                         <p class="mb-0"><i class="fas fa-clock text-primary mr-2"></i><?= $escape((string) $contacto['horario']) ?></p>
                     </div>
-                    <a
-                        href="<?= $escape((string) $formulario['enlace']) ?>"
-                        target="_blank"
-                        class="btn btn-primary mt-3"
-                    >
-                        <i class="fas fa-external-link-alt mr-2"></i><?= $escape((string) $formulario['boton']) ?>
-                    </a>
                 </div>
             </div>
         </div>
