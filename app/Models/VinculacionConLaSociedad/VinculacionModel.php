@@ -97,10 +97,10 @@ final class VinculacionModel
                     <div class="form-group mb-3">
                         <label for="libroSelector"><strong>Selecciona un Programa para visualizar:</strong></label>
                         <select class="form-control mt-2" id="libroSelector" onchange="
-                            document.querySelectorAll(\\\\\\\'.image-viewer\\\\\\\').forEach(viewer => viewer.style.display = \\\\\\\'none\\\\\\\');
+                            document.querySelectorAll(\'.image-viewer\').forEach(viewer => viewer.style.display = \'none\');
                             const selectedViewerId = this.value;
                             if (selectedViewerId) {
-                                document.getElementById(selectedViewerId).style.display = \\\\\\\'block\\\\\\\';
+                                document.getElementById(selectedViewerId).style.display = \'block\';
                             }
                         ">
                             <option value="">-- Elige un Programa --</option>
