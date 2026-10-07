@@ -118,7 +118,7 @@ ob_start();
             </div>
 
             <div class="col-12 text-center mt-5">
-                <a class="btn btn-primary" href="<?= asset('Practicas') ?>" target="_blank">
+                <a class="btn btn-primary" href="<?= asset('PracticasPreprofesionales') ?>" target="_blank">
                     <i class="fas fa-file-alt me-2"></i>Reglamento de Prácticas
                 </a>
             </div>
