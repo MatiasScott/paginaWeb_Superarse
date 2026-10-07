@@ -101,6 +101,7 @@ const headerData = {
             {
               enlace: APP.url("POA"),
               texto: "Plan Operativo Anual (POA) 2025",
+              target: "_blank",
             },
           ],
         },
