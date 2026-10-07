@@ -126,14 +126,15 @@ ob_start();
                         <div class="bienestar-seccion-wrapper">
                             <div class="container-fluid py-5 bg-white">
                                 <div class="d-flex justify-content-center mb-4">
-                                    <div class="titulo-flecha-derecha" style="background-color: #ed7d31; min-width: 60%; color: white; padding: 10px 40px; font-weight: bold; text-align: center; clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);">
-                                        BIENESTAR PSICOLÓGICO
-                                    </div>
+                                   <div class="titulo-flecha-derecha" style="background-color: #0891b2; min-width: 60%; color: white; padding: 10px 40px; font-weight: bold; text-align: center; clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);">
+                                   BIENESTAR PSICOLÓGICO
+                                   </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="caja-texto-borde mb-4" style="border-color: #C28502;">
+                                    <div class="caja-texto-borde mb-4" style="background-color: #e0f2fe; border: 1px solid #0284c7; padding: 15px; border-radius: 8px;">
                                         <p class="mb-0">Tu salud mental es importante. El bienestar psicológico es el resultado de un equilibrio emocional, personal y académico alineado al proyecto de vida de cada miembro de la comunidad educativa.</p>
                                     </div>
+
                                 </div>
 
                                 <div class="container">
@@ -223,13 +224,13 @@ ob_start();
                             <div class="container-fluid py-5 bg-white bienestar-seccion-biopsico">
                                 <div class="d-flex flex-column align-items-center mb-5">
                                     <div class="d-flex justify-content-center mb-3">
-                                        <div class="titulo-flecha-derecha">
+                                        <div class="titulo-flecha-derecha" style="background-color: #0891b2; min-width: 60%; color: white; padding: 10px 40px; font-weight: bold; text-align: center; clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);">
                                             ACOMPAÑAMIENTO BIOPSICOSOCIAL
                                         </div>
                                     </div>
                                     <div class="text-container text-center" style="max-width: 800px;">
                                         <div class="col-md-12">
-                                            <div class="caja-texto-borde mb-4" style="border-color: #F54927;">
+                                            <div class="caja-texto-borde mb-4" style="background-color: #e0f2fe; border: 1px solid #0284c7; padding: 15px; border-radius: 8px;">
                                                 <p class="mb-0">El acompañamiento biopsicosocial se define como un enfoque integral de apoyo que considera simultáneamente los aspectos biológicos, psicológicos y sociales de la persona, buscando promover su bienestar y salud mental holística.</p>
                                             </div>
                                         </div>
@@ -239,10 +240,10 @@ ob_start();
                                 <div class="container">
                                     <div class="row align-items-center mb-5">
                                         <div class="col-md-5">
-                                            <div class="caja-texto-borde mb-4" style="border-color: #4A90E2;">
+                                            <div class="caja-texto-borde mb-4" style="background-color: #e0f2fe; border: 1px solid #0284c7; padding: 15px; border-radius: 8px;">
                                                 <p class="mb-0">Una mente sana es el motor más poderoso para el aprendizaje. Por eso, hemos creado un espacio seguro, confidencial y libre de juicios para ti.</p>
                                             </div>
-                                            <div class="caja-texto-borde" style="border-color: #7ED321;">
+                                            <div class="caja-texto-borde mb-4" style="background-color: #e0f2fe; border: 1px solid #0284c7; padding: 15px; border-radius: 8px;">
                                                 <p class="mb-0">La vida universitaria es un viaje apasionante lleno de retos, descubrimientos y crecimiento. Pero también puede ser una montaña rusa de emociones donde el estrés o la incertidumbre toman la delantera.</p>
                                             </div>
                                         </div>
@@ -317,7 +318,7 @@ ob_start();
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="caja-texto-borde mb-4" style="border-color: #04DB53;">
+                                    <div class="caja-texto-borde mb-4" style="background-color: #e0f2fe; border: 1px solid #0284c7; padding: 15px; border-radius: 8px;">
                                         <p class="mb-0">El acompañamiento psicopedagógico es un proceso inclusivo que aborda las dificultades de aprendizaje para que todos logren un desarrollo académico adecuado.</p>
                                     </div>
                                 </div>
@@ -581,9 +582,7 @@ ob_start();
 
                                     <div class="d-flex justify-content-center flex-wrap gap-3 mb-5">
                                         <a href="<?= asset('GUIA_DEL_REGLAMENTO_BECAS') ?>" target="_blank" class="btn-bienestar-action">Guía del Reglamento de Becas</a>
-                                        <a href="<?= asset('Formulario-Bienestar') ?>" target="_blank" class="btn-bienestar-action">Ficha de Solicitud</a>
-                                        <a href="<?= asset('FICHA_SOCIOECONOMICA') ?>" target="_blank" class="btn-bienestar-action">Ficha SocioEconómica</a>
-                                        <a href="https://forms.office.com/..." target="_blank" class="btn-bienestar-action">Encuesta SocioEconómica</a>
+                                        <a href="<?= asset('Formulario-Bienestar') ?>" target="_blank" class="btn-bienestar-action">Formulario Solicitud de Beca</a>
                                     </div>
 
                                     <div class="table-container-modern p-4 rounded-4 shadow-sm bg-white border">
@@ -617,6 +616,12 @@ ob_start();
                                                     <span class="becas-etiqueta">Nov25-Abr26</span>
                                                     <div class="becas-pista">
                                                         <div class="becas-barra" style="width: 43%;">179</div>
+                                                    </div>
+                                                </div>
+                                                <div class="becas-fila">
+                                                    <span class="becas-etiqueta">May-Oct26</span>
+                                                    <div class="becas-pista">
+                                                        <div class="becas-barra" style="width: 49%;">203</div>
                                                     </div>
                                                 </div>
                                             </div>
