@@ -16,6 +16,7 @@ return [
         '/PEDI' => 'assets/docs/Servicios/PEDI/PLAN_ESTRATEGICO_DE_DESARROLLO_INSTITUCIONAL_2024_2028.pdf',
         '/estadoFinanciero' => 'assets/docs/Servicios/estadoFinanciero/ESTADO_FINANCIERO.pdf',
         '/rendicionCuentas' => 'assets/docs/Servicios/rendicionCuentas/UX_INFORME_DE_RENDICION_DE_CUENTAS_2024.pdf',
+        '/rendicionCuentas2025' => 'assets/docs/Servicios/rendicionCuentas/INFORME_NARRATIVO_RENDICION_DE_CUENTAS_2025.pdf',
         '/remuneracionMensual' => 'assets/docs/Servicios/remuneracionMensual/ESCALA_DE_REMUNERACION.pdf',
         '/IESS' => 'assets/docs/Servicios/IESS/CUMPLIMIENTO-IESS.pdf',
         '/CumplimientoTributario' => 'assets/docs/Servicios/CumplimientoTributario/Certificado_Cumplimiento_Tributario_2026.pdf',

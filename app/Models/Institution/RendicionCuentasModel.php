@@ -38,15 +38,26 @@ final class RendicionCuentasModel
     }
 
     /**
-     * @return array{heading: string, text: string, link: string, buttonText: string}
+     * @return array{
+     *     heading: string,
+     *     text: string,
+     *     link: string,
+     *     buttonText: string,
+     *     buttons: array<int, array{label: string, year: string, link: string}>
+     * }
      */
     public function cta(): array
     {
         return [
-            'heading' => 'Documento Completo de Rendición de Cuentas',
-            'text' => 'Visualiza el informe oficial de rendición de cuentas de nuestra institución:',
+            'heading' => 'Documentos de Rendición de Cuentas',
+            'text' => 'Visualiza los informes oficiales de rendición de cuentas de nuestra institución:',
             'link' => '/rendicionCuentas',
             'buttonText' => 'Ver PDF',
+            'buttons' => [
+                ['label' => 'Ver PDF', 'year' => '2025', 'link' => '/rendicionCuentas2025'],
+                ['label' => 'Ver PDF', 'year' => '2024', 'link' => '/rendicionCuentas'],
+                
+            ],
         ];
     }
 }
