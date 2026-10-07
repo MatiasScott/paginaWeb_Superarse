@@ -70,7 +70,7 @@ $printedCategories = [];
                             <?php $printedCategories[] = $data[0]; ?>
                         <?php endif; ?>
                         <td><?php echo $data[1]; ?></td>
-                        <td style="text-align:center; font-weight:bold;"><?php echo ($datos['tipo_beca'] === $value) ? '✔' : ''; ?></td>
+                        <td style="text-align:center; font-weight:bold; font-family:'DejaVu Sans', sans-serif;"><?php echo ($datos['tipo_beca'] === $value) ? '✔' : ''; ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

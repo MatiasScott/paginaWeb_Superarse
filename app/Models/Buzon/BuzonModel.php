@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Models\Buzon;
 
+use App\Core\InstitutionalMailer;
+
 class BuzonModel
 {
     public function tipos(): array
@@ -129,26 +131,8 @@ HTML;
 
     public function enviar(string $tipo, string $mensaje): bool
     {
-        $vendorAutoload = ROOT_PATH . '/vendor/autoload.php';
-        if (is_file($vendorAutoload)) {
-            require_once $vendorAutoload;
-        }
-
-        if (!class_exists(\PHPMailer\PHPMailer\PHPMailer::class)) {
-            return false;
-        }
-
-        $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
         try {
-            $mail->isSMTP();
-            $mail->Host       = getenv('SUPERARSE_SMTP_HOST') ?: 'smtp.office365.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = getenv('SUPERARSE_SMTP_USERNAME') ?: 'informacion@superarse.edu.ec';
-            $mail->Password   = getenv('SUPERARSE_SMTP_PASSWORD') ?: '';
-            $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = 587;
-            $mail->CharSet    = 'UTF-8';
-            $mail->setFrom(getenv('SUPERARSE_SMTP_FROM') ?: 'informacion@superarse.edu.ec', 'Buzón Web Institucional');
+            $mail = InstitutionalMailer::create('Buzón Web Institucional');
 
             foreach ($this->destinatarios() as $email) {
                 $mail->addAddress($email);
@@ -160,8 +144,8 @@ HTML;
             $mail->AltBody = $this->cuerpoTexto($tipo, $mensaje);
 
             return $mail->send();
-        } catch (\Exception $e) {
-            error_log('PHPMailer Buzón Error: ' . $mail->ErrorInfo);
+        } catch (\Throwable $e) {
+            error_log('PHPMailer Buzón Error: ' . $e->getMessage());
             return false;
         }
     }

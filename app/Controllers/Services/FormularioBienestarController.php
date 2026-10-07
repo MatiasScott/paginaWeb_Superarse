@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\Services;
 
+use App\Core\InstitutionalMailer;
 use App\Models\Services\FormularioBienestarModel;
 
 class FormularioBienestarController
@@ -36,6 +37,9 @@ class FormularioBienestarController
 
     public function procesar(): void
     {
+        header('Content-Type: text/plain; charset=UTF-8');
+        header('X-Content-Type-Options: nosniff');
+
         if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
             http_response_code(405);
             echo 'Método de solicitud no válido.';
@@ -64,63 +68,45 @@ class FormularioBienestarController
         $logoPath = $this->model->logoPath();
 
         ob_start();
-        require ROOT_PATH . '/app/Views/Services/partials/solicitud_beca_pdf.php';
+        require ROOT_PATH . '/app/Views/services/partials/solicitud_beca_pdf.php';
         $htmlContent = ob_get_clean();
 
-$vendorAutoload = ROOT_PATH . '/vendor/autoload.php';
-if (is_file($vendorAutoload)) {
-    require_once $vendorAutoload;
-}
-
-if (!class_exists(\Mpdf\Mpdf::class) || !class_exists(\PHPMailer\PHPMailer\PHPMailer::class)) {
-    echo 'La solicitud ha sido recibida (entorno de desarrollo: faltan librerías vendor; ejecute "composer require mpdf/mpdf phpmailer/phpmailer" en la raíz para activar el envío).';
-    return;
-}
-
-$this->generarYEnviarPdf($htmlContent, $datos);
+        $this->generarYEnviarPdf($htmlContent, $datos);
     }
 
     private function generarYEnviarPdf(string $htmlContent, array $datos): void
     {
         try {
-            $mpdf = new \Mpdf\Mpdf([
-                'mode' => 'utf-8',
-                'format' => 'A4',
-                'margin_left' => 10,
-                'margin_right' => 10,
-                'margin_top' => 10,
-                'margin_bottom' => 10,
-                'shrink_tables_to_fit' => 1,
-            ]);
-            $mpdf->SetDisplayMode('fullpage');
-            $mpdf->WriteHTML($htmlContent);
-            $pdfOutput = $mpdf->Output('', 'S');
-        } catch (\Mpdf\MpdfException $e) {
-            exit('Error PDF: ' . $e->getMessage());
-        }
+            $mail = InstitutionalMailer::create('Instituto Superarse');
+            if (!class_exists(\Dompdf\Dompdf::class)) {
+                throw new \RuntimeException('Falta Dompdf. Ejecute composer install.');
+            }
 
-        $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
-        try {
-            $mail->isSMTP();
-            $mail->Host       = getenv('SUPERARSE_SMTP_HOST') ?: 'smtp.office365.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = getenv('SUPERARSE_SMTP_USERNAME') ?: 'informacion@superarse.edu.ec';
-            $mail->Password   = getenv('SUPERARSE_SMTP_PASSWORD') ?: '';
-            $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = 587;
-            $mail->CharSet    = 'UTF-8';
-            $mail->setFrom(getenv('SUPERARSE_SMTP_FROM') ?: 'informacion@superarse.edu.ec', 'Instituto Superarse');
+            $options = new \Dompdf\Options();
+            $options->setChroot(ROOT_PATH);
+            $options->setDefaultFont('DejaVu Sans');
+            $pdf = new \Dompdf\Dompdf($options);
+            $pdf->setPaper('A4');
+            $pdf->loadHtml($htmlContent, 'UTF-8');
+            $pdf->render();
+            $pdfOutput = $pdf->output();
+
             $mail->addAddress($this->model->datosInstitucionales()['emailDestino']);
             $mail->isHTML(true);
             $mail->Subject = 'Nueva Solicitud de Beca - ' . $datos['nombre'];
             $mail->Body    = 'Se adjunta la solicitud de beca firmada por ' . $datos['nombre'];
+            $mail->AltBody = html_entity_decode($mail->Body, ENT_QUOTES, 'UTF-8');
             $mail->addStringAttachment($pdfOutput, 'Solicitud_Beca.pdf', 'base64', 'application/pdf');
 
             if ($mail->send()) {
                 echo 'La solicitud ha sido enviada con éxito.';
+            } else {
+                throw new \RuntimeException('PHPMailer no confirmó el envío de la solicitud.');
             }
-        } catch (\Exception $e) {
-            echo "Error al enviar el correo: {$mail->ErrorInfo}";
+        } catch (\Throwable $e) {
+            error_log('[FormularioBienestar] Error al generar o enviar la solicitud: ' . $e->getMessage());
+            http_response_code(500);
+            echo 'No se pudo enviar la solicitud de beca. Por favor, intente de nuevo o contacte a soporte.';
         }
     }
 }
