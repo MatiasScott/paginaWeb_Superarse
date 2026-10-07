@@ -8,6 +8,7 @@ $bootstrap5Css = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstra
 $extraScripts = [
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',
     asset('js/app/modules/investigacion/investigacion-publicaciones.js'),
+    asset('js/app/modules/investigacion/investigacion-eventos.js'),
 ];
 
 $escape = static fn (string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -114,7 +115,8 @@ foreach ($items as $item) {
                 . '<div class="card h-100 border-0 border-top border-4 border-primary shadow-sm">'
                 . '<div class="card-body">'
                 . '<h5 class="fw-bold" style="color: #003366;">' . $escape($eventosMap[$eid]['title']) . '</h5>'
-                . '<div class="mt-3">' . $quitarPrimerH4($eventosMap[$eid]['content']) . '</div>'
+                . '<div class="evento-cuerpo mt-3">' . $quitarPrimerH4($eventosMap[$eid]['content']) . '</div>'
+                . '<button type="button" class="evento-ver-mas btn btn-sm btn-outline-primary mt-3" hidden>Ver más</button>'
                 . '</div></div></div>';
         }
         $linear .= '<div class="row">' . $cards . '</div>';

@@ -140,7 +140,7 @@ final class InvestigacionModel
                 'title' => 'Seminario de Minería 2026',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/Seminario-ECSOS.png" alt="Mineria" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/Seminario-ECSOS.png" alt="Mineria" class="evento-portada">
                     </div>
                     <h4>Seminario de Minería 2026</h4>
                     <p>
@@ -169,7 +169,7 @@ final class InvestigacionModel
                 'title' => 'Primer Congreso Internacional de Transformación Digital e Innovación Tecnológica',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/Digital_future.png" alt="Digital" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/Digital_future.png" alt="Digital" class="evento-portada">
                     </div>
                     <h4>Primer Congreso Internacional de Transformación Digital e Innovación Tecnológica</h4>
                     <p>
@@ -197,7 +197,7 @@ final class InvestigacionModel
                 'title' => 'Conversatorio - Día del Médico Veterinario 2026',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/Dia_del_enfermero.jpg" alt="Día del Médico Veterinario 2026" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/Dia_del_enfermero.jpg" alt="Día del Médico Veterinario 2026" class="evento-portada">
                     </div>
                     <h4>Conversatorio - Día del Médico Veterinario 2026</h4>
                     <p>
@@ -224,7 +224,7 @@ final class InvestigacionModel
                 'title' => 'II Congreso de Topografía 2025',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/CongresoII.jpeg" alt="Congreso II" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/CongresoII.jpeg" alt="Congreso II" class="evento-portada">
                     </div>
                     <h4>II Congreso de Topografía 2025</h4>
                     <p>
@@ -265,7 +265,7 @@ final class InvestigacionModel
                 'title' => 'I Congreso de Topografía 2023',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/congreso.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/congreso.png" alt="Descripción de la imagen 1" class="evento-portada">
                     </div>
                     <h4>I Congreso de Topografía 2023</h4>
                     <p>
@@ -303,7 +303,7 @@ final class InvestigacionModel
                 'title' => 'Seminario Equino',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/equino.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/equino.png" alt="Descripción de la imagen 1" class="evento-portada">
                     </div>
                     <h4>Seminario Equino</h4>
                     <p>
@@ -336,7 +336,7 @@ final class InvestigacionModel
                 'title' => 'Congreso AgroVet 2026',
                 'content' => <<<HTML
                     <div>
-                      <img src="{$b}/assets/img/Investigacion/Agrovet.png" alt="Descripción de la imagen 1" style="width: 100%; height: auto; margin-bottom: 15px;">
+                      <img src="{$b}/assets/img/Investigacion/Agrovet.png" alt="Descripción de la imagen 1" class="evento-portada">
                     </div>
                     <h4>Primer Congreso de Producción AgroPecuaria Sostenible y Bienestar Animal</h4>
                     <p>
@@ -419,7 +419,7 @@ final class InvestigacionModel
                 'id' => 'planificacionGestionInvestigacion',
                 'title' => 'Planificación Gestión de Investigación PAO mayo - octubre 2025',
                 'content' => <<<HTML
-                    <h4>Planificación Gestión de Investigación PAO mayo - octubre 2025</h4>
+                    
                     <p>
                       Accede al plan de gestión de investigación correspondiente al periodo mayo - octubre 2026, que detalla los objetivos, actividades clave y recursos asignados para fortalecer la investigación durante este semestre.
                     </p>
@@ -439,11 +439,11 @@ final class InvestigacionModel
                 'id' => 'proyectosInvestigacionPAO',
                 'title' => 'Proyectos de Investigación PAO MAYO 2026 - OCTUBRE 2026',
                 'content' => <<<HTML
-                    <h4>Proyectos de Investigación PAO MAYO 2026 - OCTUBRE 2026</h4>
+                  
                     <h5><strong>Requisitos</strong></h5>
                     <ul>
-                      <li>Descargar y llenar los formatos solicitados (Perfil de proyecto de investigación).</li>
-                      <li>Remitir los documentos dentro de los tiempos estipulados en el cronograma a los siguientes correos:</li>
+                      <p>Descargar y llenar los formatos solicitados (Perfil de proyecto de investigación).</p>
+                      <p>Remitir los documentos dentro de los tiempos estipulados en el cronograma a los siguientes correos:</p>
                       <ul>
                         <li>Dirección de Investigación, Desarrollo e Innovación: <a href="mailto:investigacion@superarse.edu.ec">Josue Tello</a></li>
                       </ul>

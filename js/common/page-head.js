@@ -12,7 +12,7 @@
     { rel: "stylesheet", href: APP.asset("lib/flaticon/font/flaticon.css") },
     { rel: "stylesheet", href: APP.asset("lib/owlcarousel/assets/owl.carousel.min.css") },
     { rel: "stylesheet", href: APP.asset("lib/lightbox/css/lightbox.min.css") },
-    { rel: "stylesheet", href: APP.asset("css/style.css?V=1.3") },
+    { rel: "stylesheet", href: APP.asset("css/style.css?V=1.4") },
     { rel: "stylesheet", href: APP.asset("css/vistas-internas.css") },
     { rel: "stylesheet", href: APP.asset("css/vistas-personalizadas.css") },
     { rel: "stylesheet", href: APP.asset("css/mision-vision.css") },
