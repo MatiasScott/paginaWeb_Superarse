@@ -88,16 +88,32 @@ final class CalidadPlanificacionModel
     /**
      * @return array{link: string, icon: string, title: string, text: string, buttonText: string}
      */
-    public function autoevaluacionCard(): array
-    {
-        return [
-            'link' => '/Autoevaluacion',
+  public function autoevaluacionCards(): array
+{
+    return [
+        [
+            'link' => '/Autoevaluacion-2024',
             'icon' => 'fas fa-file-pdf',
             'title' => 'Informe de Autoevaluación 2024',
             'text' => 'Consulta el documento oficial del proceso de autoevaluación institucional correspondiente al año 2024.',
             'buttonText' => 'Ver Documento',
-        ];
-    }
+        ],
+        [
+            'link' => '/ModeloAutoevaluacion-2021',
+            'icon' => 'fas fa-file-pdf',
+            'title' => 'Modelo Acreditación CACES 2021',
+            'text' => 'Consulta el documento oficial del proceso de autoevaluación institucional correspondiente al año 2023.',
+            'buttonText' => 'Ver Documento',
+        ],
+        [
+            'link' => '/Pasos_2024',
+            'icon' => 'fas fa-file-pdf',
+            'title' => 'Pasos Criterior Indicadores 2024',
+            'text' => 'Consulta el documento oficial del proceso de autoevaluación institucional correspondiente al año 2022.',
+            'buttonText' => 'Ver Documento',
+        ],
+    ];
+}
 
     public function pediFrameUrl(): string
     {

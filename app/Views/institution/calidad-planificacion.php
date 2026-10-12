@@ -5,7 +5,8 @@ $title = $title ?? 'Aseguramiento de la Calidad y Planificación';
 $kicker = $kicker ?? '';
 $titleLines = $titleLines ?? [];
 $sections = $sections ?? [];
-$autoevaluacionCard = $autoevaluacionCard ?? [];
+// Soportamos $autoevaluacionCards (array de tarjetas) o $autoevaluacionCard (para retrocompatibilidad)
+$autoevaluacionCards = $autoevaluacionCards ?? ($autoevaluacionCard ? [$autoevaluacionCard] : []);
 $pediFrameUrl = $pediFrameUrl ?? '';
 
 $escape = static fn (string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -93,20 +94,31 @@ ob_start();
             </div>
         <?php endforeach; ?>
 
-        <div class="container-fluid py-5">
-            <div class="container text-center">
-                <div class="cards-container">
-                    <a href="<?= $escape(url((string) $autoevaluacionCard['link'])) ?>" target="_blank" class="card-link">
-                        <div class="card-doc">
-                            <i class="<?= $escape((string) $autoevaluacionCard['icon']) ?> card-icon"></i>
-                            <h4 class="card-title"><?= $escape((string) $autoevaluacionCard['title']) ?></h4>
-                            <p class="card-text"><?= $escape((string) $autoevaluacionCard['text']) ?></p>
-                            <span class="btn-doc"><?= $escape((string) $autoevaluacionCard['buttonText']) ?></span>
-                        </div>
-                    </a>
+        <?php if (!empty($autoevaluacionCards)): ?>
+            <div class="container-fluid py-5">
+                <div class="container text-center">
+                    <div class="row justify-content-center g-4">
+                        <?php foreach ($autoevaluacionCards as $card): ?>
+                            <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+                                <a href="<?= $escape(url((string) $card['link'])) ?>" target="_blank" class="card-link w-100 text-decoration-none">
+                                    <div class="card-doc h-100 p-4 shadow-sm rounded d-flex flex-column justify-content-between">
+                                        <div>
+                                            <i class="<?= $escape((string) $card['icon']) ?> card-icon mb-3"></i>
+                                            <h4 class="card-title mb-2"><?= $escape((string) $card['title']) ?></h4>
+                                            <p class="card-text text-muted"><?= $escape((string) $card['text']) ?></p>
+                                        </div>
+                                        <div class="mt-3">
+                                            <span class="btn-doc"><?= $escape((string) $card['buttonText']) ?></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
+
         <br>
 
         <div class="visor-foto-container" style="position: relative;">
