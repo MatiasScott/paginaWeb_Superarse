@@ -99,7 +99,7 @@ ob_start();
                 <div class="container text-center">
                     <div class="row justify-content-center g-4">
                         <?php foreach ($autoevaluacionCards as $card): ?>
-                            <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+                            <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                                 <a href="<?= $escape(url((string) $card['link'])) ?>" target="_blank" class="card-link w-100 text-decoration-none">
                                     <div class="card-doc h-100 p-4 shadow-sm rounded d-flex flex-column justify-content-between">
                                         <div>
