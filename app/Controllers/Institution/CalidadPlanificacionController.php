@@ -23,8 +23,8 @@ final class CalidadPlanificacionController
         // sección arma cada tarjeta del contenido
         $sections = $this->model->sections();
 
-        // card_resume: tarjeta de descarga del informe de autoevaluación
-        $autoevaluacionCard = $this->model->autoevaluacionCard();
+        // Obtener el listado de tarjetas de autoevaluación (3 o más)
+        $autoevaluacionCards = $this->model->autoevaluacionCards();
 
         $pediFrameUrl = $this->model->pediFrameUrl();
 
