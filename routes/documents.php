@@ -15,6 +15,7 @@ return [
         '/Autoevaluacion' => 'assets/docs/Autoevaluacion/INFORME_FINAL_AUTOEV_NOV_2024.pdf',
         '/ModeloAutoevaluacion' => 'assets/docs/Autoevaluacion/Modelo_Acreditacion_CACES.pdf',
         '/Pasos' => 'assets/docs/Autoevaluacion/Pesos_criterios_indicadores 2024.pdf',
+         '/Guia' => 'assets/docs/Autoevaluacion/guia_de_apoyo_del_par_evaluador_para_la_institucional_istt_2024.pdf',
         '/PEDI' => 'assets/docs/Servicios/PEDI/PLAN_ESTRATEGICO_DE_DESARROLLO_INSTITUCIONAL_2024_2028.pdf',
         '/estadoFinanciero' => 'assets/docs/Servicios/estadoFinanciero/ESTADO_FINANCIERO.pdf',
         '/rendicionCuentas' => 'assets/docs/Servicios/rendicionCuentas/UX_INFORME_DE_RENDICION_DE_CUENTAS_2024.pdf',

@@ -92,24 +92,31 @@ final class CalidadPlanificacionModel
 {
     return [
         [
-            'link' => '/Autoevaluacion-2024',
+            'link' => '/Autoevaluacion',
             'icon' => 'fas fa-file-pdf',
             'title' => 'Informe de Autoevaluación 2024',
             'text' => 'Consulta el documento oficial del proceso de autoevaluación institucional correspondiente al año 2024.',
             'buttonText' => 'Ver Documento',
         ],
         [
-            'link' => '/ModeloAutoevaluacion-2021',
+            'link' => '/ModeloAutoevaluacion',
             'icon' => 'fas fa-file-pdf',
             'title' => 'Modelo Acreditación CACES 2021',
             'text' => 'Consulta el documento oficial del proceso de autoevaluación institucional correspondiente al año 2023.',
             'buttonText' => 'Ver Documento',
         ],
         [
-            'link' => '/Pasos_2024',
+            'link' => '/Pasos',
             'icon' => 'fas fa-file-pdf',
             'title' => 'Pasos Criterior Indicadores 2024',
             'text' => 'Consulta el documento oficial del proceso de autoevaluación institucional correspondiente al año 2022.',
+            'buttonText' => 'Ver Documento',
+        ],
+         [
+            'link' => '/Guia',
+            'icon' => 'fas fa-file-pdf',
+            'title' => 'Guía de Apoyo para el Proceso de Autoevaluación',
+            'text' => 'Consulta la guía de apoyo del proceso de autoevaluación institucional correspondiente al año 2024.',
             'buttonText' => 'Ver Documento',
         ],
     ];
