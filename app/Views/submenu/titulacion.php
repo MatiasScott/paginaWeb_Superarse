@@ -13,8 +13,8 @@ $escape = static fn (string $value): string => htmlspecialchars($value, ENT_QUOT
 
 ob_start();
 ?>
-<div class="container-fluid py-5">
-    <div class="container">
+<div class="container-fluid py-5 container-top">
+    <div class="container container-wide">
         <div class="row align-items-center">
             <div class="col-lg-5">
                 <div class="custom-carousel-wrapper">
@@ -58,7 +58,7 @@ ob_start();
                 </div>
             </div>
             <div class="col-lg-7">
-                <div class="d-flex flex-column justify-content-center h-100 p-4 border rounded shadow-sm">
+                <div class="d-flex flex-column p-4 border rounded shadow-sm">
                     <div id="titulacionContainer" style="text-align: justify;">
                         <?php
                         $total = count($secciones);

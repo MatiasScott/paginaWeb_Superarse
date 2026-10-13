@@ -99,7 +99,7 @@ ob_start();
                          onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)';"
                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';">
 
-                        <div style="position: relative; height: 500px; overflow: hidden;">
+                        <div class="oferta-card-media">
                             <img src="<?= $escape($career['imagePath']) ?>" alt="<?= $escape($career['title']) ?>" style="width: 100%; height: 100%; object-fit: cover;">
                             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);"></div>
 

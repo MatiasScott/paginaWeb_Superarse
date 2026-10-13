@@ -43,7 +43,7 @@ ob_start();
 </div>
 
 <div class="container-fluid py-5">
-    <div class="container">
+    <div class="container container-wide">
         <div class="row justify-content-center">
             <div class="col-lg-15 col-md-12">
 

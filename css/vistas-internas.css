@@ -5,6 +5,43 @@
   padding-bottom: 3rem !important;
 }
 
+/* Vistas internas: aprovecha el espacio lateral en pantallas anchas manteniendo un margen */
+.container-top .container,
+.container.container-top,
+.container-wide {
+  width: 100%;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+/* Contenedores anidados: se alinean al ancho útil del contenedor padre */
+.container-top .container .container {
+  width: 100%;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Tarjetas de oferta académica: imagen responsiva que se adapta al ancho de la tarjeta.
+   Las fotos de las carreras son verticales (~2:3 / 3:4), por eso se usa 3:4 para
+   mostrarlas casi completas (sin recorte) y que la tarjeta conserve una altura generosa. */
+.oferta-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.oferta-card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 
 .vista-head {
@@ -131,8 +168,9 @@
 }
 
 @media (max-width: 991.98px) {
-  .container-top > .container:not(.servicios-shell),
-  .container-top > .container.vista-shell {
+  .container-top .container,
+  .container.container-top,
+  .container-wide {
     padding: 1.25rem;
   }
 

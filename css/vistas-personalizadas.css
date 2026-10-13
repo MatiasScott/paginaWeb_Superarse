@@ -31,9 +31,15 @@
 }
 
 .main-container {
-  max-width: 1140px;
+  max-width: 1600px;
   margin: 0 auto 3rem;
-  padding: 0 15px;
+  padding: 0 2.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .main-container {
+    padding: 0 1.25rem;
+  }
 }
 
 .main-container .seccion {

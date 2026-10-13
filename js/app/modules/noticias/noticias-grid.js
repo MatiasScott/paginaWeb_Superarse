@@ -6,7 +6,7 @@
 
   if (!grid || !paginacion) return;
 
-  var NOTICIAS_POR_PAGINA = 6;
+  var NOTICIAS_POR_PAGINA = 8;
   var tarjetas = Array.prototype.slice.call(grid.querySelectorAll(".noticia-card"));
   var tarjetasFiltradas = tarjetas;
   var paginaActual = 1;

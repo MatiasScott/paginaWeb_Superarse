@@ -101,7 +101,7 @@ foreach ($items as $item) {
         continue;
     }
 
-    // Eventos (grid de 2 columnas)
+    // Eventos (grid de 4 columnas x 2 filas)
     if (in_array($id, $eventosIds, true)) {
         if ($eventosRenderizados) {
             continue;
@@ -111,7 +111,7 @@ foreach ($items as $item) {
             if (!isset($eventosMap[$eid])) {
                 continue;
             }
-            $cards .= '<div class="col-md-6 mb-4">'
+            $cards .= '<div class="col-md-6 col-lg-4 col-xl-3 mb-4">'
                 . '<div class="card h-100 border-0 border-top border-4 border-primary shadow-sm">'
                 . '<div class="card-body">'
                 . '<h5 class="fw-bold" style="color: #003366;">' . $escape($eventosMap[$eid]['title']) . '</h5>'

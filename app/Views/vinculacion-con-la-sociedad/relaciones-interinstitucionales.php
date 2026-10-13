@@ -72,7 +72,7 @@ ob_start();
 </div>
 
 <div class="container-fluid py-5">
-    <div class="container text-center">
+    <div class="container container-wide text-center">
         <h1 style="color: #7BC54A;" class="mb-4">CONVENIOS</h1>
         <h5 style="text-align: center;">Con instituciones de Educación Superior</h5>
         <div class="owl-carousel convenios-carousel">

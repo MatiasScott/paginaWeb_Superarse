@@ -407,7 +407,7 @@ function generarOfertaAcademica() {
         <div class="testimonial-item px-3 pb-4">
           <div class="card shadow-lg border-0" style="border-radius: 25px; overflow: hidden; background: #fff; transition: 0.4s; min-height: 800px; height: auto; display: flex; flex-direction: column;">
             
-            <div style="position: relative; height: 450px; min-height: 350px; overflow: hidden;">
+            <div style="position: relative; aspect-ratio: 3 / 4; min-height: 350px; overflow: hidden;">
               <img src="${carrera.imagenSrc}" alt="${carrera.titulo}" style="width: 100%; height: 100%; object-fit: cover;">
               <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%);"></div>
               
@@ -639,7 +639,7 @@ function generarSelloUnico() {
         .img-fluid-selloU {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
           transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .sello-card:hover .img-fluid-selloU {

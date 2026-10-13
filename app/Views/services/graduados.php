@@ -119,7 +119,7 @@ ob_start();
             </div>
         </div>
 
-        <div class="container">
+        <div class="container container-wide">
             <div class="row mb-5 justify-content-center" id="graduados-beneficios">
                 <?php foreach ($beneficios as $item): ?>
                     <div class="col-lg-3 col-md-6 mb-4">

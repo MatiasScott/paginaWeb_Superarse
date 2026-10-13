@@ -63,7 +63,7 @@ ob_start();
                                 <h5 class="text-primary text-uppercase mb-1">Para su postulación, tenga en cuenta los siguientes pasos:</h5>
 
                                 <div class="container-fluid py-5">
-                                    <div class="container">
+                                    <div class="container container-wide">
                                         <div class="row justify-content-center">
                                             <div class="col-lg-12">
                                                 <h1 class="mb-4 text-center">Proceso de Selección</h1>
@@ -121,7 +121,7 @@ ob_start();
                                                     </a>
                                                 </div>
 
-                                                <div class="container py-4">
+                                                <div class="container container-wide py-4">
                                                     <div class="row">
                                                         <div class="col-md-6 mb-9 mb-md-0">
                                                             <h4 class="text-primary mb-3">Vacantes<br> Docentes</h4>
@@ -270,7 +270,7 @@ ob_start();
                             consolidan como referentes en sus respectivas áreas. Nos honra contar con su conocimiento, liderazgo y compromiso,
                             cualidades que enriquecen la excelencia académica de nuestras carreras.</p>
                         <div class="container-fluid py-5">
-                            <div class="container">
+                            <div class="container container-wide">
                                 <div id="carouselExampleAutoplay" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500">
                                     <div class="carousel-inner">
                                         <?php foreach ($mejoresEvaluados as $index => $slide): ?>

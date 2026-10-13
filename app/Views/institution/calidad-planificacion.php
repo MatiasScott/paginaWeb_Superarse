@@ -13,7 +13,25 @@ $escape = static fn (string $value): string => htmlspecialchars($value, ENT_QUOT
 
 ob_start();
 ?>
-<div class="container-fluid py-5 container-top">
+<style>
+    /* El ancho general ya se hereda de css/vistas-internas.css (.container-top > .container) */
+
+    /* Las tarjetas expanden su grilla al mismo ancho útil del contenido */
+    .calidad-page .calidad-cards {
+        max-width: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* La tarjeta de documento aprovecha el ancho de su columna sin deformarse */
+    .calidad-page .card-doc {
+        width: 100%;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<div class="container-fluid py-5 container-top calidad-page">
     <div class="container">
         <div class="text-center pb-2">
             <p class="section-title px-5">
@@ -95,8 +113,8 @@ ob_start();
         <?php endforeach; ?>
 
         <?php if (!empty($autoevaluacionCards)): ?>
-            <div class="container-fluid py-5">
-                <div class="container text-center">
+            <div class="container-fluid py-5 px-0">
+                <div class="container text-center calidad-cards">
                     <div class="row justify-content-center g-4">
                         <?php foreach ($autoevaluacionCards as $card): ?>
                             <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">

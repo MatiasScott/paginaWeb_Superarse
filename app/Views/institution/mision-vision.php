@@ -28,7 +28,7 @@ ob_start();
     </div>
 </div>
 
-<div class="container pb-5">
+<div class="container container-wide pb-5">
     <div class="row g-4">
         <div class="col-md-6 mb-4">
             <div class="card-main p-4 p-lg-5">
@@ -48,7 +48,7 @@ ob_start();
 </div>
 
 <section class="py-5 bg-white">
-    <div class="container">
+    <div class="container container-wide">
         <div class="text-center mb-5">
             <h2 class="fw-bold display-6">Valores Institucionales</h2>
             <p class="text-muted">Los pilares que guían nuestro comportamiento y decisiones.</p>

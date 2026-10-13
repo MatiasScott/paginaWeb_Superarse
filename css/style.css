@@ -722,19 +722,24 @@ pre code {
   margin-top: 8%;
 }
 
+/* Home: aprovecha el espacio lateral manteniendo un margen (igual que las vistas internas) */
 .container-fluid-ofertaA {
-  margin-top: 0%;
-  height: 75%;
-  width: 75%;
+  margin-top: 0;
+  height: auto;
+  width: 100%;
+  max-width: 1600px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   margin-right: auto;
   margin-left: auto;
 }
 
 .container-fluid-selloU {
-  margin-top: 0%;
-  padding-left: 10%;
-  padding-right: 10%;
-  width: 90%;
+  margin-top: 0;
+  width: 100%;
+  max-width: 1600px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -764,7 +769,20 @@ pre code {
 }
 
 .container-submenu {
-  padding: 3%;
+  width: 100%;
+  max-width: 1600px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 3% 2.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .container-fluid-ofertaA,
+  .container-fluid-selloU,
+  .container-submenu {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
 
 .d-flex.bg-light {
@@ -15113,18 +15131,9 @@ canvas {
     }
 }
 /* --------------------------- INVESTIGACIÓN ---------------------------------*/
- .investigacion-shell {
-        max-width: none !important;
-        padding-left: 10% !important;
-        padding-right: 10% !important;
-      }
-
-      @media (max-width: 991.98px) {
-        .investigacion-shell {
-          padding-left: 5% !important;
-          padding-right: 5% !important;
-        }
-      }
+/* El ancho del contenedor se rige por la regla global de vistas internas
+   (.container-top > .container en css/vistas-internas.css) para mantener
+   el mismo margen lateral que el resto de las vistas. */
 
 /* Portadas de eventos: todas con el mismo tamaño */
 .investigacion-shell .evento-portada {
