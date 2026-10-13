@@ -96,3 +96,87 @@
         padding: 16px;
     }
 }
+
+/* Mejora visual moderna sin alterar la estructura de la cabecera original */
+.card-format {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.card-format:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-format .card-img-top-wrapper {
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f8f9fa;
+}
+
+.card-format .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-format:hover .card-img-top {
+    transform: scale(1.04);
+}
+
+.card-format .icon-badge {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-format .icon-badge i {
+    font-size: 1.3rem;
+}
+
+.btn-soft-primary {
+    background-color: #e7f1ff;
+    color: #0d6efd;
+    border: 1px solid #b6d4fe;
+    font-weight: 600;
+}
+
+.btn-soft-primary:hover {
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+.upload-box {
+    border: 2px dashed #ced4da;
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+    background: #f8f9fa;
+    transition: border-color 0.2s ease;
+}
+
+.upload-box:hover {
+    border-color: #0d6efd;
+}
+
+.modal-header-institutional {
+    background-color: #0f2027;
+    color: #ffffff;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+}
