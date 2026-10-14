@@ -131,6 +131,43 @@ $escape = static function (string $value): string {
         .social-icons-banner a:hover {
             transform: translateY(-3px);
         }
+
+        /* Carrusel de galería de la carrera (estilo tarjetas) */
+        .career-gallery-block {
+            margin-top: 25px;
+        }
+
+        .career-gallery-card {
+            border-radius: 14px;
+            overflow: hidden;
+            background: #0f172a;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .career-gallery-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+        }
+
+        .career-gallery-card img {
+            display: block;
+            width: 100%;
+            height: 245px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .career-gallery-card:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Ajustes responsivos del carrusel */
+        @media (max-width: 768px) {
+            .career-gallery-card img {
+                height: 130px;
+            }
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -164,6 +201,24 @@ $escape = static function (string $value): string {
                             <?php foreach ($career['institutionalLogos'] as $logoInst): ?>
                                 <div title="<?= $escape($logoInst['name']) ?>" class="d-flex align-items-center justify-content-center">
                                     <img src="<?= $escape($logoInst['image']) ?>" alt="<?= $escape($logoInst['name']) ?>" class="institutional-logo-item">
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+                <!-- GALERÍA DE IMÁGENES DE LA CARRERA (DENTRO DEL ESPACIO DE ACREDITACIONES) -->
+                <?php if (!empty($career['gallery'])): ?>
+                    <div class="career-gallery-block">
+                        <div class="institutional-title">
+                            <i class="fas fa-images text-info"></i>Galería
+                        </div>
+                        <div class="owl-carousel career-gallery-carousel">
+                            <?php foreach ($career['gallery'] as $index => $image): ?>
+                                <div class="career-gallery-card">
+                                    <a href="<?= $escape($image) ?>" class="d-block" data-lightbox="career-gallery" data-title="<?= $escape($career['title']) ?>">
+                                        <img src="<?= $escape($image) ?>" loading="lazy" alt="<?= $escape($career['title']) ?> - imagen <?= $index + 1 ?>">
+                                    </a>
                                 </div>
                             <?php endforeach; ?>
                         </div>
@@ -249,6 +304,27 @@ $escape = static function (string $value): string {
       // Evitar FOUC - mostrar body cuando todo cargó (como hace page-head.js)
       window.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){ document.body.style.opacity = '1'; }, 50);
+      });
+
+      // Carrusel de la galería de la carrera (estilo tarjetas)
+      jQuery(document).ready(function ($) {
+        var $gallery = $('.career-gallery-carousel');
+        if ($gallery.length) {
+          $gallery.owlCarousel({
+            loop: true,
+            margin: 16,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 3500,
+            autoplayHoverPause: true,
+            responsive: {
+              0: { items: 1 },
+              576: { items: 2 },
+              992: { items: 3 }
+            }
+          });
+        }
       });
     </script>
 </body>

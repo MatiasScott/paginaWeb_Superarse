@@ -68,6 +68,18 @@ final class EcsosModel
                 'duration' => '2 años',
                 'modality' => 'Híbrida',
                 'curriculumLink' => '/TOPO',
+                'gallery' => [
+                    asset('assets/img/Oferta_Academica/topografia/topografia_1.jpg'),
+                    asset('assets/img/Oferta_Academica/topografia/topografia_2.jpg'),
+                    asset('assets/img/Oferta_Academica/topografia/topografia_3.jpg'),
+                    asset('assets/img/Oferta_Academica/topografia/topografia_4.jpg'),
+                    asset('assets/img/Oferta_Academica/topografia/topografia_5.jpg'),
+                    asset('assets/img/Oferta_Academica/topografia/topografia_6.jpg'),
+                    asset('assets/img/Oferta_Academica/topografia/topografia_7.jpg'),
+                    asset('assets/img/Oferta_Academica/topografia/topografia_8.jpg'),
+                    asset('assets/img/Oferta_Academica/topografia/topografia_9.jpg'),
+                    asset('assets/img/Oferta_Academica/topografia/topografia_10.jpg'),
+                ],
                  'institutionalLogos' => [
                     [
                         'name' => 'CACES',
@@ -107,6 +119,19 @@ final class EcsosModel
                 'duration' => '2 años',
                 'modality' => 'Híbrida',
                 'curriculumLink' => '/MINERIA',
+                'gallery' => [
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_1.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_2.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_3.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_4.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_5.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_6.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_7.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_8.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_9.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_10.jpg'),
+                    asset('assets/img/Oferta_Academica/mineria/Mineria_11.jpg'),
+                ],
                  'institutionalLogos' => [
                     [
                         'name' => 'CACES',
@@ -152,6 +177,15 @@ final class EcsosModel
                 'duration' => '2 años',
                 'modality' => 'En línea',
                 'curriculumLink' => '/SEGURIDAD_E_HIGIENE_DEL_TRABAJO',
+                'gallery' => [
+                    asset('assets/img/Oferta_Academica/seguridad/Seguridad_1.jpg'),
+                    asset('assets/img/Oferta_Academica/seguridad/Seguridad_2.jpg'),
+                    asset('assets/img/Oferta_Academica/seguridad/Seguridad_3.jpg'),
+                    asset('assets/img/Oferta_Academica/seguridad/Seguridad_4.jpg'),
+                    asset('assets/img/Oferta_Academica/seguridad/Seguridad_5.jpg'),
+                    asset('assets/img/Oferta_Academica/seguridad/Seguridad_6.jpg'),
+                    asset('assets/img/Oferta_Academica/seguridad/Seguridad_7.jpg'),
+                ],
                 'institutionalLogos' => [
                     [
                         'name' => 'CACES',
@@ -245,6 +279,7 @@ final class EcsosModel
                     'duration' => $career['duration'],
                     'modality' => $career['modality'],
                     'curriculum' => $career['curriculumLink'],
+                    'gallery' => $career['gallery'] ?? [],
                     'institutionalLogos' => $career['institutionalLogos'] ?? [],
                 ];
             }
