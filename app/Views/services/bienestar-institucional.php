@@ -198,12 +198,16 @@ ob_start();
                                                          Tu navegador no soporta el reproductor de video.
                                                          </video>
                                                         </div>
-                                                        <div class="col-md-8 d-flex gap-2">
-                                                            <img src="<?= asset('assets/img/bienestarEstudiantil/Clubes/Danza1.jpeg') ?>" class="img-fluid rounded shadow" style="width: 32%;">
-                                                            <img src="<?= asset('assets/img/bienestarEstudiantil/Clubes/Danza2.jpeg') ?>" class="img-fluid rounded shadow" style="width: 32%;">
-                                                            <img src="<?= asset('assets/img/bienestarEstudiantil/Clubes/Danza3.jpeg') ?>" class="img-fluid rounded shadow" style="width: 32%;">
-                                                            <img src="<?= asset('assets/img/bienestarEstudiantil/Clubes/Danza4.jpeg') ?>" class="img-fluid rounded shadow" style="width: 32%;">
-                                                            <img src="<?= asset('assets/img/bienestarEstudiantil/Clubes/Danza5.jpeg') ?>" class="img-fluid rounded shadow" style="width: 32%;">
+                                                        <div class="col-12 mt-4">
+                                                            <div class="clubes-carrusel">
+                                                                <div class="owl-carousel">
+                                                                    <?php foreach (($carruseles['clubDanza'] ?? []) as $index => $imagen): ?>
+                                                                        <div class="club-carrusel-item">
+                                                                            <img src="<?= $escape($imagen) ?>" alt="Club de Danza - Imagen <?= (int) $index + 1 ?>" class="img-fluid rounded shadow">
+                                                                        </div>
+                                                                    <?php endforeach; ?>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

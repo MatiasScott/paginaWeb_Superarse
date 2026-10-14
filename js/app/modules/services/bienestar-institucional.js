@@ -31,6 +31,32 @@
                 }
             });
         });
+
+        // Carrusel de Clubes: 3 tarjetas, sin flechas ni puntos, solo avance automático
+        document.querySelectorAll('.clubes-carrusel .owl-carousel').forEach(function (owlContainer) {
+            var $clubOwl = jQuery(owlContainer);
+
+            if ($clubOwl.length === 0) {
+                return;
+            }
+
+            $clubOwl.owlCarousel({
+                items: 3,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 2500,
+                autoplayHoverPause: true,
+                dots: false,
+                nav: false,
+                margin: 16,
+                smartSpeed: 700,
+                responsive: {
+                    0: { items: 1 },
+                    768: { items: 2 },
+                    1200: { items: 3 }
+                }
+            });
+        });
     });
 })();
 
@@ -100,6 +126,14 @@
                 cuerpos.forEach(function (cuerpo) {
                     cuerpo.classList.toggle('is-active', cuerpo.id === destino);
                 });
+
+                // Recalcula el carrusel del club cuando su detalle se hace visible
+                if (window.jQuery && jQuery.fn && jQuery.fn.owlCarousel) {
+                    var cuerpoActivo = document.getElementById(destino);
+                    if (cuerpoActivo) {
+                        jQuery(cuerpoActivo).find('.owl-carousel').trigger('refresh.owl.carousel');
+                    }
+                }
             });
         });
     });

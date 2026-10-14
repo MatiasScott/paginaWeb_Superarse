@@ -86,6 +86,13 @@ final class BienestarInstitucionalModel
                 asset('assets/img/bienestarEstudiantil/braile/braile3.jpg'),
                 asset('assets/img/bienestarEstudiantil/braile/braile4.jpg'),
             ],
+            'clubDanza' => [
+                asset('assets/img/bienestarEstudiantil/Clubes/Danza1.jpeg'),
+                asset('assets/img/bienestarEstudiantil/Clubes/Danza2.jpeg'),
+                asset('assets/img/bienestarEstudiantil/Clubes/Danza3.jpeg'),
+                asset('assets/img/bienestarEstudiantil/Clubes/Danza4.jpeg'),
+                asset('assets/img/bienestarEstudiantil/Clubes/Danza5.jpeg'),
+            ],
             'intiRaymi' => [
                 asset('assets/img/bienestarEstudiantil/IntiRaymi/IntiRaymi.png'),
                 asset('assets/img/bienestarEstudiantil/IntiRaymi/IntiRaymi1.png'),
