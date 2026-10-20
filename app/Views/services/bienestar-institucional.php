@@ -110,7 +110,7 @@ ob_start();
                     <span>Igualdad, Equidad e Inclusión</span>
                 </button>
               <a class="bienestar-menu-btn" 
-               href="https://docs.google.com/forms/d/e/1FAIpQLScKuypiP-LoLt4-QtKw4ycF37TJSXwY4YZZk_XN9rP519yYfw/viewform" 
+               href="https://forms.cloud.microsoft/r/94uLCQDNWz" 
                target="_blank" 
                rel="noopener" 
                style="background-color: #e74c3c; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
