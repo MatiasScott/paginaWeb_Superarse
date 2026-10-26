@@ -23,6 +23,7 @@ final class SolicitudesModel
             'tercera-matricula'  => 'tercera-matricula.php',
             'cambio-carrera'     => 'cambio-carrera.php',
             'retiro-voluntario'  => 'retiro-voluntario.php',
+            'cambio-sede'        => 'cambio-sede.php'
         ];
     }
 

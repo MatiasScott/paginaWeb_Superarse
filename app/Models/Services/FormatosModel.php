@@ -95,6 +95,17 @@ final class FormatosModel
                 'generar' => null,
                 'subir' => $subir('Retiro Voluntario de Asignaturas'),
             ],
+             [
+                'titulo' => 'Cambio de Sede',
+                'descripcion' => 'Solicitud para el cambio de sede dentro de la institución.',
+                'icono' => 'fas fa-building',
+                'llenar' => [
+                    'texto' => 'Llenar Solicitud',
+                    'url' => '/Solicitudes/cambio-sede',
+                ],
+                'generar' => null,
+                'subir' => $subir('Cambio de Sede'),
+            ],
         ];
     }
 }

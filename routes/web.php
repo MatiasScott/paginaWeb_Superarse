@@ -79,7 +79,7 @@ foreach ($actions as $path => [$group, $name, $action]) {
     ];
 }
 
-foreach (['contrato', 'reingreso', 'homologacion', 'cambio-malla', 'tercera-matricula', 'cambio-carrera', 'retiro-voluntario'] as $type) {
+foreach (['contrato', 'reingreso', 'homologacion', 'cambio-malla', 'tercera-matricula', 'cambio-carrera', 'retiro-voluntario', 'cambio-sede'] as $type) {
     $routes['Solicitudes/' . $type] = [
         'controller' => \App\Controllers\Services\SolicitudesController::class,
         'model' => \App\Models\Services\SolicitudesModel::class,
