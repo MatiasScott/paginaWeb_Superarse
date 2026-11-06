@@ -22,6 +22,14 @@ final class NoticiasModel
     public function noticias(): array
     {
         return [
+         
+             [
+                'titulo' => 'Matriculas Ordinarias PAO Noviembre 2026- Abril 2027',
+                'fecha' => '2026-11-04',
+                'resumen' => 'Matriculas ordinarias para el periodo académico noviembre 2026 - abril 2027, del 26 de octubre al 13 de noviembre del 2026, para estudiantes antiguos y nuevos.',
+                'imagen' => asset('assets/img/content/noticias/P-Matriculas-Ordinarias.jpg'),
+                'enlace' => asset('assets/img/content/noticias/P-Matriculas-Ordinarias.jpg'),
+            ],
             [
                 'titulo' => '1ER SEMINARIO DE SEGURIDAD SALUD Y PREVENCIÓN DE RIESGOS',
                 'fecha' => '2026-09-02',

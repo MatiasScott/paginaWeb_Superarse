@@ -7,39 +7,17 @@
 
     // 1. ESTRUCTURA DE OBJETOS CON FECHAS DE VIGENCIA
     var todasLasPublicaciones = [
-        //N5
-      {
-        src: APP.asset("assets/img/content/noticias/noticiasheader/Seminario_banner.jpg"),
-        inicio: "2026-09-02",
-        fin: "2026-09-26" // ACTIVO HOY
-      },
-      //N5
-      {
-        src: APP.asset("assets/img/content/noticias/noticiasheader/Evaluacion_profesores_4.jpg"),
-        inicio: "2026-08-31",
-        fin: "2026-09-13" // ACTIVO HOY
-      },
-      //N4
-      {
-        src: APP.asset("assets/img/content/noticias/noticiasheader/Evaluacion_profesores_3.jpg"),
-        inicio: "2026-08-31",
-        fin: "2026-09-13" // ACTIVO HOY
-      },
-      //N3
-      {
-        src: APP.asset("assets/img/content/noticias/noticiasheader/Evaluacion_profesores_2.jpg"),
-         inicio: "2026-08-31",
-        fin: "2026-09-13" // ACTIVO HOY
-      },
+        
+      
       //N2
       {
-        src: APP.asset("assets/img/content/noticias/noticiasheader/Evaluacion_profesores_1.jpg"),
-        inicio: "2026-08-31",
-        fin: "2026-09-13" // ACTIVO HOY
+        src: APP.asset("assets/img/content/noticias/noticiasheader/Banner-Matriculas-Ordinarias.jpg"),
+        inicio: "2026-11-04",
+        fin: "2026-11-14" // ACTIVO HOY
       },
      //N1
      {
-        src: APP.asset("assets/img/content/noticias/noticiasheader/Prueba1.jpeg"),
+        src: APP.asset("assets/img/content/noticias/noticiasheader/Prueba1.jpg"),
         inicio: "2026-06-12", // ACTIVO HOY
         fin: "2040-12-31" 
       }
