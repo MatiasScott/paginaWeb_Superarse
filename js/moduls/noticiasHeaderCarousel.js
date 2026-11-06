@@ -7,8 +7,18 @@
 
     // 1. ESTRUCTURA DE OBJETOS CON FECHAS DE VIGENCIA
     var todasLasPublicaciones = [
-        
-      
+       //N4
+      {
+        src: APP.asset("assets/img/content/noticias/noticiasheader/Carreras_Hibridas.png"),
+        inicio: "2026-11-04",
+        fin: "2026-11-14" // ACTIVO HOY
+      },
+       //N3
+      {
+        src: APP.asset("assets/img/content/noticias/noticiasheader/matriculas_abiertas.png"),
+        inicio: "2026-11-04",
+        fin: "2026-11-14" // ACTIVO HOY
+      },
       //N2
       {
         src: APP.asset("assets/img/content/noticias/noticiasheader/Banner-Matriculas-Ordinarias.jpg"),
