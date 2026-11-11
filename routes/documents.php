@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
         // Calendarios
-        '/CALENDARIO_ACADEMICO' => 'assets/docs/Calendarios/CALENDARIO_ACADEMICO/Calendario_Academico_PAO_Mayo_Octubre_2026.2.pdf',
+        '/CALENDARIO_ACADEMICO' => 'assets/docs/Calendarios/CALENDARIO_ACADEMICO/Calendario_Academico_Superarse.pdf',
         '/CALENDARIO_DE_TITULACION' => 'assets/docs/Titulacion/CRONOGRAMA_TRABAJO_TITULACION/Cronograma_trabajo_titulacion.pdf',
         '/CALENDARIO_INVESTIGACION' => 'assets/docs/Calendarios/CALENDARIO_INVESTIGACION/PLANIFICACION_GESTION_INVESTIGACION_2026.pdf',
         '/CALENDARIO_VINCULACION' => 'assets/docs/Calendarios/CALENDARIO_VINCULACION/CRONOGRAMA_VINCULACION_SOCIEDAD_2025.pdf',
