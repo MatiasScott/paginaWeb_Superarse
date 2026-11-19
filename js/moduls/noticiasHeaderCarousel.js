@@ -8,30 +8,20 @@
     // 1. ESTRUCTURA DE OBJETOS CON FECHAS DE VIGENCIA
     var todasLasPublicaciones = [
        
-       //N5
-      {
-        src: APP.asset("assets/img/content/noticias/noticiasheader/matriculas_abiertas1.png"),
-        inicio: "2026-11-04",
-        fin: "2027-04-01" // ACTIVO HOY
-      },
-      //N3
+      
+      //N1
       {
         src: APP.asset("assets/img/content/noticias/noticiasheader/Banner_2.png"),
         inicio: "2026-11-04",
         fin: "2027-04-01" // ACTIVO HOY
       },
-      //N2
+      //N1
       {
         src: APP.asset("assets/img/content/noticias/noticiasheader/Banner_1.png"),
         inicio: "2026-11-04",
         fin: "2027-04-01" // ACTIVO HOY
       },
-     //N1
-     {
-        src: APP.asset("assets/img/content/noticias/noticiasheader/Prueba1.jpg"),
-        inicio: "2026-06-12", // ACTIVO HOY
-        fin: "2040-12-31" 
-      }
+    
     ];
 
     // 2. FILTRAR M�0�9GICAMENTE SOLO LAS PUBLICACIONES VIGENTES
